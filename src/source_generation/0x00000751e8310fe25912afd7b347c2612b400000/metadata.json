@@ -1,0 +1,14 @@
+{
+  "address": "0x00000751e8310fe25912afd7b347c2612b400000",
+  "contract_name": "CG_Contract",
+  "compiler_version": "v0.8.18+commit.87f61d96",
+  "optimization_used": false,
+  "runs": 200,
+  "evm_version": "Default",
+  "constructor_arguments": "",
+  "license_type": "Unlicense",
+  "is_proxy": false,
+  "implementation": "",
+  "deploy_block": 18471806,
+  "category": "other"
+}

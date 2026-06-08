@@ -1,50 +1,63 @@
-./src/attack
-./src/contracts
-./src/dataset_old
-./src/dcr_generation_old
-./src/source_generation_functions
-./src/tests
-./src/fuzzying
+# ── Large generated/data directories ─────────────────────────────────────────
+src/attack/
+src/contracts/
+src/dataset_old/
+src/dcr_generation_old/
+src/source_generation_functions/
+src/tests/
+src/fuzzying/
 
-./src/dataset/candidates
-./src/dataset/contracts_dataset
-./src/dataset/contracts_dataset_1to20
-./src/dataset/contracts_dataset_pass_08
-./src/dataset/hardhat_workspace_crawl
-./src/dataset/hardhat_workspace_gen_replay
-./src/dataset/hardhat_workspace_replay
-./src/dataset/node_modules
-./src/dataset/batch_progress.log
-./src/dataset/blacklist.json
-./src/dataset/crawl_results.json
+# ── Dataset ───────────────────────────────────────────────────────────────────
+src/dataset/candidates/
+src/dataset/contracts_dataset/
+src/dataset/contracts_dataset_1to20/
+src/dataset/contracts_dataset_pass_08/
+src/dataset/hardhat_workspace_crawl/
+src/dataset/hardhat_workspace_gen_replay/
+src/dataset/hardhat_workspace_replay/
+src/dataset/batch_progress.log
+src/dataset/blacklist.json
+src/dataset/crawl_results.json
 
-./src/dcr_generation/contracts
-./src/dcr_generation/generated_dcr_1to20
-./src/dcr_generation/sanity_replay_output
-./src/dcr_generation/environment.log
-./src/dcr_generation/sanity_one.log
-./src/dcr_generation/seq_gen_updated.log
-./src/dcr_generation/seq_gen.log
+# ── DCR generation ────────────────────────────────────────────────────────────
+src/dcr_generation/contracts/
+src/dcr_generation/generated_dcr_1to20/
+src/dcr_generation/sanity_replay_output/
+src/dcr_generation/*.log
 
-./src/dcr_replay/synth_replay_results.json
+# ── Replay ────────────────────────────────────────────────────────────────────
+src/dcr_replay/synth_replay_results.json
+src/transaction_replay/hardhat_workspace_gen_replay/
+src/transaction_replay/hardhat_workspace_replay/
+src/transaction_replay/old_jsons/
+src/transaction_replay/synth_replay_results/
+src/transaction_replay/*.json
 
-./src/differential_fuzzying/fuzzying_results
-./src/differential_fuzzying/fuzzying_results_old
-./src/differential_fuzzying/sanity_check_results
-./src/differential_fuzzying/fuzzying_analysis.json
-./src/differential_fuzzying/fuzzying.log
-./src/differential_fuzzying/sanity.log
+# ── Fuzzing ───────────────────────────────────────────────────────────────────
+src/differential_fuzzying/fuzzying_results/
+src/differential_fuzzying/fuzzying_results_old/
+src/differential_fuzzying/sanity_check_results/
+src/differential_fuzzying/*.json
+src/differential_fuzzying/*.log
 
-./src/source_generation/generated_oneshot
-./src/source_generation/repaired_oneshot
-./src/source_generation/generation.log
+# ── Source generation ─────────────────────────────────────────────────────────
+src/source_generation/generated_oneshot/
+src/source_generation/repaired_oneshot/
+src/source_generation/*.log
 
-./src/transaction_replay/hardhat_workspace_gen_replay
-./src/transaction_replay/hardhat_workspace_replay
-./src/transaction_replay/old_jsons
-./src/transaction_replay/synth_replay_results
-./src/transaction_replay/comparison.json
-./src/transaction_replay/generated_replay_results.json
-./src/transaction_replay/replay_depth_results.json
-./src/transaction_replay/replay_results.json
+# ── node_modules everywhere ───────────────────────────────────────────────────
+**/node_modules/
 
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Hardhat artifacts ─────────────────────────────────────────────────────────
+**/artifacts/
+**/cache/
+**/typechain-types/
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+.env
+*.env

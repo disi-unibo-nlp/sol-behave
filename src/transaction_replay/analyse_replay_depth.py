@@ -1,0 +1,618 @@
+"""
+analyse_replay_depth.py
+=======================
+
+Deep analysis of transaction replay results across multiple dimensions:
+
+  1. Status match      pass/revert matches historical outcome (existing)
+  2. Gas ratio         replayed_gas / historical_gas per transaction
+  3. Log count match   replayed contract emits same number of events
+  4. Topic[0] match    replayed events have same signature hashes
+  5. State consistency how view-function return values change across txs
+                       (sequence of snapshots from state_before/state_after)
+
+Reads from
+----------
+  <dataset_dir>/<address>/replay_result_<K>.json   produced by replay_transactions.py
+  <dataset_dir>/<address>/receipts.json            produced by fetch_historical_receipts.py
+
+The script works with whatever data is available — gas metrics are always
+present, log/topic metrics only appear when receipts.json was fetched first,
+and state metrics only appear when view functions exist in the ABI.
+
+Output
+------
+  replay_depth_results.json    per-contract table + aggregates
+  (stdout)                     human-readable summary
+
+Usage
+-----
+  python analyse_replay_depth.py [options]
+
+  python analyse_replay_depth.py
+  python analyse_replay_depth.py --dataset ../dataset/contracts_dataset_1to20 --k 1000
+  python analyse_replay_depth.py --from-comparison comparison.json
+"""
+
+import argparse
+import json
+import sys
+from pathlib import Path
+from typing import Optional
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+
+DEFAULT_DATASET = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
+DEFAULT_K       = 1000
+
+
+# ---------------------------------------------------------------------------
+# Loading helpers
+# ---------------------------------------------------------------------------
+
+def _load_result(contract_dir: Path, k: int) -> Optional[dict]:
+    """Load replay_result_<k>.json; returns None if missing."""
+    p = contract_dir / f"replay_result_{k}.json"
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text())
+    except Exception:
+        return None
+
+
+def _median(vals: list[float]) -> Optional[float]:
+    if not vals:
+        return None
+    s = sorted(vals)
+    n = len(s)
+    return s[n // 2] if n % 2 else (s[n // 2 - 1] + s[n // 2]) / 2
+
+
+# ---------------------------------------------------------------------------
+# State-consistency analysis
+# ---------------------------------------------------------------------------
+
+def _state_consistency(tx_results: list[dict]) -> Optional[dict]:
+    """
+    Measure how consistently contract state evolves across the transaction
+    sequence by comparing state_after snapshots between consecutive txs.
+
+    For each view function, compute the fraction of consecutive tx pairs
+    where the value changed (i.e. the state was actually mutated), and
+    the fraction where the state_after of tx_i equals state_before of tx_{i+1}
+    (i.e. the chain is internally consistent — no external mutation happened,
+    which is expected in a deterministic Hardhat replay).
+
+    Returns a dict of per-function stats, or None if no state data exists.
+    """
+    snapshots = [
+        r.get("state_after") for r in tx_results
+        if r.get("state_after") is not None
+    ]
+    if not snapshots:
+        return None
+
+    fn_names  = set().union(*[s.keys() for s in snapshots])
+    fn_stats  = {}
+
+    for fn in fn_names:
+        values = [s.get(fn) for s in snapshots]
+        non_null = [v for v in values if v is not None]
+        if not non_null:
+            continue
+
+        # How many consecutive pairs differ (state was mutated)
+        changes = sum(
+            1 for a, b in zip(values, values[1:])
+            if a is not None and b is not None and a != b
+        )
+        pairs = sum(
+            1 for a, b in zip(values, values[1:])
+            if a is not None and b is not None
+        )
+        change_rate = round(changes / pairs, 4) if pairs else None
+
+        # Check internal chain consistency:
+        # state_after[i] should equal state_before[i+1] in a clean replay
+        befores = [r.get("state_before", {}) for r in tx_results]
+        afters  = [r.get("state_after",  {}) for r in tx_results]
+        chain_consistent = sum(
+            1 for i in range(len(afters) - 1)
+            if afters[i] and befores[i + 1]
+            and afters[i].get(fn) == befores[i + 1].get(fn)
+        )
+        chain_pairs = sum(
+            1 for i in range(len(afters) - 1)
+            if afters[i] and befores[i + 1]
+        )
+        consistency_rate = round(chain_consistent / chain_pairs, 4) if chain_pairs else None
+
+        fn_stats[fn] = {
+            "change_rate":       change_rate,
+            "chain_consistency": consistency_rate,
+            "n_snapshots":       len(non_null),
+        }
+
+    return fn_stats if fn_stats else None
+
+
+# ---------------------------------------------------------------------------
+# Per-contract analysis
+# ---------------------------------------------------------------------------
+
+def analyse_contract(contract_dir: Path, k: int,
+                     orig_tx_map: Optional[dict] = None) -> Optional[dict]:
+    """
+    Analyse a single contract's replay result.
+
+    orig_tx_map: optional dict {tx_hash: tx_result} from the ORIGINAL replay.
+    When provided, log/topic metrics are computed by comparing generated
+    tx_results against original ones rather than against receipts.json.
+    """
+    result = _load_result(contract_dir, k)
+    if result is None:
+        return None
+
+    tx_results = result.get("tx_results", [])
+    if not tx_results:
+        return None
+
+    address       = result.get("address", contract_dir.name)
+    contract_name = result.get("contract_name", address[:12] + "…")
+
+    # ── Gas metrics ───────────────────────────────────────────────────────
+    gas_ratios = [
+        r["gas_ratio"] for r in tx_results
+        if r.get("gas_ratio") is not None
+    ]
+    gas_stats = None
+    if gas_ratios:
+        gas_stats = {
+            "n":          len(gas_ratios),
+            "mean":       round(sum(gas_ratios) / len(gas_ratios), 4),
+            "median":     round(_median(gas_ratios), 4),
+            "min":        round(min(gas_ratios), 4),
+            "max":        round(max(gas_ratios), 4),
+            # Fraction within 10% / 20% / 50% of historical gas
+            "within_10pct": round(sum(1 for r in gas_ratios if 0.9 <= r <= 1.1)
+                                  / len(gas_ratios), 4),
+            "within_20pct": round(sum(1 for r in gas_ratios if 0.8 <= r <= 1.2)
+                                  / len(gas_ratios), 4),
+            "within_50pct": round(sum(1 for r in gas_ratios if 0.5 <= r <= 1.5)
+                                  / len(gas_ratios), 4),
+        }
+
+    # ── Log / event metrics ───────────────────────────────────────────────
+    # actual_log_count and actual_topics are always written by the Node server
+    # for successful txs. We compare them against the original replay's values
+    # (passed in as orig_tx_map) when available, otherwise report raw counts.
+    log_stats = None
+    if orig_tx_map:
+        # Cross-comparison mode: generated vs original replay
+        log_count_matches = []
+        topic_matches     = []
+        for r in tx_results:
+            h = r.get("hash")
+            if not h or h not in orig_tx_map:
+                continue
+            orig = orig_tx_map[h]
+            # Log count
+            a_cnt = r.get("actual_log_count")
+            o_cnt = orig.get("actual_log_count")
+            if a_cnt is not None and o_cnt is not None:
+                log_count_matches.append(a_cnt == o_cnt)
+            # Topic[0] arrays
+            a_top = r.get("actual_topics")
+            o_top = orig.get("actual_topics")
+            if a_top is not None and o_top is not None:
+                topics_eq = (
+                    len(a_top) == len(o_top) and
+                    all(a == b for a, b in zip(a_top, o_top))
+                )
+                topic_matches.append(topics_eq)
+        if log_count_matches:
+            log_stats = {
+                "n_compared":           len(log_count_matches),
+                "log_count_match_rate": round(sum(log_count_matches)
+                                              / len(log_count_matches), 4),
+                "topics_match_rate":    round(sum(topic_matches)
+                                              / len(topic_matches), 4)
+                                        if topic_matches else None,
+                "source":               "generated_vs_original",
+            }
+    else:
+        # Self-analysis mode: just report raw log counts from this replay
+        log_counts = [r["actual_log_count"] for r in tx_results
+                      if r.get("actual_log_count") is not None]
+        if log_counts:
+            log_stats = {
+                "n_with_logs":   sum(1 for c in log_counts if c > 0),
+                "mean_log_count": round(sum(log_counts) / len(log_counts), 4),
+                "source":        "self",
+            }
+
+    # ── State-consistency metrics ─────────────────────────────────────────
+    state_stats = _state_consistency(tx_results)
+
+    return {
+        "address":        address,
+        "contract_name":  contract_name,
+        "k":              result.get("k", len(tx_results)),
+        "pass_rate":      result.get("pass_rate"),
+        "mean_gas_ratio": result.get("mean_gas_ratio"),
+        "has_receipts":   result.get("has_receipts", False),
+        "n_view_fns":     result.get("n_view_fns", 0),
+        "gas":            gas_stats,
+        "logs":           log_stats,
+        "state":          state_stats,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Aggregates
+# ---------------------------------------------------------------------------
+
+def compute_aggregates(results: list[dict]) -> dict:
+    valid = [r for r in results if r.get("pass_rate") is not None]
+    if not valid:
+        return {"error": "no valid results"}
+
+    n = len(valid)
+
+    def _mean(vals): return round(sum(vals) / len(vals), 4) if vals else None
+
+    pass_rates  = [r["pass_rate"]      for r in valid]
+    gas_means   = [r["mean_gas_ratio"] for r in valid
+                   if r.get("mean_gas_ratio") is not None]
+
+    # Log metrics — available when orig_tx_map was passed (cross-comparison)
+    with_log_cmp  = [r for r in valid
+                     if r.get("logs") and r["logs"].get("source") == "generated_vs_original"]
+    log_rates     = [r["logs"]["log_count_match_rate"] for r in with_log_cmp]
+    topic_rates   = [r["logs"]["topics_match_rate"]    for r in with_log_cmp
+                     if r["logs"].get("topics_match_rate") is not None]
+
+    # Gas-within-10% aggregate
+    g10 = [r["gas"]["within_10pct"] for r in valid
+           if r.get("gas") and r["gas"].get("within_10pct") is not None]
+
+    # State consistency aggregate (mean chain_consistency across all fns)
+    state_consistencies = []
+    for r in valid:
+        if r.get("state"):
+            fn_cons = [v["chain_consistency"] for v in r["state"].values()
+                       if v.get("chain_consistency") is not None]
+            if fn_cons:
+                state_consistencies.append(sum(fn_cons) / len(fn_cons))
+
+    return {
+        "n_contracts":               n,
+        "n_with_log_cmp":            len(with_log_cmp),
+        # Status pass rate
+        "mean_pass_rate":            _mean(pass_rates),
+        "median_pass_rate":          round(_median(pass_rates), 4),
+        # Gas
+        "mean_gas_ratio":            _mean(gas_means),
+        "mean_gas_within_10pct":     _mean(g10),
+        # Logs (cross-comparison: generated vs original)
+        "mean_log_count_match_rate": _mean(log_rates),
+        "mean_topics_match_rate":    _mean(topic_rates),
+        # State
+        "mean_state_chain_consistency": _mean(state_consistencies),
+        "n_with_state_data":         len(state_consistencies),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Human-readable output
+# ---------------------------------------------------------------------------
+
+def print_summary(results: list[dict], aggregates: dict, k: int) -> None:
+    valid = sorted(
+        [r for r in results if r.get("pass_rate") is not None],
+        key=lambda r: r.get("pass_rate", 0),
+    )
+
+    def _pct(v): return f"{v:.1%}" if v is not None else "  n/a "
+    def _ratio(v): return f"{v:.3f}" if v is not None else "  n/a "
+
+    col_name = 24
+    w = 7
+    header = (
+        f"  {'Contract':<{col_name}}"
+        f"  {'Status':>{w}}"
+        f"  {'GasRat':>{w}}"
+        f"  {'G±10%':>{w}}"
+        f"  {'LogCnt':>{w}}"
+        f"  {'Topics':>{w}}"
+        f"  {'State':>{w}}"
+    )
+    sep = "─" * (len(header) - 2)
+
+    print()
+    print(f"  REPLAY DEPTH ANALYSIS  (K={k})")
+    print("  " + sep)
+    print(header)
+    print("  " + sep)
+
+    for r in valid:
+        gas   = r.get("gas")   or {}
+        logs  = r.get("logs")  or {}
+        state = r.get("state") or {}
+        mean_sc = None
+        if state:
+            cs = [v["chain_consistency"] for v in state.values()
+                  if v.get("chain_consistency") is not None]
+            mean_sc = sum(cs) / len(cs) if cs else None
+
+        print(
+            f"  {r['contract_name']:<{col_name}}"
+            f"  {_pct(r.get('pass_rate')):>{w}}"
+            f"  {_ratio(r.get('mean_gas_ratio')):>{w}}"
+            f"  {_pct(gas.get('within_10pct')):>{w}}"
+            f"  {_pct(logs.get('log_count_match_rate')):>{w}}"
+            f"  {_pct(logs.get('topics_match_rate')):>{w}}"
+            f"  {_pct(mean_sc):>{w}}"
+        )
+
+    print("  " + sep)
+    print()
+    print("  AGGREGATE STATISTICS")
+    print("  " + sep)
+
+    if "error" in aggregates:
+        print(f"  {aggregates['error']}")
+        print("  " + sep)
+        return
+
+    agg = aggregates
+    print(f"  Contracts analysed            : {agg['n_contracts']}")
+    print(f"  Contracts with log comparison : {agg.get('n_with_log_cmp', 0)}"
+          f"  (generated vs original replay)")
+    print(f"  Contracts with state data     : {agg['n_with_state_data']}")
+    print()
+    print(f"  ── Status ──────────────────────────────────────────")
+    print(f"  Mean pass rate (status)       : {_pct(agg['mean_pass_rate'])}")
+    print(f"  Median pass rate              : {_pct(agg['median_pass_rate'])}")
+    print()
+    print(f"  ── Gas ─────────────────────────────────────────────")
+    print(f"  Mean gas ratio (actual/hist)  : {_ratio(agg['mean_gas_ratio'])}")
+    print(f"  Mean frac within ±10% of hist : {_pct(agg['mean_gas_within_10pct'])}")
+    print()
+    print(f"  ── Event Logs (generated vs original) ───────────────")
+    if agg.get("n_with_log_cmp", 0) == 0:
+        print(f"  No cross-comparison data — pass --generated-dir to compare")
+        print(f"  with generated replay results, or re-run replay_transactions.py")
+        print(f"  to populate actual_log_count / actual_topics in tx_results.")
+    else:
+        print(f"  Mean log-count match rate     : {_pct(agg['mean_log_count_match_rate'])}")
+        print(f"  Mean topic[0] match rate      : {_pct(agg['mean_topics_match_rate'])}")
+    print()
+    print(f"  ── State Consistency (needs view fns) ───────────────")
+    if agg["n_with_state_data"] == 0:
+        print(f"  No state data — contracts may have no zero-arg view functions")
+    else:
+        print(f"  Mean chain consistency        : "
+              f"{_pct(agg['mean_state_chain_consistency'])}")
+        print(f"  (fraction of consecutive tx pairs where state_after[i]")
+        print(f"   equals state_before[i+1], confirming deterministic replay)")
+    print("  " + sep)
+
+
+# ---------------------------------------------------------------------------
+# Address resolution helpers (shared with coverage_analysis.py)
+# ---------------------------------------------------------------------------
+
+def _addresses_from_comparison(path: Path) -> list[str]:
+    data = json.loads(path.read_text())
+    return [
+        c["address"] for c in data.get("contracts", [])
+        if c.get("original_pass_rate") is not None
+        and c.get("mean_gen_pass_rate") is not None
+        and c.get("address")
+    ]
+
+
+def _addresses_from_results(path: Path) -> list[str]:
+    data = json.loads(path.read_text())
+    if "results" in data:
+        return [r["address"] for r in data["results"]
+                if r.get("state") == "DONE" and r.get("address")]
+    if "contracts" in data:
+        return [c["address"] for c in data["contracts"]
+                if c.get("replayed", 0) > 0 and c.get("address")]
+    return []
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="Deep analysis of replay results: gas, logs, events, state.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    p.add_argument("--dataset",  type=Path, default=Path(DEFAULT_DATASET))
+    p.add_argument("--k",        type=int,  default=DEFAULT_K,
+                   help="Replay K value used when running replay_transactions.py")
+    p.add_argument("--addresses", nargs="*", metavar="ADDR")
+    p.add_argument("--from-results",    type=Path, dest="from_results",    default=None)
+    p.add_argument("--from-comparison", type=Path, dest="from_comparison", default=None)
+    p.add_argument(
+        "--generated-dir", type=Path, dest="generated_dir", default=None,
+        metavar="DIR",
+        help="Generated/repaired directory (e.g. repaired_oneshot). When provided, "
+             "log and topic metrics are computed by comparing each generated sample's "
+             "tx_results against the original replay's tx_results, matched by tx hash. "
+             "The script reads replay_sample_*_result_<K>.json files from "
+             "<generated_dir>/<address>/. Without this flag, only gas and state "
+             "metrics are available.",
+    )
+    p.add_argument(
+        "--output", type=Path,
+        default=_SCRIPT_DIR / "replay_depth_results.json",
+    )
+    return p.parse_args()
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def _build_orig_tx_map(result: dict) -> dict:
+    """Build {tx_hash: tx_result} from a replay_result file."""
+    return {
+        r["hash"]: r
+        for r in result.get("tx_results", [])
+        if r.get("hash")
+    }
+
+
+def _load_generated_tx_maps(gen_contract_dir: Path, k: int) -> list[dict]:
+    """
+    Load all replay_sample_*_result_<k>.json files for a contract and return
+    a list of {tx_hash: tx_result} maps, one per compiled sample.
+    """
+    maps = []
+    for p in sorted(gen_contract_dir.glob(f"replay_sample_*_result_{k}.json")):
+        try:
+            data = json.loads(p.read_text())
+            tx_map = {r["hash"]: r for r in data.get("tx_results", [])
+                      if r.get("hash")}
+            if tx_map:
+                maps.append(tx_map)
+        except Exception:
+            pass
+    return maps
+
+
+def main() -> None:
+    args = parse_args()
+
+    if not args.dataset.exists():
+        print(f"ERROR: dataset not found: {args.dataset}")
+        sys.exit(1)
+
+    # Resolve address subset
+    extra: list[str] = []
+    if args.from_comparison:
+        extra = _addresses_from_comparison(args.from_comparison)
+        print(f"  Loaded {len(extra)} addresses from comparison file.")
+    elif args.from_results:
+        extra = _addresses_from_results(args.from_results)
+        print(f"  Loaded {len(extra)} addresses from results file.")
+
+    if extra:
+        args.addresses = list(
+            ({a.lower() for a in (args.addresses or [])} | {a.lower() for a in extra})
+        )
+
+    if args.addresses:
+        requested     = {a.lower() for a in args.addresses}
+        contract_dirs = sorted([
+            d for d in args.dataset.iterdir()
+            if d.is_dir() and d.name.lower() in requested
+        ])
+    else:
+        contract_dirs = sorted([d for d in args.dataset.iterdir() if d.is_dir()])
+
+    print(f"Analysing {len(contract_dirs)} contract(s)  (K={args.k}) ...")
+
+    results = []
+    skipped = 0
+    for contract_dir in contract_dirs:
+        address = contract_dir.name
+
+        # Build orig_tx_map from the original replay result
+        orig_result  = _load_result(contract_dir, args.k)
+        orig_tx_map  = _build_orig_tx_map(orig_result) if orig_result else None
+
+        # If --generated-dir is set, merge log/topic comparisons across all
+        # generated samples and attach as a synthetic orig_tx_map for this contract.
+        # We compare each generated sample's actual_* values against the original's.
+        if args.generated_dir and orig_tx_map:
+            gen_contract_dir = args.generated_dir / address
+            if gen_contract_dir.exists():
+                gen_maps = _load_generated_tx_maps(gen_contract_dir, args.k)
+                if gen_maps:
+                    # Build a combined "generated" tx_map: for each hash, if the
+                    # generated value matches the original, record a match.
+                    # We analyse the original result file but pass each generated
+                    # map in turn; results are averaged across samples.
+                    sample_results = []
+                    for gen_map in gen_maps:
+                        # Temporarily substitute generated actual_* into a fake
+                        # tx_results list so analyse_contract can compute log stats
+                        fake_txs = []
+                        for h, orig_tx in orig_tx_map.items():
+                            gen_tx = gen_map.get(h)
+                            if gen_tx:
+                                fake_txs.append({
+                                    **orig_tx,
+                                    "actual_log_count": gen_tx.get("actual_log_count"),
+                                    "actual_topics":    gen_tx.get("actual_topics"),
+                                })
+                        if fake_txs:
+                            sample_results.append(fake_txs)
+
+                    # Aggregate log stats across samples
+                    if sample_results:
+                        all_lc = []
+                        all_tm = []
+                        for fake_txs in sample_results:
+                            for r in fake_txs:
+                                orig = orig_tx_map.get(r.get("hash", ""))
+                                if orig:
+                                    a_cnt = r.get("actual_log_count")
+                                    o_cnt = orig.get("actual_log_count")
+                                    if a_cnt is not None and o_cnt is not None:
+                                        all_lc.append(a_cnt == o_cnt)
+                                    a_top = r.get("actual_topics")
+                                    o_top = orig.get("actual_topics")
+                                    if a_top is not None and o_top is not None:
+                                        all_tm.append(
+                                            len(a_top) == len(o_top) and
+                                            all(a == b for a, b in zip(a_top, o_top))
+                                        )
+                        if all_lc:
+                            # Inject pre-computed log stats directly — skip recomputation
+                            r_direct = analyse_contract(contract_dir, args.k)
+                            if r_direct is not None:
+                                r_direct["logs"] = {
+                                    "n_compared": len(all_lc),
+                                    "log_count_match_rate": round(
+                                        sum(all_lc) / len(all_lc), 4),
+                                    "topics_match_rate": round(
+                                        sum(all_tm) / len(all_tm), 4)
+                                        if all_tm else None,
+                                    "source": "generated_vs_original",
+                                }
+                                results.append(r_direct)
+                                continue
+
+        r = analyse_contract(contract_dir, args.k, orig_tx_map=None)
+        if r is None:
+            skipped += 1
+            continue
+        results.append(r)
+
+    if skipped:
+        print(f"  Skipped {skipped} (no replay_result_{args.k}.json)")
+
+    aggregates = compute_aggregates(results)
+
+    args.output.write_text(json.dumps({
+        "k":          args.k,
+        "dataset":    str(args.dataset),
+        "aggregates": aggregates,
+        "contracts":  results,
+    }, indent=2))
+    print(f"Results written to {args.output}")
+
+    print_summary(results, aggregates, args.k)
+
+
+if __name__ == "__main__":
+    main()
