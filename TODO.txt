@@ -1,0 +1,8 @@
+########
+# TODO #
+########
+
+1. Confronto copertura funzionale (script che fa check di json)
+2. LLM as a judge / Human evaluation (thomas) su qualità DCR Graph
+3. Esperimento per motivare lo split da 250 contratti
+   Fare uno split diverso per ogni range fino a 20 e runnare lo script di generazione/repair
