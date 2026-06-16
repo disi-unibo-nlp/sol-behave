@@ -92,8 +92,23 @@ from deploy_replay import (
     _try_etherscan_args,
     _default_args,
     setup_workspace,
+    SNAPSHOT_EVERY,
 )
 from hardhat_utils import prepare_and_compile
+
+
+def _read_view_state(server, view_selectors: list) -> dict:
+    """
+    Snapshot zero-arg view-function state via the persistent Node.js server,
+    using the fast {"snapshot": True} message. Returns {} if no view fns or on error.
+    """
+    if not view_selectors:
+        return {}
+    try:
+        res = server._send({"snapshot": True}, timeout=15)
+        return res.get("snapshot", {})
+    except Exception:
+        return {}
 
 # Reuse helpers from replay_transactions (same directory as this script)
 sys.path.insert(0, str(_SCRIPT_DIR))
@@ -377,6 +392,10 @@ def replay_sample(
             try:
                 res   = server.replay_tx(tx, historical_logs=historical_logs)
                 match = res.get("events_match", False)
+                # Fast state snapshot every SNAPSHOT_EVERY txs (and at the end),
+                # mirroring the synthetic replay scripts for state-divergence analysis.
+                if i % SNAPSHOT_EVERY == 0 or i == len(txs_to_replay):
+                    res["_view_state"] = _read_view_state(server, view_selectors)
                 if match:
                     passed += 1
                 else:

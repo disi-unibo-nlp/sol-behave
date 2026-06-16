@@ -22,8 +22,9 @@ fi
 # --------------------------------------------------
 # Run container
 # --------------------------------------------------
+#--gpus device=$DEVICE \
+
 docker run --rm \
-  --gpus device=$DEVICE \
   --name $CONTAINER_NAME \
   --memory=50g \
   -v ${LLM_HOME_CACHE_DIR}:/models \

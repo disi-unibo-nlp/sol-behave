@@ -1,0 +1,28 @@
+Files in DCR gen dir for NotFoundSeriesOne:
+  coverage.json  (1803 bytes)
+  sequences_hardhat.json  (153 bytes)
+  source_dcr.json  (14050 bytes)
+  transactions_synthetic.json  (896152 bytes)
+
+Total synthetic txs: 1001
+tx fields: ['hash', 'blockNumber', 'timeStamp', 'from', 'to', 'value', 'input', 'methodId', 'functionName', 'txreceipt_status', 'isError', 'gas', 'gasPrice', 'gasUsed', 'nonce', 'transactionIndex', 'contractAddress', 'cumulativeGasUsed', 'confirmations', '_sequence_idx', '_event_id', '_param_source', '_branch_guard', '_fn_sig', '_decoded_params']
+
+First privilege-drop in synthetic FILE order: renounceOwnership at index 16
+  _event_id: renounceOwnershipSuccess  _branch_guard: 
+  _param_source: dcr_call_params
+  next 5 events after it:
+    setBaseURI  (event=setBaseURISuccess)
+    withdraw  (event=withdrawFailed)
+    setPaused  (event=setPausedSuccess)
+    renounceOwnership  (event=renounceOwnershipSuccess)
+    withdraw  (event=withdrawSuccess)
+
+sequences_hardhat.json top-level keys: <class 'list'>
+
+coverage.json top-level keys: ['function_coverage', 'dcr_event_coverage', 'guard_coverage', 'ucb_stats']
+  mentions 'owner': yes
+  mentions 'renounce': yes
+
+source_dcr.json top-level keys: ['events', 'relations', 'branches', 'marking', 'call_params', 'known_state']
+  mentions 'drain': yes
+  mentions 'owner': yes

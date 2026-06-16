@@ -45,8 +45,24 @@ src/source_generation/generated_oneshot/
 src/source_generation/repaired_oneshot/
 src/source_generation/*.log
 
+# ── Replay (dcr_replay — added) ───────────────────────────────────────────────
+src/dcr_replay/synth_replay_results/
+src/dcr_replay/synth_replay_results_generated/
+src/dcr_replay/*.json
+src/dcr_replay/*.log
+
+# ── Coverage analysis outputs ─────────────────────────────────────────────────
+src/coverage_analysis/*.json
+src/coverage_analysis/affected_addresses.txt
+
+# ── Backups / patch artifacts ─────────────────────────────────────────────────
+*.bak
+*.orig
+
 # ── node_modules everywhere ───────────────────────────────────────────────────
 **/node_modules/
+
+
 
 # ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
@@ -61,3 +77,10 @@ __pycache__/
 # ── Environment / secrets ─────────────────────────────────────────────────────
 .env
 *.env
+
+# ── Logs (can exceed GitHub's 100MB limit) ────────────────────────────────────
+scripts/logs/
+**/*.log
+
+# ── Stray dataset copy ────────────────────────────────────────────────────────
+src/dataset/contracts_dataset_pass_08_copy/

@@ -47,7 +47,7 @@ Usage
   python replay_transactions.py
 
   # Custom dataset path, 500 txs, 80% threshold, verbose:
-  python replay_transactions.py \\
+  python3 replay_transactions.py \\
       --dataset ../dataset/contracts_dataset_1to20 \\
       --k 1000 \\
       --pass-threshold 0.50 \\
@@ -102,7 +102,23 @@ from deploy_replay import (
     _load_ckpt,
     _save_ckpt,
     setup_workspace,        # writes deploy_server.js in addition to npm install
+    SNAPSHOT_EVERY,
 )
+
+
+def _read_view_state(server, view_selectors: list) -> dict:
+    """
+    Snapshot zero-arg view-function state via the persistent Node.js server,
+    using the fast {"snapshot": True} message (the server already holds the
+    view selectors passed at deploy time). Returns {} if no view fns or on error.
+    """
+    if not view_selectors:
+        return {}
+    try:
+        res = server._send({"snapshot": True}, timeout=15)
+        return res.get("snapshot", {})
+    except Exception:
+        return {}
 from hardhat_utils import (
     prepare_and_compile,
     load_source_texts,
@@ -358,10 +374,31 @@ def resolve_constructor_args(
         print(f"    Constructor args (defaults): {args}")
     return args
 
+# ---------------------------------------------------------------------------
+# Additional helpers to check functional coverage
+# ---------------------------------------------------------------------------
+
+def build_fn_selector_map(abi: list) -> dict[str, str]:
+    """Map 4-byte hex selector → function name for all state-changing functions."""
+    from eth_hash.auto import keccak
+    result = {}
+    for e in abi:
+        if e.get("type") != "function":
+            continue
+        if e.get("stateMutability") in ("view", "pure"):
+            continue
+        name   = e.get("name", "")
+        inputs = e.get("inputs", [])
+        sig    = name + "(" + ",".join(i["type"] for i in inputs) + ")"
+        sel    = keccak(sig.encode())[:4].hex()
+        result[sel] = sig
+    return result
+
 
 # ---------------------------------------------------------------------------
 # Core replay logic for a single contract
 # ---------------------------------------------------------------------------
+
 
 def replay_contract(
     contract_dir: Path,
@@ -441,6 +478,8 @@ def replay_contract(
 
     has_receipts   = bool(receipts)
     view_selectors = build_view_selectors(abi)
+    fn_selector_map = build_fn_selector_map(abi)
+
     print(f"  {contract_name} ({address[:12]}…)  |  "
           f"callable={len(callable_txs)}  replaying={len(txs_to_replay)}"
           f"  receipts={'yes' if has_receipts else 'no'}"
@@ -539,7 +578,14 @@ def replay_contract(
 
             try:
                 res = server.replay_tx(tx, historical_logs=historical_logs)
+                res["_fn_sig"] = fn_selector_map.get(
+                    (tx.get("input") or "0x")[2:10].lower(), ""
+                )
                 match = res.get("events_match", False)
+                # Fast state snapshot every SNAPSHOT_EVERY txs (and at the end),
+                # mirroring the synthetic replay scripts for state-divergence analysis.
+                if i % SNAPSHOT_EVERY == 0 or i == len(txs_to_replay):
+                    res["_view_state"] = _read_view_state(server, view_selectors)
                 if match:
                     passed += 1
                 else:
@@ -576,6 +622,18 @@ def replay_contract(
         pass_rate = round(passed / total, 4) if total else None
         saved     = pass_rate is not None and pass_rate >= pass_threshold
 
+        # Per-function pass rates (keyed on function name, not full sig)
+        fn_pass: dict[str, list[bool]] = {}
+        for r in tx_results:
+            fn_sig = r.get("_fn_sig", "")
+            fn_name = fn_sig.split("(")[0] if fn_sig else ""
+            if fn_name:
+                fn_pass.setdefault(fn_name, []).append(r.get("events_match", False))
+        fn_pass_rates = {
+            fn: round(sum(v) / len(v), 4)
+            for fn, v in fn_pass.items()
+        }
+
         # Aggregate the new metrics across all tx_results
         gas_ratios    = [r["gas_ratio"]  for r in tx_results
                          if r.get("gas_ratio") is not None]
@@ -605,6 +663,7 @@ def replay_contract(
             "topics_match_rate":     round(sum(topic_matches) / len(topic_matches), 4)
                                      if topic_matches else None,
             "n_view_fns":       len(view_selectors),
+            "fn_pass_rates":    fn_pass_rates,
         }
         save_ckpt_k(contract_dir, k, result)
 
@@ -623,6 +682,7 @@ def replay_contract(
             "topics_match_rate":     result["topics_match_rate"],
             "has_receipts":          has_receipts,
             "n_view_fns":            len(view_selectors),
+            "fn_pass_rates":         fn_pass_rates,
             "timestamp":             datetime.utcnow().isoformat(),
             "tx_results":            tx_results,
         }, indent=2))

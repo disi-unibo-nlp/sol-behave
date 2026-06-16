@@ -52,6 +52,10 @@ _EVM_MAP = {
     "cancun": "paris", "default": "paris", "": "paris",
 }
 
+SNAPSHOT_EVERY = 50  # snapshot every 50 tx
+
+
+
 
 def _evm_version(evm_str: str, compiler_version: str) -> str:
     m = _EVM_MAP.get((evm_str or "").lower().strip(), "paris")
@@ -239,10 +243,10 @@ async function replayTx(tx, contractAddress, historicalLogs, viewSelectors) {
       [tx.from, "0x56BC75E2D63100000"]);
     const signer = await ethers.getSigner(tx.from);
 
-    // State snapshot before the transaction
-    if (viewSelectors && viewSelectors.length > 0) {
-      result.state_before = await snapshotState(contractAddress, viewSelectors);
-    }
+    // State snapshot before the transaction. We don't do it twice because it makes everything slow (15 seconds per tx)
+    //if (viewSelectors && viewSelectors.length > 0) {
+    //  result.state_before = await snapshotState(contractAddress, viewSelectors);
+    //}
 
     try {
       const sent    = await signer.sendTransaction({
@@ -310,6 +314,12 @@ async function main() {
   for await (const line of rl) {
     const msg = JSON.parse(line.trim());
     if (msg.exit) break;
+
+    if (msg.snapshot) {
+      const snap = await snapshotState(contractAddress, viewSelectors);
+      process.stdout.write(JSON.stringify({ snapshot: snap }) + "\n");
+      continue;
+    }
 
     if (msg.deploy) {
       // Accept optional view selectors for state snapshots.
@@ -944,6 +954,9 @@ def run_fresh_deploy_replay(
                     passed += 1
                 else:
                     failed += 1
+                if i % SNAPSHOT_EVERY == 0 or i == len(txs_to_replay):
+                    snap = server._send({"snapshot": True}, timeout=7)
+                    res["_view_state"] = snap.get("snapshot", {})
                 tx_results.append(res)
             except TimeoutError:
                 failed += 1
@@ -954,7 +967,7 @@ def run_fresh_deploy_replay(
                 tx_results.append({"hash": tx.get("hash"), "actual_status": "error",
                                    "events_match": False, "error": str(e)})
 
-            if i % 50 == 0 or i == len(txs_to_replay):
+            if i % SNAPSHOT_EVERY == 0 or i == len(txs_to_replay):
                 rate = passed / i
                 print(f"    [{i}/{len(txs_to_replay)}]  pass={passed}  fail={failed}"
                       f"  rate={rate:.1%}")

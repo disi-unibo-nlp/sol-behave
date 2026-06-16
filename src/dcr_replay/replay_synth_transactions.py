@@ -52,12 +52,12 @@ Usage
   python replay_synth_transactions.py
 
   # Custom paths:
-  python replay_synth_transactions.py \\
-      --dataset   ../dataset/contracts_dataset_1to20 \\
-      --dcr-dir   ../dcr_generation/generated_dcr_1to20 \\
-      --output-dir ./synth_replay_results \\
-      --k 200 \\
-      --verbose
+  python3 replay_synth_transactions.py \
+      --dataset   ../dataset/contracts_dataset_1to20 \
+      --dcr-dir   ../dcr_generation/generated_dcr_1to20 \
+      --output-dir ./synth_replay_results \
+      --k 1000 \
+      --verbose | tee original_synth.log
 
   # Only specific contracts:
   python replay_synth_transactions.py --addresses 0xabc... 0xdef...
@@ -67,6 +67,11 @@ Usage
 """
 
 import argparse
+try:
+    from tqdm import tqdm
+    HAS_TQDM = True
+except ImportError:
+    HAS_TQDM = False
 import json
 import sys
 import time
@@ -83,6 +88,23 @@ from deploy_replay import (
     _default_args,
     setup_workspace,
 )
+
+
+def _read_view_state(server, view_selectors: list) -> dict:
+    """
+    Snapshot the contract's zero-arg view-function state via the persistent
+    Node.js server. The server already holds the view selectors that were
+    passed at deploy time, so we just request a snapshot. Returns a dict
+    mapping function name -> return value, or {} if there are no view fns
+    or the call fails.
+    """
+    if not view_selectors:
+        return {}
+    try:
+        res = server._send({"snapshot": True}, timeout=15)
+        return res.get("snapshot", {})
+    except Exception:
+        return {}
 from hardhat_utils import prepare_and_compile
 
 sys.path.append("/workdir/src/transaction_replay/")
@@ -100,7 +122,7 @@ DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to2
 DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20")
 DEFAULT_OUTPUT    = str(_SCRIPT_DIR / "synth_replay_results")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / ".." / "dataset" / "hardhat_workspace_replay")
-DEFAULT_K         = 200
+DEFAULT_K         = 1000
 DEFAULT_THRESHOLD = 0.50
 DEFAULT_TX_TIMEOUT = 60
 
@@ -375,11 +397,20 @@ def replay_synth_contract(
         passed = 0
         failed = 0
 
-        for i, tx in enumerate(txs_to_replay, 1):
+        _iter = tqdm(enumerate(txs_to_replay, 1), total=len(txs_to_replay), unit="tx", desc="replay") if HAS_TQDM else enumerate(txs_to_replay, 1)
+        for i, tx in _iter:
             tx_hash = tx.get("hash", "")
             try:
                 res   = server.replay_tx(tx)
                 match = res.get("events_match", False)
+                # Capture view-function state after every tx (both pass and fail)
+                # so divergence analysis can compare original vs generated state.
+                if i % 50 == 0 or i == len(txs_to_replay):
+                    res["_view_state"] = _read_view_state(server, view_selectors)
+                    if HAS_TQDM and isinstance(_iter, tqdm):
+                        _iter.write(f"    snapshot saved at tx {i}/{len(txs_to_replay)}")
+                    else:
+                        print(f"    snapshot saved at tx {i}/{len(txs_to_replay)}", flush=True)
                 if match:
                     passed += 1
                 else:
@@ -416,7 +447,9 @@ def replay_synth_contract(
                     "_fn_sig":   tx.get("_fn_sig", ""),
                 })
 
-            if i % 50 == 0 or i == len(txs_to_replay):
+            if HAS_TQDM and isinstance(_iter, tqdm):
+                _iter.set_postfix(pass_rate=f"{passed/i:.1%}", passed=passed, failed=failed)
+            elif i % 50 == 0 or i == len(txs_to_replay):
                 print(f"    [{i:>5}/{len(txs_to_replay)}]  "
                       f"pass={passed}  fail={failed}  rate={passed/i:.1%}")
 

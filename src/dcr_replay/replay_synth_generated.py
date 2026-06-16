@@ -50,6 +50,11 @@ Usage
 """
 
 import argparse
+try:
+    from tqdm import tqdm
+    HAS_TQDM = True
+except ImportError:
+    HAS_TQDM = False
 import json
 import re
 import sys
@@ -66,7 +71,25 @@ from deploy_replay import (
     _default_args,
     setup_workspace,
 )
+
+
+def _read_view_state(server, view_selectors: list) -> dict:
+    """
+    Snapshot the contract's zero-arg view-function state via the persistent
+    Node.js server. The server already holds the view selectors that were
+    passed at deploy time, so we just request a snapshot. Returns a dict
+    mapping function name -> return value, or {} if there are no view fns
+    or the call fails.
+    """
+    if not view_selectors:
+        return {}
+    try:
+        res = server._send({"snapshot": True}, timeout=15)
+        return res.get("snapshot", {})
+    except Exception:
+        return {}
 from hardhat_utils import prepare_and_compile
+sys.path.append("/workdir/src/transaction_replay/")
 from replay_transactions import build_view_selectors, _format_elapsed
 from replay_generated import (
     _compiled_sample_indices,
@@ -85,7 +108,8 @@ DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to2
 DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20")
 DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "repaired_oneshot")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / ".." / "dataset" / "hardhat_workspace_replay")
-DEFAULT_K         = 200
+DEFAULT_OUTPUT_DIR = _SCRIPT_DIR / "synth_replay_results_generated"
+DEFAULT_K         = 1000
 DEFAULT_THRESHOLD = 0.50
 DEFAULT_TX_TIMEOUT = 60
 
@@ -147,6 +171,7 @@ def replay_synth_sample(
     dataset_dir:      Path,
     dcr_dir:          Path,
     gen_contract_dir: Path,
+    output_dir:       Path, 
     work_dir:         Path,
     k:                int,
     tx_timeout:       int,
@@ -155,7 +180,7 @@ def replay_synth_sample(
     verbose:          bool = False,
 ) -> dict:
     """Replay synthetic txs against one generated sample."""
-    ckpt  = _load_sample_ckpt(gen_contract_dir, sample_idx, k)
+    ckpt  = _load_sample_ckpt(output_dir, sample_idx, k)
     state = ckpt.get("state")
     if state in ("DONE", "FAILED"):
         if force or (retry_failed and state == "FAILED"):
@@ -170,7 +195,7 @@ def replay_synth_sample(
             "state": "FAILED", "address": address, "sample_idx": sample_idx,
             "reason": "missing dataset/synth files",
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
         return result
 
     meta             = data["meta"]
@@ -182,14 +207,14 @@ def replay_synth_sample(
     if meta.get("is_proxy"):
         result = {"state": "FAILED", "address": address, "sample_idx": sample_idx,
                   "reason": "proxy — skipped"}
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
         return result
 
     txs_to_replay = filter_synth_txs(transactions, address, k)
     if not txs_to_replay:
         result = {"state": "FAILED", "address": address, "sample_idx": sample_idx,
                   "reason": "no synthetic transactions"}
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
         return result
 
     # Load generated source
@@ -197,7 +222,7 @@ def replay_synth_sample(
     if not generated_source:
         result = {"state": "FAILED", "address": address, "sample_idx": sample_idx,
                   "reason": "could not load generated sample source"}
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
         return result
 
     # Compile the generated sample (need a temp source path for prepare_and_compile)
@@ -216,7 +241,7 @@ def replay_synth_sample(
             "state": "FAILED", "address": address, "sample_idx": sample_idx,
             "reason": "compilation failed", "stderr": err[-200:],
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
         return result
     print("✓")
 
@@ -251,13 +276,13 @@ def replay_synth_sample(
                     server.close()
                     result = {"state": "FAILED", "address": address,
                               "sample_idx": sample_idx, "reason": f"deploy failed: {e2}"}
-                    _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+                    _save_sample_ckpt(output_dir, sample_idx, k, result)
                     return result
             else:
                 server.close()
                 result = {"state": "FAILED", "address": address,
                           "sample_idx": sample_idx, "reason": f"deploy failed: {e}"}
-                _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+                _save_sample_ckpt(output_dir, sample_idx, k, result)
                 return result
 
         print(f"✓  {deployed_address[:14]}…")
@@ -267,11 +292,20 @@ def replay_synth_sample(
         passed = 0
         failed = 0
 
-        for i, tx in enumerate(txs_to_replay, 1):
+        _iter = tqdm(enumerate(txs_to_replay, 1), total=len(txs_to_replay), unit="tx", desc="replay") if HAS_TQDM else enumerate(txs_to_replay, 1)
+        for i, tx in _iter:
             tx_hash = tx.get("hash", "")
             try:
                 res   = server.replay_tx(tx)
                 match = res.get("events_match", False)
+                # Capture view-function state after every tx (both pass and fail)
+                # so divergence analysis can compare original vs generated state.
+                if i % 50 == 0 or i == len(txs_to_replay):
+                    res["_view_state"] = _read_view_state(server, view_selectors)
+                    if HAS_TQDM and isinstance(_iter, tqdm):
+                        _iter.write(f"    snapshot saved at tx {i}/{len(txs_to_replay)}")
+                    else:
+                        print(f"    snapshot saved at tx {i}/{len(txs_to_replay)}", flush=True)
                 if match:
                     passed += 1
                 else:
@@ -305,7 +339,9 @@ def replay_synth_sample(
                     "_fn_sig":   tx.get("_fn_sig", ""),
                 })
 
-            if i % 100 == 0 or i == len(txs_to_replay):
+            if HAS_TQDM and isinstance(_iter, tqdm):
+                _iter.set_postfix(pass_rate=f"{passed/i:.1%}", passed=passed, failed=failed)
+            elif i % 100 == 0 or i == len(txs_to_replay):
                 print(f"      [{i:>5}/{len(txs_to_replay)}]  "
                       f"pass={passed}  fail={failed}  rate={passed/i:.1%}")
 
@@ -338,9 +374,12 @@ def replay_synth_sample(
                                      if r.get("_event_id")}),
             "mean_gas_ratio":   round(sum(gas_ratios)/len(gas_ratios), 4)
                                 if gas_ratios else None,
+            "view_state_keys":  list(view_selectors[0].keys()
+                                     if view_selectors else []),
+            "n_view_fns":       len(view_selectors),
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
-        _sample_result_path(gen_contract_dir, sample_idx, k).write_text(json.dumps({
+        _save_sample_ckpt(output_dir, sample_idx, k, result)
+        _sample_result_path(output_dir, sample_idx, k).write_text(json.dumps({
             **result,
             "timestamp":  datetime.utcnow().isoformat(),
             "tx_results": tx_results,
@@ -363,6 +402,7 @@ def replay_synth_contract_samples(
     dataset_dir:  Path,
     dcr_dir:      Path,
     gen_dir:      Path,
+    output_dir:   Path, 
     work_dir:     Path,
     k:            int,
     tx_timeout:   int,
@@ -371,6 +411,8 @@ def replay_synth_contract_samples(
     verbose:      bool = False,
 ) -> dict:
     gen_contract_dir = gen_dir / address
+    out_contract_dir = output_dir / address
+    out_contract_dir.mkdir(parents=True, exist_ok=True)
     compiled_indices = _compiled_sample_indices(gen_contract_dir)
 
     if not compiled_indices:
@@ -416,6 +458,7 @@ def replay_synth_contract_samples(
             dataset_dir      = dataset_dir,
             dcr_dir          = dcr_dir,
             gen_contract_dir = gen_contract_dir,
+            output_dir       = out_contract_dir,
             work_dir         = work_dir,
             k                = k,
             tx_timeout       = tx_timeout,
@@ -452,7 +495,11 @@ def replay_synth_contract_samples(
         "samples":             sample_results,
     }
 
-    (gen_contract_dir / f"synth_replay_contract_summary_{k}.json").write_text(
+    #(gen_contract_dir / f"synth_replay_contract_summary_{k}.json").write_text(
+    #    json.dumps(summary, indent=2)
+    #)
+
+    (out_contract_dir / f"synth_replay_contract_summary_{k}.json").write_text(
         json.dumps(summary, indent=2)
     )
     return summary
@@ -473,6 +520,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--generated",  type=Path, default=Path(DEFAULT_GENERATED))
     p.add_argument("--work-dir",   type=Path, default=Path(DEFAULT_WORK_DIR),
                    dest="work_dir")
+    p.add_argument("--output-dir", type=Path,
+               default=DEFAULT_OUTPUT_DIR,
+               dest="output_dir")
     p.add_argument("--k",          type=int,  default=DEFAULT_K)
     p.add_argument("--tx-timeout", type=int,  default=DEFAULT_TX_TIMEOUT,
                    dest="tx_timeout")
@@ -567,6 +617,7 @@ replay_synth_generated.py
                     dataset_dir  = args.dataset,
                     dcr_dir      = args.dcr_dir,
                     gen_dir      = args.generated,
+                    output_dir   = args.output_dir,
                     work_dir     = args.work_dir,
                     k            = args.k,
                     tx_timeout   = args.tx_timeout,

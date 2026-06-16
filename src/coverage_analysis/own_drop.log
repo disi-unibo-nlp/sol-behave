@@ -1,0 +1,48 @@
+
+MerryKekmas2023  pass_rate=0.185
+  first privilege-drop: renounceOwnership at replay index 25
+  BEFORE drop: 21/25 pass (84%)
+  AFTER  drop: 164/975 pass (17%)
+  the drop call itself: PASS
+
+NotFoundSeriesOne  pass_rate=0.017
+  first privilege-drop: renounceOwnership at replay index 16
+  BEFORE drop: 16/16 pass (100%)
+  AFTER  drop: 1/984 pass (0%)
+  the drop call itself: PASS
+
+NyanToken  pass_rate=0.001
+  first privilege-drop: transferOwnership at replay index 0
+  BEFORE drop: 0/0 pass (0%)
+  AFTER  drop: 1/1000 pass (0%)
+  the drop call itself: PASS
+
+PurchaseContract  pass_rate=0.001
+  first privilege-drop: transferOwnership at replay index 0
+  BEFORE drop: 0/0 pass (0%)
+  AFTER  drop: 1/1000 pass (0%)
+  the drop call itself: PASS
+
+RektWTF  pass_rate=0.213
+  first privilege-drop: renounceOwnership at replay index 20
+  BEFORE drop: 16/20 pass (80%)
+  AFTER  drop: 197/980 pass (20%)
+  the drop call itself: PASS
+
+WCANFTRanking  pass_rate=0.154
+  first privilege-drop: transferOwnership at replay index 12
+  BEFORE drop: 12/12 pass (100%)
+  AFTER  drop: 142/988 pass (14%)
+  the drop call itself: PASS
+
+iso3166SharesV1  pass_rate=0.007
+  first privilege-drop: renounceOwnership at replay index 6
+  BEFORE drop: 6/6 pass (100%)
+  AFTER  drop: 1/994 pass (0%)
+  the drop call itself: PASS
+
+============================================================
+If pass% drops sharply AFTER the privilege-drop call, the cause is
+STATEFUL ORDERING: the DCR sequence renounces/transfers ownership
+early, breaking all later owner-only calls. This is a property of
+the synthetic SEQUENCE, not a replay bug.

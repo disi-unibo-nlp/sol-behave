@@ -664,6 +664,39 @@ def _ucb_score(event_id: str, success_counts: dict[str, int],
     return exploit + explore
 
 
+# ── Absorbing (privilege-drop) event detection ───────────────────────────────
+# An "absorbing" event irreversibly removes the deployer's ownership, after
+# which all owner-only functions revert. These MUST NOT be scheduled in the
+# middle of a sequence — only in the drain phase, and once one fires no further
+# owner-role event may be scheduled. Detection is structural (function name),
+# so it does not depend on the LLM having set ownership_change correctly.
+
+_ABSORBING_FN_RE = _re.compile(
+    r"(renounce(_)?ownership|renouncerole|revokerole)",
+    _re.IGNORECASE,
+)
+
+
+def _is_absorbing_event(event: dict) -> bool:
+    """
+    True if firing this event irreversibly drops the deployer's privileges.
+
+    - renounceOwnership / renounceRole / revokeRole  -> always absorbing.
+    - transferOwnership                              -> absorbing (ownership
+      moves away from the OWNER signer used at replay; subsequent owner-only
+      calls from OWNER revert).
+    The LLM-provided ownership_change flag is also honoured as a fallback.
+    """
+    fn = (event.get("function_name") or event.get("id") or "")
+    if _ABSORBING_FN_RE.search(fn):
+        return True
+    if "transferownership" in fn.lower().replace("_", ""):
+        return True
+    # Fallback to the generator's own flag if present.
+    return bool(event.get("ownership_change", False)) and \
+        ("renounce" in fn.lower() or "transfer" in fn.lower())
+
+
 def _select_event(
     dcr: dict,
     dcr_state: DCRState,
@@ -674,6 +707,7 @@ def _select_event(
     persistent_failures: dict[str, int],
     total_steps: int,
     max_persistent: int,
+    owner_dropped: bool = False,
 ) -> str | None:
     """
     Choose the next event to fire.
@@ -710,9 +744,25 @@ def _select_event(
         return (failure_counts.get(eid, 0) < MAX_EVENT_FAILURES
                 and persistent_failures.get(eid, 0) < max_persistent)
 
-    safe_enabled = [e for e in enabled if e not in destructive and _ok(e)]
+    # Absorbing privilege-drop events (renounce/transferOwnership) must NEVER
+    # fire in the main loop — only in the drain phase. Exclude them here.
+    absorbing_ids = {e["id"] for e in dcr["events"] if _is_absorbing_event(e)}
+
+    # If ownership was already dropped earlier in this sequence, exclude ALL
+    # owner-role events too — they would revert with "not the owner".
+    owner_role_ids = set()
+    if owner_dropped:
+        owner_role_ids = {e["id"] for e in dcr["events"]
+                          if e.get("role") == "owner"}
+
+    blocked = destructive | absorbing_ids | owner_role_ids
+
+    safe_enabled = [e for e in enabled if e not in blocked and _ok(e)]
     if not safe_enabled:
-        safe_enabled = [e for e in enabled if _ok(e)]
+        # Relax `destructive` but KEEP absorbing/owner-dropped exclusions:
+        # we would rather end the sequence than fire a privilege drop mid-run.
+        relaxed_block = absorbing_ids | owner_role_ids
+        safe_enabled = [e for e in enabled if e not in relaxed_block and _ok(e)]
     if not safe_enabled:
         return None
 
@@ -760,6 +810,7 @@ def generate_sequences_hardhat(address, dcr, server, fqn, abi, source_text,
     signer_idx = 0
     steps_ok   = 0
     reset_count = 0
+    owner_dropped = False   # set True once a privilege-drop event fires
     user_signers_default = hardhat_accounts(1, 2)   # [account[1]] — single stable user
     user_signers_multi   = hardhat_accounts(1, 5)   # [account[1..4]] — 4 distinct users
 
@@ -811,7 +862,8 @@ def generate_sequences_hardhat(address, dcr, server, fqn, abi, source_text,
                                   success_counts, attempt_counts,
                                   failure_counts, persistent_failures,
                                   total_steps=steps_ok + 1,
-                                  max_persistent=MAX_PERSISTENT_FAILURES)
+                                  max_persistent=MAX_PERSISTENT_FAILURES,
+                                  owner_dropped=owner_dropped)
 
         if event_id is None:
             if _all_banned():
@@ -938,6 +990,10 @@ def generate_sequences_hardhat(address, dcr, server, fqn, abi, source_text,
             failure_counts[event_id]  = 0
             successful_functions.add(fn_name)
             successful_events.add(event_id)
+            # If this was a privilege-drop event, flag it so no further
+            # owner-role events get scheduled in the rest of the sequence.
+            if _is_absorbing_event(event):
+                owner_dropped = True
             if branch_guard:
                 successful_guards.add(branch_guard)
 
@@ -1072,9 +1128,15 @@ def generate_sequences_hardhat(address, dcr, server, fqn, abi, source_text,
 
     drain_candidates.sort(key=lambda x: x[0])
 
+    drain_owner_dropped = owner_dropped
     for _, event, fn_entry in drain_candidates:
         eid       = event["id"]
         fn_name   = event.get("function_name", eid)
+        # Once ownership has been dropped, every remaining owner-only drain
+        # event would revert — skip them instead of recording reverts.
+        if drain_owner_dropped and event.get("role", "owner") == "owner":
+            print(f"      [drain skip] {fn_name}  (ownership already dropped)")
+            continue
         cp        = call_params.get(eid, {})
         params    = cp.get("params", [])
         value_wei = int(cp.get("value_wei", 0))
@@ -1121,6 +1183,10 @@ def generate_sequences_hardhat(address, dcr, server, fqn, abi, source_text,
                 block_num += 1
                 successful_functions.add(fn_name)
                 successful_events.add(eid)
+                # If this drain event dropped ownership, block all later
+                # owner-only drain events.
+                if _is_absorbing_event(event):
+                    drain_owner_dropped = True
                 # Update DCR state so subsequent drain events see the new state
                 dcr_state = fire_dcr(dcr, dcr_state, eid, known_state=known_state)
                 print(f"      [drain p={event.get('drain_priority', '?')}] "

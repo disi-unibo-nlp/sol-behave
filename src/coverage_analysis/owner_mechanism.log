@@ -1,0 +1,64 @@
+
+MerryKekmas2023 (0x0f689c9a)  pass_rate=0.185
+  failing txs from OWNER  : 815
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     815× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 2
+     833× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+     168× 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+
+NotFoundSeriesOne (0x82c8c623)  pass_rate=0.017
+  failing txs from OWNER  : 983
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     983× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 1
+    1001× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+
+NyanToken (0x0ebe3059)  pass_rate=0.001
+  failing txs from OWNER  : 999
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     999× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 1
+    1000× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+
+PurchaseContract (0xbc962e2e)  pass_rate=0.001
+  failing txs from OWNER  : 999
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     999× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 1
+    1000× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+
+RektWTF (0xf24cc30a)  pass_rate=0.213
+  failing txs from OWNER  : 787
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     787× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 5
+     800× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+      51× 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+
+WCANFTRanking (0x6b0774c4)  pass_rate=0.154
+  failing txs from OWNER  : 846
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     846× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 2
+     857× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+     143× 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+
+iso3166SharesV1 (0xb72749a1)  pass_rate=0.007
+  failing txs from OWNER  : 993
+  failing txs from NON-own: 0
+  distinct senders (fail) : 1
+     993× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+  synthetic file distinct froms: 1
+    1001× 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266  <-- OWNER
+
+============================================================
+If failing txs are mostly from NON-owner senders, the fix is to
+rewrite from->OWNER for owner-only calls at replay (or impersonate
+the actual owner). That recovers these contracts.

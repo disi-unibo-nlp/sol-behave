@@ -1,0 +1,201 @@
+Resolving suspect contracts ...
+  found 7/7: ['MerryKekmas2023', 'NyanToken', 'NotFoundSeriesOne', 'RektWTF', 'iso3166SharesV1', 'WCANFTRanking', 'PurchaseContract']
+
+======================================================================
+  MerryKekmas2023   (0x0f689c9a84b9541ceed15693bdfd1419c2e9dc72)
+======================================================================
+  synth_orig pass_rate : 0.185
+  passed/failed        : 185/815
+
+  constructor args @ replay : ['', '', '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266']
+  constructor args @ DCR gen: ['', '', '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266']
+  ✓  constructor args match
+
+  failing txs: 815/1000
+  top failure reasons:
+     815× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     167× circuitBreaker
+     162× setMerkleRoot
+     162× setContractURI
+     162× setBaseURI
+     162× renounceOwnership
+  failing DCR event_ids (top):
+     167× circuitBreakerTrigger
+     162× setMerkleRoot
+     162× setContractUri
+     162× setBaseUri
+     162× renounceOwnership
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  NotFoundSeriesOne   (0x82c8c6231e7a4c40d014cb426a49b42863524c88)
+======================================================================
+  synth_orig pass_rate : 0.017
+  passed/failed        : 17/983
+
+  constructor args @ replay : []
+  constructor args @ DCR gen: []
+  ✓  constructor args match
+
+  failing txs: 983/1000
+  top failure reasons:
+     983× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     393× withdraw
+     197× setBaseURI
+     197× setPaused
+     196× renounceOwnership
+  failing DCR event_ids (top):
+     197× setBaseURISuccess
+     197× withdrawFailed
+     197× setPausedSuccess
+     196× renounceOwnershipSuccess
+     196× withdrawSuccess
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  NyanToken   (0x0ebe30595a44e5288c24161ddfc1e9fa08e33a0c)
+======================================================================
+  synth_orig pass_rate : 0.001
+  passed/failed        : 1/999
+
+  constructor args @ replay : [0]
+  constructor args @ DCR gen: [0]
+  ✓  constructor args match
+
+  failing txs: 999/1000
+  top failure reasons:
+     999× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     500× renounceOwnership
+     499× transferOwnership
+  failing DCR event_ids (top):
+     500× renounceOwnership
+     499× transferOwnership
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  PurchaseContract   (0xbc962e2e290d276040babc4dfb8f9a4ae2a8085f)
+======================================================================
+  synth_orig pass_rate : 0.001
+  passed/failed        : 1/999
+
+  constructor args @ replay : []
+  constructor args @ DCR gen: []
+  ✓  constructor args match
+
+  failing txs: 999/1000
+  top failure reasons:
+     999× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     999× transferOwnership
+  failing DCR event_ids (top):
+     999× transferOwnershipSuccess
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  RektWTF   (0xf24cc30a5f8a98566d9109561dc90fd3d64d74c6)
+======================================================================
+  synth_orig pass_rate : 0.213
+  passed/failed        : 213/787
+
+  constructor args @ replay : [0, '', '0x0000000000000000000000000000000000000000']
+  constructor args @ DCR gen: [0, '', '0x0000000000000000000000000000000000000000']
+  ✓  constructor args match
+
+  failing txs: 787/1000
+  top failure reasons:
+     787× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     200× pause
+     196× withdraw
+     196× updateURI
+     195× transferOwnership
+  failing DCR event_ids (top):
+     200× pauseContract
+     196× withdrawFunds
+     196× updateBaseURI
+     195× transferOwnership
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  WCANFTRanking   (0x6b0774c4a0619113443bc5723db22799e9c51d9a)
+======================================================================
+  synth_orig pass_rate : 0.154
+  passed/failed        : 154/846
+
+  constructor args @ replay : ['0x0000000000000000000000000000000000000000']
+  constructor args @ DCR gen: ['0x0000000000000000000000000000000000000000']
+  ✓  constructor args match
+
+  failing txs: 846/1000
+  top failure reasons:
+     846× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     141× setWCARanking
+     141× setOracle
+     141× setMundialRanking
+     141× setVIPRanking
+     141× withdraw
+     141× transferOwnership
+  failing DCR event_ids (top):
+     141× setWCARanking
+     141× setOracle
+     141× setMundialRanking
+     141× setVIPRanking
+     141× withdrawPartialBalance
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  iso3166SharesV1   (0xb72749a16410db6b3feac000a5a90c2f6cf7935e)
+======================================================================
+  synth_orig pass_rate : 0.007
+  passed/failed        : 7/993
+
+  constructor args @ replay : []
+  constructor args @ DCR gen: []
+  ✓  constructor args match
+
+  failing txs: 993/1000
+  top failure reasons:
+     993× VM Exception while processing transaction: reverted with rea
+  failing functions:
+     249× setProtocolFeePercent
+     248× setFeeDestination
+     248× setSubjectFeePercent
+     248× transferOwnership
+  failing DCR event_ids (top):
+     249× setProtocolFeePercent
+     248× setFeeDestination
+     248× setSubjectFeePercent
+     248× transferOwnership
+
+  heuristic:
+    → likely ACCESS CONTROL (msg.sender differs on fresh deploy)
+
+======================================================================
+  SUMMARY GUIDANCE
+======================================================================
+  - CONSTRUCTOR MISMATCH  → fixable: rerun synth replay for these addrs
+                            after aligning deploy_params; self-failure vanishes.
+  - STATE-DEPENDENT       → expected limitation; exclude from discriminability
+                            or note that fresh-deploy lacks prerequisite state.
+  - NONDETERMINISTIC      → exclude these view fns / txs; document as threat.
+  - ACCESS CONTROL        → the DCR sequence used a caller not reproducible on
+                            fresh deploy; document and exclude.
+  Any contract that self-fails synthetic MUST be excluded from the
+  discriminability denominator, or the 'synthetic caught a bug' claim is
+  confounded (synthetic also breaks the original).
