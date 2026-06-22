@@ -16,6 +16,7 @@ Metriche calcolate (per singola chiamata LLM, non per contratto):
 Uso:
     python token_stats.py
     python token_stats.py --contracts-dir ../dataset/contracts_dataset_pass_08
+    python3 token_stats.py --contracts-dir ../dataset/contracts_dataset_1to20
     python token_stats.py --model Qwen/Qwen3-14B-AWQ --warn-threshold 32768
     python token_stats.py --percentiles 50 75 90 95 99 --show-outliers 10
 """

@@ -33,6 +33,7 @@ from pipeline import try_compile, sanitize_natspec
 from generate_source import _find_functions
 
 CONTRACTS_DIR = Path("../dataset/contracts_dataset_1to20")
+GPU_MEM_UTIL = os.getenv("VLLM_MEMORY_PERC", 0.8)
 GENERATED_DIR = Path("./generated_oneshot")
 REPAIRED_DIR  = Path("./repaired_oneshot")
 WORK_DIR      = Path("../dataset/hardhat_workspace_crawl")
@@ -433,7 +434,7 @@ if __name__ == "__main__":
     print(f"Repaired dir  : {args.repaired}")
 
     print(f"Loading model {args.model} ...")
-    client = VLLMClient(args.model, max_model_len=args.context_length)
+    client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
     print("Model loaded.\n")
 
     repair_all(

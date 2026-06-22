@@ -16,7 +16,8 @@ Loop:
 Questo è il setup più vicino ai paper di riferimento (SolBench, SolEval)
 e richiede zero preprocessing artificiale.
 
-python3 generate_source.py | tee "./generation_logs/${LLM_MODEL//\//_}_generation.log"
+python3 generate_source.py | tee "./generation_logs/$(echo "$LLM_MODEL" | tr '/' '_')_generation.log"
+
 """
 import os
 import json
@@ -58,6 +59,7 @@ from source_utils import _find_matching_brace, _find_functions, _main_source_tex
 # ── Configurazione ────────────────────────────────────────────────────────────
 
 LLM_MODEL = os.getenv("LLM_MODEL", "unsloth/Qwen3.6-27B-MTP-GGUF")
+GPU_MEM_UTIL = os.getenv("VLLM_MEMORY_PERC", 0.8)
 CONTRACTS_DIR = Path("../dataset/contracts_dataset_1to20")
 GENERATED_DIR = Path(f"./generated_oneshot_{LLM_MODEL}")
 WORK_DIR      = Path("./hardhat_workspace/")
@@ -601,7 +603,7 @@ if __name__ == "__main__":
     else:
         from llm_client import VLLMClient
         print(f"Loading model {args.model} ...")
-        client = VLLMClient(args.model, max_model_len=args.context_length)
+        client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
         print("Model loaded.")
         run_oneshot(
             contracts     = contracts,
