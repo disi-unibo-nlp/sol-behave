@@ -12,7 +12,5 @@ pycryptodome==3.17
 Requests==2.32.3
 pygame==2.6.1
 slither-analyzer==0.11.5
-outlines==1.2.12
-outlines_core==0.2.11
 web3
 bs4

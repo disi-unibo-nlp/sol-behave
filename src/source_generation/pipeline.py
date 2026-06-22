@@ -37,6 +37,10 @@ if TYPE_CHECKING:
     from storage import ContractWorkspace
 
 
+import sys
+sys.path.append("/workdir/src/utils/")
+from source_utils import _find_matching_brace
+
 # ─────────────────────────────────────────────────────────────────────────────
 #  Costanti e configurazione
 # ─────────────────────────────────────────────────────────────────────────────
@@ -147,23 +151,6 @@ def _npm_install(source: str, work_dir: Path, compiler_version: str = "",
     """Wrapper → hardhat_utils.install_npm_deps."""
     texts = [source] + (all_sources or [])
     _hu_install_npm_deps(work_dir, texts, compiler_version=compiler_version)
-
-
-def _find_matching_brace(source: str, pos: int) -> int:
-    depth, i, n = 0, pos, len(source)
-    in_d = in_s = False
-    while i < n:
-        c = source[i]
-        if (in_d or in_s) and c == '\\' and i+1 < n: i += 2; continue
-        if c == '"' and not in_s: in_d = not in_d
-        elif c == "'" and not in_d: in_s = not in_s
-        elif not in_d and not in_s:
-            if c == '{': depth += 1
-            elif c == '}':
-                depth -= 1
-                if depth == 0: return i
-        i += 1
-    return -1
 
 
 def _get_indent(source: str, pos: int) -> str:

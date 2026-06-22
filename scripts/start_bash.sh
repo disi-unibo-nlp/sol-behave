@@ -22,14 +22,16 @@ fi
 # --------------------------------------------------
 # Run container
 # --------------------------------------------------
-#--gpus device=$DEVICE \
+#
 
 docker run --rm \
+  --gpus device=$DEVICE \
   --name $CONTAINER_NAME \
   --memory=50g \
   -v ${LLM_HOME_CACHE_DIR}:/models \
   -v ./local_models:/local_models \
   -v ./$ROOT_DIRECTORY:/workdir/$ROOT_DIRECTORY \
   -v ./scripts:/workdir/scripts/ \
+  -v ./src:/workdir/src \
   --env-file .env \
   -it $IMAGE_NAME:latest

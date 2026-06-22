@@ -6,3 +6,8 @@
 2. LLM as a judge / Human evaluation (thomas) su qualità DCR Graph
 3. Esperimento per motivare lo split da 250 contratti
    Fare uno split diverso per ogni range fino a 20 e runnare lo script di generazione/repair
+4. Runnare le generazioni con i seguenti modelli:
+   - Un altro modello Qwen più recente e più adatto come baseline forte
+   - Un modello Deepseek
+   - Un modello LLama
+   - Codestral perché è europeo e mi piace il nome (nel caso lo cambiamo con qualcos'altro)

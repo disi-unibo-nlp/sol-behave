@@ -7,7 +7,7 @@ sia identico a quello usato durante la generazione — nessuna divergenza.
 
 Uso:
   python analyze_dataset.py <dataset_dir>
-  python analyze_dataset.py <dataset_dir> --save-range 1 20 --output-dir ./contracts_dataset_1to20
+  python3 analyze_dataset.py ./contracts_dataset_pass_08 --save-range 1 20 --output-dir ./contracts_dataset_1to20
   python analyze_dataset.py <dataset_dir> --save-range 1 10 --output-dir ./contracts_dataset_feasible
   python analyze_dataset.py <dataset_dir> --save-feasible   # shortcut per 1-10
 """
@@ -21,48 +21,9 @@ from collections import Counter
 # che ci interessano (_find_functions, _main_source_text) siano disponibili
 # senza richiedere l'ambiente completo di addestramento.
 
-sys.path.append("/workdir/src/source_generation_functions/")
-
-def _try_import_from_generate_oneshot():
-    for mod_name in ("storage", "hardhat_utils", "pipeline", "llm_client",
-                     "transformers", "torch", "vllm"):
-        if mod_name not in sys.modules:
-            sys.modules[mod_name] = types.ModuleType(mod_name)
-    # Stub specifici per simboli usati a livello modulo in generate_oneshot
-    sys.modules["pipeline"].find_matching_brace   = lambda *a, **k: -1
-    sys.modules["pipeline"]._find_matching_brace  = lambda *a, **k: -1
-    sys.modules["pipeline"]._get_indent           = lambda *a, **k: ""
-    sys.modules["pipeline"].sanitize_natspec      = lambda x: x
-    sys.modules["pipeline"].try_compile           = lambda *a, **k: (False, "")
-    sys.modules["hardhat_utils"].prepare_and_compile = lambda *a, **k: (False, "")
-    sys.modules["hardhat_utils"].load_source_texts   = lambda *a, **k: {}
-    sys.modules["hardhat_utils"].hardhat_config      = lambda *a, **k: ""
-    sys.modules["hardhat_utils"].install_npm_deps    = lambda *a, **k: None
-    sys.modules["hardhat_utils"].detect_remappings   = lambda *a, **k: []
-    sys.modules["storage"].ContractWorkspace         = object
-
-    # Cerca generate_oneshot.py nella stessa directory di questo script
-    this_dir = Path(__file__).parent if "__file__" in dir() else Path(".")
-    for search_dir in [this_dir, Path(".")]:
-        candidate = search_dir / "generate_oneshot.py"
-        if not candidate.exists():
-            continue
-        try:
-            import importlib.util
-            spec = importlib.util.spec_from_file_location(
-                "generate_oneshot", candidate
-            )
-            mod = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(mod)
-            return mod._find_functions, mod._main_source_text
-        except Exception:
-            continue
-    return None, None
-
-_find_functions_imported, _main_source_text_imported = \
-    _try_import_from_generate_oneshot()
-_USING_ONESHOT = _find_functions_imported is not None
-
+# sys.path.append("/workdir/src/source_generation/")
+sys.path.append("/workdir/src/utils/")
+from source_utils import _find_functions, _main_source_text
 
 # ── Fallback locale (stessa logica di generate_oneshot) ───────────────────────
 
@@ -109,48 +70,6 @@ def _find_functions_local(source: str) -> list[dict]:
             "body_close": close + 1,
         })
     return results
-
-
-def _main_source_text_local(contract_dir: Path) -> tuple[str, str | None]:
-    """
-    Fallback per _main_source_text — DEVE essere identico a generate_oneshot._main_source_text.
-    Prende solo il file principale, non concatena tutto.
-    """
-    jsn = contract_dir / "source.json"
-    sol = contract_dir / "source.sol"
-    if jsn.exists():
-        try:
-            data    = json.loads(jsn.read_text(errors="replace"))
-            sources = data.get("sources", {})
-            if not sources: return "", None
-            meta  = contract_dir / "metadata.json"
-            cname = ""
-            if meta.exists():
-                try: cname = json.loads(meta.read_text()).get("contract_name", "")
-                except: pass
-            if cname:
-                for fp, fc in sources.items():
-                    if cname.lower() in Path(fp).stem.lower():
-                        return fc.get("content", ""), fp
-            # Fallback: primo file (stesso comportamento di generate_oneshot)
-            fp, fc = next(iter(sources.items()))
-            return fc.get("content", ""), fp
-        except Exception:
-            return "", None
-    if sol.exists():
-        try: return sol.read_text(errors="replace"), None
-        except: return "", None
-    return "", None
-
-
-if not _USING_ONESHOT:
-    _find_functions   = _find_functions_local
-    _main_source_text = _main_source_text_local
-    print("[analyze_dataset] generate_oneshot.py not importable — using local fallback")
-else:
-    _find_functions   = _find_functions_imported
-    _main_source_text = _main_source_text_imported
-    print("[analyze_dataset] Using _find_functions from generate_oneshot.py")
 
 
 def count_functions(contract_dir: Path) -> int:
@@ -249,10 +168,6 @@ def main():
     for n, addr, cname in sorted(fn_counts, reverse=True)[:10]:
         print(f"  {addr[:18]}…  {cname:<30}  {n} functions")
 
-    if skipped:
-        print(f"\n  Skipped (no source): {len(skipped)}")
-    if not _USING_ONESHOT:
-        print(f"\n  [warn] generate_oneshot.py not found — using local fallback")
 
     # ── Save range ────────────────────────────────────────────────────────────
     if args.save_range:

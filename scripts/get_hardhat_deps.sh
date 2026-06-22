@@ -1,40 +1,72 @@
 #!/bin/bash
+set -euo pipefail
 
 # CALL THIS SCRIPT BEFORE RUNNING ANYTHING ELSE
 
-pip uninstall solc-select -y
+echo "=== Installing solc-select ==="
+
+pip uninstall -y solc-select || true
 pip install --upgrade solc-select
 
+echo "=== Installing NVM 0.40.4 ==="
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install --lts
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# ______________________________________________________________________________________________________
+echo "=== Installing Node.js (npm 11.9.0) ==="
 
-# after running this script, run the following:
-# source ~/.bashrc
-# source .env
+# npm 11.9.0 ships with Node 24.x
+nvm install 24
+nvm use 24
+nvm alias default 24
 
+echo "=== Installing Hardhat 2.28.6 ==="
 
-# ______________________________________________________________________________________________________
+# Remove any global Hardhat that could confuse the environment
+npm uninstall -g hardhat || true
 
-# versioning is not handled explicitly, but here are the employed versions while this is being written:
-# npx hardhat --version
-# 2.28.6
+# Create local package if missing
+if [ ! -f package.json ]; then
+    npm init -y
+fi
 
-# npm -v
-# 11.9.0
+# Force the exact Hardhat version
+npm install --save-dev hardhat@2.28.6
 
-# nvm --version
-# 0.40.4
+echo "=== Installing Solidity compiler 0.4.18 ==="
 
-# npx -v
-# 11.9.0
+solc-select install 0.4.18 || true
+solc-select use 0.4.18
 
-# solc --version
-# Version: 0.4.18+commit.9cf6e910.Linux.g++
+echo
+echo "======================================="
+echo "Installed versions:"
+echo "======================================="
 
-# solc-select versions
-# 0.4.18 (current, set by /root/.solc-select/global-version)
+echo "Node:"
+node -v
 
+echo "npm:"
+npm -v
+
+echo "npx:"
+npx -v
+
+echo "nvm:"
+nvm --version
+
+echo "Hardhat:"
+npx hardhat --version
+
+echo "solc:"
+solc --version
+
+echo "solc-select:"
+solc-select versions
+
+echo
+echo "Now run:"
+echo "source ~/.bashrc"
+echo "source .env"
