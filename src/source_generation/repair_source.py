@@ -26,7 +26,8 @@ from pathlib import Path
 import os
 
 import sys
-sys.path.append("/workdir/src/utils/")
+_UTILS_DIR = Path(__file__).resolve().parent.parent / "utils"
+sys.path.insert(0, str(_UTILS_DIR))
 
 from hardhat_utils import prepare_and_compile
 from pipeline import try_compile, sanitize_natspec

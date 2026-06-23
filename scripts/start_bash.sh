@@ -28,10 +28,12 @@ docker run --rm \
   --gpus device=$DEVICE \
   --name $CONTAINER_NAME \
   --memory=50g \
+  --network host \
   -v ${LLM_HOME_CACHE_DIR}:/models \
   -v ./local_models:/local_models \
   -v ./$ROOT_DIRECTORY:/workdir/$ROOT_DIRECTORY \
   -v ./scripts:/workdir/scripts/ \
   -v ./src:/workdir/src \
+  -v /llms:/llms \
   --env-file .env \
   -it $IMAGE_NAME:latest

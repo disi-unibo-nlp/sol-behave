@@ -38,7 +38,8 @@ if TYPE_CHECKING:
 
 
 import sys
-sys.path.append("/workdir/src/utils/")
+_UTILS_DIR = Path(__file__).resolve().parent.parent / "utils"
+sys.path.insert(0, str(_UTILS_DIR))
 from source_utils import _find_matching_brace
 
 # ─────────────────────────────────────────────────────────────────────────────

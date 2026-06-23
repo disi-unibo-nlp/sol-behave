@@ -29,7 +29,10 @@ from pathlib import Path
 
 from storage import ContractWorkspace
 import sys
-sys.path.append("/workdir/src/utils/")
+
+_UTILS_DIR = Path(__file__).resolve().parent.parent / "utils"
+sys.path.insert(0, str(_UTILS_DIR))
+
 from hardhat_utils import (
     prepare_and_compile,
     load_source_texts,
@@ -163,7 +166,8 @@ def _make_prompt(source: str, fn: dict, contract_name: str,
         f"// Contract: {contract_name}  (compiler: {compiler_version})\n"
         f"// Complete ONLY the body of function `{fn_name}` marked with "
         f"'// TODO: implement this'.\n"
-        f"// Output ONLY the body statements (no braces, no signature).\n\n"
+        f"// Output ONLY the body statements (no braces, no signature, "
+"no explanation, no commentary). Begin immediately with Solidity code.\n\n"
         + source_with_todo
     )
 
@@ -601,10 +605,15 @@ if __name__ == "__main__":
             work_dir      = work_dir,
         )
     else:
-        from llm_client import VLLMClient
-        print(f"Loading model {args.model} ...")
-        client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
-        print("Model loaded.")
+        #from llm_client import VLLMClient
+        #print(f"Loading model {args.model} ...")
+        #client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
+        #print("Model loaded.")
+        from llamacpp_client import LlamaCppClient
+        print("Connecting to llamacpp serve...")
+        client = LlamaCppClient()
+        print(f"connected\n{client}")
+        
         run_oneshot(
             contracts     = contracts,
             client        = client,

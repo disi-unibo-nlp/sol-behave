@@ -31,7 +31,7 @@ from __future__ import annotations
 import os
 import time
 from typing import Protocol, TypedDict, runtime_checkable
-
+import re
 
 # ── Protocollo ────────────────────────────────────────────────────────────────
 
@@ -58,10 +58,14 @@ class LLMClient(Protocol):
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def _clean_output(text: str, enable_thinking: bool = False) -> str:
-    for tok in ("<|im_end|>", "<|endoftext|>", "<|im_start|>"):
+    for tok in ("<|im_end|>", "<|endoftext|>", "<|im_start|>",
+                "<|END_OF_TURN_TOKEN|>", "<|END_RESPONSE|>",
+                "<|START_RESPONSE|>", "<|START_OF_TURN_TOKEN|>",
+                "<|USER_TOKEN|>", "<|CHATBOT_TOKEN|>", "<|SYSTEM_TOKEN|>"):
         text = text.replace(tok, "")
-    if enable_thinking and "</think>" in text:
+    if "</think>" in text:
         text = text.split("</think>", 1)[1]
+    text = re.sub(r"<\|[A-Z0-9_]+\|>", "", text)
     return text.strip()
 
 
