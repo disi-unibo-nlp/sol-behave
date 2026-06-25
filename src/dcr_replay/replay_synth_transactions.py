@@ -119,8 +119,8 @@ from replay_transactions import (
 # ---------------------------------------------------------------------------
 
 DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
-DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20")
-DEFAULT_OUTPUT    = str(_SCRIPT_DIR / "synth_replay_results")
+DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20_Qwen3_6-27B-UD-Q4_K_XL_gguf")
+DEFAULT_OUTPUT    = str(_SCRIPT_DIR / "original_synth_replay_results")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / ".." / "dataset" / "hardhat_workspace_replay")
 DEFAULT_K         = 1000
 DEFAULT_THRESHOLD = 0.50

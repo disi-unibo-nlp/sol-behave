@@ -688,10 +688,23 @@ class HardhatServer:
             ready, _, _ = select.select([self._proc.stdout], [], [], t)
             if not ready:
                 raise TimeoutError(f"No response after {t}s")
-            line = self._proc.stdout.readline()
-            if not line.strip():
-                raise RuntimeError(f"Node died:\n{self._proc.stderr.read()[-500:]}")
-            return json.loads(line)
+            while True:
+                ready, _, _ = select.select([self._proc.stdout], [], [], t)
+                if not ready:
+                    raise TimeoutError(f"No response after {t}s")
+                line = self._proc.stdout.readline()
+                if not line:  # EOF — process died
+                    err = self._proc.stderr.read() if self._proc.stderr else ""
+                    raise RuntimeError(f"Node died:\n{err[-1000:]}")
+                line = line.strip()
+                if not line:
+                    continue  # blank line, keep reading
+                try:
+                    return json.loads(line)
+                except json.JSONDecodeError:
+                    # Non-JSON noise (Hardhat warning/log) — log and keep reading
+                    print(f"    [hardhat stdout] {line[:120]}")
+                    continue
         except (TimeoutError, RuntimeError, BrokenPipeError, OSError):
             self._kill()
             self._proc = self._spawn()

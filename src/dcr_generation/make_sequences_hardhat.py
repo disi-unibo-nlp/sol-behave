@@ -57,15 +57,11 @@ from eth_utils import to_checksum_address
 from eth_abi import encode as abi_encode
 from eth_utils import function_signature_to_4byte_selector
 
-#sys.path.append("/workdir/src/utils/")
-from deploy_replay import synthesize_constructor_args as _synth_args
-# ── hardhat_utils: authoritative compile/install/config ──────────────────────
-from hardhat_utils import (
-    prepare_and_compile  as hu_prepare_and_compile,
-    setup_workspace      as hu_setup_workspace,
-    load_source_texts    as hu_load_source_texts,
-    wipe_hardhat_artifacts as hu_wipe_hardhat_artifacts
-)
+_UTILS_DIR = Path(__file__).resolve().parent.parent / "utils"
+sys.path.insert(0, str(_UTILS_DIR))
+
+from deploy_replay_dcr import synthesize_constructor_args as _synth_args
+
 
 from hardhat_server import (
     HardhatServer,
@@ -79,15 +75,24 @@ from hardhat_server import (
     hardhat_accounts,
 )
 
-from deploy_replay import (
+from deploy_replay_dcr import (
         _write_source      as _dr_write_source,
         _install_npm_deps  as _dr_install_npm_deps,
         _detect_remappings as _dr_detect_remappings,
         _hardhat_config    as _dr_hardhat_config,
     )
 
+#sys.path.append("/workdir/src/utils/")
+# ── hardhat_utils: authoritative compile/install/config ──────────────────────
+from hardhat_utils_dcr import (
+    prepare_and_compile  as hu_prepare_and_compile,
+    setup_workspace      as hu_setup_workspace,
+    load_source_texts    as hu_load_source_texts,
+    wipe_hardhat_artifacts as hu_wipe_hardhat_artifacts
+)
+
 DATASET_DIR   = Path(os.getenv("DATASET_DIR",   "../dataset/contracts_dataset_1to20"))
-GENERATED_DIR = Path(os.getenv("GENERATED_DIR", "./generated_dcr_1to20"))
+GENERATED_DIR = Path(os.getenv("GENERATED_DIR", "./generated_dcr_1to20_Qwen3_6-27B-UD-Q4_K_XL_gguf"))
 WORK_DIR      = Path(os.getenv("WORK_DIR",      "../dataset/hardhat_workspace_crawl"))
 DCR_FILENAME  = os.getenv("DCR_FILENAME", "source_dcr.json")
 
@@ -1585,8 +1590,9 @@ def main():
         try:
             process_contract(d.name)
         except Exception as e:
+            import traceback
+            traceback.print_exc()      # <-- add this
             print(f"  ERROR: {e}")
-        print()
 
 
 if __name__ == "__main__":

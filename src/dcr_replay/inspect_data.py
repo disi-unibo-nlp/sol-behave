@@ -10,6 +10,11 @@ SRC = Path(__file__).resolve().parent.parent  # /workdir/src
 def head(label):
     print(f"\n{'='*60}\n  {label}\n{'='*60}")
 
+
+SYNTHETIC_REPLAY_RESULTS_GEN = SRC / "dcr_replay" / "synth_replay_results_Qwen3_6-27B-UD-Q4_K_XL_gguf"  #"synth_replay_results_generated"
+SYNTHETIC_REPLAY_RESULTS_ORIG = SRC / "dcr_replay" / "original_synth_replay_results"
+
+
 # ── 1. Historical × original ──────────────────────────────────────────────
 head("1. HISTORICAL × ORIGINAL")
 hist_summary = SRC / "transaction_replay" / "replay_results.json"
@@ -30,7 +35,7 @@ if sample:
 
 # ── 2. Synthetic × original ───────────────────────────────────────────────
 head("2. SYNTHETIC × ORIGINAL")
-synth_orig = SRC / "dcr_replay" / "synth_replay_results"
+synth_orig = SYNTHETIC_REPLAY_RESULTS_ORIG
 sample = next(synth_orig.glob("*/synth_replay_result_1000.json"), None)
 if sample:
     d = json.loads(sample.read_text())
@@ -48,7 +53,7 @@ if sample:
 
 # ── 3. Synthetic × generated ──────────────────────────────────────────────
 head("3. SYNTHETIC × GENERATED")
-synth_gen = SRC / "dcr_replay" / "synth_replay_results_generated"
+synth_gen = SYNTHETIC_REPLAY_RESULTS_GEN  #"synth_replay_results_generated"
 print(f"dir exists: {synth_gen.exists()}  ({synth_gen})")
 if synth_gen.exists():
     # sample result file
