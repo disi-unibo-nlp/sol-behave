@@ -84,8 +84,8 @@ from hardhat_utils import primary_compiler_version, prepare_and_compile
 
 
 DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
-DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "repaired_oneshot")
-DEFAULT_DIFF_DIR  = str(_SCRIPT_DIR / "fuzzying_results")
+DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "generated_oneshot_Qwen3_6-27B-UD-Q4_K_XL_gguf")
+DEFAULT_DIFF_DIR  = str(_SCRIPT_DIR / "fuzzying_results_Qwen3_6-27B-UD-Q4_K_XL_gguf")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / ".." / "dataset" / "hardhat_workspace_replay")
 DEFAULT_TEST_LIMIT = 10_000   # echidna calls per property
 DEFAULT_TIMEOUT    = 120      # seconds per contract

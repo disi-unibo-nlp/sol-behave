@@ -47,7 +47,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 _SRC        = _SCRIPT_DIR.parent
 
 DEF_DATASET   = _SRC / "dataset" / "contracts_dataset_1to20"
-DEF_GENERATED = _SRC / "source_generation" / "repaired_oneshot"
+DEF_GENERATED = _SRC / "source_generation" / "generated_dcr_1to20_Qwen3_6-27B-UD-Q4_K_XL_gguf"
 DEF_DCR_REPLAY = _SRC / "dcr_replay"
 DEF_DCR_GEN   = _SRC / "dcr_generation" / "generated_dcr_1to20"
 DEF_OUTPUT    = _SCRIPT_DIR / "comprehensive_analysis.json"

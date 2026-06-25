@@ -125,7 +125,7 @@ from replay_transactions import (
 # ---------------------------------------------------------------------------
 
 DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
-DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "repaired_oneshot")
+DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "generated_oneshot_Qwen3_6-27B-UD-Q4_K_XL_gguf")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / "hardhat_workspace_gen_replay")
 DEFAULT_K         = 1000
 DEFAULT_TX_TIMEOUT = 60

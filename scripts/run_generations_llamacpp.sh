@@ -42,10 +42,10 @@ READY_TIMEOUT="${READY_TIMEOUT:-600}"   # seconds to wait for model load
 # ── The models to run: one GGUF filename per line (must exist in MODEL_DIR) ──
 # Keep ONE quant level across all for a clean comparison.
 MODELS=(
-  "Qwen3.6-27B-UD-Q4_K_XL.gguf"
-  "Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
-  "mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf"
-  "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf" 
+  #"Qwen3.6-27B-UD-Q4_K_XL.gguf"
+  #"Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
+  #"mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf"
+  "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
 )
 
 mkdir -p "$LOG_DIR"
