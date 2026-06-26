@@ -38,6 +38,8 @@ DEFAULT_RESULTS = str(_SCRIPT_DIR / "fuzzying_results" / "fuzzing_results.json")
 DEFAULT_OUTPUT  = str(_SCRIPT_DIR / "fuzzing_analysis.json")
 
 
+# python3 fuzzying_analysis.py --results fuzzying_results_Qwen3_6-27B-UD-Q4_K_XL_gguf/fuzzing_results.json
+
 # ---------------------------------------------------------------------------
 # Loading
 # ---------------------------------------------------------------------------
@@ -83,11 +85,6 @@ def analyse_contract(r: dict, comparison: dict) -> dict:
         if fn_pass_rates else None
     )
 
-    # Replay context
-    cmp = comparison.get(address, {})
-    replay_pass_rate   = cmp.get("original_pass_rate")
-    gen_mean_pass_rate = cmp.get("mean_gen_pass_rate")
-
     return {
         "address":              address,
         "contract_name":        name,
@@ -110,9 +107,6 @@ def analyse_contract(r: dict, comparison: dict) -> dict:
         # Contract-level
         "contract_pass_rate":   contract_pass_rate,
         "pass_at_k":            pass_at_k,
-        # Replay context
-        "replay_pass_rate":     replay_pass_rate,
-        "gen_mean_pass_rate":   gen_mean_pass_rate,
     }
 
 
@@ -142,6 +136,17 @@ def compute_aggregates(analyses: list[dict], threshold: float = 0.5) -> dict:
     # Most commonly diverging functions (worst fn_pass_rate)
     worst_fns = Counter(a["worst_fn"] for a in done if a.get("worst_fn"))
 
+    # Rank contracts by mean function pass rate (continuous fit score)
+    ranked = sorted(
+        (a for a in done if a.get("mean_fn_pass_rate") is not None),
+        key=lambda a: a["mean_fn_pass_rate"],
+        reverse=True,
+    )
+    top5    = [(a["contract_name"], a["mean_fn_pass_rate"],
+                a.get("contract_pass_rate"), a.get("k", 0)) for a in ranked[:5]]
+    bottom5 = [(a["contract_name"], a["mean_fn_pass_rate"],
+                a.get("contract_pass_rate"), a.get("k", 0)) for a in ranked[-5:]]
+
     def _mean(vals):
         return round(sum(vals) / len(vals), 4) if vals else None
 
@@ -155,6 +160,8 @@ def compute_aggregates(analyses: list[dict], threshold: float = 0.5) -> dict:
         "pass_at_k":                pass_at_k_n,
         "pass_at_k_pct":            round(pass_at_k_n / n, 4) if n else None,
         "most_diverging_fns":       worst_fns.most_common(10),
+        "top5_fn_pass":             top5,
+        "bottom5_fn_pass":          bottom5,
     }
 
 
@@ -178,7 +185,6 @@ def print_report(analyses: list[dict], aggregates: dict) -> None:
         f"  {'FnPass':>{w}}"
         f"  {'FnCov':>{w}}"
         f"  {'p@k':>{w}}"
-        f"  {'RplPR':>{w}}"
     )
     sep = "─" * (len(header) - 2)
 
@@ -197,7 +203,6 @@ def print_report(analyses: list[dict], aggregates: dict) -> None:
             f"  {_pct(a.get('mean_fn_pass_rate')):>{w}}"
             f"  {_pct(a.get('fn_coverage')):>{w}}"
             f"  {p_at_k:>{w}}"
-            f"  {_pct(a.get('replay_pass_rate')):>{w}}"
         )
 
     setup_failed = [a for a in analyses if a.get("status") == "setup_failed"]
@@ -227,6 +232,22 @@ def print_report(analyses: list[dict], aggregates: dict) -> None:
               f"{agg['pass_at_k']}/{agg['n_contracts']}"
               f"  ({_pct(agg['pass_at_k_pct'])})")
         print()
+
+        # Top / bottom contracts by mean function pass rate
+        cn = 24
+        if agg.get("top5_fn_pass"):
+            print(f"  ── Top 5 contracts (mean fn pass rate) ──────────────")
+            print(f"    {'Contract':<{cn}}  {'FnPass':>7}  {'CtrPass':>7}  {'k':>3}")
+            for name, fn, ctr, k in agg["top5_fn_pass"]:
+                print(f"    {name:<{cn}}  {_pct(fn):>7}  {_pct(ctr):>7}  {k:>3}")
+            print()
+        if agg.get("bottom5_fn_pass"):
+            print(f"  ── Worst 5 contracts (mean fn pass rate) ────────────")
+            print(f"    {'Contract':<{cn}}  {'FnPass':>7}  {'CtrPass':>7}  {'k':>3}")
+            for name, fn, ctr, k in agg["bottom5_fn_pass"]:
+                print(f"    {name:<{cn}}  {_pct(fn):>7}  {_pct(ctr):>7}  {k:>3}")
+            print()
+
         if agg["most_diverging_fns"]:
             print(f"  ── Most diverging functions ─────────────────────────")
             for fn, count in agg["most_diverging_fns"]:

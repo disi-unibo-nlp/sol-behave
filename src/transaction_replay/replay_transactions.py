@@ -130,7 +130,7 @@ from hardhat_utils import (
 # ---------------------------------------------------------------------------
 
 DEFAULT_DATASET = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
-DEFAULT_WORK_DIR = str(_SCRIPT_DIR / "hardhat_workspace_replay")
+DEFAULT_WORK_DIR = str(_SCRIPT_DIR / "hardhat_workspace_replay_comp_failures")
 DEFAULT_K = 1000
 DEFAULT_PASS_THRESHOLD = 0.50
 DEFAULT_TX_TIMEOUT = 60
@@ -491,7 +491,8 @@ def replay_contract(
     if not ok:
         print("✗")
         if verbose:
-            print(f"    Compiler error:\n{err[-600:]}")
+            #print(f"    Compiler error:\n{err[-600:]}")
+            print(f"    Compiler error:\n{err[:1500]}")
         result = {
             "state":   "FAILED",
             "address": address,

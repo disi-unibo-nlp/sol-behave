@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 #
-# run_synth_replays.sh
-# ====================
-# Full synthetic pipeline, run in sequence:
-#   0. make_sequences_hardhat.py      (regenerate synthetic txs for ALL 250)
-#   1. replay_synth_transactions.py   (synthetic txs × original contracts)
-#   2. replay_synth_generated.py      (synthetic txs × generated samples)
+# run_synth_replays.sh  (multi-model)
+# ===================================
+# Synthetic pipeline per model:
+#   0. make_sequences_hardhat.py    (regenerate synthetic txs — ONCE, model-independent)
+#   1. replay_synth_transactions.py (synthetic txs × ORIGINAL contracts — ONCE)
+#   2. replay_synth_generated.py    (synthetic txs × GENERATED samples — PER MODEL)
 #
-# Each stage runs only if the previous one succeeds. Logs go to
-# /workdir/scripts/logs/.
+# Stage 0 and 1 are model-independent (original contracts + the DCR synthetic
+# sequence), so they run once. Stage 2 runs per model, each pointing at that
+# model's generated source dir and writing to a model-tagged results dir.
 #
 # Usage:
-#   bash /workdir/scripts/run_synth_replays.sh
-#   bash /workdir/scripts/run_synth_replays.sh --force      # forwarded to replays
+#   bash run_synth_replays.sh                    # all MODELS below
+#   bash run_synth_replays.sh --force            # forwarded to replays
+#   SKIP_REGEN=1 bash run_synth_replays.sh --force   # skip stages 0+1, only re-do gen replay
 #
 set -euo pipefail
 
@@ -20,99 +22,92 @@ set -euo pipefail
 DCR_GEN_DIR="/workdir/src/dcr_generation"
 REPLAY_DIR="/workdir/src/dcr_replay"
 DATASET="/workdir/src/dataset/contracts_dataset_1to20"
-DCR_DIR="/workdir/src/dcr_generation/generated_dcr_1to20"
-GENERATED="/workdir/src/source_generation/repaired_oneshot"
+DCR_DIR="/workdir/src/dcr_generation/generated_dcr_1to20_Qwen3_6-27B-UD-Q4_K_XL_gguf"
+SRC_GEN_DIR="/workdir/src/source_generation"
 LOG_DIR="/workdir/scripts/logs"
 
 K=1000
-EXTRA_ARGS="${*:-}"   # forwarded to the two replay scripts (e.g. --force)
+EXTRA_ARGS="${*:-}"
+SKIP_REGEN="${SKIP_REGEN:-0}"   # set to 1 to skip stages 0 and 1
+
+# ── Models: GENERATION-time GGUF filenames. Stage 2 runs once per model. ──────
+# For each, generated source is expected at:
+#   $SRC_GEN_DIR/generated_oneshot_<safe>
+# and results are written to:
+#   $REPLAY_DIR/synth_replay_results_<safe>
+MODELS=(
+  "Qwen3.6-27B-UD-Q4_K_XL.gguf"
+  # "Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
+  # "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
+)
 
 mkdir -p "$LOG_DIR"
 TS="$(date +%Y%m%d_%H%M%S)"
 
-MAKESEQ_LOG="$LOG_DIR/make_sequences.log"
-ORIGINAL_LOG="$LOG_DIR/original_synth.log"
-GENERATED_LOG="$LOG_DIR/generated_synth.log"
-
 echo "════════════════════════════════════════════════════════════"
-echo "  SYNTH PIPELINE SCHEDULER"
+echo "  SYNTH PIPELINE SCHEDULER (multi-model)"
 echo "  start    : $(date)"
-echo "  dcr_gen  : $DCR_GEN_DIR"
-echo "  replay   : $REPLAY_DIR"
 echo "  k        : $K"
+echo "  models   : ${MODELS[*]}"
+echo "  skip 0+1 : $SKIP_REGEN"
 echo "  extra    : ${EXTRA_ARGS:-<none>}"
-echo "  logs     : $LOG_DIR"
 echo "════════════════════════════════════════════════════════════"
 
-# ── 0. Regenerate synthetic transactions for ALL contracts ───────────────────
-echo "Removing existing transactions"
-find /workdir/src/dcr_generation/generated_dcr_1to20 -name transactions_synthetic.json -delete
-echo ""
-echo ">>> [0/2] make_sequences_hardhat.py (regenerate all 250)  →  $MAKESEQ_LOG"
-echo ">>> start: $(date)"
-START0=$(date +%s)
+ORIG_OUT="$REPLAY_DIR/original_synth_replay_results"
 
-cd "$DCR_GEN_DIR"
-if python3 make_sequences_hardhat.py \
-        2>&1 | tee "$MAKESEQ_LOG"; then
-    END0=$(date +%s)
-    echo ">>> [0/2] COMPLETATO in $(( (END0 - START0) / 60 ))m $(( (END0 - START0) % 60 ))s"
-    cp "$MAKESEQ_LOG" "$LOG_DIR/make_sequences_${TS}.log"
+# ── Stage 0+1: model-independent (run once unless SKIP_REGEN) ─────────────────
+if [[ "$SKIP_REGEN" != "1" ]]; then
+  echo ">>> [0] make_sequences_hardhat.py (regenerate all 250)"
+  find "$DCR_DIR" -name transactions_synthetic.json -delete
+  cd "$DCR_GEN_DIR"
+  python3 make_sequences_hardhat.py 2>&1 | tee "$LOG_DIR/make_sequences_${TS}.log"
+
+  echo ">>> [1] replay_synth_transactions.py (original contracts)  -> $ORIG_OUT"
+  cd "$REPLAY_DIR"
+  python3 replay_synth_transactions.py \
+      --dataset    "$DATASET" \
+      --dcr-dir    "$DCR_DIR" \
+      --output-dir "$ORIG_OUT" \
+      --k "$K" $EXTRA_ARGS \
+      2>&1 | tee "$LOG_DIR/original_synth_${TS}.log"
 else
-    echo ">>> [0/2] FALLITO — interrompo, non eseguo i replay."
-    exit 1
+  echo ">>> SKIP_REGEN=1 — reusing existing $ORIG_OUT"
 fi
 
+# ── Stage 2: per model ────────────────────────────────────────────────────────
 cd "$REPLAY_DIR"
+for MODEL_NAME in "${MODELS[@]}"; do
+  SAFE=$(echo "$MODEL_NAME" | tr '. ' '__')
+  GEN_SRC="$SRC_GEN_DIR/generated_oneshot_${SAFE}"
+  GEN_OUT="$REPLAY_DIR/synth_replay_results_${SAFE}"
 
-# ── 1. Original contracts × synthetic txs ────────────────────────────────────
-echo ""
-echo ">>> [1/2] replay_synth_transactions.py  →  $ORIGINAL_LOG"
-echo ">>> start: $(date)"
-START1=$(date +%s)
+  echo "════════════════════════════════════════════════════════════"
+  echo "  [2] GENERATED synth replay: $MODEL_NAME"
+  echo "      generated src = $GEN_SRC"
+  echo "      output dir    = $GEN_OUT"
+  echo "════════════════════════════════════════════════════════════"
 
-if python3 replay_synth_transactions.py \
-        --dataset    "$DATASET" \
-        --dcr-dir    "$DCR_DIR" \
-        --output-dir ./synth_replay_results \
-        --k "$K" \
-        $EXTRA_ARGS \
-        2>&1 | tee "$ORIGINAL_LOG"; then
-    END1=$(date +%s)
-    echo ">>> [1/2] COMPLETATO in $(( (END1 - START1) / 60 ))m $(( (END1 - START1) % 60 ))s"
-    cp "$ORIGINAL_LOG" "$LOG_DIR/original_synth_${TS}.log"
-else
-    echo ">>> [1/2] FALLITO — interrompo, non eseguo il secondo script."
-    exit 1
-fi
+  if [[ ! -d "$GEN_SRC" ]]; then
+    echo "  !! generated source dir not found: $GEN_SRC — skipping model"
+    echo "     (expected generated_oneshot_<safe>; did source-gen run for this model?)"
+    continue
+  fi
 
-# ── 2. Generated samples × synthetic txs ─────────────────────────────────────
-echo ""
-echo ">>> [2/2] replay_synth_generated.py  →  $GENERATED_LOG"
-echo ">>> start: $(date)"
-START2=$(date +%s)
+  python3 replay_synth_generated.py \
+      --dataset    "$DATASET" \
+      --dcr-dir    "$DCR_DIR" \
+      --generated  "$GEN_SRC" \
+      --output-dir "$GEN_OUT" \
+      --k "$K" $EXTRA_ARGS \
+      2>&1 | tee "$LOG_DIR/generated_synth_${SAFE}_${TS}.log"
 
-if python3 replay_synth_generated.py \
-        --dataset    "$DATASET" \
-        --dcr-dir    "$DCR_DIR" \
-        --generated  "$GENERATED" \
-        --output-dir ./synth_replay_results_generated \
-        --k "$K" \
-        $EXTRA_ARGS \
-        2>&1 | tee "$GENERATED_LOG"; then
-    END2=$(date +%s)
-    echo ">>> [2/2] COMPLETATO in $(( (END2 - START2) / 60 ))m $(( (END2 - START2) % 60 ))s"
-    cp "$GENERATED_LOG" "$LOG_DIR/generated_synth_${TS}.log"
-else
-    echo ">>> [2/2] FALLITO."
-    exit 1
-fi
+  echo "  -> done: $GEN_OUT"
+  echo "  Analyse with:"
+  echo "    python3 analyse_synth_replay_depth.py \\"
+  echo "        --orig-dir $ORIG_OUT \\"
+  echo "        --gen-dir  $GEN_OUT --k $K"
+done
 
-echo ""
 echo "════════════════════════════════════════════════════════════"
-echo "  TUTTO COMPLETATO"
-echo "  end : $(date)"
-echo "  log : $MAKESEQ_LOG"
-echo "        $ORIGINAL_LOG"
-echo "        $GENERATED_LOG"
+echo "  ALL DONE : $(date)"
 echo "════════════════════════════════════════════════════════════"

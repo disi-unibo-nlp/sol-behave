@@ -105,10 +105,10 @@ from replay_synth_transactions import (
 # ---------------------------------------------------------------------------
 
 DEFAULT_DATASET   = str(_SCRIPT_DIR / ".." / "dataset" / "contracts_dataset_1to20")
-DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20")
-DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "repaired_oneshot")
+DEFAULT_DCR_DIR   = str(_SCRIPT_DIR / ".." / "dcr_generation" / "generated_dcr_1to20_Qwen3_6-27B-UD-Q4_K_XL_gguf")
+DEFAULT_GENERATED = str(_SCRIPT_DIR / ".." / "source_generation" / "generated_oneshot_Qwen3_6-27B-UD-Q4_K_XL_gguf")
 DEFAULT_WORK_DIR  = str(_SCRIPT_DIR / ".." / "dataset" / "hardhat_workspace_replay")
-DEFAULT_OUTPUT_DIR = _SCRIPT_DIR / "synth_replay_results_generated"
+DEFAULT_OUTPUT_DIR    = str(_SCRIPT_DIR / "synth_replay_results_generated_Qwen3_6-27B-UD-Q4_K_XL_gguf")
 DEFAULT_K         = 1000
 DEFAULT_THRESHOLD = 0.50
 DEFAULT_TX_TIMEOUT = 60

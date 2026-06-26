@@ -451,4 +451,3 @@ def _abi_encode_call(fn_name: str, inputs: list) -> str:
     args  = _fn_arg_list(inputs)
     sig   = f"{fn_name}({types})"
     return f'abi.encodeWithSignature("{sig}", {args})'
-

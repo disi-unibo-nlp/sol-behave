@@ -36,6 +36,9 @@ from pathlib import Path
 #sys.path.insert(0, str(Path(__file__).parent))
 #sys.path.append("/workdir/src/utils/")
 
+_UTILS_DIR = Path(__file__).resolve().parent.parent / "utils"
+sys.path.insert(0, str(_UTILS_DIR))
+
 from llm_client import VLLMClient, APIClient, LLMRequest
 
 # ── Configurazione defaults ───────────────────────────────────────────────────
@@ -129,7 +132,7 @@ RULES:
 - Do NOT include variables initialized to 0 (that is the default)
 - Include both public and private variables
 
-Return ONLY a valid JSON object with a "known_state" key. /no_think
+Return ONLY a valid JSON object with a "known_state" key.
 
 Contract:
 {code}"""
@@ -157,7 +160,7 @@ RULES:
 - Constructor → function="constructor", branch_id="deploy"
 - One entry with guard="" for functions with no branching
 
-Return ONLY a valid JSON object with a "branches" array. /no_think
+Return ONLY a valid JSON object with a "branches" array.
 
 Contract:
 {code}"""
@@ -264,7 +267,7 @@ For each event provide realistic Hardhat test parameters:
 - value_wei: ETH to send as string in wei ("0" if not payable;
   "5000000000000000" for paid mint; appropriate value for other payable fns)
 
-Return ONLY a valid JSON object with a "call_params" array. /no_think
+Return ONLY a valid JSON object with a "call_params" array.
 
 Contract:
 {code}"""
@@ -541,10 +544,10 @@ if __name__ == "__main__":
                             temperature=0.0)
         print("Model loaded.\n")
     else:
-        from llm_client import VLLMClient
-        print("Connecting to remote vLLM server ...")
-        client = VLLMClient(temperature=0.0)
-        print()
+        from llamacpp_client import LlamaCppClient
+        print("Connecting to llamacpp serve...")
+        client = LlamaCppClient()
+        print(f"connected\n{client}")
 
     # Processa un contratto alla volta
     ok_count = fail_count = skip_count = 0

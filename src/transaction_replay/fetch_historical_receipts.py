@@ -62,6 +62,7 @@ import sys
 import time
 from pathlib import Path
 from typing import Optional
+from tqdm import tqdm
 
 import requests
 
@@ -327,7 +328,7 @@ def main() -> None:
     total_failed   = 0
     total_skipped  = 0
 
-    for i, contract_dir in enumerate(contract_dirs, 1):
+    for i, contract_dir in tqdm(enumerate(contract_dirs, 1)):
         print(f"[{i}/{len(contract_dirs)}] {contract_dir.name}", end="  ")
         try:
             result = fetch_receipts_for_contract(

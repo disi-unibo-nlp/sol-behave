@@ -1,12 +1,16 @@
+# Merge attempt
 """
-hardhat_utils.py
+hardhat_utils.py  — MERGED
 
-Funzioni condivise per la gestione del workspace Hardhat, la configurazione
-del compilatore Solidity e l'installazione delle dipendenze npm.
+Merge of:
+  - current/new version (base): hardhat_config, install_npm_deps with OZ
+    versioning, detect_remappings, setup_workspace, load_source_texts.
+  - old version (additions): prepare_and_compile with artifact/cache wipe +
+    single-file source rename (prevents HH700 stale-artifact errors); ABI
+    helper functions (_state_changing_fns, _solidity_type, _fn_param_list,
+    _fn_arg_list, _abi_encode_call).
 
-Usato da pipeline.py (compile@k) e deploy_replay.py (fresh deploy + replay).
-Le funzioni qui sono la versione autorevole — pipeline.py le importa invece
-di avere le proprie implementazioni inferiori.
+Used by pipeline.py (compile@k) and deploy_replay.py (fresh deploy + replay).
 """
 
 import re
@@ -61,21 +65,18 @@ def extract_pragma_versions(source_texts: list[str]) -> list[str]:
     for text in source_texts:
         for m in re.finditer(r'pragma\s+solidity\s+([^;]+);', text):
             spec = m.group(1).strip()
-            # Versione esatta: =0.8.17 o 0.8.17
             exact = re.search(r'(?:^|=)(\d+\.\d+\.\d+)', spec)
             if exact:
                 v = exact.group(1)
                 if v not in seen:
                     seen.add(v); versions.append(v)
                 continue
-            # Range: ^0.8.0, >=0.8.0, ~0.8.0 → versione minima
             lower = re.search(r'[\^~>=]+\s*(\d+\.\d+\.\d+)', spec)
             if lower:
                 v = lower.group(1)
                 if v not in seen:
                     seen.add(v); versions.append(v)
                 continue
-            # Solo major.minor: 0.8
             mm = re.search(r'(\d+\.\d+)', spec)
             if mm:
                 v = mm.group(1) + ".0"
@@ -87,7 +88,7 @@ def extract_pragma_versions(source_texts: list[str]) -> list[str]:
 def primary_compiler_version(meta: dict, source_texts: list[str]) -> str:
     """
     Determina la versione del compiler da usare:
-    1. Dal metadata Etherscan (più affidabile — è quella usata originalmente)
+    1. Dal metadata Etherscan (più affidabile)
     2. Dal pragma del sorgente principale
     3. Fallback a 0.8.20
     """
@@ -106,10 +107,8 @@ def hardhat_config(meta: dict, source_texts: list[str] | None = None,
                    remappings: list[str] | None = None) -> str:
     """
     Genera hardhat.config.js.
-
     - Usa la versione del compiler dal metadata come versione primaria.
-    - Aggiunge versioni extra se i file di supporto hanno pragma diverse
-      (es. OZ con ^0.8.0 su un contratto principale con 0.8.4).
+    - Aggiunge versioni extra se i file di supporto hanno pragma diverse.
     - Gestisce remapping per librerie con path non standard.
     """
     source_texts = source_texts or []
@@ -142,19 +141,12 @@ def hardhat_config(meta: dict, source_texts: list[str] | None = None,
             f'    }}'
         )
 
-    # Versione primaria
     compilers = [_compiler_entry(ver)]
 
-    # Versioni extra dai pragma dei file di supporto
-    # (es. OZ usa ^0.8.0 ma il contratto principale ha 0.8.4 — Hardhat
-    # con un solo compiler 0.8.4 riesce a compilare ^0.8.0 perché 0.8.4 >= 0.8.0,
-    # ma se ci sono file con pragma 0.8.1 esatto serve un compiler 0.8.1 separato)
     if source_texts:
         extra_versions = extract_pragma_versions(source_texts)
         for ev in extra_versions:
             if ev != ver and re.match(r'^\d+\.\d+\.\d+$', ev):
-                # Aggiungi solo versioni esatte diverse dalla primaria
-                # (i range come ^0.8.0 vengono soddisfatti dal compiler primario)
                 compilers.append(_compiler_entry(ev))
 
     compilers_js = ",\n".join(compilers)
@@ -192,16 +184,12 @@ def setup_workspace(work_dir: Path) -> None:
         }, indent=2))
     if not (work_dir / "node_modules").exists():
         print("  Installing Hardhat (one-time) ...")
-        subprocess.run(["npm", "install"], cwd=work_dir, check=True,
+        subprocess.run(["npm", "install", "--legacy-peer-deps"], cwd=work_dir, check=True,
                        capture_output=True)
 
 
 def write_sources(work_dir: Path, source_texts: dict[str, str]) -> None:
-    """
-    Scrive i sorgenti nel workspace.
-    `source_texts` è un dict {filepath: content} estratto da source.json,
-    oppure {contract_name.sol: content} per sorgenti single-file.
-    """
+    """Scrive i sorgenti nel workspace."""
     contracts_dir = work_dir / "contracts"
     if contracts_dir.exists():
         shutil.rmtree(contracts_dir)
@@ -213,12 +201,7 @@ def write_sources(work_dir: Path, source_texts: dict[str, str]) -> None:
 
 
 def _oz_version_for_compiler(compiler_version: str) -> str:
-    """
-    Determina la versione OZ compatibile con il compiler.
-    OZ 5.x richiede solc >= 0.8.20.
-    OZ 4.x funziona con solc 0.8.x < 0.8.20.
-    OZ 2.x/3.x per solc < 0.8.
-    """
+    """Determina la versione OZ compatibile con il compiler."""
     try:
         ver   = compiler_version.lstrip("v").split("+")[0]
         parts = ver.split(".")
@@ -226,7 +209,7 @@ def _oz_version_for_compiler(compiler_version: str) -> str:
         patch = int(parts[2]) if len(parts) > 2 else 0
         if major == 0:
             if minor < 6:
-                return "@2"    # SafeMath era in OZ 2.x per Solidity <0.6
+                return "@2"
             elif minor < 8:
                 return "@3"
             elif minor == 8 and patch < 20:
@@ -266,6 +249,7 @@ def install_npm_deps(work_dir: Path, source_texts: list[str],
         "solmate":                             "solmate",
         "@rari-capital/solmate":              "@rari-capital/solmate",
         "erc721a":                             "erc721a",
+        "operator-filter-registry":           "operator-filter-registry",   # <-- add
     }
     nm = work_dir / "node_modules"
     to_install = []
@@ -273,7 +257,6 @@ def install_npm_deps(work_dir: Path, source_texts: list[str],
         if p in _SKIP:
             continue
         resolved = _REMAP.get(p, p)
-        # Calcola il path base in node_modules (senza @version suffix)
         if resolved.startswith("@"):
             pkg_base = "@" + resolved.lstrip("@").split("@")[0]
         else:
@@ -285,7 +268,6 @@ def install_npm_deps(work_dir: Path, source_texts: list[str],
         elif oz_ver and p in ("@openzeppelin/contracts",
                                "@openzeppelin/contracts-upgradeable",
                                "openzeppelin-contracts"):
-            # Verifica major version installata
             pkg_json = pkg_dir / "package.json"
             if pkg_json.exists():
                 try:
@@ -297,19 +279,18 @@ def install_npm_deps(work_dir: Path, source_texts: list[str],
                 except Exception:
                     pass
 
-    to_install = list(dict.fromkeys(to_install))
     if to_install:
-        subprocess.run(
-            ["npm", "install", "--save-dev"] + to_install,
+        cp = subprocess.run(
+            ["npm", "install", "--save-dev", "--legacy-peer-deps"] + to_install,
             cwd=work_dir, capture_output=True, text=True,
         )
+        if cp.returncode != 0:
+            print(f"    [npm install FAILED] {to_install}")
+            print(f"      {cp.stderr[-400:]}")
 
 
 def detect_remappings(work_dir: Path, source_texts: list[str]) -> list[str]:
-    """
-    Rileva i remapping necessari per librerie con path non standard
-    (es. solmate che usa `solmate/src/` ma viene importato come `solmate/`).
-    """
+    """Rileva i remapping necessari per librerie con path non standard."""
     nm = work_dir / "node_modules"
     imports: set[str] = set()
     for text in source_texts:
@@ -329,10 +310,7 @@ def detect_remappings(work_dir: Path, source_texts: list[str]) -> list[str]:
 
 
 def load_source_texts(source_path: Path) -> dict[str, str]:
-    """
-    Carica i sorgenti da source.sol o source.json.
-    Ritorna {filepath: content} — per single-file il filepath è il nome del file.
-    """
+    """Carica i sorgenti da source.sol o source.json."""
     if source_path.suffix == ".sol":
         return {source_path.name: source_path.read_text()}
     data = json.loads(source_path.read_text())
@@ -348,17 +326,34 @@ def prepare_and_compile(
     work_dir: Path,
 ) -> tuple[bool, str]:
     """
-    Replica esatta della pipeline di deploy_replay.py:
     write_sources → install_npm_deps → detect_remappings → hardhat_config → compile.
+
+    MERGED behaviour (from old version):
+      - Wipes artifacts/ and cache/ before compiling to avoid HH700 errors from
+        removeObsoleteArtifacts on previous runs.
+      - For single-file (.sol) sources, renames the file to <contract_name>.sol
+        so the FQN matches what callers expect.
     """
     sources   = load_source_texts(source_path)
     all_texts = list(sources.values())
 
-    # Scrivi i file nel workspace (contracts/ standard)
+    # Pulisci artifacts e cache prima di ogni compilazione (evita HH700).
+    for stale_dir in ("artifacts", "cache"):
+        stale = work_dir / stale_dir
+        if stale.exists():
+            shutil.rmtree(stale)
+
     contracts_dir = work_dir / "contracts"
     if contracts_dir.exists():
         shutil.rmtree(contracts_dir)
     contracts_dir.mkdir(parents=True)
+
+    # Single-file: rinomina a <contract_name>.sol per allineare l'FQN.
+    if source_path.suffix == ".sol":
+        cname    = meta.get("contract_name", "contract")
+        new_name = f"{cname}.sol"
+        sources  = {new_name: list(sources.values())[0]}
+
     for fp, content in sources.items():
         dest = contracts_dir / fp
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -379,9 +374,72 @@ def prepare_and_compile(
     return ok, err
 
 
+# ---------------------------------------------------------------------------
+# ABI helpers (from old version)
+# ---------------------------------------------------------------------------
+
+def _state_changing_fns(abi: list) -> list[dict]:
+    """Return ABI entries for non-view/pure functions with inputs."""
+    return [
+        e for e in abi
+        if e.get("type") == "function"
+        and e.get("stateMutability") not in ("view", "pure")
+    ]
+
+
+def _solidity_type(t: str, components: Optional[list] = None) -> str:
+    """Expand tuple types to their canonical Solidity form."""
+    if not isinstance(t, str):
+        return ""
+    if t == "tuple" or t.startswith("tuple"):
+        if not components:
+            return "()"
+        inner = ", ".join(
+            _solidity_type(c["type"], c.get("components")) for c in components
+        )
+        suffix = t[len("tuple"):]
+        return f"({inner}){suffix}"
+    return t
+
+
+def _fn_param_list(inputs: list) -> str:
+    """Build 'type name, type name' parameter list for a Solidity function."""
+    parts = []
+    for i, inp in enumerate(inputs):
+        t    = _solidity_type(inp["type"], inp.get("components"))
+        name = inp.get("name") or f"p{i}"
+        if name in ("from", "to", "value", "data", "type", "address"):
+            name = f"_{name}"
+        parts.append(f"{t} {name}")
+    return ", ".join(parts)
+
+
+def _fn_arg_list(inputs: list) -> str:
+    """Build 'name, name' argument list matching _fn_param_list."""
+    parts = []
+    for i, inp in enumerate(inputs):
+        name = inp.get("name") or f"p{i}"
+        if name in ("from", "to", "value", "data", "type", "address"):
+            name = f"_{name}"
+        parts.append(name)
+    return ", ".join(parts)
+
+
+def _abi_encode_call(fn_name: str, inputs: list) -> str:
+    """Generate abi.encodeWithSignature call."""
+    if not inputs:
+        sig = f"{fn_name}()"
+        return f'abi.encodeWithSignature("{sig}")'
+    types = ",".join(
+        _solidity_type(inp["type"], inp.get("components")) for inp in inputs
+    )
+    args  = _fn_arg_list(inputs)
+    sig   = f"{fn_name}({types})"
+    return f'abi.encodeWithSignature("{sig}", {args})'
+
+
 def wipe_hardhat_artifacts(work_dir: Path) -> None:
     """Remove stale Hardhat artifacts and cache to force a clean recompile."""
-    import shutil
     for stale in ("artifacts", "cache"):
         p = work_dir / stale
         if p.exists():
