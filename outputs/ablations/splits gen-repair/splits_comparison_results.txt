@@ -1,0 +1,60 @@
+=======================================================================================================
+                        MODEL COMPILATION AND REPAIR PERFORMANCE SUMMARY
+=======================================================================================================
+
+1. SUCCESS RATES: BEFORE & AFTER REPAIR
+-------------------------------------------------------------------------------------------------------
+Model & Contract Group                       | Initial Compile | After Repair    | Improvement
+-------------------------------------------------------------------------------------------------------
+[Qwen2.5-Coder-32B-Instruct-AWQ]
+  contracts_1to5                             | 253/360 (70.3%) | 279/360 (77.5%) | +26 samples
+  contracts_6to10                            | 206/360 (57.2%) | 241/360 (66.9%) | +35 samples
+  contracts_11to15                           | 177/360 (49.2%) | 218/360 (60.6%) | +41 samples
+  contracts_15to20                           | 207/360 (57.5%) | 237/360 (65.8%) | +30 samples
+
+[Qwen3.6-27B-UD-Q4_K_XL]
+  contracts_1to5                             | 259/360 (71.9%) | 289/360 (80.3%) | +30 samples
+  contracts_6to10                            | 149/360 (41.4%) | 188/360 (52.2%) | +39 samples
+  contracts_11to15                           | 153/360 (42.5%) | 167/360 (46.4%) | +14 samples
+  contracts_15to20                           | 137/360 (38.1%) | 154/360 (42.8%) | +17 samples
+
+[Qwen3-Coder-30B-A3B-Instruct.Q4_K_M]
+  contracts_1to5                             | 264/360 (73.3%) | 278/360 (77.2%) | +14 samples
+  contracts_6to10                            | 151/360 (41.9%) | 201/360 (55.8%) | +50 samples
+  contracts_11to15                           | 120/360 (33.3%) | 159/360 (44.2%) | +39 samples
+  contracts_15to20                           | 133/360 (36.9%) | 194/360 (53.9%) | +61 samples
+
+[Devstral-Small-2-24B-Instruct-2512.Q4_K_M]
+  contracts_1to5                             | 189/360 (52.5%) | 233/360 (64.7%) | +44 samples
+  contracts_6to10                            | 88/360 (24.4%)  | 126/360 (35.0%) | +38 samples
+  contracts_11to15                           | 53/360 (14.7%)  | 87/360 (24.2%)  | +34 samples
+  contracts_15to20                           | 48/360 (13.3%)  | 60/360 (16.7%)  | +12 samples
+
+
+2. TIME SPENT: GENERATION VS REPAIR
+-------------------------------------------------------------------------------------------------------
+Model & Contract Group                       | Generation Time | Repair Time   | Total Time
+-------------------------------------------------------------------------------------------------------
+[Qwen2.5-Coder-32B-Instruct-AWQ]
+  contracts_1to5                             | 818s (13.6m)    | 165s (2.7m)   | 983s (16.3m)
+  contracts_6to10                            | 1902s (31.7m)   | 283s (4.7m)   | 2185s (36.4m)
+  contracts_11to15                           | 2590s (43.2m)   | 425s (7.1m)   | 3015s (50.3m)
+  contracts_15to20                           | 3991s (66.5m)   | 319s (5.3m)   | 4310s (71.8m)
+
+[Qwen3.6-27B-UD-Q4_K_XL]
+  contracts_1to5                             | 2706s (45.1m)   | 351s (5.8m)   | 3057s (50.9m)
+  contracts_6to10                            | 6682s (111.4m)  | 1146s (19.1m) | 7828s (130.5m)
+  contracts_11to15                           | 10187s (169.8m) | 1980s (33.0m) | 12167s (202.8m)
+  contracts_15to20                           | 15693s (261.5m) | 1604s (26.7m) | 17297s (288.2m)
+
+[Qwen3-Coder-30B-A3B-Instruct.Q4_K_M]
+  contracts_1to5                             | 498s (8.3m)     | 83s (1.4m)    | 581s (9.7m)
+  contracts_6to10                            | 943s (15.7m)    | 188s (3.1m)   | 1131s (18.8m)
+  contracts_11to15                           | 1357s (22.6m)   | 209s (3.5m)   | 1566s (26.1m)
+  contracts_15to20                           | 2145s (35.8m)   | 218s (3.6m)   | 2363s (39.4m)
+
+[Devstral-Small-2-24B-Instruct-2512.Q4_K_M]
+  contracts_1to5                             | 1001s (16.7m)   | 268s (4.5m)   | 1269s (21.2m)
+  contracts_6to10                            | 2502s (41.7m)   | 522s (8.7m)   | 3024s (50.4m)
+  contracts_11to15                           | 3686s (61.4m)   | 691s (11.5m)  | 4377s (72.9m)
+  contracts_15to20                           | 5640s (94.0m)   | 783s (13.0m)  | 6423s (107.0m)
