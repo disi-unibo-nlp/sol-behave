@@ -45,7 +45,10 @@ MODELS=(
   #"Qwen3.6-27B-UD-Q4_K_XL.gguf"
   #"Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
   #"mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf"
-  "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
+  #"gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
+  #"gemma-4-12B-it-qat-UD-Q4_K_XL.gguf"
+  #"granite-4.1-8b-Q4_K_M.gguf"
+  "ornith-1.0-35b-Q4_K_M.gguf"
 )
 
 mkdir -p "$LOG_DIR"
@@ -100,6 +103,18 @@ smoke_test() {
   return 0
 }
 
+# ── Helper: print which GPU device this run is using ────────────────────────
+print_device() {
+  local idx="${GPU_DEVICE:-0}"
+  local name
+  name=$(nvidia-smi --query-gpu=name --format=csv,noheader -i "$idx" 2>/dev/null)
+  if [[ -z "$name" ]]; then
+    echo "  GPU device: index ${idx} (nvidia-smi unavailable or index not found)"
+  else
+    echo "  GPU device: index ${idx} (${name})"
+  fi
+}
+
 # ── Main loop ───────────────────────────────────────────────────────────────
 trap 'echo; echo "Interrupted — tearing down server"; stop_server; exit 130' INT TERM
 
@@ -107,6 +122,7 @@ for MODEL_NAME in "${MODELS[@]}"; do
   SAFE=$(echo "$MODEL_NAME" | tr '/. ' '___')
   echo "============================================================"
   echo "  MODEL: $MODEL_NAME"
+  print_device
   echo "============================================================"
 
   # Skip if the GGUF isn't on disk
