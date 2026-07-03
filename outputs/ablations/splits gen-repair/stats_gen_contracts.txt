@@ -1,0 +1,341 @@
+Bucket         Count       %
+------------------------------
+  0               18    0.9%
+  1-5             37    1.8%
+  6-10            40    1.9%
+  11-20          173    8.2%
+  21-30         1054   50.2%
+  30+            776   37.0%
+
+min=0  max=178  median=30  mean=31.5  p75=32  p90=46
+
+  1-5 functions:     37 / 2098  (1.8%)
+  1-10 functions:     77 / 2098  (3.7%)
+  1-20 functions:    250 / 2098  (11.9%)
+
+  1-5           37
+  6-10          40
+  11-15         36
+  16-20        137
+
+
+
+――――――――――――――――――――――――――― Qwen/Qwen2.5-Coder-32B-Instruct-AWQ ――――――――――――――――――――――――――
+
+――――――――――― contracts_1to5 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 253/360
+  avg compile@10  : 70.3%
+  Total time     : 818s  (13.6 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 253/360  (70.3%)
+  After repair  : 279/360  (77.5%)
+  Repaired      : +26 samples
+  Still failing : 68 samples
+  No fn found   : 13 samples
+  Total time    : 165s  (2.7 min)
+
+
+――――――――――― contracts_6to10 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 206/360
+  avg compile@10  : 57.2%
+  Total time     : 1902s  (31.7 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 206/360  (57.2%)
+  After repair  : 241/360  (66.9%)
+  Repaired      : +35 samples
+  Still failing : 59 samples
+  No fn found   : 60 samples
+  Total time    : 283s  (4.7 min)
+
+
+――――――――――― contracts_11to15 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 177/360
+  avg compile@10  : 49.2%
+  Total time     : 2590s  (43.2 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 177/360  (49.2%)
+  After repair  : 218/360  (60.6%)
+  Repaired      : +41 samples
+  Still failing : 122 samples
+  No fn found   : 20 samples
+  Total time    : 425s  (7.1 min)
+
+――――――――――― contracts_15to20 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 207/360
+  avg compile@10  : 57.5%
+  Total time     : 3991s  (66.5 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 207/360  (57.5%)
+  After repair  : 237/360  (65.8%)
+  Repaired      : +30 samples
+  Still failing : 106 samples
+  No fn found   : 17 samples
+  Total time    : 319s  (5.3 min)
+
+
+
+――――――――――――――――――――――――――― Qwen/Qwen3.6-27B-UD-Q4_K_XL ――――――――――――――――――――――――――
+
+――――――――――― contracts_1to5 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 259/360
+  avg compile@10  : 71.9%
+  Total time     : 2706s  (45.1 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 259/360  (71.9%)
+  After repair  : 289/360  (80.3%)
+  Repaired      : +30 samples
+  Still failing : 50 samples
+  No fn found   : 21 samples
+  Total time    : 351s  (5.8 min)
+
+――――――――――― contracts_6to10 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 149/360
+  avg compile@10  : 41.4%
+  Total time     : 6682s  (111.4 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 149/360  (41.4%)
+  After repair  : 188/360  (52.2%)
+  Repaired      : +39 samples
+  Still failing : 114 samples
+  No fn found   : 58 samples
+  Total time    : 1146s  (19.1 min)
+
+――――――――――― contracts_11to15 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 153/360
+  avg compile@10  : 42.5%
+  Total time     : 10187s  (169.8 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 153/360  (42.5%)
+  After repair  : 167/360  (46.4%)
+  Repaired      : +14 samples
+  Still failing : 174 samples
+  No fn found   : 19 samples
+  Total time    : 1980s  (33.0 min)
+
+――――――――――― contracts_15to20 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 137/360
+  avg compile@10  : 38.1%
+  Total time     : 15693s  (261.5 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 137/360  (38.1%)
+  After repair  : 154/360  (42.8%)
+  Repaired      : +17 samples
+  Still failing : 191 samples
+  No fn found   : 15 samples
+  Total time    : 1604s  (26.7 min)
+
+
+
+――――――――――――――――――――――――――― Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf ――――――――――――――――――――――――――
+
+――――――――――― contracts_1to5 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 264/360
+  avg compile@10  : 73.3%
+  Total time     : 498s  (8.3 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 264/360  (73.3%)
+  After repair  : 278/360  (77.2%)
+  Repaired      : +14 samples
+  Still failing : 62 samples
+  No fn found   : 20 samples
+  Total time    : 83s  (1.4 min)
+
+――――――――――― contracts_6to10 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 151/360
+  avg compile@10  : 41.9%
+  Total time     : 943s  (15.7 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 151/360  (41.9%)
+  After repair  : 201/360  (55.8%)
+  Repaired      : +50 samples
+  Still failing : 98 samples
+  No fn found   : 61 samples
+  Total time    : 188s  (3.1 min)
+
+――――――――――― contracts_11to15 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 120/360
+  avg compile@10  : 33.3%
+  Total time     : 1357s  (22.6 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 120/360  (33.3%)
+  After repair  : 159/360  (44.2%)
+  Repaired      : +39 samples
+  Still failing : 136 samples
+  No fn found   : 65 samples
+  Total time    : 209s  (3.5 min)
+
+――――――――――― contracts_15to20 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 133/360
+  avg compile@10  : 36.9%
+  Total time     : 2145s  (35.8 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 133/360  (36.9%)
+  After repair  : 194/360  (53.9%)
+  Repaired      : +61 samples
+  Still failing : 135 samples
+  No fn found   : 31 samples
+  Total time    : 218s  (3.6 min)
+
+
+
+――――――――――――――――――――――――――― mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf ――――――――――――――――――――――――――
+
+――――――――――― contracts_1to5 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 189/360
+  avg compile@10  : 52.5%
+  Total time     : 1001s  (16.7 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 189/360  (52.5%)
+  After repair  : 233/360  (64.7%)
+  Repaired      : +44 samples
+  Still failing : 101 samples
+  No fn found   : 26 samples
+  Total time    : 268s  (4.5 min)
+
+――――――――――― contracts_6to10 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 88/360
+  avg compile@10  : 24.4%
+  Total time     : 2502s  (41.7 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 88/360  (24.4%)
+  After repair  : 126/360  (35.0%)
+  Repaired      : +38 samples
+  Still failing : 173 samples
+  No fn found   : 61 samples
+  Total time    : 522s  (8.7 min)
+
+――――――――――― contracts_11to15 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 53/360
+  avg compile@10  : 14.7%
+  Total time     : 3686s  (61.4 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 53/360  (14.7%)
+  After repair  : 87/360  (24.2%)
+  Repaired      : +34 samples
+  Still failing : 253 samples
+  No fn found   : 20 samples
+  Total time    : 691s  (11.5 min)
+
+――――――――――― contracts_15to20 ―――――――――――
+
+###################
+# generate_source #
+###################
+  Total compiled : 48/360
+  avg compile@10  : 13.3%
+  Total time     : 5640s  (94.0 min)
+
+####################
+# repair_source.py #
+####################
+  Before repair : 48/360  (13.3%)
+  After repair  : 60/360  (16.7%)
+  Repaired      : +12 samples
+  Still failing : 289 samples
+  No fn found   : 11 samples
+  Total time    : 783s  (13.0 min)
