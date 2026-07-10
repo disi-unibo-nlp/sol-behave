@@ -1,0 +1,2418 @@
+[llamapipe] node=faretra  gpu=2  port=8082  server=llamacpp_contracts_6to10
+[llamapipe] model=/llms/gemma-4-31B-it-qat-UD-Q4_K_XL.gguf  ctx=8192  parallel=3
+[llamapipe] contracts=../dataset/contracts_6to10  limit=36
+[llamapipe] waiting for model load . ready
+WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.3.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+[pipeline] Node/Hardhat not found — installing via get_hardhat_deps.sh ...
+=== Installing solc-select ===
+Found existing installation: solc-select 1.1.0
+Uninstalling solc-select-1.1.0:
+  Successfully uninstalled solc-select-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting solc-select
+  Using cached solc_select-1.2.0-py3-none-any.whl.metadata (47 kB)
+Requirement already satisfied: pycryptodome>=3.4.6 in /usr/local/lib/python3.10/dist-packages (from solc-select) (3.17)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from solc-select) (26.2)
+Collecting requests>=2.32.4 (from solc-select)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2026.5.20)
+Downloading solc_select-1.2.0-py3-none-any.whl (36 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Installing collected packages: requests, solc-select
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.3
+    Uninstalling requests-2.32.3:
+      Successfully uninstalled requests-2.32.3
+
+Successfully installed requests-2.34.2 solc-select-1.2.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+=== Installing NVM 0.40.4 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16774  100 16774    0     0  54664      0 --:--:-- --:--:-- --:--:-- 54638
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=== Installing Node.js (npm 11.9.0) ===
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz...
+#=#=#                                                                         ###                                                                        4.6%#################                                                         23.7%############################                                              40.2%############################################                              61.5%############################################################              84.3%######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+Creating default alias: default -> 24 (-> v24.18.0 *)
+Now using node v24.18.0 (npm v11.16.0)
+default -> 24 (-> v24.18.0 *)
+=== Installing Hardhat 2.28.6 ===
+
+up to date in 261ms
+
+up to date, audited 217 packages in 5s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (10 low, 3 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp rebuild)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+=== Installing Solidity compiler 0.4.18 ===
+Installing solc '0.4.18'...
+Version '0.4.18' installed.
+Switched global version to 0.4.18
+
+=======================================
+Installed versions:
+=======================================
+Node:
+v24.18.0
+npm:
+11.16.0
+npx:
+11.16.0
+nvm:
+0.40.4
+Hardhat:
+2.28.6
+solc:
+solc, the solidity compiler commandline interface
+Version: 0.4.18+commit.9cf6e910.Linux.g++
+solc-select:
+0.4.18 (current, set by /root/.solc-select/global-version)
+
+Now run:
+source ~/.bashrc
+source .env
+[pipeline] node v24.18.0  npx 11.16.0
+[hardhat-ws] workspace=/workdir/src/dataset/hh_contracts_6to10  current=2.28.6  wanted=2.28.6
+[hardhat-ws] Hardhat 2.x already present — nothing to do.
+[hardhat-ws] Hardhat now: 2.28.6
+[pipeline] contracts=/workdir/src/dataset/contracts_6to10  limit=36
+[pipeline] generated=./generated_contracts_6to10  repaired=./repaired_contracts_6to10  work_dir=../dataset/hh_contracts_6to10
+[pipeline] model=Qwen/Qwen3-Coder-30B-A3B-Instruct  context=4096   k=10
+[pipeline] cwd=/workdir/src/source_generation
+[pipeline] 36 contracts (found 40 in /workdir/src/dataset/contracts_6to10, limited to 36)
+[pipeline] generated=./generated_contracts_6to10  repaired=./repaired_contracts_6to10
+[pipeline] work_dir=../dataset/hh_contracts_6to10  k=10  context=4096
+[pipeline] backend=llamacpp — connecting to the llama.cpp server (ONCE) ...
+[LlamaCppClient] Connecting to http://127.0.0.1:8082/v1/chat/completions ... ready
+[pipeline] Client ready.
+
+[pipeline] ===================== GENERATION =====================
+  [1/36]  0x000011387eb24f…  ClaimRewards  (9 functions, k=10)
+      fn 1/9  _msgSender  batch 1/1 (10×k) ...  ✓  4.7s
+      fn 2/9  _msgData  batch 1/1 (10×k) ...  ✓  4.7s
+      fn 3/9  owner  batch 1/1 (10×k) ...  ✓  4.4s
+      fn 4/9  _checkOwner  batch 1/1 (10×k) ...  ✓  6.4s
+      fn 5/9  renounceOwnership  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 6/9  transferOwnership  batch 1/1 (10×k) ...  ✓  4.9s
+      fn 7/9  _transferOwnership  batch 1/1 (10×k) ...  ✓  7.5s
+      fn 8/9  withdraw  batch 1/1 (10×k) ...  ✓  6.9s
+      fn 9/9  getBalance  batch 1/1 (10×k) ...  ✓  5.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ClaimRewards  compiled 10/10  compile@10=100%  elapsed=55s  (total: 10/10)
+  [2/36]  0x00003d1cef5f30…  ClaimRewards  (9 functions, k=10)
+      fn 1/9  _msgSender  batch 1/1 (10×k) ...  ✓  4.7s
+      fn 2/9  _msgData  batch 1/1 (10×k) ...  ✓  4.8s
+      fn 3/9  owner  batch 1/1 (10×k) ...  ✓  4.7s
+      fn 4/9  _checkOwner  batch 1/1 (10×k) ...  ✓  6.5s
+      fn 5/9  renounceOwnership  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 6/9  transferOwnership  batch 1/1 (10×k) ...  ✓  5.1s
+      fn 7/9  _transferOwnership  batch 1/1 (10×k) ...  ✓  7.5s
+      fn 8/9  withdraw  batch 1/1 (10×k) ...  ✓  7.1s
+      fn 9/9  getBalance  batch 1/1 (10×k) ...  ✓  5.2s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ClaimRewards  compiled 10/10  compile@10=100%  elapsed=55s  (total: 20/20)
+  [3/36]  0x0d248ce39e26fb…  Butter  (9 functions, k=10)
+      fn 1/9  approve  batch 1/1 (10×k) ...  ✓  7.7s
+      fn 2/9  transfer  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 3/9  transferFrom  — not found, skip
+      fn 4/9  permit  batch 1/1 (10×k) ...  ✓  26.5s
+      fn 5/9  DOMAIN_SEPARATOR  — not found, skip
+      fn 6/9  computeDomainSeparator  — not found, skip
+      fn 7/9  _mint  — not found, skip
+      fn 8/9  butterMe  batch 1/1 (10×k) ...  ✓  22.9s
+      fn 9/9  endAirdrop  batch 1/1 (10×k) ...  ✓  14.4s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 3: ParserError: Expected '(' but got identifier
+   --> contracts/contract.sol:150:23:
+             148               }
+             149  
+        >>>  150               function _mint(address to, uint256 amount) internal {
+             151                   totalSupply += amount;
+             152                   balanceOf[to] += amount;
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 6: ParserError: Expected '(' but got identifier
+   --> contracts/contract.sol:110:21:
+             108             emit Approval(owner, spender, value);
+             109  
+        >>>  110             function recoverAddress(bytes32 hash, bytes memory signature) internal pure returns (address) {
+             111                 (bytes32 r, bytes32 s, uint8 v) = splitSignature(signature);
+             112                 return ecrecover(hash, v, r, s);
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 8: ParserError: Expected '(' but got identifier
+   --> contracts/contract.sol:159:23:
+             157               }
+             158  
+        >>>  159               function _mint(address to, uint256 amount) internal {
+             160                   totalSupply += amount;
+             161                   balanceOf[to] += amount;
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:61:36:
+              59  
+              60          INITIAL_CHAIN_ID = block.chainid;
+        >>>   61          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              62      }
+              63  
+  → Butter  compiled 0/10  compile@10=0%  elapsed=89s  (total: 20/30)
+  [4/36]  0x1111b1ea9129f3…  Platinum_Bar  (6 functions, k=10)
+      fn 1/6  afterConstructor  batch 1/1 (10×k) ...  ✓  13.0s
+      fn 2/6  decimals  batch 1/1 (10×k) ...  ✓  10.5s
+      fn 3/6  _updateRouterV2  batch 1/1 (10×k) ...  ✓  15.4s
+      fn 4/6  setAMM  batch 1/1 (10×k) ...  ✓  10.7s
+      fn 5/6  _setAMM  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 6/6  _update  batch 1/1 (10×k) ...  ✓  17.9s
+    ✗ sample 1: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 2: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 3: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 4: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), 0x0000000000000000000000000000000000000000);
+              53              _setAMM(pairV2, true);
+              54              emit RouterV2Updated(router);
+    ✗ sample 5: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 6: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 7: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 8: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), 0);
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 9: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 10: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+  → Platinum_Bar  compiled 0/10  compile@10=0%  elapsed=85s  (total: 20/40)
+  [5/36]  0x2c91d908e9fab2…  REAPERSGAMBIT  (6 functions, k=10)
+      fn 1/6  transfer  batch 1/1 (10×k) ...  ✓  15.3s
+      fn 2/6  transferFrom  batch 1/1 (10×k) ...  ✓  15.3s
+      fn 3/6  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  16.1s
+      fn 4/6  CheatDeath  batch 1/1 (10×k) ...  ✓  5.4s
+      fn 5/6  AcceptDeath  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 6/6  KnowDeath  batch 1/1 (10×k) ...  ✓  10.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → REAPERSGAMBIT  compiled 10/10  compile@10=100%  elapsed=74s  (total: 30/50)
+  [6/36]  0x329319ebe02eac…  BIMToken  (6 functions, k=10)
+      fn 1/6  transferFrom  batch 1/1 (10×k) ...  ✓  18.0s
+      fn 2/6  balanceOf  batch 1/1 (10×k) ...  ✓  5.8s
+      fn 3/6  approve  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 4/6  allowance  batch 1/1 (10×k) ...  ✓  6.0s
+      fn 5/6  transferFrom  batch 1/1 (10×k) ...  ✓  17.8s
+      fn 6/6  BIMToken  batch 1/1 (10×k) ...  ✓  6.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → BIMToken  compiled 10/10  compile@10=100%  elapsed=68s  (total: 40/60)
+  [7/36]  0x3820e79deb5e60…  TheMintMemes  (9 functions, k=10)
+      fn 1/9  getMintLimitByAddress  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 2/9  setIsMintEnabled  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 3/9  setUri  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 4/9  setContractURI  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 5/9  contractURI  batch 1/1 (10×k) ...  ✓  10.1s
+      fn 6/9  airdrop  batch 1/1 (10×k) ...  ✓  19.0s
+      fn 7/9  mint  batch 1/1 (10×k) ...  ✓  16.0s
+      fn 8/9  safeTransferFrom  batch 1/1 (10×k) ...  ✓  14.0s
+      fn 9/9  safeBatchTransferFrom  batch 1/1 (10×k) ...  ✓  11.8s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → TheMintMemes  compiled 10/10  compile@10=100%  elapsed=126s  (total: 50/70)
+  [8/36]  0x3a314d38b6e174…  BasePunks  (10 functions, k=10)
+      fn 1/10  mintPunk  batch 1/1 (10×k) ...  ✓  19.5s
+      fn 2/10  setCost  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 3/10  setSupply  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 4/10  numberMinted  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 5/10  _startTokenId  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 6/10  setBaseURI  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 7/10  _baseURI  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 8/10  toggleSale  batch 1/1 (10×k) ...  ✓  9.1s
+      fn 9/10  mintTo  batch 1/1 (10×k) ...  ✓  11.3s
+      fn 10/10  withdraw  batch 1/1 (10×k) ...  ✓  11.3s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✗ sample 2: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✗ sample 3: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74            (bool success, ) = payable(owner()).call{value: address(this).balance}("");
+              75            require(success, "Transfer failed");
+    ✗ sample 4: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74            address payable ownerAddress = payable(owner());
+              75            ownerAddress.transfer(address(this).balance);
+    ✗ sample 5: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "Transfer"?
+  --> contracts/contracts/BasePunks.sol:73:11:
+              71    function withdraw() external onlyOwner {
+              72            payable(owner());
+        >>>   73            transfer(address(this).balance);
+              74        }
+              75  }
+    ✓ sample 9
+    ✓ sample 10
+  → BasePunks  compiled 2/10  compile@10=20%  elapsed=115s  (total: 52/80)
+  [9/36]  0x3f17f64f682019…  ReviveCoin  (6 functions, k=10)
+      fn 1/6  setRule  batch 1/1 (10×k) ...  ✓  13.3s
+      fn 2/6  setFees  batch 1/1 (10×k) ...  ✓  11.6s
+      fn 3/6  setFeesWallet  batch 1/1 (10×k) ...  ✓  13.5s
+      fn 4/6  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  15.5s
+      fn 5/6  _transfer  batch 1/1 (10×k) ...  ✓  22.5s
+      fn 6/6  transferWithFees  batch 1/1 (10×k) ...  ✓  18.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ReviveCoin  compiled 10/10  compile@10=100%  elapsed=104s  (total: 62/90)
+  [10/36]  0x40d16fc0246ad3…  GhoToken  (8 functions, k=10)
+      fn 1/8  mint  batch 1/1 (10×k) ...  ✓  18.5s
+      fn 2/8  burn  batch 1/1 (10×k) ...  ✓  18.8s
+      fn 3/8  addFacilitator  batch 1/1 (10×k) ...  ✓  19.8s
+      fn 4/8  removeFacilitator  batch 1/1 (10×k) ...  ✓  14.9s
+      fn 5/8  setFacilitatorBucketCapacity  batch 1/1 (10×k) ...  ✓  15.6s
+      fn 6/8  getFacilitator  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 7/8  getFacilitatorBucket  batch 1/1 (10×k) ...  ✓  14.3s
+      fn 8/8  getFacilitatorsList  batch 1/1 (10×k) ...  ✓  6.4s
+    ✗ sample 1: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to uint128 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:65:58:
+              63    ) external onlyRole(FACILITATOR_MANAGER_ROLE) {
+              64           require(bytes(_facilitators[facilitatorAddress].label).length == 0, 'FACILITATOR_ALREADY_EXISTS');
+        >>>   65           _facilitators[facilitatorAddress] = Facilitator(facilitatorLabel, bucketCapacity, 0);
+              66           _facilitatorsList.add(facilitatorAddress);
+              67           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+    ✗ sample 2: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:58:52:
+              56           });
+              57           _facilitatorsList.add(facilitatorAddress);
+        >>>   58           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              59       }
+              60  
+    ✗ sample 3: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:58:52:
+              56           });
+              57           _facilitatorsList.add(facilitatorAddress);
+        >>>   58           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              59       }
+              60  
+    ✗ sample 4: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:64:52:
+              62           });
+              63           _facilitatorsList.add(facilitatorAddress);
+        >>>   64           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              65       }
+              66  
+    ✗ sample 5: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:58:52:
+              56           });
+              57           _facilitatorsList.add(facilitatorAddress);
+        >>>   58           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              59       }
+              60  
+    ✗ sample 6: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:72:52:
+              70           });
+              71           _facilitatorsList.add(facilitatorAddress);
+        >>>   72           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              73       }
+              74  
+    ✗ sample 7: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:68:52:
+              66           });
+              67           _facilitatorsList.add(facilitatorAddress);
+        >>>   68           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              69       }
+              70  
+    ✗ sample 8: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to bytes32 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:71:52:
+              69           });
+              70           _facilitatorsList.add(facilitatorAddress);
+        >>>   71           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+              72       }
+              73  
+    ✗ sample 9: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to uint128 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:58:58:
+              56    ) external onlyRole(FACILITATOR_MANAGER_ROLE) {
+              57           require(bytes(_facilitators[facilitatorAddress].label).length == 0, 'FACILITATOR_ALREADY_EXISTS');
+        >>>   58           _facilitators[facilitatorAddress] = Facilitator(facilitatorLabel, bucketCapacity, 0);
+              59           _facilitatorsList.add(facilitatorAddress);
+              60           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+    ✗ sample 10: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string calldata to uint128 requested.
+  --> contracts/lib/gho-core/src/contracts/gho/GhoToken.sol:52:58:
+              50    ) external onlyRole(FACILITATOR_MANAGER_ROLE) {
+              51           require(bytes(_facilitators[facilitatorAddress].label).length == 0, 'FACILITATOR_ALREADY_EXISTS');
+        >>>   52           _facilitators[facilitatorAddress] = Facilitator(facilitatorLabel, bucketCapacity, 0);
+              53           _facilitatorsList.add(facilitatorAddress);
+              54           emit FacilitatorAdded(facilitatorAddress, facilitatorLabel, bucketCapacity);
+  → GhoToken  compiled 0/10  compile@10=0%  elapsed=125s  (total: 62/100)
+  [11/36]  0x420698cfdeddea…  Towelie  (6 functions, k=10)
+      fn 1/6  afterConstructor  batch 1/1 (10×k) ...  ✓  12.3s
+      fn 2/6  decimals  batch 1/1 (10×k) ...  ✓  10.6s
+      fn 3/6  _updateRouterV2  batch 1/1 (10×k) ...  ✓  16.8s
+      fn 4/6  setAMMPair  batch 1/1 (10×k) ...  ✓  12.3s
+      fn 5/6  _setAMMPair  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 6/6  _update  batch 1/1 (10×k) ...  ✓  16.2s
+    ✗ sample 1: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 2: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 3: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              _setAMMPair(pairV2, true);
+              54              emit RouterV2Updated(router);
+    ✗ sample 4: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 5: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 6: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 7: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 8: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 9: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 10: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+  → Towelie  compiled 0/10  compile@10=0%  elapsed=85s  (total: 62/110)
+  [12/36]  0x4691937a750886…  WootradeNetwork  (7 functions, k=10)
+      fn 1/7  transfer  batch 1/1 (10×k) ...  ✓  13.7s
+      fn 2/7  transferFrom  batch 1/1 (10×k) ...  ✓  17.0s
+      fn 3/7  balanceOf  batch 1/1 (10×k) ...  ✓  5.9s
+      fn 4/7  approve  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 5/7  allowance  batch 1/1 (10×k) ...  ✓  6.0s
+      fn 6/7  WootradeNetwork  batch 1/1 (10×k) ...  ✓  11.0s
+      fn 7/7  approveAndCall  batch 1/1 (10×k) ...  ✓  8.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✗ sample 4: contracts/contract.sol:111:20: TypeError: Member "tokenCallback" not found or not visible after argument-dependent lookup in contract Token
+                   token.tokenCallback(msg.sender, _spender, _value, _extraData);
+             109                     Token token = Token(address(this));
+             110                     token.tokenCallback(msg.sender, _spender, _value, _extraData);
+        >>>  111                     return true;
+             112                 }
+             113  }
+    ✗ sample 5: contracts/contract.sol:112:27: TypeError: Member "success" not found or not visible after argument-dependent lookup in bool
+                   return token.call(_spender, _extraData).success;
+             110                     Token token = Token(address(this));
+             111                     return token.call(_spender, _extraData).success;
+        >>>  112                 }
+             113  }
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: contracts/contract.sol:111:26: ParserError: Expected token Comma got 'Identifier'
+                   (bool callSuccess, ) = _spender.call(_extraData);
+             109                     Token token = Token(address(this));
+             110                     (bool callSuccess, ) = _spender.call(_extraData);
+        >>>  111                     return callSuccess;
+             112                 }
+             113  }
+    ✓ sample 9
+    ✓ sample 10
+  → WootradeNetwork  compiled 7/10  compile@10=70%  elapsed=77s  (total: 69/120)
+  [13/36]  0x4f6d52293c5b2a…  GrandTheftAssets  (9 functions, k=10)
+      fn 1/9  totalSupply  batch 1/1 (10×k) ...  ✓  6.3s
+      fn 2/9  balanceOf  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 3/9  transfer  batch 1/1 (10×k) ...  ✓  6.3s
+      fn 4/9  allowance  batch 1/1 (10×k) ...  ✓  5.4s
+      fn 5/9  approve  batch 1/1 (10×k) ...  ✓  6.3s
+      fn 6/9  transferFrom  batch 1/1 (10×k) ...  ✓  10.6s
+      fn 7/9  _transfer  batch 1/1 (10×k) ...  ✓  23.8s
+      fn 8/9  _approve  batch 1/1 (10×k) ...  ✓  12.4s
+      fn 9/9  transferOwnership  batch 1/1 (10×k) ...  ✓  12.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → GrandTheftAssets  compiled 10/10  compile@10=100%  elapsed=94s  (total: 79/130)
+  [14/36]  0x63217dbb73e7a0…  GhostBoy  (9 functions, k=10)
+      fn 1/9  mintReserves  batch 1/1 (10×k) ...  ✓  13.1s
+      fn 2/9  incrementReserves  batch 1/1 (10×k) ...  ✓  13.4s
+      fn 3/9  isGhostlisted  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 4/9  mint  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 5/9  setBaseURI  batch 1/1 (10×k) ...  ✓  10.6s
+      fn 6/9  setPlaceholderTokenURI  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 7/9  tokenURI  batch 1/1 (10×k) ...  ✓  12.1s
+      fn 8/9  _baseURI  batch 1/1 (10×k) ...  ✓  8.4s
+      fn 9/9  supportsInterface  batch 1/1 (10×k) ...  ✓  7.7s
+    ✗ sample 1: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:160:21:
+             158                      revert("Invalid token ID");
+             159                  }
+        >>>  160                  if (baseUri == "") {
+             161                      return placeholderTokenUri;
+             162                  }
+    ✓ sample 2
+    ✗ sample 3: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:159:21:
+             157                      revert("Invalid token ID");
+             158                  }
+        >>>  159                  if (baseUri == "") {
+             160                      return placeholderTokenUri;
+             161                  }
+    ✗ sample 4: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:156:21:
+             154                      return "";
+             155                  }
+        >>>  156                  if (baseUri == "") {
+             157                      return placeholderTokenUri;
+             158                  }
+    ✗ sample 5: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:160:21:
+             158                      revert("GhostBoy: Token does not exist");
+             159                  }
+        >>>  160                  if (baseUri == "") {
+             161                      return placeholderTokenUri;
+             162                  }
+    ✓ sample 6
+    ✗ sample 7: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:156:21:
+             154                      revert("Invalid token ID");
+             155                  }
+        >>>  156                  if (baseUri == "") {
+             157                      return placeholderTokenUri;
+             158                  }
+    ✗ sample 8: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:157:21:
+             155                      revert("Invalid token ID");
+             156                  }
+        >>>  157                  if (baseUri == "") {
+             158                      return placeholderTokenUri;
+             159                  }
+    ✗ sample 9: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:157:21:
+             155                      revert("Invalid token ID");
+             156                  }
+        >>>  157                  if (baseUri == "") {
+             158                      return placeholderTokenUri;
+             159                  }
+    ✗ sample 10: TypeError: Operator == not compatible with types string storage ref and literal_string "".
+   --> contracts/contracts/GhostBoy.sol:160:21:
+             158                      revert("Invalid token ID");
+             159                  }
+        >>>  160                  if (baseUri == "") {
+             161                      return placeholderTokenUri;
+             162                  }
+  → GhostBoy  compiled 2/10  compile@10=20%  elapsed=105s  (total: 81/140)
+  [15/36]  0x68b7b4017df1fe…  Token  (8 functions, k=10)
+      fn 1/8  transferFrom  batch 1/1 (10×k) ...  ✓  15.9s
+      fn 2/8  balanceOf  — not found, skip
+      fn 3/8  approve  — not found, skip
+      fn 4/8  allowance  — not found, skip
+      fn 5/8  totalSupply  — not found, skip
+      fn 6/8  name  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 7/8  symbol  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 8/8  decimals  batch 1/1 (10×k) ...  ✓  5.4s
+    ✗ sample 1: contracts/contract.sol:114:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             112  
+             113  contract Token is ERC20Base {
+        >>>  114  
+             115      string private _name;
+             116      string private _symbol;
+    ✗ sample 2: contracts/contract.sol:114:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             112  
+             113  contract Token is ERC20Base {
+        >>>  114  
+             115      string private _name;
+             116      string private _symbol;
+    ✗ sample 3: contracts/contract.sol:116:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             114  
+             115  contract Token is ERC20Base {
+        >>>  116  
+             117      string private _name;
+             118      string private _symbol;
+    ✗ sample 4: contracts/contract.sol:113:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             111  
+             112  contract Token is ERC20Base {
+        >>>  113  
+             114      string private _name;
+             115      string private _symbol;
+    ✗ sample 5: contracts/contract.sol:113:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             111  
+             112  contract Token is ERC20Base {
+        >>>  113  
+             114      string private _name;
+             115      string private _symbol;
+    ✗ sample 6: contracts/contract.sol:116:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             114  
+             115  contract Token is ERC20Base {
+        >>>  116  
+             117      string private _name;
+             118      string private _symbol;
+    ✗ sample 7: contracts/contract.sol:113:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             111  
+             112  contract Token is ERC20Base {
+        >>>  113  
+             114      string private _name;
+             115      string private _symbol;
+    ✗ sample 8: contracts/contract.sol:114:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             112  
+             113  contract Token is ERC20Base {
+        >>>  114  
+             115      string private _name;
+             116      string private _symbol;
+    ✗ sample 9: contracts/contract.sol:114:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             112  
+             113  contract Token is ERC20Base {
+        >>>  114  
+             115      string private _name;
+             116      string private _symbol;
+    ✗ sample 10: contracts/contract.sol:113:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract Token is ERC20Base {
+             111  
+             112  contract Token is ERC20Base {
+        >>>  113  
+             114      string private _name;
+             115      string private _symbol;
+  → Token  compiled 0/10  compile@10=0%  elapsed=42s  (total: 81/150)
+  [16/36]  0x6c361a982fdc31…  FCKIT  (6 functions, k=10)
+      fn 1/6  setLockDuration  batch 1/1 (10×k) ...  ✓  9.5s
+      fn 2/6  withdrawLockedFunds  batch 1/1 (10×k) ...  ✓  19.4s
+      fn 3/6  foundOut  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 4/6  setRules  batch 1/1 (10×k) ...  ✓  13.6s
+      fn 5/6  burn  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 6/6  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  27.5s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → FCKIT  compiled 10/10  compile@10=100%  elapsed=98s  (total: 91/160)
+  [17/36]  0x6f259637dcd74c…  HBToken  (6 functions, k=10)
+      fn 1/6  transferFrom  batch 1/1 (10×k) ...  ✓  22.2s
+      fn 2/6  balanceOf  batch 1/1 (10×k) ...  ✓  7.0s
+      fn 3/6  approve  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 4/6  allowance  batch 1/1 (10×k) ...  ✓  5.9s
+      fn 5/6  transferFrom  batch 1/1 (10×k) ...  ✓  19.6s
+      fn 6/6  HBToken  batch 1/1 (10×k) ...  ✓  6.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → HBToken  compiled 10/10  compile@10=100%  elapsed=75s  (total: 101/170)
+  [18/36]  0x736ecc5237b31e…  GaspToken  (7 functions, k=10)
+      fn 1/7  setAllowTransfers  batch 1/1 (10×k) ...  ✓  5.4s
+      fn 2/7  addToSenderWhitelist  batch 1/1 (10×k) ...  ✓  12.2s
+      fn 3/7  addToRecipientWhitelist  batch 1/1 (10×k) ...  ✓  12.4s
+      fn 4/7  removeFromSenderWhitelist  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 5/7  removeFromRecipientWhitelist  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 6/7  transfer  batch 1/1 (10×k) ...  ✓  5.9s
+      fn 7/7  transferFrom  batch 1/1 (10×k) ...  ✓  5.9s
+    ✗ sample 1: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 2: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 3: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 4: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 5: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 6: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 7: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 8: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 9: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+    ✗ sample 10: TypeError: Wrong argument count for function call: 3 arguments given but expected 2.
+  --> contracts/src/GaspToken.sol:96:16:
+              94          returns (bool)
+              95      {
+        >>>   96          return super.transfer(_msgSender(), recipient, amount);
+              97      }
+              98  
+  → GaspToken  compiled 0/10  compile@10=0%  elapsed=71s  (total: 101/180)
+  [19/36]  0x747ec0600d3d16…  Metropolis  (7 functions, k=10)
+      fn 1/7  Write  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4852 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4852,"n_ctx":2816}}
+✓  0.0s
+      fn 2/7  Read  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4859 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4859,"n_ctx":2816}}
+✓  0.0s
+      fn 3/7  ReadNumberOfSubmissions  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4862 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4862,"n_ctx":2816}}
+✓  0.0s
+      fn 4/7  ReadAllIndexes  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+✓  0.0s
+      fn 5/7  ReadAll  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4813 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4813,"n_ctx":2816}}
+✓  0.0s
+      fn 6/7  ReadAllSubmissionsByAddress  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4737 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4737,"n_ctx":2816}}
+✓  0.0s
+      fn 7/7  ReadAllSubmissionIndexesByAddress  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4746 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4746,"n_ctx":2816}}
+✓  0.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Metropolis  compiled 10/10  compile@10=100%  elapsed=6s  (total: 111/190)
+  [20/36]  0x777b6d4730a8a8…  SilverStandard  (8 functions, k=10)
+      fn 1/8  afterConstructor  batch 1/1 (10×k) ...  ✓  5.5s
+      fn 2/8  decimals  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 3/8  recoverToken  batch 1/1 (10×k) ...  ✓  6.9s
+      fn 4/8  recoverForeignERC20  batch 1/1 (10×k) ...  ✓  6.6s
+      fn 5/8  _updateRouterV2  batch 1/1 (10×k) ...  ✓  10.8s
+      fn 6/8  setAMM  batch 1/1 (10×k) ...  ✓  8.2s
+      fn 7/8  _setAMM  batch 1/1 (10×k) ...  ✓  6.9s
+      fn 8/8  _update  batch 1/1 (10×k) ...  ✓  14.7s
+    ✗ sample 1: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+    ✗ sample 2: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              _setAMM(address(routerV2), true);
+              68              if (pairV2 != address(0)) {
+    ✗ sample 3: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+    ✗ sample 4: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+    ✗ sample 5: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              _setAMM(address(routerV2), true);
+              68              if (pairV2 != address(0)) {
+    ✗ sample 6: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+    ✗ sample 7: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+    ✗ sample 8: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              67              _setAMM(address(routerV2), true);
+              68              _setAMM(pairV2, true);
+    ✗ sample 9: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              _setAMM(address(routerV2), true);
+              68              if (pairV2 != address(0)) {
+    ✗ sample 10: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:66:22:
+              64      function _updateRouterV2(address router) private {
+              65              routerV2 = IUniswapV2Router02(router);
+        >>>   66              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              67              if (pairV2 != address(0)) {
+              68                  _setAMM(pairV2, true);
+  → SilverStandard  compiled 0/10  compile@10=0%  elapsed=70s  (total: 111/200)
+  [21/36]  0x777be1c6075c20…  Gold_Standard  (6 functions, k=10)
+      fn 1/6  afterConstructor  batch 1/1 (10×k) ...  ✓  13.6s
+      fn 2/6  decimals  batch 1/1 (10×k) ...  ✓  10.6s
+      fn 3/6  _updateRouterV2  batch 1/1 (10×k) ...  ✓  15.3s
+      fn 4/6  setAMM  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 5/6  _setAMM  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 6/6  _update  batch 1/1 (10×k) ...  ✓  14.8s
+    ✓ sample 1
+    ✗ sample 2: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 3: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 4: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 5: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 6: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 7: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 8: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 9: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().getPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+    ✗ sample 10: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:52:22:
+              50      function _updateRouterV2(address router) private {
+              51              routerV2 = IUniswapV2Router02(router);
+        >>>   52              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              53              emit RouterV2Updated(router);
+              54          }
+  → Gold_Standard  compiled 1/10  compile@10=10%  elapsed=83s  (total: 112/210)
+  [22/36]  0x7c1156e515aa1a…  lvlUSD  (6 functions, k=10)
+      fn 1/6  setMinter  batch 1/1 (10×k) ...  ✓  15.1s
+      fn 2/6  mint  batch 1/1 (10×k) ...  ✓  12.4s
+      fn 3/6  renounceRole  batch 1/1 (10×k) ...  ✓  13.1s
+      fn 4/6  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  17.7s
+      fn 5/6  addToDenylist  batch 1/1 (10×k) ...  ✓  14.7s
+      fn 6/6  removeFromDenylist  batch 1/1 (10×k) ...  ✓  11.0s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 4: DeclarationError: Undeclared identifier. Did you mean "setMinter"?
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert NotMinter();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "setMinter"?
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert NotMinter();
+              51                _mint(to, amount);
+              52            }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/src/lvlUSD.sol:50:48:
+              48  
+              49      function mint(address to, uint256 amount) external {
+        >>>   50                if (msg.sender != minter) revert Unauthorized();
+              51                _mint(to, amount);
+              52            }
+  → lvlUSD  compiled 0/10  compile@10=0%  elapsed=89s  (total: 112/220)
+  [23/36]  0x8d67cdcca8e45c…  AIZONE  (9 functions, k=10)
+      fn 1/9  mintPublic  batch 1/1 (10×k) ...  ✓  23.8s
+      fn 2/9  teamMint  batch 1/1 (10×k) ...  ✓  16.0s
+      fn 3/9  generateCommonValues  batch 1/1 (10×k) ...  ✓  49.6s
+      fn 4/9  generateSVG  batch 1/1 (10×k) ...  ✓  53.3s
+      fn 5/9  generateAttributes  batch 1/1 (10×k) ...  ✓  28.9s
+      fn 6/9  tokenURI  batch 1/1 (10×k) ...  ✓  31.0s
+      fn 7/9  _safeMint  batch 1/1 (10×k) ...  ✓  13.3s
+      fn 8/9  Num  batch 1/1 (10×k) ...  ✓  8.0s
+      fn 9/9  withdraw  batch 1/1 (10×k) ...  ✓  8.3s
+    ✗ sample 1: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string memory to bytes memory requested.
+   --> contracts/contracts/2bit/AIZONE.sol:113:76:
+             111                       '"description": "AIZONE Generative Art",',
+             112                       '"attributes": [{"display_type": "properties", "trait_type": "Properties", "value": ', attributes, '}],',
+        >>>  113                       '"image": "data:image/svg+xml;base64,', Base64.encode(svg), '"}'
+             114                   )));
+             115                   return string(abi.encodePacked("data:application/json;base64,", json));
+    ✗ sample 2: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+   --> contracts/contracts/2bit/AIZONE.sol:113:26:
+             111  
+             112      function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        >>>  113                   require(_ownerOf(_tokenId) != address(0), "URI query for nonexistent token");
+             114                   string memory svg = generateSVG(_tokenId);
+             115                   string memory attributes = generateAttributes(_tokenId);
+    ✗ sample 3: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string memory to bytes memory requested.
+   --> contracts/contracts/2bit/AIZONE.sol:121:76:
+             119                       '"description": "A generative AI art piece.",',
+             120                       '"attributes": [{"trait_type": "Attributes", "value": "', attributes, '"]},',
+        >>>  121                       '"image": "data:image/svg+xml;base64,', Base64.encode(svg), '"}'
+             122                   )));
+             123                   return string(abi.encodePacked("data:application/json;base64,", json));
+    ✗ sample 4: TypeError: Member "push" is not available in uint256[] memory outside of storage.
+  --> contracts/contracts/2bit/AIZONE.sol:67:21:
+              65  
+              66                  for (uint256 i = 0; i < cv.numCircles; i++) {
+        >>>   67                      cv.radius.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "rad"))) % 40) + 10);
+              68                      cv.distance.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "dist"))) % 60) + 20);
+              69                      cv.strokeWidth.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "width"))) % 5) + 1);
+    ✗ sample 5: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+   --> contracts/contracts/2bit/AIZONE.sol:113:26:
+             111  
+             112      function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        >>>  113                   require(_ownerOf(_tokenId) != address(0), "URI query for nonexistent token");
+             114                   string memory svg = generateSVG(_tokenId);
+             115                   string memory attributes = generateAttributes(_tokenId);
+    ✗ sample 6: TypeError: Member "push" is not available in uint256[] memory outside of storage.
+  --> contracts/contracts/2bit/AIZONE.sol:69:21:
+              67  
+              68                  for (uint256 i = 0; i < cv.numCircles; i++) {
+        >>>   69                      cv.radius.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "rad"))) % 40) + 10);
+              70                      cv.distance.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "dist"))) % 100) + 20);
+              71                      cv.strokeWidth.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "width"))) % 5) + 1);
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+   --> contracts/contracts/2bit/AIZONE.sol:111:26:
+             109  
+             110      function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        >>>  111                   require(_ownerOf(_tokenId) != address(0), "URI query for nonexistent token");
+             112                   string memory svg = generateSVG(_tokenId);
+             113                   string memory attributes = generateAttributes(_tokenId);
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+   --> contracts/contracts/2bit/AIZONE.sol:114:26:
+             112  
+             113      function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        >>>  114                   require(_ownerOf(_tokenId) != address(0), "URI query for nonexistent token");
+             115                   string memory svg = generateSVG(_tokenId);
+             116                   string memory attributes = generateAttributes(_tokenId);
+    ✗ sample 9: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string memory to bytes memory requested.
+   --> contracts/contracts/2bit/AIZONE.sol:114:76:
+             112                       '{"name": "', "AIZONE #", Strings.toString(_tokenId), '",',
+             113                       '"description": "A generative AI-inspired art piece.",',
+        >>>  114                       '"image": "data:image/svg+xml;base64,', Base64.encode(image), '",',
+             115                       '"attributes": [', attributes, ']}'
+             116                   )));
+    ✗ sample 10: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+   --> contracts/contracts/2bit/AIZONE.sol:108:26:
+             106  
+             107      function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        >>>  108                   require(_ownerOf(_tokenId) != address(0), "URI query for nonexistent token");
+             109                   string memory svg = generateSVG(_tokenId);
+             110                   string memory attributes = generateAttributes(_tokenId);
+  → AIZONE  compiled 0/10  compile@10=0%  elapsed=237s  (total: 112/230)
+  [24/36]  0x92cf67713f5ec1…  ConsensusNode  (9 functions, k=10)
+      fn 1/9  MakeProposal  batch 1/1 (10×k) ...  ✓  22.2s
+      fn 2/9  callFunction  batch 1/1 (10×k) ...  ✓  14.8s
+      fn 3/9  txToByte  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 4/9  addNode  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 5/9  delNode  batch 1/1 (10×k) ...  ✓  13.3s
+      fn 6/9  assignRequiredConf  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 7/9  seeNodes  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 8/9  isExecuted  batch 1/1 (10×k) ...  ✓  5.9s
+      fn 9/9  seeMinCofReq  batch 1/1 (10×k) ...  ✓  5.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ConsensusNode  compiled 10/10  compile@10=100%  elapsed=109s  (total: 122/240)
+  [25/36]  0x946cea2ab87eb6…  ScreamingFlowers  (9 functions, k=10)
+      fn 1/9  mint  batch 1/1 (10×k) ...  ✓  16.0s
+      fn 2/9  wlMint  batch 1/1 (10×k) ...  ✓  30.2s
+      fn 3/9  gift  batch 1/1 (10×k) ...  ✓  11.2s
+      fn 4/9  setPublicSaleTime  batch 1/1 (10×k) ...  ✓  5.8s
+      fn 5/9  withdraw  batch 1/1 (10×k) ...  ✓  5.8s
+      fn 6/9  _baseURI  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 7/9  tokenURI  batch 1/1 (10×k) ...  ✓  14.5s
+      fn 8/9  setBaseTokenURI  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 9/9  _startTokenId  batch 1/1 (10×k) ...  ✓  4.6s
+    ✗ sample 1: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 2: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 3: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 4: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 5: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 6: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: Token does not exist");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 7: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 8: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721: invalid token ID");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 9: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+    ✗ sample 10: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/development/ScreamingFlowers.sol:85:52:
+              83      {
+              84          require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   85          return string(abi.encodePacked(_baseURI(), tokenId.toString()));
+              86      }
+              87  
+  → ScreamingFlowers  compiled 0/10  compile@10=0%  elapsed=104s  (total: 122/250)
+  [26/36]  0x9e976f211daea0…  map  (8 functions, k=10)
+      fn 1/8  sub  batch 1/1 (10×k) ...  ✓  7.2s
+      fn 2/8  add  batch 1/1 (10×k) ...  ✓  7.1s
+      fn 3/8  balanceOf  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 4/8  transfer  batch 1/1 (10×k) ...  ✓  23.6s
+      fn 5/8  transferFrom  batch 1/1 (10×k) ...  ✓  29.1s
+      fn 6/8  approve  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 7/8  allowance  batch 1/1 (10×k) ...  ✓  6.8s
+      fn 8/8  batchTransfer  batch 1/1 (10×k) ...  ✓  18.7s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → map  compiled 10/10  compile@10=100%  elapsed=112s  (total: 132/260)
+  [27/36]  0xa62fc0ba9deeee…  MSN_STAKE  (9 functions, k=10)
+      fn 1/9  get_total_credit  batch 1/1 (10×k) ...  ✓  8.2s
+      fn 2/9  get_credit  batch 1/1 (10×k) ...  ✓  7.0s
+      fn 3/9  get_stake_token  batch 1/1 (10×k) ...  ✓  7.3s
+      fn 4/9  get_stake_last_time  batch 1/1 (10×k) ...  ✓  7.6s
+      fn 5/9  cal_credit_reward  batch 1/1 (10×k) ...  ✓  11.3s
+      fn 6/9  get_credit_reward_speed  batch 1/1 (10×k) ...  ✓  10.0s
+      fn 7/9  harvest  batch 1/1 (10×k) ...  ✓  13.0s
+      fn 8/9  stake  batch 1/1 (10×k) ...  ✓  7.3s
+      fn 9/9  unstake  batch 1/1 (10×k) ...  ✓  21.8s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → MSN_STAKE  compiled 10/10  compile@10=100%  elapsed=98s  (total: 142/270)
+  [28/36]  0xba66a7c5e1f89a…  AIORBIT  (10 functions, k=10)
+      fn 1/10  _mint  batch 1/1 (10×k) ...  ✓  24.5s
+      fn 2/10  mint  batch 1/1 (10×k) ...  ✓  17.4s
+      fn 3/10  royaltyInfo  batch 1/1 (10×k) ...  ✓  12.6s
+      fn 4/10  generateCommonValues  batch 1/1 (10×k) ...  ✓  48.6s
+      fn 5/10  generateSVG  batch 1/1 (10×k) ...  ✓  43.8s
+      fn 6/10  generateAttributes  batch 1/1 (10×k) ...  ✓  28.1s
+      fn 7/10  tokenURI  batch 1/1 (10×k) ...  ✓  30.0s
+      fn 8/10  withdraw  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 9/10  totalSupply  batch 1/1 (10×k) ...  ✓  7.6s
+      fn 10/10  supportsInterface  batch 1/1 (10×k) ...  ✓  9.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: TypeError: Member "push" is not available in uint256[] memory outside of storage.
+  --> contracts/contracts/AIORBIT.sol:55:21:
+              53                  cv.numCircles = (uint256(keccak256(abi.encodePacked(_tokenId, "num"))) % 10) + 3;
+              54                  for (uint256 i = 0; i < cv.numCircles; i++) {
+        >>>   55                      cv.radius.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "rad"))) % 40) + 10);
+              56                      cv.distance.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "dist"))) % 60) + 20);
+              57                      cv.strokeWidth.push((uint256(keccak256(abi.encodePacked(_tokenId, i, "sw"))) % 5) + 1);
+    ✗ sample 7: TypeError: Member "interfaceId" not found or not visible after argument-dependent lookup in type(contract ERC721).
+   --> contracts/contracts/AIORBIT.sol:113:40:
+             111  
+             112      function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
+        >>>  113                   return interfaceId == type(ERC721).interfaceId || interfaceId == _INTERFACE_ID_FEES;
+             114               }
+             115  }
+    ✓ sample 8
+    ✓ sample 9
+    ✗ sample 10: TypeError: Invalid type for argument in function call. Invalid implicit conversion from string memory to bytes memory requested.
+   --> contracts/contracts/AIORBIT.sol:100:76:
+              98                       '"description": "AIORBIT Generative Art", ',
+              99                       '"attributes": [', generateAttributes(_tokenId), '], ',
+        >>>  100                       '"image": "data:image/svg+xml;base64,', Base64.encode(generateSVG(_tokenId)), '"}'
+             101                   )));
+             102                   return string(abi.encodePacked("data:application/json;base64,", json));
+  → AIORBIT  compiled 7/10  compile@10=70%  elapsed=242s  (total: 149/280)
+  [29/36]  0xbaea5e07080f00…  Yippee  (9 functions, k=10)
+      fn 1/9  name  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 2/9  symbol  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 3/9  totalSupply  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 4/9  setMaxWalletBal  batch 1/1 (10×k) ...  ✓  11.5s
+      fn 5/9  setUniswapV2Pair  batch 1/1 (10×k) ...  ✓  18.4s
+      fn 6/9  setCapExclusions  batch 1/1 (10×k) ...  ✓  8.8s
+      fn 7/9  toggleLimits  batch 1/1 (10×k) ...  ✓  8.0s
+      fn 8/9  burn  batch 1/1 (10×k) ...  ✓  8.3s
+      fn 9/9  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  19.0s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:142:17:
+             140          uint256 _amount
+             141      ) internal view override {
+        >>>  142              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             143              if (!limitsEnabled) return;
+             144              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:141:17:
+             139          uint256 _amount
+             140      ) internal view override {
+        >>>  141              if (blacklist[_from]) revert("Blacklisted");
+             142              if (blacklist[_to]) revert("Blacklisted");
+             143              if (uniswapV2Pair != address(0) && _from == uniswapV2Pair && _to == uniswapV2Pair) revert(UniswapV2Pair());
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:142:17:
+             140          uint256 _amount
+             141      ) internal view override {
+        >>>  142              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             143              if (!limitsEnabled) return;
+             144              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:142:17:
+             140          uint256 _amount
+             141      ) internal view override {
+        >>>  142              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             143              if (!limitsEnabled) return;
+             144              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:143:22:
+             141      ) internal view override {
+             142              if (limitsEnabled && _from != address(0)) {
+        >>>  143                  if (!tradingActive) revert NotActive();
+             144                  if (blacklist[_from]) revert("Blacklisted");
+             145              }
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:141:17:
+             139          uint256 _amount
+             140      ) internal view override {
+        >>>  141              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             142              if (!limitsEnabled) return;
+             143              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:141:17:
+             139          uint256 _amount
+             140      ) internal view override {
+        >>>  141              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             142              if (!limitsEnabled) return;
+             143              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:144:21:
+             142              if (limitsEnabled) {
+             143                  if (uniswapV2Pair == address(0)) revert NotActive();
+        >>>  144                  if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             145                  if (_from != address(0) && _to != address(0) && !capExclusions[_to]) {
+             146                      if (balanceOf(_to) + _amount > maxWalletBal) revert CapExceeded();
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:142:17:
+             140          uint256 _amount
+             141      ) internal view override {
+        >>>  142              if (blacklist[_from] || blacklist[_to]) revert("Blacklisted");
+             143              if (!limitsEnabled) return;
+             144              if (uniswapV2Pair == address(0)) revert NotActive();
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+   --> contracts/src/Yippee.sol:144:25:
+             142              if (limitsEnabled) {
+             143                  if (!capExclusions[_from]) {
+        >>>  144                      if (blacklist[_from]) revert("Blacklisted");
+             145                  }
+             146                  if (!capExclusions[_to]) {
+  → Yippee  compiled 0/10  compile@10=0%  elapsed=104s  (total: 149/290)
+  [30/36]  0xc02aaa39b223fe…  WETH9  (6 functions, k=10)
+      fn 1/6  deposit  batch 1/1 (10×k) ...  ✓  11.3s
+      fn 2/6  withdraw  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 3/6  totalSupply  batch 1/1 (10×k) ...  ✓  5.4s
+      fn 4/6  approve  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 5/6  transfer  batch 1/1 (10×k) ...  ✓  11.4s
+      fn 6/6  transferFrom  batch 1/1 (10×k) ...  ✓  18.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → WETH9  compiled 10/10  compile@10=100%  elapsed=70s  (total: 159/300)
+  [31/36]  0xcf9560b9e952b1…  DoctorEvil  (7 functions, k=10)
+      fn 1/7  setTaxPhase  batch 1/1 (10×k) ...  ✓  23.2s
+      fn 2/7  disableTax  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 3/7  updateTax  batch 1/1 (10×k) ...  ✓  11.4s
+      fn 4/7  burn  batch 1/1 (10×k) ...  ✓  8.3s
+      fn 5/7  addPair  batch 1/1 (10×k) ...  ✓  11.4s
+      fn 6/7  _transfer  batch 1/1 (10×k) ...  ✓  44.2s
+      fn 7/7  swapTokensForEth  batch 1/1 (10×k) ...  ✓  22.0s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+   --> contracts/Doctor Evil.sol:158:13:
+             156              uint256 headroom = tokenAmount;
+             157              super._transfer(address(this), address(this), 0);
+        >>>  158              safeTransferFrom(address(this), address(uniswapV2Router), tokenAmount);
+             159              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             160                  tokenAmount,
+    ✗ sample 2: TypeError: Wrong argument count for function call: 4 arguments given but expected 5.
+   --> contracts/Doctor Evil.sol:155:13:
+             153              uint256 initialBalance = address(this).balance;
+             154              IERC20(address(this)).approve(address(uniswapV2Router), tokenAmount);
+        >>>  155              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             156                  tokenAmount,
+             157                  0,
+    ✗ sample 3: TypeError: Wrong argument count for function call: 4 arguments given but expected 5.
+   --> contracts/Doctor Evil.sol:169:13:
+             167              uint256 headroom = tokenAmount;
+             168              super._approve(address(this), address(uniswapV2Router), headroom);
+        >>>  169              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             170                  headroom,
+             171                  0,
+    ✗ sample 4: TypeError: Invalid type for argument in function call. Invalid implicit conversion from address[1] memory to address[] memory requested.
+   --> contracts/Doctor Evil.sol:161:17:
+             159                  tokenAmount,
+             160                  0,
+        >>>  161                  [address(this)],
+             162                  marketingWallet,
+             163                  block.timestamp
+    ✗ sample 5: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+   --> contracts/Doctor Evil.sol:179:1:
+             177              marketingWallet.transfer(newBalance);
+             178          }
+        >>>  179  }
+    ✗ sample 6: TypeError: Wrong argument count for function call: 4 arguments given but expected 5.
+   --> contracts/Doctor Evil.sol:164:13:
+             162      function swapTokensForEth(uint256 tokenAmount) private {
+             163              IERC20(address(this)).approve(address(uniswapV2Router), tokenAmount);
+        >>>  164              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             165                  tokenAmount,
+             166                  0,
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "_approve" or "approve"?
+   --> contracts/Doctor Evil.sol:161:14:
+             159      function swapTokensForEth(uint256 tokenAmount) private {
+             160              uint256 headroom = tokenAmount / 10**decimals();  
+        >>>  161              (_approved, ) = uniswapV2Router.approve(address(uniswapV2Router), tokenAmount);
+             162              if(_approved != 1) {
+             163                  uniswapV2Router.approve(address(uniswapV2Router), tokenAmount);
+    ✗ sample 8: ParserError: Expected primary expression.
+   --> contracts/Doctor Evil.sol:164:94:
+             162      function swapTokensForEth(uint256 tokenAmount) private {
+             163              IERC20(address(this)).approve(address(uniswapV2Router), tokenAmount);
+        >>>  164              uint256[] memory amounts = uniswapV2Router.swapExactTokensForETH(tokenAmount, 0, {receiver: marketingWallet}, {});
+             165              marketingWallet.transfer(amounts[0]);
+             166          }
+    ✗ sample 9: TypeError: Wrong argument count for function call: 4 arguments given but expected 5.
+   --> contracts/Doctor Evil.sol:158:13:
+             156              uint256 initialBalance = address(this).balance;
+             157              IERC20(address(this)).approve(address(uniswapV2Router), tokenAmount);
+        >>>  158              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             159                  tokenAmount,
+             160                  0,
+    ✗ sample 10: TypeError: Wrong argument count for function call: 4 arguments given but expected 5.
+   --> contracts/Doctor Evil.sol:164:13:
+             162      function swapTokensForEth(uint256 tokenAmount) private {
+             163              IERC20(address(this)).approve(address(uniswapV2Router), tokenAmount);
+        >>>  164              uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             165                  tokenAmount,
+             166                  0,
+  → DoctorEvil  compiled 0/10  compile@10=0%  elapsed=139s  (total: 159/310)
+  [32/36]  0xd2e01c3de355d5…  NOTHING  (7 functions, k=10)
+      fn 1/7  approve  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 2/7  transfer  batch 1/1 (10×k) ...  ✓  12.8s
+      fn 3/7  transferFrom  — not found, skip
+      fn 4/7  permit  batch 1/1 (10×k) ...  ✓  30.1s
+      fn 5/7  DOMAIN_SEPARATOR  — not found, skip
+      fn 6/7  computeDomainSeparator  — not found, skip
+      fn 7/7  _mint  — not found, skip
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:57:36:
+              55  
+              56          INITIAL_CHAIN_ID = block.chainid;
+        >>>   57          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              58      }
+              59  
+    ✗ sample 10: ParserError: Expected '(' but got identifier
+   --> contracts/contract.sol:102:21:
+             100             emit Approval(owner, spender, value);
+             101  
+        >>>  102             function recoverSigner(bytes32 hash, bytes memory signature) internal pure returns (address) {
+             103                 (bytes32 r, bytes32 s, uint8 v) = splitSignature(signature);
+             104                 return ecrecover(hash, v, r, s);
+  → NOTHING  compiled 0/10  compile@10=0%  elapsed=60s  (total: 159/320)
+  [33/36]  0xdddd8f6324edb0…  letmedoitforyou  (6 functions, k=10)
+      fn 1/6  afterConstructor  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 2/6  decimals  batch 1/1 (10×k) ...  ✓  4.8s
+      fn 3/6  _updateRouterV2  batch 1/1 (10×k) ...  ✓  15.4s
+      fn 4/6  setAMM  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 5/6  _setAMM  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 6/6  _update  batch 1/1 (10×k) ...  ✓  17.4s
+    ✗ sample 1: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:30:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = address(routerV2.factory().getPair(address(this), routerV2.WETH()));
+              54              _setAMM(pairV2, true);
+              55              emit RouterV2Updated(router);
+    ✗ sample 2: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:22:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              54              emit RouterV2Updated(router);
+              55          }
+    ✗ sample 3: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:22:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              54              emit RouterV2Updated(router);
+              55          }
+    ✗ sample 4: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:30:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = address(routerV2.factory().getPair(address(this), routerV2.WETH()));
+              54              emit RouterV2Updated(router);
+              55          }
+    ✗ sample 5: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:30:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = address(routerV2.factory().getPair(address(this), routerV2.WETH()));
+              54              emit RouterV2Updated(router);
+              55          }
+    ✗ sample 6: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:30:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = address(routerV2.factory().getPair(address(this), routerV2.WETH()));
+              54              emit RouterV2Updated(router);
+              55          }
+    ✓ sample 7
+    ✗ sample 8: TypeError: Member "getPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:30:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = address(routerV2.factory().getPair(address(this), routerV2.WETH()));
+              54              emit RouterV2Updated(router);
+              55          }
+    ✓ sample 9
+    ✗ sample 10: TypeError: Member "createPair" not found or not visible after argument-dependent lookup in address.
+  --> contracts/Token.sol:53:22:
+              51      function _updateRouterV2(address router) private {
+              52              routerV2 = IUniswapV2Router02(router);
+        >>>   53              pairV2 = routerV2.factory().createPair(address(this), routerV2.WETH());
+              54              emit RouterV2Updated(router);
+              55          }
+  → letmedoitforyou  compiled 2/10  compile@10=20%  elapsed=76s  (total: 161/330)
+  [34/36]  0xec8daff690638f…  GoySlop  (9 functions, k=10)
+      fn 1/9  approve  batch 1/1 (10×k) ...  ✓  10.8s
+      fn 2/9  transfer  batch 1/1 (10×k) ...  ✓  10.7s
+      fn 3/9  transferFrom  — not found, skip
+      fn 4/9  permit  batch 1/1 (10×k) ...  ✓  26.3s
+      fn 5/9  DOMAIN_SEPARATOR  — not found, skip
+      fn 6/9  computeDomainSeparator  — not found, skip
+      fn 7/9  _mint  — not found, skip
+      fn 8/9  claim  batch 1/1 (10×k) ...  ✓  16.3s
+      fn 9/9  setLocked  batch 1/1 (10×k) ...  ✓  11.9s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:65:36:
+              63  
+              64          INITIAL_CHAIN_ID = block.chainid;
+        >>>   65          INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
+              66      }
+              67  
+  → GoySlop  compiled 0/10  compile@10=0%  elapsed=81s  (total: 161/340)
+  [35/36]  0xedaa2fa0fd153b…  Crimingo  (10 functions, k=10)
+      fn 1/10  disableMinTransaction  batch 1/1 (10×k) ...  ✓  7.0s
+      fn 2/10  balanceOf  batch 1/1 (10×k) ...  ✓  5.6s
+      fn 3/10  allowance  batch 1/1 (10×k) ...  ✓  6.0s
+      fn 4/10  approve  batch 1/1 (10×k) ...  ✓  6.7s
+      fn 5/10  transfer  batch 1/1 (10×k) ...  ✓  6.6s
+      fn 6/10  transferFrom  batch 1/1 (10×k) ...  ✓  12.4s
+      fn 7/10  setExemption  batch 1/1 (10×k) ...  ✓  9.4s
+      fn 8/10  setMaxTokensHold  batch 1/1 (10×k) ...  ✓  5.8s
+      fn 9/10  _approve  batch 1/1 (10×k) ...  ✓  11.5s
+      fn 10/10  _transfer  batch 1/1 (10×k) ...  ✓  25.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Crimingo  compiled 10/10  compile@10=100%  elapsed=102s  (total: 171/350)
+  [36/36]  0xf00200f02a2bd1…  WalterCoin  (10 functions, k=10)
+      fn 1/10  safeAdd  batch 1/1 (10×k) ...  ✓  11.9s
+      fn 2/10  safeSub  batch 1/1 (10×k) ...  ✓  8.0s
+      fn 3/10  safeMul  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 4/10  safeDiv  batch 1/1 (10×k) ...  ✓  9.7s
+      fn 5/10  totalSupply  batch 1/1 (10×k) ...  ✓  4.9s
+      fn 6/10  balanceOf  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 7/10  allowance  batch 1/1 (10×k) ...  ✓  5.5s
+      fn 8/10  approve  batch 1/1 (10×k) ...  ✓  7.9s
+      fn 9/10  transfer  batch 1/1 (10×k) ...  ✓  11.1s
+      fn 10/10  transferFrom  batch 1/1 (10×k) ...  ✓  16.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✗ sample 7: contracts/contract.sol:31:19: Warning: This declaration shadows an existing declaration.
+                  uint c = a - b;
+              29                    require(a >= b);
+              30                    uint c = a - b;
+        >>>   31                    return c;
+              32                } function safeMul(uint a, uint b) public pure returns (uint c) {
+              33                               require(a == 0 || b <= type(uint).max / a);
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → WalterCoin  compiled 9/10  compile@10=90%  elapsed=93s  (total: 180/360)
+
+============================================================
+  Total compiled : 180/360
+  avg compile@10  : 50.0%
+  Total time     : 3417s  (57.0 min)
+
+[pipeline] ======================= REPAIR =======================
+  [1/36]  0x000011387eb24f…  ClaimRewards  — all OK, skip
+  [2/36]  0x00003d1cef5f30…  ClaimRewards  — all OK, skip
+  [3/36]  0x0d248ce39e26fb…  Butter  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `butterMe`, scheduling repair
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `permit`, scheduling repair
+    sample 7: can't locate function at error line, copying original
+    sample 8: error in `butterMe`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+    repair batch 1/1 (3 samples) ...  ✓  4.7s
+    ✗ sample 3  [butterMe] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [permit] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [butterMe] still fails: DeclarationError: Undeclared identifier.
+  → Butter  0/10 compiled after repair  (+0 fixed)
+  [4/36]  0x1111b1ea9129f3…  Platinum_Bar  (10/10 failed)
+    sample 1: error in `_updateRouterV2`, scheduling repair
+    sample 2: error in `_updateRouterV2`, scheduling repair
+    sample 3: error in `_updateRouterV2`, scheduling repair
+    sample 4: error in `_updateRouterV2`, scheduling repair
+    sample 5: error in `_updateRouterV2`, scheduling repair
+    sample 6: error in `_updateRouterV2`, scheduling repair
+    sample 7: error in `_updateRouterV2`, scheduling repair
+    sample 8: error in `_updateRouterV2`, scheduling repair
+    sample 9: error in `_updateRouterV2`, scheduling repair
+    sample 10: error in `_updateRouterV2`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  16.3s
+    ✗ sample 1  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 2  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 3  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 4  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 5  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✓ sample 6  [_updateRouterV2] repaired
+    ✗ sample 7  [_updateRouterV2] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 9  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 10  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+  → Platinum_Bar  1/10 compiled after repair  (+1 fixed)
+  [5/36]  0x2c91d908e9fab2…  REAPERSGAMBIT  — all OK, skip
+  [6/36]  0x329319ebe02eac…  BIMToken  — all OK, skip
+  [7/36]  0x3820e79deb5e60…  TheMintMemes  — all OK, skip
+  [8/36]  0x3a314d38b6e174…  BasePunks  (8/10 failed)
+    sample 1: error in `withdraw`, scheduling repair
+    sample 2: error in `withdraw`, scheduling repair
+    sample 3: error in `withdraw`, scheduling repair
+    sample 4: error in `withdraw`, scheduling repair
+    sample 5: error in `withdraw`, scheduling repair
+    sample 6: error in `withdraw`, scheduling repair
+    sample 7: error in `withdraw`, scheduling repair
+    sample 8: error in `withdraw`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  8.3s
+    ✓ sample 1  [withdraw] repaired
+    ✓ sample 2  [withdraw] repaired
+    ✓ sample 3  [withdraw] repaired
+    ✓ sample 4  [withdraw] repaired
+    ✓ sample 5  [withdraw] repaired
+    ✓ sample 6  [withdraw] repaired
+    ✓ sample 7  [withdraw] repaired
+    ✓ sample 8  [withdraw] repaired
+  → BasePunks  10/10 compiled after repair  (+8 fixed)
+  [9/36]  0x3f17f64f682019…  ReviveCoin  — all OK, skip
+  [10/36]  0x40d16fc0246ad3…  GhoToken  (10/10 failed)
+    sample 1: error in `addFacilitator`, scheduling repair
+    sample 2: error in `addFacilitator`, scheduling repair
+    sample 3: error in `addFacilitator`, scheduling repair
+    sample 4: error in `addFacilitator`, scheduling repair
+    sample 5: error in `addFacilitator`, scheduling repair
+    sample 6: error in `addFacilitator`, scheduling repair
+    sample 7: error in `addFacilitator`, scheduling repair
+    sample 8: error in `addFacilitator`, scheduling repair
+    sample 9: error in `addFacilitator`, scheduling repair
+    sample 10: error in `addFacilitator`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  23.1s
+    ✗ sample 1  [addFacilitator] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✗ sample 2  [addFacilitator] still fails: TypeError: Wrong argument count for struct constructor: 2 arguments gi
+    ✗ sample 3  [addFacilitator] still fails: TypeError: Explicit type conversion not allowed from "string calldata"
+    ✗ sample 4  [addFacilitator] still fails: TypeError: Explicit type conversion not allowed from "string calldata"
+    ✗ sample 5  [addFacilitator] still fails: TypeError: Explicit type conversion not allowed from "string calldata"
+    ✗ sample 6  [addFacilitator] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✗ sample 7  [addFacilitator] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✗ sample 8  [addFacilitator] still fails: TypeError: Explicit type conversion not allowed from "string calldata"
+    ✗ sample 9  [addFacilitator] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✗ sample 10  [addFacilitator] still fails: TypeError: Wrong argument count for struct constructor: 2 arguments gi
+  → GhoToken  0/10 compiled after repair  (+0 fixed)
+  [11/36]  0x420698cfdeddea…  Towelie  (10/10 failed)
+    sample 1: error in `_updateRouterV2`, scheduling repair
+    sample 2: error in `_updateRouterV2`, scheduling repair
+    sample 3: error in `_updateRouterV2`, scheduling repair
+    sample 4: error in `_updateRouterV2`, scheduling repair
+    sample 5: error in `_updateRouterV2`, scheduling repair
+    sample 6: error in `_updateRouterV2`, scheduling repair
+    sample 7: error in `_updateRouterV2`, scheduling repair
+    sample 8: error in `_updateRouterV2`, scheduling repair
+    sample 9: error in `_updateRouterV2`, scheduling repair
+    sample 10: error in `_updateRouterV2`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  18.0s
+    ✓ sample 1  [_updateRouterV2] repaired
+    ✓ sample 2  [_updateRouterV2] repaired
+    ✗ sample 3  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✓ sample 4  [_updateRouterV2] repaired
+    ✓ sample 5  [_updateRouterV2] repaired
+    ✗ sample 6  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 7  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✓ sample 8  [_updateRouterV2] repaired
+    ✓ sample 9  [_updateRouterV2] repaired
+    ✓ sample 10  [_updateRouterV2] repaired
+  → Towelie  7/10 compiled after repair  (+7 fixed)
+  [12/36]  0x4691937a750886…  WootradeNetwork  (3/10 failed)
+    sample 4: error in `approveAndCall`, scheduling repair
+    sample 5: error in `approveAndCall`, scheduling repair
+    sample 8: error in `approveAndCall`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  6.1s
+    ✗ sample 4  [approveAndCall] still fails: contracts/contract.sol:111:20: TypeError: Member "tokenCallback" not f
+    ✗ sample 5  [approveAndCall] still fails: contracts/contract.sol:111:26: ParserError: Expected token Comma got '
+    ✗ sample 8  [approveAndCall] still fails: contracts/contract.sol:110:26: ParserError: Expected token Comma got '
+  → WootradeNetwork  7/10 compiled after repair  (+0 fixed)
+  [13/36]  0x4f6d52293c5b2a…  GrandTheftAssets  — all OK, skip
+  [14/36]  0x63217dbb73e7a0…  GhostBoy  (8/10 failed)
+    sample 1: error in `tokenURI`, scheduling repair
+    sample 3: error in `tokenURI`, scheduling repair
+    sample 4: error in `tokenURI`, scheduling repair
+    sample 5: error in `tokenURI`, scheduling repair
+    sample 7: error in `tokenURI`, scheduling repair
+    sample 8: error in `tokenURI`, scheduling repair
+    sample 9: error in `tokenURI`, scheduling repair
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  21.3s
+    ✓ sample 1  [tokenURI] repaired
+    ✓ sample 3  [tokenURI] repaired
+    ✓ sample 4  [tokenURI] repaired
+    ✓ sample 5  [tokenURI] repaired
+    ✓ sample 7  [tokenURI] repaired
+    ✓ sample 8  [tokenURI] repaired
+    ✓ sample 9  [tokenURI] repaired
+    ✓ sample 10  [tokenURI] repaired
+  → GhostBoy  10/10 compiled after repair  (+8 fixed)
+  [15/36]  0x68b7b4017df1fe…  Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [16/36]  0x6c361a982fdc31…  FCKIT  — all OK, skip
+  [17/36]  0x6f259637dcd74c…  HBToken  — all OK, skip
+  [18/36]  0x736ecc5237b31e…  GaspToken  (10/10 failed)
+    sample 1: error in `transfer`, scheduling repair
+    sample 2: error in `transfer`, scheduling repair
+    sample 3: error in `transfer`, scheduling repair
+    sample 4: error in `transfer`, scheduling repair
+    sample 5: error in `transfer`, scheduling repair
+    sample 6: error in `transfer`, scheduling repair
+    sample 7: error in `transfer`, scheduling repair
+    sample 8: error in `transfer`, scheduling repair
+    sample 9: error in `transfer`, scheduling repair
+    sample 10: error in `transfer`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  5.9s
+    ✓ sample 1  [transfer] repaired
+    ✓ sample 2  [transfer] repaired
+    ✓ sample 3  [transfer] repaired
+    ✓ sample 4  [transfer] repaired
+    ✓ sample 5  [transfer] repaired
+    ✓ sample 6  [transfer] repaired
+    ✓ sample 7  [transfer] repaired
+    ✓ sample 8  [transfer] repaired
+    ✓ sample 9  [transfer] repaired
+    ✓ sample 10  [transfer] repaired
+  → GaspToken  10/10 compiled after repair  (+10 fixed)
+  [19/36]  0x747ec0600d3d16…  Metropolis  — all OK, skip
+  [20/36]  0x777b6d4730a8a8…  SilverStandard  (10/10 failed)
+    sample 1: error in `_updateRouterV2`, scheduling repair
+    sample 2: error in `_updateRouterV2`, scheduling repair
+    sample 3: error in `_updateRouterV2`, scheduling repair
+    sample 4: error in `_updateRouterV2`, scheduling repair
+    sample 5: error in `_updateRouterV2`, scheduling repair
+    sample 6: error in `_updateRouterV2`, scheduling repair
+    sample 7: error in `_updateRouterV2`, scheduling repair
+    sample 8: error in `_updateRouterV2`, scheduling repair
+    sample 9: error in `_updateRouterV2`, scheduling repair
+    sample 10: error in `_updateRouterV2`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  10.9s
+    ✓ sample 1  [_updateRouterV2] repaired
+    ✓ sample 2  [_updateRouterV2] repaired
+    ✓ sample 3  [_updateRouterV2] repaired
+    ✓ sample 4  [_updateRouterV2] repaired
+    ✓ sample 5  [_updateRouterV2] repaired
+    ✓ sample 6  [_updateRouterV2] repaired
+    ✓ sample 7  [_updateRouterV2] repaired
+    ✗ sample 8  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✓ sample 9  [_updateRouterV2] repaired
+    ✓ sample 10  [_updateRouterV2] repaired
+  → SilverStandard  9/10 compiled after repair  (+9 fixed)
+  [21/36]  0x777be1c6075c20…  Gold_Standard  (9/10 failed)
+    sample 2: error in `_updateRouterV2`, scheduling repair
+    sample 3: error in `_updateRouterV2`, scheduling repair
+    sample 4: error in `_updateRouterV2`, scheduling repair
+    sample 5: error in `_updateRouterV2`, scheduling repair
+    sample 6: error in `_updateRouterV2`, scheduling repair
+    sample 7: error in `_updateRouterV2`, scheduling repair
+    sample 8: error in `_updateRouterV2`, scheduling repair
+    sample 9: error in `_updateRouterV2`, scheduling repair
+    sample 10: error in `_updateRouterV2`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  14.4s
+    ✗ sample 2  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 3  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 4  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 5  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 6  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 7  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 8  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 9  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 10  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+  → Gold_Standard  1/10 compiled after repair  (+0 fixed)
+  [22/36]  0x7c1156e515aa1a…  lvlUSD  (10/10 failed)
+    sample 1: error in `mint`, scheduling repair
+    sample 2: error in `mint`, scheduling repair
+    sample 3: error in `mint`, scheduling repair
+    sample 4: error in `mint`, scheduling repair
+    sample 5: error in `mint`, scheduling repair
+    sample 6: error in `mint`, scheduling repair
+    sample 7: error in `mint`, scheduling repair
+    sample 8: error in `mint`, scheduling repair
+    sample 9: error in `mint`, scheduling repair
+    sample 10: error in `mint`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  15.7s
+    ✓ sample 1  [mint] repaired
+    ✓ sample 2  [mint] repaired
+    ✓ sample 3  [mint] repaired
+    ✓ sample 4  [mint] repaired
+    ✓ sample 5  [mint] repaired
+    ✓ sample 6  [mint] repaired
+    ✓ sample 7  [mint] repaired
+    ✓ sample 8  [mint] repaired
+    ✓ sample 9  [mint] repaired
+    ✓ sample 10  [mint] repaired
+  → lvlUSD  10/10 compiled after repair  (+10 fixed)
+  [23/36]  0x8d67cdcca8e45c…  AIZONE  (10/10 failed)
+    sample 1: error in `tokenURI`, scheduling repair
+    sample 2: error in `tokenURI`, scheduling repair
+    sample 3: error in `tokenURI`, scheduling repair
+    sample 4: error in `generateCommonValues`, scheduling repair
+    sample 5: error in `tokenURI`, scheduling repair
+    sample 6: error in `generateCommonValues`, scheduling repair
+    sample 7: error in `tokenURI`, scheduling repair
+    sample 8: error in `tokenURI`, scheduling repair
+    sample 9: error in `tokenURI`, scheduling repair
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  44.5s
+    ✓ sample 1  [tokenURI] repaired
+    ✗ sample 2  [tokenURI] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✓ sample 3  [tokenURI] repaired
+    ✗ sample 4  [generateCommonValues] still fails: TypeError: Member "encodeBytes" not found or not visible after argumen
+    ✗ sample 5  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "Base64"?
+    ✗ sample 6  [generateCommonValues] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✗ sample 7  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "Base64"?
+    ✗ sample 8  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "Base64"?
+    ✓ sample 9  [tokenURI] repaired
+    ✗ sample 10  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "Base64"?
+  → AIZONE  3/10 compiled after repair  (+3 fixed)
+  [24/36]  0x92cf67713f5ec1…  ConsensusNode  — all OK, skip
+  [25/36]  0x946cea2ab87eb6…  ScreamingFlowers  (10/10 failed)
+    sample 1: error in `tokenURI`, scheduling repair
+    sample 2: error in `tokenURI`, scheduling repair
+    sample 3: error in `tokenURI`, scheduling repair
+    sample 4: error in `tokenURI`, scheduling repair
+    sample 5: error in `tokenURI`, scheduling repair
+    sample 6: error in `tokenURI`, scheduling repair
+    sample 7: error in `tokenURI`, scheduling repair
+    sample 8: error in `tokenURI`, scheduling repair
+    sample 9: error in `tokenURI`, scheduling repair
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  138.2s
+    ✗ sample 1  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 2  [tokenURI] still fails: ParserError: Expected identifier but got '('
+    ✗ sample 3  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 4  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 5  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 6  [tokenURI] still fails: ParserError: Expected identifier but got '('
+    ✗ sample 7  [tokenURI] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [tokenURI] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 9  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 10  [tokenURI] still fails: TypeError: Member "toString" not found or not visible after argument-d
+  → ScreamingFlowers  0/10 compiled after repair  (+0 fixed)
+  [26/36]  0x9e976f211daea0…  map  — all OK, skip
+  [27/36]  0xa62fc0ba9deeee…  MSN_STAKE  — all OK, skip
+  [28/36]  0xba66a7c5e1f89a…  AIORBIT  (3/10 failed)
+    sample 6: error in `generateCommonValues`, scheduling repair
+    sample 7: error in `supportsInterface`, scheduling repair
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  13.7s
+    ✗ sample 6  [generateCommonValues] still fails: TypeError: Invalid type for argument in function call. Invalid implici
+    ✓ sample 7  [supportsInterface] repaired
+    ✓ sample 10  [tokenURI] repaired
+  → AIORBIT  9/10 compiled after repair  (+2 fixed)
+  [29/36]  0xbaea5e07080f00…  Yippee  (10/10 failed)
+    sample 1: error in `_beforeTokenTransfer`, scheduling repair
+    sample 2: error in `_beforeTokenTransfer`, scheduling repair
+    sample 3: error in `_beforeTokenTransfer`, scheduling repair
+    sample 4: error in `_beforeTokenTransfer`, scheduling repair
+    sample 5: error in `_beforeTokenTransfer`, scheduling repair
+    sample 6: error in `_beforeTokenTransfer`, scheduling repair
+    sample 7: error in `_beforeTokenTransfer`, scheduling repair
+    sample 8: error in `_beforeTokenTransfer`, scheduling repair
+    sample 9: error in `_beforeTokenTransfer`, scheduling repair
+    sample 10: error in `_beforeTokenTransfer`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  34.5s
+    ✓ sample 1  [_beforeTokenTransfer] repaired
+    ✓ sample 2  [_beforeTokenTransfer] repaired
+    ✓ sample 3  [_beforeTokenTransfer] repaired
+    ✓ sample 4  [_beforeTokenTransfer] repaired
+    ✗ sample 5  [_beforeTokenTransfer] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 6  [_beforeTokenTransfer] repaired
+    ✓ sample 7  [_beforeTokenTransfer] repaired
+    ✓ sample 8  [_beforeTokenTransfer] repaired
+    ✓ sample 9  [_beforeTokenTransfer] repaired
+    ✓ sample 10  [_beforeTokenTransfer] repaired
+  → Yippee  9/10 compiled after repair  (+9 fixed)
+  [30/36]  0xc02aaa39b223fe…  WETH9  — all OK, skip
+  [31/36]  0xcf9560b9e952b1…  DoctorEvil  (10/10 failed)
+    sample 1: error in `swapTokensForEth`, scheduling repair
+    sample 2: error in `swapTokensForEth`, scheduling repair
+    sample 3: error in `swapTokensForEth`, scheduling repair
+    sample 4: error in `swapTokensForEth`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `swapTokensForEth`, scheduling repair
+    sample 7: error in `swapTokensForEth`, scheduling repair
+    sample 8: error in `swapTokensForEth`, scheduling repair
+    sample 9: error in `swapTokensForEth`, scheduling repair
+    sample 10: error in `swapTokensForEth`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  33.0s
+    ✗ sample 1  [swapTokensForEth] still fails: TypeError: Wrong argument count for function call: 4 arguments given b
+    ✗ sample 2  [swapTokensForEth] still fails: TypeError: Wrong argument count for function call: 4 arguments given b
+    ✓ sample 3  [swapTokensForEth] repaired
+    ✗ sample 4  [swapTokensForEth] still fails: TypeError: Wrong argument count for function call: 4 arguments given b
+    ✗ sample 6  [swapTokensForEth] still fails: TypeError: Wrong argument count for function call: 4 arguments given b
+    ✗ sample 7  [swapTokensForEth] still fails: TypeError: Wrong argument count for function call: 4 arguments given b
+    ✓ sample 8  [swapTokensForEth] repaired
+    ✗ sample 9  [swapTokensForEth] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 10  [swapTokensForEth] repaired
+  → DoctorEvil  3/10 compiled after repair  (+3 fixed)
+  [32/36]  0xd2e01c3de355d5…  NOTHING  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `permit`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  4.0s
+    ✗ sample 10  [permit] still fails: DeclarationError: Undeclared identifier.
+  → NOTHING  0/10 compiled after repair  (+0 fixed)
+  [33/36]  0xdddd8f6324edb0…  letmedoitforyou  (8/10 failed)
+    sample 1: error in `_updateRouterV2`, scheduling repair
+    sample 2: error in `_updateRouterV2`, scheduling repair
+    sample 3: error in `_updateRouterV2`, scheduling repair
+    sample 4: error in `_updateRouterV2`, scheduling repair
+    sample 5: error in `_updateRouterV2`, scheduling repair
+    sample 6: error in `_updateRouterV2`, scheduling repair
+    sample 8: error in `_updateRouterV2`, scheduling repair
+    sample 10: error in `_updateRouterV2`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  17.3s
+    ✗ sample 1  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 2  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 3  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+    ✗ sample 4  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 5  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 6  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 8  [_updateRouterV2] still fails: TypeError: Member "getPair" not found or not visible after argument-de
+    ✗ sample 10  [_updateRouterV2] still fails: TypeError: Member "createPair" not found or not visible after argument
+  → letmedoitforyou  2/10 compiled after repair  (+0 fixed)
+  [34/36]  0xec8daff690638f…  GoySlop  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [35/36]  0xedaa2fa0fd153b…  Crimingo  — all OK, skip
+  [36/36]  0xf00200f02a2bd1…  WalterCoin  (1/10 failed)
+    sample 7: error in `safeSub`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  2.4s
+    ✗ sample 7  [safeSub] still fails: contracts/contract.sol:39:41: Warning: This declaration shadows an exi
+  → WalterCoin  9/10 compiled after repair  (+0 fixed)
+
+============================================================
+  Before repair : 180/360  (50.0%)
+  After repair  : 250/360  (69.4%)
+  Repaired      : +70 samples
+  Still failing : 73 samples
+  No fn found   : 37 samples
+  Total time    : 546s  (9.1 min)
+
+[pipeline] done.
+[pipeline] done.
+[llamapipe] pipeline finished; tearing down server.

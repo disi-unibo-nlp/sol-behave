@@ -1,0 +1,1279 @@
+[llamapipe] node=faretra  gpu=2  port=8082  server=llamacpp_contracts_1to5
+[llamapipe] model=/llms/gemma-4-31B-it-qat-UD-Q4_K_XL.gguf  ctx=8192  parallel=3
+[llamapipe] contracts=../dataset/contracts_1to5  limit=36
+[llamapipe] waiting for model load ... ready
+WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.3.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+[pipeline] Node/Hardhat not found — installing via get_hardhat_deps.sh ...
+=== Installing solc-select ===
+Found existing installation: solc-select 1.1.0
+Uninstalling solc-select-1.1.0:
+  Successfully uninstalled solc-select-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting solc-select
+  Using cached solc_select-1.2.0-py3-none-any.whl.metadata (47 kB)
+Requirement already satisfied: pycryptodome>=3.4.6 in /usr/local/lib/python3.10/dist-packages (from solc-select) (3.17)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from solc-select) (26.2)
+Collecting requests>=2.32.4 (from solc-select)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2026.5.20)
+Downloading solc_select-1.2.0-py3-none-any.whl (36 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Installing collected packages: requests, solc-select
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.3
+    Uninstalling requests-2.32.3:
+      Successfully uninstalled requests-2.32.3
+
+Successfully installed requests-2.34.2 solc-select-1.2.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+=== Installing NVM 0.40.4 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16774  100 16774    0     0  69915      0 --:--:-- --:--:-- --:--:-- 70184
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=== Installing Node.js (npm 11.9.0) ===
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz...
+#=#=#                                                                         ###                                                                        5.0%##############                                                            20.8%#############################                                             41.2%############################################                              62.3%############################################################              83.7%######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+Creating default alias: default -> 24 (-> v24.18.0 *)
+Now using node v24.18.0 (npm v11.16.0)
+default -> 24 (-> v24.18.0 *)
+=== Installing Hardhat 2.28.6 ===
+
+up to date in 291ms
+
+up to date, audited 217 packages in 4s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (10 low, 3 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp rebuild)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+=== Installing Solidity compiler 0.4.18 ===
+Installing solc '0.4.18'...
+Version '0.4.18' installed.
+Switched global version to 0.4.18
+
+=======================================
+Installed versions:
+=======================================
+Node:
+v24.18.0
+npm:
+11.16.0
+npx:
+11.16.0
+nvm:
+0.40.4
+Hardhat:
+2.28.6
+solc:
+solc, the solidity compiler commandline interface
+Version: 0.4.18+commit.9cf6e910.Linux.g++
+solc-select:
+0.4.18 (current, set by /root/.solc-select/global-version)
+
+Now run:
+source ~/.bashrc
+source .env
+[pipeline] node v24.18.0  npx 11.16.0
+[hardhat-ws] workspace=/workdir/src/dataset/hh_contracts_1to5  current=2.28.6  wanted=2.28.6
+[hardhat-ws] Hardhat 2.x already present — nothing to do.
+[hardhat-ws] Hardhat now: 2.28.6
+[pipeline] contracts=/workdir/src/dataset/contracts_1to5  limit=36
+[pipeline] generated=./generated_contracts_1to5  repaired=./repaired_contracts_1to5  work_dir=../dataset/hh_contracts_1to5
+[pipeline] model=Qwen/Qwen3-Coder-30B-A3B-Instruct  context=4096   k=10
+[pipeline] cwd=/workdir/src/source_generation
+[pipeline] 36 contracts (found 37 in /workdir/src/dataset/contracts_1to5, limited to 36)
+[pipeline] generated=./generated_contracts_1to5  repaired=./repaired_contracts_1to5
+[pipeline] work_dir=../dataset/hh_contracts_1to5  k=10  context=4096
+[pipeline] backend=llamacpp — connecting to the llama.cpp server (ONCE) ...
+[LlamaCppClient] Connecting to http://127.0.0.1:8082/v1/chat/completions ... ready
+[pipeline] Client ready.
+
+[pipeline] ===================== GENERATION =====================
+  [1/36]  0x0ebe30595a44e5…  NyanToken  (4 functions, k=10)
+      fn 1/4  blacklist  batch 1/1 (10×k) ...  ✓  6.8s
+      fn 2/4  setRule  batch 1/1 (10×k) ...  ✓  9.7s
+      fn 3/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  18.3s
+      fn 4/4  burn  batch 1/1 (10×k) ...  ✓  10.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → NyanToken  compiled 10/10  compile@10=100%  elapsed=55s  (total: 10/10)
+  [2/36]  0x166fd4299364b2…  AlephSync  (2 functions, k=10)
+      fn 1/2  doEmit  batch 1/1 (10×k) ...  ✓  5.5s
+      fn 2/2  doMessage  batch 1/1 (10×k) ...  ✓  5.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → AlephSync  compiled 10/10  compile@10=100%  elapsed=16s  (total: 20/20)
+  [3/36]  0x2be8e422cb4a5a…  MSIToken  (5 functions, k=10)
+      fn 1/5  _update  batch 1/1 (10×k) ...  ✓  21.0s
+      fn 2/5  setTaxRate  batch 1/1 (10×k) ...  ✓  13.0s
+      fn 3/5  changeTaxWallet  batch 1/1 (10×k) ...  ✓  12.5s
+      fn 4/5  addToWhitelist  batch 1/1 (10×k) ...  ✓  9.5s
+      fn 5/5  removeFromWhitelist  batch 1/1 (10×k) ...  ✓  9.3s
+    ✗ sample 1: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 2: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 3: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 4: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 5: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 6: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 7: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 8: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 9: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+    ✗ sample 10: TypeError: Function has override specified but does not override anything.
+   --> contracts/src/MSIToken.sol:150:72:
+             148       * @dev override of ERC20 _update function to add taxes if applicable
+             149       */
+        >>>  150      function _update(address from, address to, uint256 value) internal override virtual {
+             151                    uint256 taxAmount = 0;
+             152                    if (!whitelist[from] && !whitelist[to]) {
+  → MSIToken  compiled 0/10  compile@10=0%  elapsed=71s  (total: 20/30)
+  [4/36]  0x2e258dbb253b7e…  NillionVerifierVault  (5 functions, k=10)
+      fn 1/5  deposit  batch 1/1 (10×k) ...  ✓  14.1s
+      fn 2/5  withdraw  batch 1/1 (10×k) ...  ✓  12.8s
+      fn 3/5  totalSupply  batch 1/1 (10×k) ...  ✓  7.1s
+      fn 4/5  getVerifierAddress  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 5/5  getBalanceOf  batch 1/1 (10×k) ...  ✓  6.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → NillionVerifierVault  compiled 10/10  compile@10=100%  elapsed=52s  (total: 30/40)
+  [5/36]  0x303389f541ff2d…  SeriesNonceManager  (5 functions, k=10)
+      fn 1/5  increaseNonce  batch 1/1 (10×k) ...  ✓  16.3s
+      fn 2/5  advanceNonce  batch 1/1 (10×k) ...  ✓  14.9s
+      fn 3/5  nonceEquals  batch 1/1 (10×k) ...  ✓  10.1s
+      fn 4/5  timestampBelow  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 5/5  timestampBelowAndNonceEquals  batch 1/1 (10×k) ...  ✓  67.9s
+    ✗ sample 1: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:108:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 time, uint256 nonceVal, uint256 series, address account) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              56                return timestampBelow(time) && nonceEquals(series, account, nonceVal);
+              57            }
+    ✗ sample 2: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:54:113:
+              52  
+              53      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   54                (bool success, uint256 time, uint256 nonceVal, uint256 series, address makerAddress) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              55                return timestampBelow(time) && nonceEquals(series, makerAddress, nonceVal);
+              56            }
+    ✗ sample 3: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:101:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 series, address makerAddress, uint256 makerNonce) = abi.decode(timeNonceSeriesAccount, (bool, uint256, address, uint256));
+              56                return timestampBelow(block.timestamp) && nonceEquals(series, makerAddress, makerNonce);
+              57            }
+    ✗ sample 4: ParserError: Expected ';' but got ','
+  --> contracts/contract.sol:58:19:
+              56                return timestampBelow(isTimestampBelow ? 0 : 0) && nonceEquals(series, makerAddress, makerNonce);
+              57  
+        >>>   58                Wait, the input `timeNonceSeriesAccount` is a single `uint256`. Usually, in these patterns, it's a packed value. Let's look at the logic:
+              59                The function name suggests checking `timestampBelow` AND `nonceEquals`.
+              60                Since `timeNonceSeriesAccount` is a `uint256`, it must be decoded. However, the provided contract doesn't define the packing format. Given the context of these types of exercises, usually, it expects a specific decoding or a call to existing helpers.
+    ✗ sample 5: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:113:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 time, uint256 nonceVal, uint256 series, address makerAddress) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              56                return timestampBelow(time) && nonceEquals(series, makerAddress, nonceVal);
+              57            }
+    ✗ sample 6: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:54:115:
+              52  
+              53      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   54                (bool success, uint256 time, uint256 nonceValue, uint256 series, address makerAddress) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              55                return timestampBelow(time) && nonceEquals(series, makerAddress, nonceValue);
+              56            }
+    ✗ sample 7: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:113:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 time, uint256 nonceVal, uint256 series, address makerAddress) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              56                return timestampBelow(time) && nonceEquals(series, makerAddress, nonceVal);
+              57            }
+    ✗ sample 8: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:101:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 series, address makerAddress, uint256 makerNonce) = abi.decode(timeNonceSeriesAccount, (bool, uint256, address, uint256));
+              56                return timestampBelow(timeNonceSeriesAccount) && nonceEquals(series, makerAddress, makerNonce);
+              57            }
+    ✗ sample 9: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:52:115:
+              50  
+              51      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   52                (bool success, uint256 time, uint256 nonceValue, uint256 series, address makerAddress) = abi.decode(timeNonceSeriesAccount, (bool, uint256, uint256, uint256, address));
+              53                return timestampBelow(time) && nonceEquals(series, makerAddress, nonceValue);
+              54            }
+    ✗ sample 10: TypeError: The first argument to "abi.decode" must be implicitly convertible to bytes memory or bytes calldata, but is of type uint256.
+  --> contracts/contract.sol:55:101:
+              53  
+              54      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   55                (bool success, uint256 series, address makerAddress, uint256 makerNonce) = abi.decode(timeNonceSeriesAccount, (bool, uint256, address, uint256));
+              56                return timestampBelow(block.timestamp) && nonceEquals(series, makerAddress, makerNonce);
+              57            }
+  → SeriesNonceManager  compiled 0/10  compile@10=0%  elapsed=123s  (total: 30/50)
+  [6/36]  0x36ff4dae0e8811…  XenlonMarsERC20  (1 functions, k=10)
+      fn 1/1  mint  batch 1/1 (10×k) ...  ✓  8.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → XenlonMarsERC20  compiled 10/10  compile@10=100%  elapsed=20s  (total: 40/60)
+  [7/36]  0x378e1be15be6d6…  Foxe  (4 functions, k=10)
+      fn 1/4  addToBlacklist  batch 1/1 (10×k) ...  ✓  11.5s
+      fn 2/4  removeFromBlacklist  batch 1/1 (10×k) ...  ✓  11.7s
+      fn 3/4  isBlacklisted  batch 1/1 (10×k) ...  ✓  6.8s
+      fn 4/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  9.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Foxe  compiled 10/10  compile@10=100%  elapsed=50s  (total: 50/70)
+  [8/36]  0x39621e4924dde4…  Sock  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  8.3s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  8.3s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  8.4s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  8.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Sock  compiled 10/10  compile@10=100%  elapsed=43s  (total: 60/80)
+  [9/36]  0x3b4cbe8e52e401…  GibTransfer  (2 functions, k=10)
+      fn 1/2  transfer  batch 1/1 (10×k) ...  ✓  10.5s
+      fn 2/2  transferErc20  batch 1/1 (10×k) ...  ✓  15.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: TypeError: Member "transferFrom" not found or not visible after argument-dependent lookup in contract IERC20Permit.
+  --> contracts/contracts/GibTransfer.sol:19:9:
+              17          IERC20Permit token = IERC20Permit(tokenAddress);
+              18          token.permit(owner, address(this), amount, deadline, v, r, s);
+        >>>   19          token.transferFrom(owner, to, amount);
+              20          emit Transfer(owner, to, amount, roleId);
+              21      }
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → GibTransfer  compiled 9/10  compile@10=90%  elapsed=34s  (total: 69/90)
+  [10/36]  0x4973710327edc6…  RabbitDeposit  (5 functions, k=10)
+      fn 1/5  setPaymentToken  batch 1/1 (10×k) ...  ✓  6.6s
+      fn 2/5  allocateDepositId  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 3/5  deposit  batch 1/1 (10×k) ...  ✓  4.3s
+      fn 4/5  makeTransferFrom  batch 1/1 (10×k) ...  ✓  8.6s
+      fn 5/5  tokenCall  batch 1/1 (10×k) ...  ✓  6.5s
+    ✗ sample 1: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:151:35:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success, ) = paymentToken.call(data);
+             152                 return success;
+             153             }
+    ✗ sample 2: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:151:35:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success, ) = paymentToken.call(data);
+             152                 return success;
+             153             }
+    ✗ sample 3: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:150:35:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success, ) = paymentToken.call(data);
+             151                 require(success, "CALL_FAILED");
+             152                 return true;
+    ✗ sample 4: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:150:35:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success, ) = paymentToken.call(data);
+             151                 return success;
+             152             }
+    ✗ sample 5: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:150:35:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success, ) = paymentToken.call(data);
+             151                 return success;
+             152             }
+    ✗ sample 6: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:151:35:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success, ) = paymentToken.call(data);
+             152                 return success;
+             153             }
+    ✗ sample 7: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:151:35:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success, ) = paymentToken.call(data);
+             152                 return success;
+             153             }
+    ✗ sample 8: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:150:35:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success, ) = paymentToken.call(data);
+             151                 return success;
+             152             }
+    ✗ sample 9: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:150:35:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success, ) = paymentToken.call(data);
+             151                 require(success, "CALL_FAILED");
+             152                 return true;
+    ✗ sample 10: TypeError: Member "call" not found or not visible after argument-dependent lookup in contract IERC20. Use "address(paymentToken).call" to access this address member.
+   --> contracts/contract.sol:151:35:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success, ) = paymentToken.call(data);
+             152                 return success;
+             153             }
+  → RabbitDeposit  compiled 0/10  compile@10=0%  elapsed=36s  (total: 69/100)
+  [11/36]  0x55567e038b0a50…  veAllocate  (4 functions, k=10)
+      fn 1/4  getveAllocation  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 2/4  getTotalAllocation  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 3/4  setAllocation  batch 1/1 (10×k) ...  ✓  18.4s
+      fn 4/4  setBatchAllocation  batch 1/1 (10×k) ...  ✓  28.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → veAllocate  compiled 10/10  compile@10=100%  elapsed=73s  (total: 79/110)
+  [12/36]  0x664f8cbf877bf4…  Bots  (3 functions, k=10)
+      fn 1/3  release  batch 1/1 (10×k) ...  ✓  11.6s
+      fn 2/3  setPool  batch 1/1 (10×k) ...  ✓  10.8s
+      fn 3/3  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  20.7s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Bots  compiled 10/10  compile@10=100%  elapsed=52s  (total: 89/120)
+  [13/36]  0x667102bd3413bf…  ERC20Token  (5 functions, k=10)
+      fn 1/5  transferFrom  batch 1/1 (10×k) ...  ✓  20.7s
+      fn 2/5  balanceOf  — not found, skip
+      fn 3/5  approve  — not found, skip
+      fn 4/5  allowance  — not found, skip
+      fn 5/5  ERC20Token  batch 1/1 (10×k) ...  ✓  18.2s
+    ✗ sample 1: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 2: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 3: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 4: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 5: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 6: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 7: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 8: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 9: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+    ✗ sample 10: contracts/contract.sol:73:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              71  //name this contract whatever you'd like
+              72  contract ERC20Token is StandardToken {
+        >>>   73  
+              74      function () {
+              75          //if ether is sent to this address, send it back.
+  → ERC20Token  compiled 0/10  compile@10=0%  elapsed=44s  (total: 89/130)
+  [14/36]  0x6f922284798de6…  DebankL2Register  (1 functions, k=10)
+      fn 1/1  register  batch 1/1 (10×k) ...  ✓  12.6s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → DebankL2Register  compiled 10/10  compile@10=100%  elapsed=18s  (total: 99/140)
+  [15/36]  0x78a0a62fba6fb2…  OpenExchangeToken  (4 functions, k=10)
+      fn 1/4  stopMinting  batch 1/1 (10×k) ...  ✓  9.3s
+      fn 2/4  setMinter  batch 1/1 (10×k) ...  ✓  7.4s
+      fn 3/4  mint  batch 1/1 (10×k) ...  ✓  3.4s
+      fn 4/4  burn  batch 1/1 (10×k) ...  ✓  5.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → OpenExchangeToken  compiled 10/10  compile@10=100%  elapsed=33s  (total: 109/150)
+  [16/36]  0x799f7d1fb0fc67…  NillionSecretVault  (5 functions, k=10)
+      fn 1/5  deposit  batch 1/1 (10×k) ...  ✓  13.2s
+      fn 2/5  withdraw  batch 1/1 (10×k) ...  ✓  11.4s
+      fn 3/5  totalSupply  batch 1/1 (10×k) ...  ✓  7.3s
+      fn 4/5  getNilAddress  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 5/5  getBalanceOf  batch 1/1 (10×k) ...  ✓  6.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → NillionSecretVault  compiled 10/10  compile@10=100%  elapsed=49s  (total: 119/160)
+  [17/36]  0x7eb72b7ec6961c…  ThingiesArtNFT  (5 functions, k=10)
+      fn 1/5  setPaused  batch 1/1 (10×k) ...  ✓  8.9s
+      fn 2/5  tokenURI  batch 1/1 (10×k) ...  ✓  13.7s
+      fn 3/5  setTokenURI  batch 1/1 (10×k) ...  ✓  10.1s
+      fn 4/5  mint  batch 1/1 (10×k) ...  ✓  11.1s
+      fn 5/5  supportsInterface  batch 1/1 (10×k) ...  ✓  10.3s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721Metadata: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 2: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721Metadata: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 3: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 4: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721A: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 5: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/contracts/ThingiesArtNFT.sol:33:61:
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+              32                 require(_exists(tokenId), "URI query for nonexistent token");
+        >>>   33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+              35  
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721Metadata: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721A: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+  --> contracts/contracts/ThingiesArtNFT.sol:32:24:
+              30     */
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+        >>>   32                 require(_ownerOf(tokenId) != address(0), "ERC721Metadata: URI query for nonexistent token");
+              33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+    ✗ sample 9: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/contracts/ThingiesArtNFT.sol:33:61:
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+              32                 require(_exists(tokenId), "URI query for nonexistent token");
+        >>>   33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+              35  
+    ✗ sample 10: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/contracts/ThingiesArtNFT.sol:33:61:
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+              32                 require(_exists(tokenId), "URI query for nonexistent token");
+        >>>   33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+              35  
+  → ThingiesArtNFT  compiled 0/10  compile@10=0%  elapsed=61s  (total: 119/170)
+  [18/36]  0x80f0c1c49891dc…  DBXenERC20  (1 functions, k=10)
+      fn 1/1  mintReward  batch 1/1 (10×k) ...  ✓  10.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → DBXenERC20  compiled 10/10  compile@10=100%  elapsed=22s  (total: 129/180)
+  [19/36]  0x864cb5194722d5…  LeDogToken  (5 functions, k=10)
+      fn 1/5  balanceOf  batch 1/1 (10×k) ...  ✓  8.1s
+      fn 2/5  transfer  batch 1/1 (10×k) ...  ✓  16.8s
+      fn 3/5  transferFrom  batch 1/1 (10×k) ...  ✓  19.0s
+      fn 4/5  approve  batch 1/1 (10×k) ...  ✓  16.1s
+      fn 5/5  allowance  batch 1/1 (10×k) ...  ✓  8.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → LeDogToken  compiled 10/10  compile@10=100%  elapsed=74s  (total: 139/190)
+  [20/36]  0x953de0fee9e7b8…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  4.4s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  6.2s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  5.8s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=21s  (total: 149/200)
+  [21/36]  0x97ad75064b20fb…  Token  (2 functions, k=10)
+      fn 1/2  mint  batch 1/1 (10×k) ...  ✓  5.6s
+      fn 2/2  burn  batch 1/1 (10×k) ...  ✓  5.7s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Token  compiled 10/10  compile@10=100%  elapsed=20s  (total: 159/210)
+  [22/36]  0x9e22ebec84c7e4…  GasZip  (3 functions, k=10)
+      fn 1/3  deposit  batch 1/1 (10×k) ...  ✓  6.8s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 3/3  newOwner  batch 1/1 (10×k) ...  ✓  6.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → GasZip  compiled 10/10  compile@10=100%  elapsed=28s  (total: 169/220)
+  [23/36]  0x9e9fbde7c7a83c…  Pandora  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  9.1s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  9.9s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  9.6s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Pandora  compiled 10/10  compile@10=100%  elapsed=47s  (total: 179/230)
+  [24/36]  0xa2e123dc38f189…  KongToken  (3 functions, k=10)
+      fn 1/3  transfer  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 2/3  transferFrom  batch 1/1 (10×k) ...  ✓  7.6s
+      fn 3/3  setOwner  batch 1/1 (10×k) ...  ✓  5.8s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → KongToken  compiled 10/10  compile@10=100%  elapsed=26s  (total: 189/240)
+  [25/36]  0xa4fc78495d545f…  Ketamine  (4 functions, k=10)
+      fn 1/4  addPair  batch 1/1 (10×k) ...  ✓  11.8s
+      fn 2/4  taxCheck  batch 1/1 (10×k) ...  ✓  15.4s
+      fn 3/4  _update  batch 1/1 (10×k) ...  ✓  44.3s
+      fn 4/4  swapTokensForEth  batch 1/1 (10×k) ...  ✓  28.8s
+    ✗ sample 1: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             if (from == 0) {
+             120                 super._update(from, to, amount);
+    ✗ sample 2: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             uint256 taxAmount = 0;
+             120             bool isBuy = uniswapV2Pair == from && !_isExcludedFromFees[to];
+    ✗ sample 3: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:120:16:
+             118          address to,
+             119          uint256 amount
+        >>>  120      ) internal override {
+             121             if (from == address(0)) {
+             122                 super._update(from, to, amount);
+    ✗ sample 4: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:119:16:
+             117          address to,
+             118          uint256 amount
+        >>>  119      ) internal override {
+             120             uint256 taxAmount = 0;
+             121             if (!taxDisabled && !_isExcludedFromFees[from] && !_isExcludedFromFees[to]) {
+    ✗ sample 5: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             if (from == address(0)) {
+             120                 super._update(from, to, amount);
+    ✗ sample 6: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             uint256 taxAmount = 0;
+             120             if (!taxDisabled && !_isExcludedFromFees[from] && !_isExcludedFromFees[to]) {
+    ✗ sample 7: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:119:16:
+             117          address to,
+             118          uint256 amount
+        >>>  119      ) internal override {
+             120             uint256 taxAmount = 0;
+             121             if (!taxDisabled && !_isExcludedFromFees[from] && !_isExcludedFromFees[to]) {
+    ✗ sample 8: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             uint256 taxAmount = 0;
+             120             if (!taxDisabled && !_isExcludedFromFees[from] && !_isExcludedFromFees[to]) {
+    ✗ sample 9: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:118:16:
+             116          address to,
+             117          uint256 amount
+        >>>  118      ) internal override {
+             119             if (from == 0) {
+             120                 super._update(from, to, amount);
+    ✗ sample 10: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:120:16:
+             118          address to,
+             119          uint256 amount
+        >>>  120      ) internal override {
+             121             if (from != address(0) && to != address(0)) {
+             122                 bool isBuy = pair[from];
+  → Ketamine  compiled 0/10  compile@10=0%  elapsed=106s  (total: 189/250)
+  [26/36]  0xa5f565650890fb…  RelayReceiver  (3 functions, k=10)
+      fn 1/3  forward  batch 1/1 (10×k) ...  ✓  18.7s
+      fn 2/3  makeCalls  batch 1/1 (10×k) ...  ✓  17.4s
+      fn 3/3  send  batch 1/1 (10×k) ...  ✓  9.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → RelayReceiver  compiled 10/10  compile@10=100%  elapsed=51s  (total: 199/260)
+  [27/36]  0xa876f27f13a9eb…  Icy  (4 functions, k=10)
+      fn 1/4  decimals  batch 1/1 (10×k) ...  ✓  7.1s
+      fn 2/4  maxWallet  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 3/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  16.0s
+      fn 4/4  startTrade  batch 1/1 (10×k) ...  ✓  11.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Icy  compiled 10/10  compile@10=100%  elapsed=53s  (total: 209/270)
+  [28/36]  0xb5c457ddb4ce33…  EtherRock404  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  8.3s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  10.1s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  8.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → EtherRock404  compiled 10/10  compile@10=100%  elapsed=43s  (total: 219/280)
+  [29/36]  0xb96b2eb882d599…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  4.5s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  6.4s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  6.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=21s  (total: 229/290)
+  [30/36]  0xbc962e2e290d27…  PurchaseContract  (4 functions, k=10)
+      fn 1/4  setFeePercentage  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 2/4  buy  batch 1/1 (10×k) ...  ✓  23.3s
+      fn 3/4  withdraw  batch 1/1 (10×k) ...  ✓  14.1s
+      fn 4/4  transferOwnership  batch 1/1 (10×k) ...  ✓  13.0s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → PurchaseContract  compiled 10/10  compile@10=100%  elapsed=64s  (total: 239/300)
+  [31/36]  0xc0cd1a8dac93a4…  ITSSOOVERWEARESOBACK  (3 functions, k=10)
+      fn 1/3  decimals  batch 1/1 (10×k) ...  ✓  11.1s
+      fn 2/3  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 3/3  _afterTokenTransfer  batch 1/1 (10×k) ...  ✓  8.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ITSSOOVERWEARESOBACK  compiled 10/10  compile@10=100%  elapsed=36s  (total: 249/310)
+  [32/36]  0xc854510066518f…  BunnyKittyToken  (2 functions, k=10)
+      fn 1/2  mint  batch 1/1 (10×k) ...  ✓  7.2s
+      fn 2/2  setMintContract  batch 1/1 (10×k) ...  ✓  7.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → BunnyKittyToken  compiled 10/10  compile@10=100%  elapsed=29s  (total: 259/320)
+  [33/36]  0xd13b093eafa387…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  4.1s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  7.2s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  4.5s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=20s  (total: 269/330)
+  [34/36]  0xdc0327d50e6c73…  Stronger  (1 functions, k=10)
+      fn 1/1  mint  batch 1/1 (10×k) ...  ✓  5.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Stronger  compiled 10/10  compile@10=100%  elapsed=13s  (total: 279/340)
+  [35/36]  0xdd69db25f6d620…  OFT  (5 functions, k=10)
+      fn 1/5  supportsInterface  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 2/5  token  batch 1/1 (10×k) ...  ✓  7.5s
+      fn 3/5  circulatingSupply  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 4/5  _debitFrom  batch 1/1 (10×k) ...  ✓  7.6s
+      fn 5/5  _creditTo  batch 1/1 (10×k) ...  ✓  7.3s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✗ sample 4: TypeError: Cannot call unimplemented base function.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:15:68:
+              13  
+              14      function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
+        >>>   15                    return OFTCore.supportsInterface(interfaceId) || IERC165.supportsInterface(interfaceId);
+              16                }
+              17  
+    ✓ sample 5
+    ✓ sample 6
+    ✗ sample 7: TypeError: Cannot call unimplemented base function.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:15:68:
+              13  
+              14      function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
+        >>>   15                    return OFTCore.supportsInterface(interfaceId) || IERC165.supportsInterface(interfaceId);
+              16                }
+              17  
+    ✓ sample 8
+    ✗ sample 9: TypeError: Cannot call unimplemented base function.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:15:68:
+              13  
+              14      function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
+        >>>   15                    return OFTCore.supportsInterface(interfaceId) || IERC165.supportsInterface(interfaceId);
+              16                }
+              17  
+    ✗ sample 10: TypeError: Cannot call unimplemented base function.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:15:68:
+              13  
+              14      function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
+        >>>   15                    return OFTCore.supportsInterface(interfaceId) || IERC165.supportsInterface(interfaceId);
+              16                }
+              17  
+  → OFT  compiled 6/10  compile@10=60%  elapsed=48s  (total: 285/350)
+  [36/36]  0xe73d53e3a982ab…  N  (5 functions, k=10)
+      fn 1/5  transfer  batch 1/1 (10×k) ...  ✓  12.0s
+      fn 2/5  approve  batch 1/1 (10×k) ...  ✓  8.4s
+      fn 3/5  transferFrom  batch 1/1 (10×k) ...  ✓  14.6s
+      fn 4/5  mint  batch 1/1 (10×k) ...  ✓  20.6s
+      fn 5/5  mintable  batch 1/1 (10×k) ...  ✓  13.7s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → N  compiled 10/10  compile@10=100%  elapsed=75s  (total: 295/360)
+
+============================================================
+  Total compiled : 295/360
+  avg compile@10  : 81.9%
+  Total time     : 1627s  (27.1 min)
+
+[pipeline] ======================= REPAIR =======================
+  [1/36]  0x0ebe30595a44e5…  NyanToken  — all OK, skip
+  [2/36]  0x166fd4299364b2…  AlephSync  — all OK, skip
+  [3/36]  0x2be8e422cb4a5a…  MSIToken  (10/10 failed)
+    sample 1: error in `_update`, scheduling repair
+    sample 2: error in `_update`, scheduling repair
+    sample 3: error in `_update`, scheduling repair
+    sample 4: error in `_update`, scheduling repair
+    sample 5: error in `_update`, scheduling repair
+    sample 6: error in `_update`, scheduling repair
+    sample 7: error in `_update`, scheduling repair
+    sample 8: error in `_update`, scheduling repair
+    sample 9: error in `_update`, scheduling repair
+    sample 10: error in `_update`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  20.8s
+    ✗ sample 1  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 2  [_update] still fails: ParserError: Expected ',' but got '}'
+    ✗ sample 3  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 4  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 5  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 6  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 7  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 8  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 9  [_update] still fails: ParserError: Expected '(' but got '}'
+    ✗ sample 10  [_update] still fails: TypeError: Function has override specified but does not override anyth
+  → MSIToken  0/10 compiled after repair  (+0 fixed)
+  [4/36]  0x2e258dbb253b7e…  NillionVerifierVault  — all OK, skip
+  [5/36]  0x303389f541ff2d…  SeriesNonceManager  (10/10 failed)
+    sample 1: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 2: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 3: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 4: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 5: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 6: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 7: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 8: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 9: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 10: error in `timestampBelowAndNonceEquals`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  21.3s
+    ✓ sample 1  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 2  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 3  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 4  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 5  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 6  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 7  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 8  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 9  [timestampBelowAndNonceEquals] repaired
+    ✓ sample 10  [timestampBelowAndNonceEquals] repaired
+  → SeriesNonceManager  10/10 compiled after repair  (+10 fixed)
+  [6/36]  0x36ff4dae0e8811…  XenlonMarsERC20  — all OK, skip
+  [7/36]  0x378e1be15be6d6…  Foxe  — all OK, skip
+  [8/36]  0x39621e4924dde4…  Sock  — all OK, skip
+  [9/36]  0x3b4cbe8e52e401…  GibTransfer  (1/10 failed)
+    sample 6: error in `transferErc20`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  2.8s
+    ✓ sample 6  [transferErc20] repaired
+  → GibTransfer  10/10 compiled after repair  (+1 fixed)
+  [10/36]  0x4973710327edc6…  RabbitDeposit  (10/10 failed)
+    sample 1: error in `tokenCall`, scheduling repair
+    sample 2: error in `tokenCall`, scheduling repair
+    sample 3: error in `tokenCall`, scheduling repair
+    sample 4: error in `tokenCall`, scheduling repair
+    sample 5: error in `tokenCall`, scheduling repair
+    sample 6: error in `tokenCall`, scheduling repair
+    sample 7: error in `tokenCall`, scheduling repair
+    sample 8: error in `tokenCall`, scheduling repair
+    sample 9: error in `tokenCall`, scheduling repair
+    sample 10: error in `tokenCall`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  13.4s
+    ✓ sample 1  [tokenCall] repaired
+    ✓ sample 2  [tokenCall] repaired
+    ✓ sample 3  [tokenCall] repaired
+    ✓ sample 4  [tokenCall] repaired
+    ✓ sample 5  [tokenCall] repaired
+    ✓ sample 6  [tokenCall] repaired
+    ✓ sample 7  [tokenCall] repaired
+    ✓ sample 8  [tokenCall] repaired
+    ✓ sample 9  [tokenCall] repaired
+    ✓ sample 10  [tokenCall] repaired
+  → RabbitDeposit  10/10 compiled after repair  (+10 fixed)
+  [11/36]  0x55567e038b0a50…  veAllocate  — all OK, skip
+  [12/36]  0x664f8cbf877bf4…  Bots  — all OK, skip
+  [13/36]  0x667102bd3413bf…  ERC20Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [14/36]  0x6f922284798de6…  DebankL2Register  — all OK, skip
+  [15/36]  0x78a0a62fba6fb2…  OpenExchangeToken  — all OK, skip
+  [16/36]  0x799f7d1fb0fc67…  NillionSecretVault  — all OK, skip
+  [17/36]  0x7eb72b7ec6961c…  ThingiesArtNFT  (10/10 failed)
+    sample 1: error in `tokenURI`, scheduling repair
+    sample 2: error in `tokenURI`, scheduling repair
+    sample 3: error in `tokenURI`, scheduling repair
+    sample 4: error in `tokenURI`, scheduling repair
+    sample 5: error in `tokenURI`, scheduling repair
+    sample 6: error in `tokenURI`, scheduling repair
+    sample 7: error in `tokenURI`, scheduling repair
+    sample 8: error in `tokenURI`, scheduling repair
+    sample 9: error in `tokenURI`, scheduling repair
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  51.4s
+    ✗ sample 1  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 2  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 3  [tokenURI] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 4  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 5  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 6  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 7  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 8  [tokenURI] still fails: DeclarationError: Undeclared identifier. Did you mean "ownerOf"?
+    ✗ sample 9  [tokenURI] still fails: ParserError: Expected ';' but got ','
+    ✗ sample 10  [tokenURI] still fails: ParserError: Expected ';' but got ','
+  → ThingiesArtNFT  0/10 compiled after repair  (+0 fixed)
+  [18/36]  0x80f0c1c49891dc…  DBXenERC20  — all OK, skip
+  [19/36]  0x864cb5194722d5…  LeDogToken  — all OK, skip
+  [20/36]  0x953de0fee9e7b8…  SecurityUpdates  — all OK, skip
+  [21/36]  0x97ad75064b20fb…  Token  — all OK, skip
+  [22/36]  0x9e22ebec84c7e4…  GasZip  — all OK, skip
+  [23/36]  0x9e9fbde7c7a83c…  Pandora  — all OK, skip
+  [24/36]  0xa2e123dc38f189…  KongToken  — all OK, skip
+  [25/36]  0xa4fc78495d545f…  Ketamine  (10/10 failed)
+    sample 1: error in `_update`, scheduling repair
+    sample 2: error in `_update`, scheduling repair
+    sample 3: error in `_update`, scheduling repair
+    sample 4: error in `_update`, scheduling repair
+    sample 5: error in `_update`, scheduling repair
+    sample 6: error in `_update`, scheduling repair
+    sample 7: error in `_update`, scheduling repair
+    sample 8: error in `_update`, scheduling repair
+    sample 9: error in `_update`, scheduling repair
+    sample 10: error in `_update`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  21.0s
+    ✗ sample 1  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 2  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 3  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 4  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 5  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 6  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 7  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 8  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 9  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 10  [_update] still fails: TypeError: Function has override specified but does not override anyth
+  → Ketamine  0/10 compiled after repair  (+0 fixed)
+  [26/36]  0xa5f565650890fb…  RelayReceiver  — all OK, skip
+  [27/36]  0xa876f27f13a9eb…  Icy  — all OK, skip
+  [28/36]  0xb5c457ddb4ce33…  EtherRock404  — all OK, skip
+  [29/36]  0xb96b2eb882d599…  SecurityUpdates  — all OK, skip
+  [30/36]  0xbc962e2e290d27…  PurchaseContract  — all OK, skip
+  [31/36]  0xc0cd1a8dac93a4…  ITSSOOVERWEARESOBACK  — all OK, skip
+  [32/36]  0xc854510066518f…  BunnyKittyToken  — all OK, skip
+  [33/36]  0xd13b093eafa387…  SecurityUpdates  — all OK, skip
+  [34/36]  0xdc0327d50e6c73…  Stronger  — all OK, skip
+  [35/36]  0xdd69db25f6d620…  OFT  (4/10 failed)
+    sample 4: error in `supportsInterface`, scheduling repair
+    sample 7: error in `supportsInterface`, scheduling repair
+    sample 9: error in `supportsInterface`, scheduling repair
+    sample 10: error in `supportsInterface`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  4.8s
+    ✓ sample 4  [supportsInterface] repaired
+    ✓ sample 7  [supportsInterface] repaired
+    ✓ sample 9  [supportsInterface] repaired
+    ✓ sample 10  [supportsInterface] repaired
+  → OFT  10/10 compiled after repair  (+4 fixed)
+  [36/36]  0xe73d53e3a982ab…  N  — all OK, skip
+
+============================================================
+  Before repair : 295/360  (81.9%)
+  After repair  : 320/360  (88.9%)
+  Repaired      : +25 samples
+  Still failing : 30 samples
+  No fn found   : 10 samples
+  Total time    : 167s  (2.8 min)
+
+[pipeline] done.
+[pipeline] done.
+[llamapipe] pipeline finished; tearing down server.

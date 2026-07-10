@@ -10,25 +10,57 @@ Model & Contract Group                       | Initial Compile | After Repair   
   contracts_1to5                             | 253/360 (70.3%) | 279/360 (77.5%) | +26 samples
   contracts_6to10                            | 206/360 (57.2%) | 241/360 (66.9%) | +35 samples
   contracts_11to15                           | 177/360 (49.2%) | 218/360 (60.6%) | +41 samples
-  contracts_15to20                           | 207/360 (57.5%) | 237/360 (65.8%) | +30 samples
+  contracts_16to20                           | 207/360 (57.5%) | 237/360 (65.8%) | +30 samples
 
 [Qwen3.6-27B-UD-Q4_K_XL]
   contracts_1to5                             | 259/360 (71.9%) | 289/360 (80.3%) | +30 samples
   contracts_6to10                            | 149/360 (41.4%) | 188/360 (52.2%) | +39 samples
   contracts_11to15                           | 153/360 (42.5%) | 167/360 (46.4%) | +14 samples
-  contracts_15to20                           | 137/360 (38.1%) | 154/360 (42.8%) | +17 samples
+  contracts_16to20                           | 137/360 (38.1%) | 154/360 (42.8%) | +17 samples
+  contracts_21to25                           | 5174s (86.2m)   | 1429s (23.8m) | 6603s (110.0m)
+  contracts_26to30                           | 24531s (408.9m) | 2868s (47.8m) | 27399s (456.6m)
+  contracts_31to35                           | 29111s (485.2m) | 2123s (35.4m) | 31234s (520.6m)
+  contracts_36to40                           | 35317s (588.6m) | 1924s (32.1m) | 37241s (620.7m)
 
 [Qwen3-Coder-30B-A3B-Instruct.Q4_K_M]
   contracts_1to5                             | 264/360 (73.3%) | 278/360 (77.2%) | +14 samples
   contracts_6to10                            | 151/360 (41.9%) | 201/360 (55.8%) | +50 samples
   contracts_11to15                           | 120/360 (33.3%) | 159/360 (44.2%) | +39 samples
-  contracts_15to20                           | 133/360 (36.9%) | 194/360 (53.9%) | +61 samples
+  contracts_16to20                           | 133/360 (36.9%) | 194/360 (53.9%) | +61 samples
+  contracts_21to25                           | 2460s (41.0m)   | 287s (4.8m)   | 2747s (45.8m)
+  contracts_26to30                           | 3027s (50.5m)   | 417s (7.0m)   | 3444s (57.4m)
+  contracts_31to35                           | 3317s (55.3m)   | 397s (6.6m)   | 3714s (61.9m)
+  contracts_36to40                           | 98s (1.6m)      | 320s (5.3m)   | 418s (7.0m)
 
 [Devstral-Small-2-24B-Instruct-2512.Q4_K_M]
   contracts_1to5                             | 189/360 (52.5%) | 233/360 (64.7%) | +44 samples
   contracts_6to10                            | 88/360 (24.4%)  | 126/360 (35.0%) | +38 samples
   contracts_11to15                           | 53/360 (14.7%)  | 87/360 (24.2%)  | +34 samples
-  contracts_15to20                           | 48/360 (13.3%)  | 60/360 (16.7%)  | +12 samples
+  contracts_16to20                           | 48/360 (13.3%)  | 60/360 (16.7%)  | +12 samples
+  contracts_21to25                           | 7516s (125.3m)  | 825s (13.8m)  | 8341s (139.0m)
+  contracts_26to30                           | 10813s (180.2m) | 1074s (17.9m) | 11887s (198.1m)
+  contracts_31to35                           | 11944s (199.1m) | 983s (16.4m)  | 12927s (215.4m)
+  contracts_36to40                           | 11943s (199.1m) | 912s (15.2m)  | 12855s (214.2m)
+
+[gemma-4-31B-it-qat-UD-Q4_K_XL]
+  contracts_1to5                             | 1627s (27.1m)   | 167s (2.8m)   | 1794s (29.9m)
+  contracts_6to10                            | 3417s (57.0m)   | 546s (9.1m)   | 3963s (66.0m)
+  contracts_11to15                           | 5004s (83.4m)   | 529s (8.8m)   | 5533s (92.2m)
+  contracts_16to20                           | 7690s (128.2m)  | 477s (8.0m)   | 8167s (136.1m)
+  contracts_21to25                           | 9553s (159.2m)  | 762s (12.7m)  | 10315s (171.9m)
+  contracts_26to30                           | 12550s (209.2m) | 1872s (31.2m) | 14422s (240.4m)
+  contracts_31to35                           | 14258s (237.6m) | 1885s (31.4m) | 16143s (269.1m)
+  contracts_36to40                           | 15358s (256.0m) | 964s (16.1m)  | 16322s (272.0m)
+
+[ornith-1.0-35b-Q4_K_M]
+  contracts_1to5                             | 1066s (17.8m)   | 204s (3.4m)   | 1270s (21.2m)
+  contracts_6to10                            | 2577s (43.0m)   | 330s (5.5m)   | 2907s (48.5m)
+  contracts_11to15                           | 4192s (69.9m)   | 378s (6.3m)   | 4570s (76.2m)
+  contracts_16to20                           | 6408s (106.8m)  | 445s (7.4m)   | 6853s (114.2m)
+  contracts_21to25                           | 6841s (114.0m)  | 588s (9.8m)   | 7429s (123.8m)
+  contracts_26to30                           | 10115s (168.6m) | 793s (13.2m)  | 10908s (181.8m)
+  contracts_31to35                           | 11168s (186.1m) | 726s (12.1m)  | 11894s (198.2m)
+  contracts_36to40                           | 14062s (234.4m) | 646s (10.8m)  | 14708s (245.1m)
 
 
 2. TIME SPENT: GENERATION VS REPAIR
@@ -39,22 +71,56 @@ Model & Contract Group                       | Generation Time | Repair Time   |
   contracts_1to5                             | 818s (13.6m)    | 165s (2.7m)   | 983s (16.3m)
   contracts_6to10                            | 1902s (31.7m)   | 283s (4.7m)   | 2185s (36.4m)
   contracts_11to15                           | 2590s (43.2m)   | 425s (7.1m)   | 3015s (50.3m)
-  contracts_15to20                           | 3991s (66.5m)   | 319s (5.3m)   | 4310s (71.8m)
+  contracts_16to20                           | 3991s (66.5m)   | 319s (5.3m)   | 4310s (71.8m)
 
 [Qwen3.6-27B-UD-Q4_K_XL]
   contracts_1to5                             | 2706s (45.1m)   | 351s (5.8m)   | 3057s (50.9m)
   contracts_6to10                            | 6682s (111.4m)  | 1146s (19.1m) | 7828s (130.5m)
   contracts_11to15                           | 10187s (169.8m) | 1980s (33.0m) | 12167s (202.8m)
-  contracts_15to20                           | 15693s (261.5m) | 1604s (26.7m) | 17297s (288.2m)
+  contracts_16to20                           | 15693s (261.5m) | 1604s (26.7m) | 17297s (288.2m)
+  contracts_21to25                           | 5174s (86.2m)   | 1429s (23.8m) | 6603s (110.0m)
+  contracts_26to30                           | 24531s (408.9m) | 2868s (47.8m) | 27399s (456.6m)
+  contracts_31to35                           | 29111s (485.2m) | 2123s (35.4m) | 31234s (520.6m)
+  contracts_36to40                           | 35317s (588.6m) | 1924s (32.1m) | 37241s (620.7m)
 
 [Qwen3-Coder-30B-A3B-Instruct.Q4_K_M]
   contracts_1to5                             | 498s (8.3m)     | 83s (1.4m)    | 581s (9.7m)
   contracts_6to10                            | 943s (15.7m)    | 188s (3.1m)   | 1131s (18.8m)
   contracts_11to15                           | 1357s (22.6m)   | 209s (3.5m)   | 1566s (26.1m)
-  contracts_15to20                           | 2145s (35.8m)   | 218s (3.6m)   | 2363s (39.4m)
+  contracts_16to20                           | 2145s (35.8m)   | 218s (3.6m)   | 2363s (39.4m)
+  contracts_21to25                           | 2460s (41.0m)   | 287s (4.8m)   | 2747s (45.8m)
+  contracts_26to30                           | 3027s (50.5m)   | 417s (7.0m)   | 3444s (57.4m)
+  contracts_31to35                           | 3317s (55.3m)   | 397s (6.6m)   | 3714s (61.9m)
+  contracts_36to40                           | 98s (1.6m)*    | 320s (5.3m)   | 418s (7.0m)
 
 [Devstral-Small-2-24B-Instruct-2512.Q4_K_M]
   contracts_1to5                             | 1001s (16.7m)   | 268s (4.5m)   | 1269s (21.2m)
   contracts_6to10                            | 2502s (41.7m)   | 522s (8.7m)   | 3024s (50.4m)
   contracts_11to15                           | 3686s (61.4m)   | 691s (11.5m)  | 4377s (72.9m)
-  contracts_15to20                           | 5640s (94.0m)   | 783s (13.0m)  | 6423s (107.0m)
+  contracts_16to20                           | 5640s (94.0m)   | 783s (13.0m)  | 6423s (107.0m)
+  contracts_21to25                           | 7516s (125.3m)  | 825s (13.8m)  | 8341s (139.0m)
+  contracts_26to30                           | 10813s (180.2m) | 1074s (17.9m) | 11887s (198.1m)
+  contracts_31to35                           | 11944s (199.1m) | 983s (16.4m)  | 12927s (215.4m)
+  contracts_36to40                           | 11943s (199.1m)*| 912s (15.2m)  | 12855s (214.2m)
+
+[gemma-4-31B-it-qat-UD-Q4_K_XL]
+  contracts_1to5                             | 1627s (27.1m)   | 167s (2.8m)   | 1794s (29.9m)
+  contracts_6to10                            | 3417s (57.0m)   | 546s (9.1m)   | 3963s (66.0m)
+  contracts_11to15                           | 5004s (83.4m)   | 529s (8.8m)   | 5533s (92.2m)
+  contracts_16to20                           | 7690s (128.2m)  | 477s (8.0m)   | 8167s (136.1m)
+  contracts_21to25                           | 9553s (159.2m)  | 762s (12.7m)  | 10315s (171.9m)
+  contracts_26to30                           | 12550s (209.2m) | 1872s (31.2m) | 14422s (240.4m)
+  contracts_31to35                           | 14258s (237.6m) | 1885s (31.4m) | 16143s (269.1m)
+  contracts_36to40                           | 15358s (256.0m) | 964s (16.1m)  | 16322s (272.0m)
+
+[ornith-1.0-35b-Q4_K_M]
+  contracts_1to5                             | 1066s (17.8m)   | 204s (3.4m)   | 1270s (21.2m)
+  contracts_6to10                            | 2577s (43.0m)   | 330s (5.5m)   | 2907s (48.5m)
+  contracts_11to15                           | 4192s (69.9m)   | 378s (6.3m)   | 4570s (76.2m)
+  contracts_16to20                           | 6408s (106.8m)  | 445s (7.4m)   | 6853s (114.2m)
+  contracts_21to25                           | 6841s (114.0m)  | 588s (9.8m)   | 7429s (123.8m)
+  contracts_26to30                           | 10115s (168.6m) | 793s (13.2m)  | 10908s (181.8m)
+  contracts_31to35                           | 11168s (186.1m) | 726s (12.1m)  | 11894s (198.2m)
+  contracts_36to40                           | 14062s (234.4m) | 646s (10.8m)  | 14708s (245.1m)
+
+Time with the * are not the real generation time. Those were interrupted and continued from where they left. 

@@ -1,0 +1,1751 @@
+[llamapipe] node=faretra  gpu=2  port=8082  server=llamacpp_contracts_21to25
+[llamapipe] model=/llms/Qwen3.6-27B-UD-Q4_K_XL.gguf  ctx=8192  parallel=3
+[llamapipe] contracts=../dataset/contracts_21to25  limit=36
+[llamapipe] waiting for model load .. ready
+WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.3.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+[pipeline] Node/Hardhat not found — installing via get_hardhat_deps.sh ...
+=== Installing solc-select ===
+Found existing installation: solc-select 1.1.0
+Uninstalling solc-select-1.1.0:
+  Successfully uninstalled solc-select-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting solc-select
+  Using cached solc_select-1.2.0-py3-none-any.whl.metadata (47 kB)
+Requirement already satisfied: pycryptodome>=3.4.6 in /usr/local/lib/python3.10/dist-packages (from solc-select) (3.17)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from solc-select) (26.2)
+Collecting requests>=2.32.4 (from solc-select)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2026.5.20)
+Downloading solc_select-1.2.0-py3-none-any.whl (36 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Installing collected packages: requests, solc-select
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.3
+    Uninstalling requests-2.32.3:
+      Successfully uninstalled requests-2.32.3
+
+Successfully installed requests-2.34.2 solc-select-1.2.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+=== Installing NVM 0.40.4 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16774  100 16774    0     0  71039      0 --:--:-- --:--:-- --:--:-- 71076
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=== Installing Node.js (npm 11.9.0) ===
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz...
+#=#=#                                                                         ##                                                                         4.1%###########                                                               16.6%##########################                                                36.3%########################################                                  56.3%#####################################################                     74.8%###################################################################       93.2%######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+Creating default alias: default -> 24 (-> v24.18.0 *)
+Now using node v24.18.0 (npm v11.16.0)
+default -> 24 (-> v24.18.0 *)
+=== Installing Hardhat 2.28.6 ===
+
+up to date in 255ms
+
+up to date, audited 217 packages in 4s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (10 low, 3 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp rebuild)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+=== Installing Solidity compiler 0.4.18 ===
+Installing solc '0.4.18'...
+Version '0.4.18' installed.
+Switched global version to 0.4.18
+
+=======================================
+Installed versions:
+=======================================
+Node:
+v24.18.0
+npm:
+11.16.0
+npx:
+11.16.0
+nvm:
+0.40.4
+Hardhat:
+2.28.6
+solc:
+solc, the solidity compiler commandline interface
+Version: 0.4.18+commit.9cf6e910.Linux.g++
+solc-select:
+0.4.18 (current, set by /root/.solc-select/global-version)
+
+Now run:
+source ~/.bashrc
+source .env
+[pipeline] node v24.18.0  npx 11.16.0
+[hardhat-ws] workspace=/workdir/src/dataset/hh_contracts_21to25  current=2.28.6  wanted=2.28.6
+[hardhat-ws] Hardhat 2.x already present — nothing to do.
+[hardhat-ws] Hardhat now: 2.28.6
+[pipeline] contracts=/workdir/src/dataset/contracts_21to25  limit=36
+[pipeline] generated=./generated_contracts_21to25  repaired=./repaired_contracts_21to25  work_dir=../dataset/hh_contracts_21to25
+[pipeline] model=Qwen/Qwen3-Coder-30B-A3B-Instruct  context=4096   k=10
+[pipeline] cwd=/workdir/src/source_generation
+[pipeline] 36 contracts (found 168 in /workdir/src/dataset/contracts_21to25, limited to 36)
+[pipeline] generated=./generated_contracts_21to25  repaired=./repaired_contracts_21to25
+[pipeline] work_dir=../dataset/hh_contracts_21to25  k=10  context=4096
+[pipeline] backend=llamacpp — connecting to the llama.cpp server (ONCE) ...
+[LlamaCppClient] Connecting to http://127.0.0.1:8082/v1/chat/completions ... ready
+[pipeline] Client ready.
+
+[pipeline] ===================== GENERATION =====================
+  [1/36]  0x0019de37a461ae…  Neo  — already done (7/10), skipping
+  [2/36]  0x005d14e597f69b…  ETURUS  — already done (0/10), skipping
+  [3/36]  0x009e67576622b4…  UNI20  — already done (0/10), skipping
+  [4/36]  0x0283d310d68228…  BEEP  — already done (2/10), skipping
+  [5/36]  0x029b03ac808bc8…  CryptoRangers  — already done (10/10), skipping
+  [6/36]  0x049715c70fdbdd…  Nezuko  — already done (6/10), skipping
+  [7/36]  0x049e9f53693587…  ChecksToken  — already done (1/10), skipping
+  [8/36]  0x050d94685c6b04…  TokenMintERC20Token  — already done (0/10), skipping
+  [9/36]  0x082646b22a3960…  FuckPepeToken  — already done (4/10), skipping
+  [10/36]  0x09b3b6c8bacabc…  ALITAToken  — already done (10/10), skipping
+  [11/36]  0x09c1ead57d2488…  UniswapV2Pair  — already done (0/10), skipping
+  [12/36]  0x0bcc509282a5fb…  Kandyland  — already done (0/10), skipping
+  [13/36]  0x0c21638d4bcb88…  GrokDogeX  — already done (9/10), skipping
+  [14/36]  0x0c7f2a0bd73923…  links  — already done (6/10), skipping
+  [15/36]  0x0c9098c40a40ef…  ToadzToken  — already done (8/10), skipping
+  [16/36]  0x0d99482bb2c436…  NEPE  — already done (7/10), skipping
+  [17/36]  0x0e9cc0f7e550bd…  UnleashToken  — already done (9/10), skipping
+  [18/36]  0x0fbd258eb1e046…  Tina  — already done (6/10), skipping
+  [19/36]  0x15f20f9dfdf96c…  WALLSTREETBABY  — already done (10/10), skipping
+  [20/36]  0x1609d8aa20295f…  WeThePepe  — already done (9/10), skipping
+  [21/36]  0x1aa51bc7eb181c…  PAWZONE  — already done (1/10), skipping
+  [22/36]  0x1b78ffbc661394…  CloudnetAi  — already done (0/10), skipping
+  [23/36]  0x1f76429eac63d9…  RightCoin  — already done (6/10), skipping
+  [24/36]  0x20cdecbf5d5687…  MonkeysToken  — already done (1/10), skipping
+  [25/36]  0x21ecf7c398ddf8…  TF  — already done (10/10), skipping
+  [26/36]  0x243158d3c541a9…  CoSinnesloschen  — already done (8/10), skipping
+  [27/36]  0x243cacb4d5ff68…  TokenMintERC20Token  (22 functions, k=10)
+      fn 1/22  add  batch 1/1 (10×k) ...  ✓  19.7s
+      fn 2/22  sub  batch 1/1 (10×k) ...  ✓  20.5s
+      fn 3/22  mul  batch 1/1 (10×k) ...  ✓  22.6s
+      fn 4/22  div  batch 1/1 (10×k) ...  ✓  22.1s
+      fn 5/22  mod  — not found, skip
+      fn 6/22  totalSupply  batch 1/1 (10×k) ...  ✓  18.4s
+      fn 7/22  balanceOf  batch 1/1 (10×k) ...  ✓  18.6s
+      fn 8/22  transfer  batch 1/1 (10×k) ...  ✓  19.6s
+      fn 9/22  allowance  batch 1/1 (10×k) ...  ✓  19.2s
+      fn 10/22  approve  batch 1/1 (10×k) ...  ✓  23.6s
+      fn 11/22  transferFrom  batch 1/1 (10×k) ...  ✓  23.9s
+      fn 12/22  increaseAllowance  batch 1/1 (10×k) ...  ✓  32.2s
+      fn 13/22  decreaseAllowance  batch 1/1 (10×k) ...  ✓  26.3s
+      fn 14/22  _transfer  batch 1/1 (10×k) ...  ✓  31.9s
+      fn 15/22  _mint  batch 1/1 (10×k) ...  ✓  32.0s
+      fn 16/22  _burn  batch 1/1 (10×k) ...  ✓  28.1s
+      fn 17/22  _approve  batch 1/1 (10×k) ...  ✓  35.8s
+      fn 18/22  _burnFrom  batch 1/1 (10×k) ...  ✓  31.8s
+      fn 19/22  burn  batch 1/1 (10×k) ...  ✓  29.0s
+      fn 20/22  name  batch 1/1 (10×k) ...  ✓  18.6s
+      fn 21/22  symbol  batch 1/1 (10×k) ...  ✓  13.8s
+      fn 22/22  decimals  batch 1/1 (10×k) ...  ✓  13.6s
+    ✗ sample 1: contracts/contract.sol:166:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             164  
+             165  pragma solidity ^0.5.0;
+        >>>  166  
+             167  
+             168  
+    ✗ sample 2: contracts/contract.sol:168:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             166  
+             167  pragma solidity ^0.5.0;
+        >>>  168  
+             169  
+             170  
+    ✗ sample 3: contracts/contract.sol:168:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             166  
+             167  pragma solidity ^0.5.0;
+        >>>  168  
+             169  
+             170  
+    ✗ sample 4: contracts/contract.sol:168:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             166  
+             167  pragma solidity ^0.5.0;
+        >>>  168  
+             169  
+             170  
+    ✗ sample 5: contracts/contract.sol:167:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             165  
+             166  pragma solidity ^0.5.0;
+        >>>  167  
+             168  
+             169  
+    ✗ sample 6: contracts/contract.sol:166:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             164  
+             165  pragma solidity ^0.5.0;
+        >>>  166  
+             167  
+             168  
+    ✗ sample 7: contracts/contract.sol:165:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             163  
+             164  pragma solidity ^0.5.0;
+        >>>  165  
+             166  
+             167  
+    ✗ sample 8: contracts/contract.sol:166:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             164  
+             165  pragma solidity ^0.5.0;
+        >>>  166  
+             167  
+             168  
+    ✗ sample 9: contracts/contract.sol:168:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             166  
+             167  pragma solidity ^0.5.0;
+        >>>  168  
+             169  
+             170  
+    ✗ sample 10: contracts/contract.sol:167:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             165  
+             166  pragma solidity ^0.5.0;
+        >>>  167  
+             168  
+             169  
+  → TokenMintERC20Token  compiled 0/10  compile@10=0%  elapsed=507s  (total: 130/270)
+  [28/36]  0x2687c41df2ea02…  LUMI  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4597 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4597,"n_ctx":2816}}
+✓  0.1s
+      fn 2/25  _msgData  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4621 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4621,"n_ctx":2816}}
+✓  0.1s
+      fn 3/25  owner  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4915 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4915,"n_ctx":2816}}
+✓  0.1s
+      fn 4/25  renounceOwnership  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5111 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5111,"n_ctx":2816}}
+✓  0.1s
+      fn 5/25  transferOwnership  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+✓  0.1s
+      fn 6/25  _transferOwnership  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+✓  0.1s
+      fn 7/25  name  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5284 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5284,"n_ctx":2816}}
+✓  0.1s
+      fn 8/25  symbol  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5294 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5294,"n_ctx":2816}}
+✓  0.1s
+      fn 9/25  decimals  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5270 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5270,"n_ctx":2816}}
+✓  0.1s
+      fn 10/25  totalSupply  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5231 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5231,"n_ctx":2816}}
+✓  0.1s
+      fn 11/25  balanceOf  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5236 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5236,"n_ctx":2816}}
+✓  0.1s
+      fn 12/25  transfer  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5234 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5234,"n_ctx":2816}}
+✓  0.1s
+      fn 13/25  allowance  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5272 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5272,"n_ctx":2816}}
+✓  0.1s
+      fn 14/25  approve  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5314 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5314,"n_ctx":2816}}
+✓  0.1s
+      fn 15/25  transferFrom  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5325 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5325,"n_ctx":2816}}
+✓  0.1s
+      fn 16/25  increaseAllowance  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5286 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5286,"n_ctx":2816}}
+✓  0.1s
+      fn 17/25  decreaseAllowance  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5331 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5331,"n_ctx":2816}}
+✓  0.1s
+      fn 18/25  _transfer  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5289 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5289,"n_ctx":2816}}
+✓  0.1s
+      fn 19/25  _mint  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5394 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5394,"n_ctx":2816}}
+✓  0.1s
+      fn 20/25  _burn  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+✓  0.1s
+      fn 21/25  _approve  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5382 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5382,"n_ctx":2816}}
+✓  0.1s
+      fn 22/25  blacklist  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5035 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5035,"n_ctx":2816}}
+✓  0.1s
+      fn 23/25  setRule  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4973 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4973,"n_ctx":2816}}
+✓  0.1s
+      fn 24/25  _beforeTokenTransfer  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (4787 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":4787,"n_ctx":2816}}
+✓  0.1s
+      fn 25/25  burn  batch 1/1 (10×k) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+  [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (5439 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":5439,"n_ctx":2816}}
+✓  0.1s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → LUMI  compiled 10/10  compile@10=100%  elapsed=10s  (total: 140/280)
+  [29/36]  0x27ca39647fe1db…  SHIBETS  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...  ✓  11.4s
+      fn 2/25  add  batch 1/1 (10×k) ...  ✓  12.7s
+      fn 3/25  sub  batch 1/1 (10×k) ...  ✓  21.0s
+      fn 4/25  sub  batch 1/1 (10×k) ...  ✓  15.3s
+      fn 5/25  mul  batch 1/1 (10×k) ...  ✓  17.7s
+      fn 6/25  div  batch 1/1 (10×k) ...  ✓  17.2s
+      fn 7/25  div  batch 1/1 (10×k) ...  ✓  17.4s
+      fn 8/25  owner  batch 1/1 (10×k) ...  ✓  15.6s
+      fn 9/25  renounceOwnership  batch 1/1 (10×k) ...  ✓  21.3s
+      fn 10/25  name  batch 1/1 (10×k) ...  ✓  18.5s
+      fn 11/25  symbol  batch 1/1 (10×k) ...  ✓  20.4s
+      fn 12/25  decimals  batch 1/1 (10×k) ...  ✓  20.9s
+      fn 13/25  totalSupply  batch 1/1 (10×k) ...  ✓  20.9s
+      fn 14/25  balanceOf  batch 1/1 (10×k) ...  ✓  21.7s
+      fn 15/25  transfer  batch 1/1 (10×k) ...  ✓  22.7s
+      fn 16/25  allowance  batch 1/1 (10×k) ...  ✓  21.7s
+      fn 17/25  approve  batch 1/1 (10×k) ...  ✓  23.5s
+      fn 18/25  transferFrom  batch 1/1 (10×k) ...  ✓  28.5s
+      fn 19/25  _approve  batch 1/1 (10×k) ...  ✓  30.4s
+      fn 20/25  _transfer  batch 1/1 (10×k) ...  ✓  72.5s
+      fn 21/25  min  batch 1/1 (10×k) ...  ✓  29.3s
+      fn 22/25  swapTokensForEth  batch 1/1 (10×k) ...  ✓  51.8s
+      fn 23/25  removeLimits  batch 1/1 (10×k) ...  ✓  30.5s
+      fn 24/25  sendETHToFee  batch 1/1 (10×k) ...  ✓  25.8s
+      fn 25/25  openTrading  batch 1/1 (10×k) ...  ✓  26.6s
+    ✗ sample 1: ParserError: Expected primary expression.
+   --> contracts/contract.sol:206:82:
+             204      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+             205                     require(amount > 0, "ERC20: transfer amount must be greater than zero");
+        >>>  206                     uint256 currentAllowance = _allowances[sender][_msgSender()] ?? 0;
+             207                     require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+             208                     _approve(sender, _msgSender(), currentAllowance - amount);
+    ✗ sample 2: ParserError: Expected ';' but got 'ILLEGAL'
+   --> contracts/contract.sol:226:32:
+             224                      if (contractTokenToSwap > 0) {
+             225                          swapTokensForEth(contractTokenToSwap);
+        >>>  226                          uint256倫bal = address(this).balance;
+             227                          if (倫bal > 0) {
+             228                              sendETHToFee(倫bal);
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:89:14:
+              87  
+              88      function renounceOwnership() public virtual onlyOwner {
+        >>>   89               _emitOwnershipRenounced(_owner);
+              90               _owner = address(0);
+              91           }
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:89:14:
+              87  
+              88      function renounceOwnership() public virtual onlyOwner {
+        >>>   89               _emitRenouncedOwnership();
+              90           }
+              91  
+    ✗ sample 5: DeclarationError: Undeclared identifier. Did you mean "require"?
+  --> contracts/contract.sol:89:14:
+              87  
+              88      function renounceOwnership() public virtual onlyOwner {
+        >>>   89               _require(_owner != address(0), "Ownable: caller is the owner");
+              90               emit OwnershipTransferred(_owner, address(0));
+              91               _owner = address(0);
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "require"?
+  --> contracts/contract.sol:90:14:
+              88  
+              89      function renounceOwnership() public virtual onlyOwner {
+        >>>   90               _require(!_owner == address(0), "Ownable: caller is already not the owner");
+              91               emit OwnershipTransferred(_owner, address(0));
+              92               _owner = address(0);
+    ✗ sample 7: ParserError: Expected ';' but got 'ILLEGAL'
+   --> contracts/contract.sol:273:23:
+             271             _cooldownTimes = 1;
+             272             _cooldownDuration = 200;
+        >>>  273             _swapTokens总会 = false;
+             274         }
+             275  
+    ✗ sample 8: ParserError: Expected ';' but got '['
+   --> contracts/contract.sol:207:31:
+             205      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+             206                     _require(amount > 0, "ERC20: transfer amount exceeds allowance");_
+        >>>  207                     _allowances[sender][_msgSender()] = _allowances[sender][_msgSender()].sub(amount);_
+             208                     _transfer(sender, recipient, amount);_
+             209                     return true;
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:273:12:
+             271  
+             272      function removeLimits() external onlyOwner{
+        >>>  273             _require(tradingOpen, "Trading not open");
+             274             _maxTxAmount = _tTotal;
+             275             _minHoldTime = 0;
+    ✗ sample 10: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:200:18:
+             198  
+             199      function approve(address spender, uint256 amount) public override returns (bool) {
+        >>>  200                   _require(spender != address(0), "ERC20: approve to the zero address");
+             201                   _approve(_msgSender(), spender, amount);
+             202                   return true;
+  → SHIBETS  compiled 0/10  compile@10=0%  elapsed=622s  (total: 140/290)
+  [30/36]  0x2f5fa8adf5f09a…  TROLL20  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...  ✓  19.1s
+      fn 2/25  add  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 3/25  sub  batch 1/1 (10×k) ...  ✓  15.1s
+      fn 4/25  sub  batch 1/1 (10×k) ...  ✓  15.2s
+      fn 5/25  mul  batch 1/1 (10×k) ...  ✓  17.4s
+      fn 6/25  div  batch 1/1 (10×k) ...  ✓  22.6s
+      fn 7/25  div  batch 1/1 (10×k) ...  ✓  17.2s
+      fn 8/25  owner  batch 1/1 (10×k) ...  ✓  15.2s
+      fn 9/25  renounceOwnership  batch 1/1 (10×k) ...  ✓  21.4s
+      fn 10/25  name  batch 1/1 (10×k) ...  ✓  21.9s
+      fn 11/25  symbol  batch 1/1 (10×k) ...  ✓  20.0s
+      fn 12/25  decimals  batch 1/1 (10×k) ...  ✓  20.4s
+      fn 13/25  totalSupply  batch 1/1 (10×k) ...  ✓  20.5s
+      fn 14/25  balanceOf  batch 1/1 (10×k) ...  ✓  21.0s
+      fn 15/25  transfer  batch 1/1 (10×k) ...  ✓  23.0s
+      fn 16/25  allowance  batch 1/1 (10×k) ...  ✓  26.6s
+      fn 17/25  approve  batch 1/1 (10×k) ...  ✓  25.4s
+      fn 18/25  transferFrom  batch 1/1 (10×k) ...  ✓  42.6s
+      fn 19/25  _approve  batch 1/1 (10×k) ...  ✓  26.7s
+      fn 20/25  _transfer  batch 1/1 (10×k) ...  ✓  73.3s
+      fn 21/25  min  batch 1/1 (10×k) ...  ✓  27.3s
+      fn 22/25  swapTokensForEth  batch 1/1 (10×k) ...  ✓  31.1s
+      fn 23/25  removeLimits  batch 1/1 (10×k) ...  ✓  30.1s
+      fn 24/25  sendETHToFee  batch 1/1 (10×k) ...  ✓  28.9s
+      fn 25/25  openTrading  batch 1/1 (10×k) ...  ✓  30.2s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "_approve"?
+   --> contracts/contract.sol:217:20:
+             215                     uint256 currentAllowance = _allowances[sender][_msgSender()];
+             216                     require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        >>>  217                     _unapprove(sender, _msgSender(), currentAllowance - amount);
+             218                     _transfer(sender, recipient, amount);
+             219                     return true;
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:232:22:
+             230                  require(amount > 0, "Transfer amount must be greater than zero");
+             231                  uint256 contractTokenBalance = balanceOf(address(this));
+        >>>  232                  if (!swapping && swapEnabled && contractTokenBalance >= _tokenBalanceToSwap) {
+             233                      swapping = true;
+             234                      swapTokensForEth(contractTokenBalance);
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:235:22:
+             233                  require(amount > 0, "Transfer amount must be greater than zero");
+             234                  uint256 contractTokenBalance = balanceOf(address(this));
+        >>>  235                  if (!swapping && swapEnabled && contractTokenBalance >= _tokenMinimum) {
+             236                      swapping = true;
+             237                      swapTokensForEth(contractTokenBalance / 2);
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:96:14:
+              94  
+              95      function renounceOwnership() public virtual onlyOwner {
+        >>>   96               _emitOwnershipRenounced(_owner);
+              97               _owner = address(0);
+              98           }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:235:22:
+             233                  uint256 contractTokenBalance = balanceOf(address(this));
+             234  
+        >>>  235                  if (!swapping && swapEnabled && tradingOpen) {
+             236                      if (contractTokenBalance >= _tokenMinimumSwapAmount) {
+             237                          uint256 swapAmount = min(contractTokenBalance, _tokenMaximumSwapAmount);
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:96:14:
+              94  
+              95      function renounceOwnership() public virtual onlyOwner {
+        >>>   96               _emitOwnershipRenounced(_owner);
+              97               _owner = address(0);
+              98           }
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "require"?
+  --> contracts/contract.sol:96:14:
+              94  
+              95      function renounceOwnership() public virtual onlyOwner {
+        >>>   96               _require(_owner != address(0), "Ownable: caller is not the owner");
+              97               address previousOwner = _owner;
+              98               _owner = address(0);
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:96:14:
+              94  
+              95      function renounceOwnership() public virtual onlyOwner {
+        >>>   96               _emitOwnershipRenounced(_owner);
+              97               _owner = address(0);
+              98           }
+    ✗ sample 9: DeclarationError: Undeclared identifier. "c" is not (or not yet) visible at this point.
+  --> contracts/contract.sol:57:45:
+              55  
+              56      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        >>>   57                   require(b == 0 || a / b == c, "SafeMath: multiplication overflow");
+              58                   uint256 c = a * b;
+              59                   return c;
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:235:51:
+             233                  require(amount > 0, "Transfer amount must be greater than zero");
+             234                  if(!_isExcludedFromFee[from] && !_isExcludedFromFee[to]){
+        >>>  235                      uint256 taxAmount = (amount * _taxRate) / 100;
+             236                      uint256 liquidityAmount = (amount * _liquidityRate) / 100;
+             237                      uint256 marketingAmount = (amount * _marketingRate) / 100;
+  → TROLL20  compiled 0/10  compile@10=0%  elapsed=628s  (total: 140/300)
+  [31/36]  0x306a4b5b553c7d…  XP  (21 functions, k=10)
+      fn 1/21  _msgSender  batch 1/1 (10×k) ...  ✓  22.1s
+      fn 2/21  _msgData  batch 1/1 (10×k) ...  ✓  14.4s
+      fn 3/21  name  batch 1/1 (10×k) ...  ✓  18.4s
+      fn 4/21  symbol  batch 1/1 (10×k) ...  ✓  18.8s
+      fn 5/21  decimals  batch 1/1 (10×k) ...  ✓  18.8s
+      fn 6/21  totalSupply  batch 1/1 (10×k) ...  ✓  19.0s
+      fn 7/21  balanceOf  batch 1/1 (10×k) ...  ✓  19.0s
+      fn 8/21  transfer  batch 1/1 (10×k) ...  ✓  23.7s
+      fn 9/21  allowance  batch 1/1 (10×k) ...  ✓  26.0s
+      fn 10/21  approve  batch 1/1 (10×k) ...  ✓  23.8s
+      fn 11/21  transferFrom  batch 1/1 (10×k) ...  ✓  29.8s
+      fn 12/21  _transfer  batch 1/1 (10×k) ...  ✓  31.1s
+      fn 13/21  _update  batch 1/1 (10×k) ...  ✓  49.4s
+      fn 14/21  _mint  batch 1/1 (10×k) ...  ✓  27.0s
+      fn 15/21  _burn  batch 1/1 (10×k) ...  ✓  25.1s
+      fn 16/21  _approve  batch 1/1 (10×k) ...  ✓  26.8s
+      fn 17/21  _approve  batch 1/1 (10×k) ...  ✓  27.7s
+      fn 18/21  _approve  batch 1/1 (10×k) ...  ✓  24.4s
+      fn 19/21  _spendAllowance  batch 1/1 (10×k) ...  ✓  39.5s
+      fn 20/21  burn  batch 1/1 (10×k) ...  ✓  24.4s
+      fn 21/21  burnFrom  batch 1/1 (10×k) ...  ✓  17.4s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 6: ParserError: Expected ',' but got identifier
+   --> contracts/src/XP.sol:240:67:
+             238      function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+             239                     address spender = _msgSender();
+        >>>  240                     _updateAllowance(from, spender, value - IERC20 allowance);
+             241                     _transfer(from, to, value);
+             242                     return true;
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:243:20:
+             241      function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+             242                     address spender = _msgSender();
+        >>>  243                     _updateAllowance(from, spender, value);
+             244                     _transfer(from, to, value);
+             245                     return true;
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+   --> contracts/src/XP.sol:218:18:
+             216      function approve(address spender, uint256 value) public virtual returns (bool) {
+             217                   address owner = _msgSender();
+        >>>  218                   _updateAllowance(owner, spender, value);
+             219                   return true;
+             220               }
+  → XP  compiled 0/10  compile@10=0%  elapsed=533s  (total: 140/310)
+  [32/36]  0x3301ee63fb29f8…  AKITAERC20Token  (22 functions, k=10)
+      fn 1/22  add  batch 1/1 (10×k) ...  ✓  25.3s
+      fn 2/22  sub  batch 1/1 (10×k) ...  ✓  24.2s
+      fn 3/22  mul  batch 1/1 (10×k) ...  ✓  28.5s
+      fn 4/22  div  batch 1/1 (10×k) ...  ✓  24.9s
+      fn 5/22  mod  — not found, skip
+      fn 6/22  totalSupply  batch 1/1 (10×k) ...  ✓  20.9s
+      fn 7/22  balanceOf  batch 1/1 (10×k) ...  ✓  19.5s
+      fn 8/22  transfer  batch 1/1 (10×k) ...  ✓  20.5s
+      fn 9/22  allowance  batch 1/1 (10×k) ...  ✓  23.9s
+      fn 10/22  approve  batch 1/1 (10×k) ...  ✓  20.2s
+      fn 11/22  transferFrom  batch 1/1 (10×k) ...  ✓  23.3s
+      fn 12/22  increaseAllowance  batch 1/1 (10×k) ...  ✓  22.3s
+      fn 13/22  decreaseAllowance  batch 1/1 (10×k) ...  ✓  22.9s
+      fn 14/22  _transfer  batch 1/1 (10×k) ...  ✓  32.1s
+      fn 15/22  _mint  batch 1/1 (10×k) ...  ✓  31.8s
+      fn 16/22  _burn  batch 1/1 (10×k) ...  ✓  27.8s
+      fn 17/22  _approve  batch 1/1 (10×k) ...  ✓  28.3s
+      fn 18/22  _burnFrom  batch 1/1 (10×k) ...  ✓  28.4s
+      fn 19/22  burn  batch 1/1 (10×k) ...  ✓  28.0s
+      fn 20/22  name  batch 1/1 (10×k) ...  ✓  16.7s
+      fn 21/22  symbol  batch 1/1 (10×k) ...  ✓  14.1s
+      fn 22/22  decimals  batch 1/1 (10×k) ...  ✓  13.8s
+    ✗ sample 1: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 2: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 3: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 4: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 5: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 6: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 7: contracts/contract.sol:161:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             159  
+             160  pragma solidity ^0.5.0;
+        >>>  161  
+             162  
+             163  
+    ✗ sample 8: contracts/contract.sol:161:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             159  
+             160  pragma solidity ^0.5.0;
+        >>>  161  
+             162  
+             163  
+    ✗ sample 9: contracts/contract.sol:162:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             160  
+             161  pragma solidity ^0.5.0;
+        >>>  162  
+             163  
+             164  
+    ✗ sample 10: contracts/contract.sol:161:1: ParserError: Function, variable, struct or modifier declaration expected.
+pragma solidity ^0.5.0;
+             159  
+             160  pragma solidity ^0.5.0;
+        >>>  161  
+             162  
+             163  
+  → AKITAERC20Token  compiled 0/10  compile@10=0%  elapsed=503s  (total: 140/320)
+  [33/36]  0x33283f3ca4ed77…  WindowsXPCoin  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...  ✓  10.5s
+      fn 2/25  _msgData  batch 1/1 (10×k) ...  ✓  10.8s
+      fn 3/25  owner  batch 1/1 (10×k) ...  ✓  13.3s
+      fn 4/25  renounceOwnership  batch 1/1 (10×k) ...  ✓  15.7s
+      fn 5/25  transferOwnership  batch 1/1 (10×k) ...  ✓  25.6s
+      fn 6/25  _transferOwnership  batch 1/1 (10×k) ...  ✓  28.0s
+      fn 7/25  name  batch 1/1 (10×k) ...  ✓  21.5s
+      fn 8/25  symbol  batch 1/1 (10×k) ...  ✓  17.7s
+      fn 9/25  decimals  batch 1/1 (10×k) ...  ✓  17.9s
+      fn 10/25  totalSupply  batch 1/1 (10×k) ...  ✓  17.5s
+      fn 11/25  balanceOf  batch 1/1 (10×k) ...  ✓  17.7s
+      fn 12/25  transfer  batch 1/1 (10×k) ...  ✓  17.0s
+      fn 13/25  allowance  batch 1/1 (10×k) ...  ✓  20.7s
+      fn 14/25  approve  batch 1/1 (10×k) ...  ✓  19.9s
+      fn 15/25  transferFrom  batch 1/1 (10×k) ...  ✓  22.8s
+      fn 16/25  increaseAllowance  batch 1/1 (10×k) ...  ✓  21.4s
+      fn 17/25  decreaseAllowance  batch 1/1 (10×k) ...  ✓  21.9s
+      fn 18/25  _transfer  batch 1/1 (10×k) ...  ✓  20.1s
+      fn 19/25  _mint  batch 1/1 (10×k) ...  ✓  40.8s
+      fn 20/25  _burn  batch 1/1 (10×k) ...  ✓  35.7s
+      fn 21/25  _approve  batch 1/1 (10×k) ...  ✓  35.1s
+      fn 22/25  blacklist  batch 1/1 (10×k) ...  ✓  22.9s
+      fn 23/25  setRule  batch 1/1 (10×k) ...  ✓  21.7s
+      fn 24/25  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  26.5s
+      fn 25/25  burn  batch 1/1 (10×k) ...  ✓  43.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → WindowsXPCoin  compiled 10/10  compile@10=100%  elapsed=575s  (total: 150/330)
+  [34/36]  0x3739426e21d912…  DOGGO  (22 functions, k=10)
+      fn 1/22  add  batch 1/1 (10×k) ...  ✓  23.3s
+      fn 2/22  sub  batch 1/1 (10×k) ...  ✓  24.4s
+      fn 3/22  mul  batch 1/1 (10×k) ...  ✓  30.7s
+      fn 4/22  div  batch 1/1 (10×k) ...  ✓  28.8s
+      fn 5/22  mod  — not found, skip
+      fn 6/22  totalSupply  batch 1/1 (10×k) ...  ✓  22.2s
+      fn 7/22  balanceOf  batch 1/1 (10×k) ...  ✓  18.8s
+      fn 8/22  transfer  batch 1/1 (10×k) ...  ✓  25.9s
+      fn 9/22  allowance  batch 1/1 (10×k) ...  ✓  22.0s
+      fn 10/22  approve  batch 1/1 (10×k) ...  ✓  23.6s
+      fn 11/22  transferFrom  batch 1/1 (10×k) ...  ✓  40.7s
+      fn 12/22  increaseAllowance  batch 1/1 (10×k) ...  ✓  28.5s
+      fn 13/22  decreaseAllowance  batch 1/1 (10×k) ...  ✓  27.3s
+      fn 14/22  _transfer  batch 1/1 (10×k) ...  ✓  38.2s
+      fn 15/22  _mint  batch 1/1 (10×k) ...  ✓  32.1s
+      fn 16/22  _burn  batch 1/1 (10×k) ...  ✓  28.2s
+      fn 17/22  _approve  batch 1/1 (10×k) ...  ✓  36.1s
+      fn 18/22  _burnFrom  batch 1/1 (10×k) ...  ✓  27.1s
+      fn 19/22  burn  batch 1/1 (10×k) ...  ✓  35.9s
+      fn 20/22  name  batch 1/1 (10×k) ...  ✓  24.4s
+      fn 21/22  symbol  batch 1/1 (10×k) ...  ✓  13.7s
+      fn 22/22  decimals  batch 1/1 (10×k) ...  ✓  13.7s
+    ✗ sample 1: contracts/contract.sol:107:31: ParserError: Expected primary expression.
+                 require(b <= type(uint256).max - a, "SafeMath: addition overflow");
+             105      function add(uint256 a, uint256 b) internal pure returns (uint256) {
+             106                   require(b <= type(uint256).max - a, "SafeMath: addition overflow");
+        >>>  107                   uint256 c = a + b;
+             108  
+             109                   return c;
+    ✗ sample 2: contracts/contract.sol:138:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             136      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             137                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  138                   uint256 c = a * b;
+             139  
+             140                   return c;
+    ✗ sample 3: contracts/contract.sol:137:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             135      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             136                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  137                   uint256 c = a * b;
+             138  
+             139                   return c;
+    ✗ sample 4: contracts/contract.sol:138:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             136      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             137                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  138                   uint256 c = a * b;
+             139  
+             140                   return c;
+    ✗ sample 5: contracts/contract.sol:137:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             135      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             136                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  137                   uint256 c = a * b;
+             138                   return c;
+             139               }
+    ✗ sample 6: contracts/contract.sol:137:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             135      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             136                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  137                   uint256 c = a * b;
+             138                   return c;
+             139               }
+    ✗ sample 7: contracts/contract.sol:138:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             136      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             137                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  138                   uint256 c = a * b;
+             139                   return c;
+             140               }
+    ✗ sample 8: contracts/contract.sol:137:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             135      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             136                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  137                   uint256 c = a * b;
+             138                   return c;
+             139               }
+    ✗ sample 9: contracts/contract.sol:138:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             136      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             137                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  138                   uint256 c = a * b;
+             139                   return c;
+             140               }
+    ✗ sample 10: contracts/contract.sol:137:41: ParserError: Expected primary expression.
+                 require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+             135      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+             136                   require(b == 0 || a <= type(uint256).max / b, "SafeMath: multiplication overflow");
+        >>>  137                   uint256 c = a * b;
+             138  
+             139                   return c;
+  → DOGGO  compiled 0/10  compile@10=0%  elapsed=571s  (total: 150/340)
+  [35/36]  0x389fe2f35a31a1…  Mary  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...  ✓  10.4s
+      fn 2/25  add  batch 1/1 (10×k) ...  ✓  13.7s
+      fn 3/25  sub  batch 1/1 (10×k) ...  ✓  15.0s
+      fn 4/25  sub  batch 1/1 (10×k) ...  ✓  15.0s
+      fn 5/25  mul  batch 1/1 (10×k) ...  ✓  16.9s
+      fn 6/25  div  batch 1/1 (10×k) ...  ✓  16.8s
+      fn 7/25  div  batch 1/1 (10×k) ...  ✓  17.0s
+      fn 8/25  owner  batch 1/1 (10×k) ...  ✓  15.0s
+      fn 9/25  renounceOwnership  batch 1/1 (10×k) ...  ✓  22.1s
+      fn 10/25  name  batch 1/1 (10×k) ...  ✓  20.4s
+      fn 11/25  symbol  batch 1/1 (10×k) ...  ✓  20.4s
+      fn 12/25  decimals  batch 1/1 (10×k) ...  ✓  20.9s
+      fn 13/25  totalSupply  batch 1/1 (10×k) ...  ✓  20.8s
+      fn 14/25  balanceOf  batch 1/1 (10×k) ...  ✓  20.0s
+      fn 15/25  transfer  batch 1/1 (10×k) ...  ✓  22.8s
+      fn 16/25  allowance  batch 1/1 (10×k) ...  ✓  22.1s
+      fn 17/25  approve  batch 1/1 (10×k) ...  ✓  24.3s
+      fn 18/25  transferFrom  batch 1/1 (10×k) ...  ✓  40.9s
+      fn 19/25  _approve  batch 1/1 (10×k) ...  ✓  29.9s
+      fn 20/25  _transfer  batch 1/1 (10×k) ...  ✓  46.3s
+      fn 21/25  min  batch 1/1 (10×k) ...  ✓  28.7s
+      fn 22/25  swapTokensForEth  batch 1/1 (10×k) ...  ✓  46.8s
+      fn 23/25  removeLimits  batch 1/1 (10×k) ...  ✓  26.6s
+      fn 24/25  sendETHToFee  batch 1/1 (10×k) ...  ✓  30.4s
+      fn 25/25  openTrading  batch 1/1 (10×k) ...  ✓  23.4s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:200:20:
+             198  
+             199      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        >>>  200                     _require(sender != address(0), "ERC20: transfer from the zero address");
+             201                             require(recipient != address(0), "ERC20: transfer to the zero address");
+             202                             require(amount > 0, "Transfer amount must be greater than zero");
+    ✗ sample 2: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:199:20:
+             197  
+             198      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        >>>  199                     _require(amount > 0, "ERC20: transfer amount exceeds allowance");
+             200                     uint256 currentAllowance = _allowances[sender][_msgSender()] ;
+             201                     _approve(sender, _msgSender(), currentAllowance.sub(amount));
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:220:52:
+             218                      _balances[to] = _balances[to].add(amount);
+             219                  } else {
+        >>>  220                      uint256 feeAmount = amount.mul(_taxRate).div(100);
+             221                      uint256 transferAmount = amount.sub(feeAmount);
+             222                      _balances[from] = _balances[from].sub(amount);
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:228:14:
+             226               path[0] = address(this);
+             227               path[1] = uniswapV2Router.WETH();
+        >>>  228               _update(address(this), address(0), tokenAmount);
+             229               uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+             230                   tokenAmount,
+    ✗ sample 5: ParserError: Expected ',' but got identifier
+   --> contracts/contract.sol:269:31:
+             267      function sendETHToFee(uint256 amount) private {
+             268              require(amount > 0, "Cannot send 0 ETH");
+        >>>  269              (feeAddress, bool sent) = feeAddress.call{value: amount}("");
+             270              require(sent, "Failed to send ETH");
+             271          }
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:200:20:
+             198  
+             199      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        >>>  200                     _require(sender != address(0), "ERC20: transfer from the zero address");
+             201                             require(recipient != address(0), "ERC20: transfer to the zero address");
+             202                             uint256 currentAllowance = _allowances[sender][_msgSender()];
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:221:45:
+             219                      _balances[to] = _balances[to].add(amount);
+             220                  } else {
+        >>>  221                      uint256 fee = (amount * _taxFee + _liquidityFee) / 100;
+             222                      uint256 amountAfterFee = amount - fee;
+             223                      uint256 liquidityFeeAmount = (amount * _liquidityFee) / 100;
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:194:18:
+             192  
+             193      function approve(address spender, uint256 amount) public override returns (bool) {
+        >>>  194                   _require(spender != address(0), "ERC20: approve to the zero address");
+             195                   _approve(_msgSender(), spender, amount);
+             196                   return true;
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:194:18:
+             192  
+             193      function approve(address spender, uint256 amount) public override returns (bool) {
+        >>>  194                   _require(spender != address(0), "ERC20: approve to the zero address");_approve(_msgSender(), spender, amount);return true;
+             195               }
+             196  
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+   --> contracts/contract.sol:219:48:
+             217  
+             218                  uint256 contractTokenBalance = balanceOf(address(this));
+        >>>  219                  bool overMinimumTokenBalance = swapTokensAtAmount < contractTokenBalance;
+             220                  bool canSwap = swapEnabled && !inSwap && overMinimumTokenBalance;
+             221                  if (canSwap) {
+  → Mary  compiled 0/10  compile@10=0%  elapsed=592s  (total: 150/350)
+  [36/36]  0x39e2e770985b37…  BabyGrok  (25 functions, k=10)
+      fn 1/25  _msgSender  batch 1/1 (10×k) ...  ✓  18.7s
+      fn 2/25  add  batch 1/1 (10×k) ...  ✓  9.9s
+      fn 3/25  sub  batch 1/1 (10×k) ...  ✓  14.8s
+      fn 4/25  sub  batch 1/1 (10×k) ...  ✓  15.0s
+      fn 5/25  mul  batch 1/1 (10×k) ...  ✓  18.4s
+      fn 6/25  div  batch 1/1 (10×k) ...  ✓  26.7s
+      fn 7/25  div  batch 1/1 (10×k) ...  ✓  17.0s
+      fn 8/25  owner  batch 1/1 (10×k) ...  ✓  15.2s
+      fn 9/25  renounceOwnership  batch 1/1 (10×k) ...  ✓  20.5s
+      fn 10/25  name  batch 1/1 (10×k) ...  ✓  26.4s
+      fn 11/25  symbol  batch 1/1 (10×k) ...  ✓  20.5s
+      fn 12/25  decimals  batch 1/1 (10×k) ...  ✓  21.0s
+      fn 13/25  totalSupply  batch 1/1 (10×k) ...  ✓  21.0s
+      fn 14/25  balanceOf  batch 1/1 (10×k) ...  ✓  21.8s
+      fn 15/25  transfer  batch 1/1 (10×k) ...  ✓  22.8s
+      fn 16/25  allowance  batch 1/1 (10×k) ...  ✓  21.7s
+      fn 17/25  approve  batch 1/1 (10×k) ...  ✓  25.5s
+      fn 18/25  transferFrom  batch 1/1 (10×k) ...  ✓  44.5s
+      fn 19/25  _approve  batch 1/1 (10×k) ...  ✓  34.0s
+      fn 20/25  _transfer  batch 1/1 (10×k) ...  ✓  61.0s
+      fn 21/25  min  batch 1/1 (10×k) ...  ✓  29.5s
+      fn 22/25  swapTokensForEth  batch 1/1 (10×k) ...  ✓  41.4s
+      fn 23/25  removeLimits  batch 1/1 (10×k) ...  ✓  28.8s
+      fn 24/25  sendETHToFee  batch 1/1 (10×k) ...  ✓  28.0s
+      fn 25/25  openTrading  batch 1/1 (10×k) ...  ✓  25.7s
+    ✗ sample 1: ParserError: Expected ',' but got ';'
+   --> contracts/contract.sol:260:57:
+             258  
+             259      function sendETHToFee(uint256 amount) private {
+        >>>  260              (address(feeAddress).call{value: amount}("");
+             261          }
+             262  
+    ✗ sample 2: DeclarationError: Undeclared identifier. "c" is not (or not yet) visible at this point.
+  --> contracts/contract.sol:44:45:
+              42  
+              43      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        >>>   44                   require(b == 0 || a / b == c, "SafeMath: multiplication overflow");
+              45                   uint256 c = a * b;
+              46                   return c;
+    ✗ sample 3: ParserError: Expected ';' but got 'ILLEGAL'
+   --> contracts/contract.sol:203:80:
+             201                     _require(recipient != address(0), "ERC20: transfer to the zero address");
+             202                     _require(amount > 0, "Transfer amount must be greater than zero");
+        >>>  203                     uint256 currentAllowance = _allowances[sender][_msgSender()]；
+             204                     _require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+             205                     _unapprove(sender, _msgSender(), amount);
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:44:45:
+              42  
+              43      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        >>>   44                   require(b == 0 || a / b == c, "SafeMath: multiplication overflow");
+              45                   return c;
+              46               }
+    ✗ sample 5: DeclarationError: Undeclared identifier. "c" is not (or not yet) visible at this point.
+  --> contracts/contract.sol:44:45:
+              42  
+              43      function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        >>>   44                   require(b == 0 || a / b == c, "SafeMath: multiplication overflow");
+              45                   uint256 c = a * b;
+              46                   return c;
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:194:18:
+             192  
+             193      function approve(address spender, uint256 amount) public override returns (bool) {
+        >>>  194                   _require(spender != address(0), "ERC20: approve to the zero address");_approve(_msgSender(), spender, amount);return true;
+             195               }
+             196  
+    ✗ sample 7: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:199:20:
+             197  
+             198      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        >>>  199                     _require(recipient != address(0), "ERC20: transfer to the zero address");
+             200                     _transfer(sender, recipient, amount);
+             201                     uint256 currentAllowance = _allowances[sender][_msgSender()] != 0 ? _allowances[sender][_msgSender()] : type(uint256).max;
+    ✗ sample 8: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+   --> contracts/contract.sol:274:5:
+             272          }
+             273  
+        >>>  274      receive() external payable {}
+             275  }//
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "require"?
+   --> contracts/contract.sol:194:18:
+             192  
+             193      function approve(address spender, uint256 amount) public override returns (bool) {
+        >>>  194                   _require(spender != address(0), "ERC20: approve to the zero address");_approve(_msgSender(), spender, amount);return true;
+             195               }
+             196  
+    ✗ sample 10: DeclarationError: Undeclared identifier. Did you mean "require"?
+  --> contracts/contract.sol:83:14:
+              81  
+              82      function renounceOwnership() public virtual onlyOwner {
+        >>>   83               _require(_owner != address(0), "Ownable: caller is not the owner");
+              84               emit OwnershipTransferred(_owner, address(0));
+              85               _owner = address(0);
+  → BabyGrok  compiled 0/10  compile@10=0%  elapsed=635s  (total: 150/360)
+
+============================================================
+  Total compiled : 150/360
+  avg compile@10  : 41.7%
+  Total time     : 5174s  (86.2 min)
+
+[pipeline] ======================= REPAIR =======================
+  [1/36]  0x0019de37a461ae…  Neo  (3/10 failed)
+    sample 1: error in `_approve`, scheduling repair
+    sample 3: error in `_approve`, scheduling repair
+    sample 6: error in `_approve`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  46.2s
+    ✗ sample 1  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 3  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 6  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → Neo  7/10 compiled after repair  (+0 fixed)
+  [2/36]  0x005d14e597f69b…  ETURUS  (10/10 failed)
+    sample 1: error in `approve`, scheduling repair
+    sample 2: error in `transferFrom`, scheduling repair
+    sample 3: error in `transferFrom`, scheduling repair
+    sample 4: error in `transferFrom`, scheduling repair
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 7: error in `transferFrom`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    sample 9: error in `transferFrom`, scheduling repair
+    sample 10: error in `transferFrom`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  34.8s
+    ✗ sample 1  [approve] still fails: ParserError: Expected pragma, import directive or contract/interface/l
+    ✗ sample 2  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 5  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "swapTokensForEt
+    ✗ sample 7  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 8  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 9  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 10  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "sender"?
+  → ETURUS  0/10 compiled after repair  (+0 fixed)
+  [3/36]  0x009e67576622b4…  UNI20  (10/10 failed)
+    sample 1: error in `_transfer721`, scheduling repair
+    sample 2: error in `_mint`, scheduling repair
+    sample 3: error in `_mint`, scheduling repair
+    sample 4: error in `inscribe`, scheduling repair
+    sample 5: error in `inscribe`, scheduling repair
+    sample 6: error in `approve`, scheduling repair
+    sample 7: error in `_mint`, scheduling repair
+    sample 8: error in `_transfer721`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `tokenURI`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  120.5s
+    ✗ sample 1  [_transfer721] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [_mint] still fails: ParserError: Expected primary expression.
+    ✗ sample 3  [_mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [inscribe] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [inscribe] still fails: ParserError: Expected primary expression.
+    ✗ sample 6  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_mint] still fails: ParserError: Expected primary expression.
+    ✗ sample 8  [_transfer721] still fails: DeclarationError: Undeclared identifier. Did you mean "_owners" or "ow
+    ✗ sample 10  [tokenURI] still fails: ParserError: Expected primary expression.
+  → UNI20  0/10 compiled after repair  (+0 fixed)
+  [4/36]  0x0283d310d68228…  BEEP  (8/10 failed)
+    sample 1: error in `totalSupply`, scheduling repair
+    sample 2: error in `totalSupply`, scheduling repair
+    sample 3: error in `totalSupply`, scheduling repair
+    sample 4: error in `totalSupply`, scheduling repair
+    sample 5: error in `totalSupply`, scheduling repair
+    sample 7: error in `totalSupply`, scheduling repair
+    sample 8: error in `totalSupply`, scheduling repair
+    sample 10: error in `totalSupply`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  22.9s
+    ✓ sample 1  [totalSupply] repaired
+    ✗ sample 2  [totalSupply] still fails: DeclarationError: Undeclared identifier. "decimals" is not (or not yet
+    ✓ sample 3  [totalSupply] repaired
+    ✓ sample 4  [totalSupply] repaired
+    ✓ sample 5  [totalSupply] repaired
+    ✓ sample 7  [totalSupply] repaired
+    ✗ sample 8  [totalSupply] still fails: DeclarationError: Undeclared identifier. "decimals" is not (or not yet
+    ✓ sample 10  [totalSupply] repaired
+  → BEEP  8/10 compiled after repair  (+6 fixed)
+  [5/36]  0x029b03ac808bc8…  CryptoRangers  — all OK, skip
+  [6/36]  0x049715c70fdbdd…  Nezuko  (4/10 failed)
+    sample 2: error in `_approve`, scheduling repair
+    sample 3: error in `renounceOwnership`, scheduling repair
+    sample 4: error in `_approve`, scheduling repair
+    sample 5: error in `_approve`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  53.9s
+    ✗ sample 2  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 3  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [_approve] still fails: ParserError: Expected primary expression.
+  → Nezuko  6/10 compiled after repair  (+0 fixed)
+  [7/36]  0x049e9f53693587…  ChecksToken  (9/10 failed)
+    sample 1: error in `_approve`, scheduling repair
+    sample 2: error in `_approve`, scheduling repair
+    sample 3: error in `_approve`, scheduling repair
+    sample 4: error in `_spendAllowance`, scheduling repair
+    sample 5: error in `_approve`, scheduling repair
+    sample 6: error in `_approve`, scheduling repair
+    sample 7: error in `_approve`, scheduling repair
+    sample 8: error in `_approve`, scheduling repair
+    sample 10: error in `_approve`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  24.0s
+    ✗ sample 1  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 4  [_spendAllowance] repaired
+    ✗ sample 5  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → ChecksToken  2/10 compiled after repair  (+1 fixed)
+  [8/36]  0x050d94685c6b04…  TokenMintERC20Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [9/36]  0x082646b22a3960…  FuckPepeToken  (6/10 failed)
+    sample 2: error in `_approve`, scheduling repair
+    sample 3: error in `renounceOwnership`, scheduling repair
+    sample 5: error in `_approve`, scheduling repair
+    sample 6: error in `_approve`, scheduling repair
+    sample 7: error in `_approve`, scheduling repair
+    sample 9: error in `_approve`, scheduling repair
+    repair batch 1/1 (6 samples) ...  ✓  42.8s
+    ✗ sample 2  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 3  [renounceOwnership] repaired
+    ✗ sample 5  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 9  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → FuckPepeToken  5/10 compiled after repair  (+1 fixed)
+  [10/36]  0x09b3b6c8bacabc…  ALITAToken  — all OK, skip
+  [11/36]  0x09c1ead57d2488…  UniswapV2Pair  (10/10 failed)
+    sample 1: error in `permit`, scheduling repair
+    sample 2: error in `permit`, scheduling repair
+    sample 3: error in `permit`, scheduling repair
+    sample 4: error in `transferFrom`, scheduling repair
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 6: error in `permit`, scheduling repair
+    sample 7: error in `permit`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    sample 9: error in `permit`, scheduling repair
+    sample 10: error in `permit`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  93.1s
+    ✗ sample 1  [permit] still fails: contracts/contract.sol:194:167: CompilerError: Stack too deep, try rem
+    ✗ sample 2  [permit] still fails: contracts/contract.sol:190:25: ParserError: Expected primary expressio
+    ✗ sample 3  [permit] still fails: contracts/contract.sol:195:25: TypeError: Different number of componen
+    ✗ sample 4  [transferFrom] still fails: contracts/contract.sol:185:19: DeclarationError: Undeclared identifier
+    ✗ sample 5  [transferFrom] still fails: contracts/contract.sol:187:19: ParserError: Expected primary expressio
+    ✗ sample 6  [permit] still fails: contracts/contract.sol:196:25: ParserError: Expected primary expressio
+    ✗ sample 7  [permit] still fails: contracts/contract.sol:194:81: TypeError: Type is not callable
+    ✗ sample 8  [transferFrom] still fails: contracts/contract.sol:184:19: DeclarationError: Undeclared identifier
+    ✗ sample 9  [permit] still fails: contracts/contract.sol:196:25: ParserError: Expected primary expressio
+    ✗ sample 10  [permit] still fails: contracts/contract.sol:195:25: ParserError: Expected primary expressio
+  → UniswapV2Pair  0/10 compiled after repair  (+0 fixed)
+  [12/36]  0x0bcc509282a5fb…  Kandyland  (10/10 failed)
+    sample 1: error in `setOwnerFund`, scheduling repair
+    sample 2: error in `setOwnerFund`, scheduling repair
+    sample 3: error in `setBaseURI`, scheduling repair
+    sample 4: error in `getNumberMinted`, scheduling repair
+    sample 5: error in `setCurrentPhase`, scheduling repair
+    sample 6: error in `setOwnerFund`, scheduling repair
+    sample 7: error in `supportsInterface`, scheduling repair
+    sample 8: error in `getNumberMinted`, scheduling repair
+    sample 9: error in `setCurrentPhase`, scheduling repair
+    sample 10: error in `getNumberMinted`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  57.4s
+    ✗ sample 1  [setOwnerFund] still fails: ParserError: Expected ';' but got '('
+    ✗ sample 2  [setOwnerFund] still fails: TypeError: Type bool is not implicitly convertible to expected type ui
+    ✗ sample 3  [setBaseURI] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [getNumberMinted] still fails: DeclarationError: Undeclared identifier. Did you mean "_totalMinted"?
+    ✗ sample 5  [setCurrentPhase] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 6  [setOwnerFund] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 7  [supportsInterface] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 8  [getNumberMinted] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 9  [setCurrentPhase] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 10  [getNumberMinted] still fails: TypeError: No matching declaration found after argument-dependent look
+  → Kandyland  0/10 compiled after repair  (+0 fixed)
+  [13/36]  0x0c21638d4bcb88…  GrokDogeX  (1/10 failed)
+    sample 2: error in `_approve`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  6.8s
+    ✗ sample 2  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → GrokDogeX  9/10 compiled after repair  (+0 fixed)
+  [14/36]  0x0c7f2a0bd73923…  links  (4/10 failed)
+    sample 2: error in `transferFrom`, scheduling repair
+    sample 3: error in `transferFrom`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  68.0s
+    ✗ sample 2  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [transferFrom] still fails: ParserError: Expected primary expression.
+    ✗ sample 6  [transferFrom] still fails: ParserError: Expected primary expression.
+    ✗ sample 8  [transferFrom] still fails: ParserError: Expected primary expression.
+  → links  6/10 compiled after repair  (+0 fixed)
+  [15/36]  0x0c9098c40a40ef…  ToadzToken  (2/10 failed)
+    sample 1: error in `renounceOwnership`, scheduling repair
+    sample 2: error in `_approve`, scheduling repair
+    repair batch 1/1 (2 samples) ...  ✓  10.1s
+    ✓ sample 1  [renounceOwnership] repaired
+    ✗ sample 2  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → ToadzToken  9/10 compiled after repair  (+1 fixed)
+  [16/36]  0x0d99482bb2c436…  NEPE  (3/10 failed)
+    sample 2: error in `approve`, scheduling repair
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `approve`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  8.3s
+    ✓ sample 2  [approve] repaired
+    ✓ sample 9  [approve] repaired
+    ✓ sample 10  [approve] repaired
+  → NEPE  10/10 compiled after repair  (+3 fixed)
+  [17/36]  0x0e9cc0f7e550bd…  UnleashToken  (1/10 failed)
+    sample 8: error in `_approve`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  6.9s
+    ✗ sample 8  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → UnleashToken  9/10 compiled after repair  (+0 fixed)
+  [18/36]  0x0fbd258eb1e046…  Tina  (4/10 failed)
+    sample 2: error in `renounceOwnership`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `_approve`, scheduling repair
+    sample 8: error in `_approve`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  69.2s
+    ✓ sample 2  [renounceOwnership] repaired
+    ✓ sample 6  [renounceOwnership] repaired
+    ✗ sample 7  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 8  [_approve] still fails: ParserError: Expected primary expression.
+  → Tina  8/10 compiled after repair  (+2 fixed)
+  [19/36]  0x15f20f9dfdf96c…  WALLSTREETBABY  — all OK, skip
+  [20/36]  0x1609d8aa20295f…  WeThePepe  (1/10 failed)
+    sample 4: error in `transferOwnership`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  5.4s
+    ✓ sample 4  [transferOwnership] repaired
+  → WeThePepe  10/10 compiled after repair  (+1 fixed)
+  [21/36]  0x1aa51bc7eb181c…  PAWZONE  (9/10 failed)
+    sample 2: error in `tokensBurnt`, scheduling repair
+    sample 3: error in `tokensBurnt`, scheduling repair
+    sample 4: error in `burnFrom`, scheduling repair
+    sample 5: error in `burnFrom`, scheduling repair
+    sample 6: error in `burn`, scheduling repair
+    sample 7: error in `burnFrom`, scheduling repair
+    sample 8: error in `burnFrom`, scheduling repair
+    sample 9: error in `tokensBurnt`, scheduling repair
+    sample 10: error in `tokensBurnt`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  58.4s
+    ✗ sample 2  [tokensBurnt] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [tokensBurnt] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [burnFrom] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [burnFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [burn] still fails: DeclarationError: Undeclared identifier. Did you mean "tokensBurnt"?
+    ✗ sample 7  [burnFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "_msgSender"?
+    ✗ sample 8  [burnFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [tokensBurnt] still fails: DeclarationError: Undeclared identifier. Did you mean "_burn" or "burn
+    ✗ sample 10  [tokensBurnt] still fails: DeclarationError: Undeclared identifier.
+  → PAWZONE  1/10 compiled after repair  (+0 fixed)
+  [22/36]  0x1b78ffbc661394…  CloudnetAi  (10/10 failed)
+    sample 1: error in `approve`, scheduling repair
+    sample 2: error in `approve`, scheduling repair
+    sample 3: error in `renounceOwnership`, scheduling repair
+    sample 4: error in `transferFrom`, scheduling repair
+    sample 5: error in `approve`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `transferFrom`, scheduling repair
+    sample 8: error in `approve`, scheduling repair
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  101.3s
+    ✗ sample 1  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [renounceOwnership] still fails: ParserError: Expected primary expression.
+    ✗ sample 4  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [approve] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 6  [renounceOwnership] still fails: ParserError: Expected primary expression.
+    ✗ sample 7  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 9  [approve] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 10  [renounceOwnership] still fails: ParserError: Expected primary expression.
+  → CloudnetAi  0/10 compiled after repair  (+0 fixed)
+  [23/36]  0x1f76429eac63d9…  RightCoin  (4/10 failed)
+    sample 3: error in `_approve`, scheduling repair
+    sample 5: error in `_approve`, scheduling repair
+    sample 7: error in `renounceOwnership`, scheduling repair
+    sample 9: error in `_approve`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  51.5s
+    ✗ sample 3  [_approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [_approve] still fails: ParserError: Expected primary expression.
+    ✗ sample 7  [renounceOwnership] still fails: ParserError: Expected primary expression.
+    ✗ sample 9  [_approve] still fails: DeclarationError: Undeclared identifier.
+  → RightCoin  6/10 compiled after repair  (+0 fixed)
+  [24/36]  0x20cdecbf5d5687…  MonkeysToken  (9/10 failed)
+    sample 1: error in `_getTaxPercentages`, scheduling repair
+    sample 2: error in `_getTaxPercentages`, scheduling repair
+    sample 3: error in `_getTaxPercentages`, scheduling repair
+    sample 4: error in `_calculateTax`, scheduling repair
+    sample 5: error in `_getTaxPercentages`, scheduling repair
+    sample 6: error in `_calculateTax`, scheduling repair
+    sample 7: error in `_getTaxPercentages`, scheduling repair
+    sample 9: error in `_calculateTax`, scheduling repair
+    sample 10: error in `_getTaxPercentages`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  45.7s
+    ✗ sample 1  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "Transfer" or "t
+    ✗ sample 2  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "Transfer" or "t
+    ✗ sample 3  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 4  [_calculateTax] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 5  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 6  [_calculateTax] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 7  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 9  [_calculateTax] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 10  [_getTaxPercentages] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+  → MonkeysToken  1/10 compiled after repair  (+0 fixed)
+  [25/36]  0x21ecf7c398ddf8…  TF  — all OK, skip
+  [26/36]  0x243158d3c541a9…  CoSinnesloschen  (2/10 failed)
+    sample 5: error in `withdraw`, scheduling repair
+    sample 8: error in `withdraw`, scheduling repair
+    repair batch 1/1 (2 samples) ...  ✓  38.9s
+    ✓ sample 5  [withdraw] repaired
+    ✗ sample 8  [withdraw] still fails: ParserError: Expected primary expression.
+  → CoSinnesloschen  9/10 compiled after repair  (+1 fixed)
+  [27/36]  0x243cacb4d5ff68…  TokenMintERC20Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [28/36]  0x2687c41df2ea02…  LUMI  — all OK, skip
+  [29/36]  0x27ca39647fe1db…  SHIBETS  (10/10 failed)
+    sample 1: error in `transferFrom`, scheduling repair
+    sample 2: error in `_transfer`, scheduling repair
+    sample 3: error in `renounceOwnership`, scheduling repair
+    sample 4: error in `renounceOwnership`, scheduling repair
+    sample 5: error in `renounceOwnership`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `removeLimits`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    sample 9: error in `removeLimits`, scheduling repair
+    sample 10: error in `approve`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  62.2s
+    ✗ sample 1  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [_transfer] still fails: DeclarationError: Undeclared identifier. Did you mean "swapTokensForEt
+    ✗ sample 3  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [renounceOwnership] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 7  [removeLimits] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [transferFrom] still fails: ParserError: Expected primary expression.
+    ✗ sample 9  [removeLimits] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [approve] still fails: DeclarationError: Undeclared identifier.
+  → SHIBETS  0/10 compiled after repair  (+0 fixed)
+  [30/36]  0x2f5fa8adf5f09a…  TROLL20  (10/10 failed)
+    sample 1: error in `transferFrom`, scheduling repair
+    sample 2: error in `_transfer`, scheduling repair
+    sample 3: error in `_transfer`, scheduling repair
+    sample 4: error in `renounceOwnership`, scheduling repair
+    sample 5: error in `_transfer`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `renounceOwnership`, scheduling repair
+    sample 8: error in `renounceOwnership`, scheduling repair
+    sample 9: error in `mul`, scheduling repair
+    sample 10: error in `_transfer`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  77.2s
+    ✗ sample 1  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [_transfer] still fails: ParserError: Expected primary expression.
+    ✗ sample 3  [_transfer] still fails: ParserError: Expected primary expression.
+    ✗ sample 4  [renounceOwnership] still fails: DeclarationError: Undeclared identifier. Did you mean "_approve"?
+    ✗ sample 5  [_transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [renounceOwnership] still fails: DeclarationError: Undeclared identifier. Did you mean "_approve"?
+    ✗ sample 7  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_transfer] still fails: DeclarationError: Undeclared identifier.
+  → TROLL20  0/10 compiled after repair  (+0 fixed)
+  [31/36]  0x306a4b5b553c7d…  XP  (10/10 failed)
+    sample 1: error in `approve`, scheduling repair
+    sample 2: error in `approve`, scheduling repair
+    sample 3: error in `approve`, scheduling repair
+    sample 4: error in `approve`, scheduling repair
+    sample 5: error in `approve`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 7: error in `approve`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `approve`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  38.0s
+    ✗ sample 1  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 8  [transferFrom] repaired
+    ✗ sample 9  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [approve] still fails: DeclarationError: Undeclared identifier.
+  → XP  1/10 compiled after repair  (+1 fixed)
+  [32/36]  0x3301ee63fb29f8…  AKITAERC20Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [33/36]  0x33283f3ca4ed77…  WindowsXPCoin  — all OK, skip
+  [34/36]  0x3739426e21d912…  DOGGO  (10/10 failed)
+    sample 1: error in `add`, scheduling repair
+    sample 2: error in `mul`, scheduling repair
+    sample 3: error in `mul`, scheduling repair
+    sample 4: error in `mul`, scheduling repair
+    sample 5: error in `mul`, scheduling repair
+    sample 6: error in `mul`, scheduling repair
+    sample 7: error in `mul`, scheduling repair
+    sample 8: error in `mul`, scheduling repair
+    sample 9: error in `mul`, scheduling repair
+    sample 10: error in `mul`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  41.4s
+    ✗ sample 1  [add] still fails: contracts/contract.sol:107:31: ParserError: Expected primary expressio
+    ✗ sample 2  [mul] still fails: contracts/contract.sol:138:41: ParserError: Expected primary expressio
+    ✗ sample 3  [mul] still fails: contracts/contract.sol:160:1: ParserError: Function, variable, struct 
+    ✗ sample 4  [mul] still fails: contracts/contract.sol:138:41: ParserError: Expected primary expressio
+    ✗ sample 5  [mul] still fails: contracts/contract.sol:137:41: ParserError: Expected primary expressio
+    ✗ sample 6  [mul] still fails: contracts/contract.sol:137:41: ParserError: Expected primary expressio
+    ✗ sample 7  [mul] still fails: contracts/contract.sol:138:41: ParserError: Expected primary expressio
+    ✗ sample 8  [mul] still fails: contracts/contract.sol:137:41: ParserError: Expected primary expressio
+    ✗ sample 9  [mul] still fails: contracts/contract.sol:161:1: ParserError: Function, variable, struct 
+    ✗ sample 10  [mul] still fails: contracts/contract.sol:137:41: ParserError: Expected primary expressio
+  → DOGGO  0/10 compiled after repair  (+0 fixed)
+  [35/36]  0x389fe2f35a31a1…  Mary  (10/10 failed)
+    sample 1: error in `transferFrom`, scheduling repair
+    sample 2: error in `transferFrom`, scheduling repair
+    sample 3: error in `_transfer`, scheduling repair
+    sample 4: error in `swapTokensForEth`, scheduling repair
+    sample 5: error in `sendETHToFee`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 7: error in `_transfer`, scheduling repair
+    sample 8: error in `approve`, scheduling repair
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `_transfer`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  111.5s
+    ✗ sample 1  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [_transfer] still fails: ParserError: Expected primary expression.
+    ✗ sample 4  [swapTokensForEth] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [sendETHToFee] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_transfer] still fails: ParserError: Expected primary expression.
+    ✗ sample 8  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_transfer] still fails: ParserError: Expected primary expression.
+  → Mary  0/10 compiled after repair  (+0 fixed)
+  [36/36]  0x39e2e770985b37…  BabyGrok  (10/10 failed)
+    sample 1: error in `sendETHToFee`, scheduling repair
+    sample 2: error in `mul`, scheduling repair
+    sample 3: error in `transferFrom`, scheduling repair
+    sample 4: error in `mul`, scheduling repair
+    sample 5: error in `mul`, scheduling repair
+    sample 6: error in `approve`, scheduling repair
+    sample 7: error in `transferFrom`, scheduling repair
+    sample 8: can't locate function at error line, copying original
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  38.5s
+    ✗ sample 1  [sendETHToFee] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 2  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 3  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 5  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 6  [approve] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 7  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [approve] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 10  [renounceOwnership] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+  → BabyGrok  0/10 compiled after repair  (+0 fixed)
+
+============================================================
+  Before repair : 150/360  (41.7%)
+  After repair  : 167/360  (46.4%)
+  Repaired      : +17 samples
+  Still failing : 161 samples
+  No fn found   : 32 samples
+  Total time    : 1429s  (23.8 min)
+
+[pipeline] done.
+[pipeline] done.
+[llamapipe] pipeline finished; tearing down server.

@@ -1,0 +1,1958 @@
+[llamapipe] node=faretra  gpu=2  port=8082  server=llamacpp_contracts_1to5
+[llamapipe] model=/llms/ornith-1.0-35b-Q4_K_M.gguf  ctx=8192  parallel=3
+[llamapipe] contracts=../dataset/contracts_1to5  limit=36
+[llamapipe] waiting for model load . ready
+WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.3.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+[pipeline] Node/Hardhat not found — installing via get_hardhat_deps.sh ...
+=== Installing solc-select ===
+Found existing installation: solc-select 1.1.0
+Uninstalling solc-select-1.1.0:
+  Successfully uninstalled solc-select-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting solc-select
+  Using cached solc_select-1.2.0-py3-none-any.whl.metadata (47 kB)
+Requirement already satisfied: pycryptodome>=3.4.6 in /usr/local/lib/python3.10/dist-packages (from solc-select) (3.17)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from solc-select) (26.2)
+Collecting requests>=2.32.4 (from solc-select)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2026.5.20)
+Downloading solc_select-1.2.0-py3-none-any.whl (36 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Installing collected packages: requests, solc-select
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.3
+    Uninstalling requests-2.32.3:
+      Successfully uninstalled requests-2.32.3
+
+Successfully installed requests-2.34.2 solc-select-1.2.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+=== Installing NVM 0.40.4 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100 16774  100 16774    0     0  11985      0  0:00:01  0:00:01 --:--:-- 11989
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=== Installing Node.js (npm 11.9.0) ===
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz...
+#=#=#                                                                         ###                                                                        5.5%##################                                                        25.3%#############################                                             40.4%############################################                              61.4%######################################################                    76.1%##################################################################        92.5%######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+Creating default alias: default -> 24 (-> v24.18.0 *)
+Now using node v24.18.0 (npm v11.16.0)
+default -> 24 (-> v24.18.0 *)
+=== Installing Hardhat 2.28.6 ===
+
+up to date in 256ms
+
+up to date, audited 217 packages in 5s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (10 low, 3 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp rebuild)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+=== Installing Solidity compiler 0.4.18 ===
+Installing solc '0.4.18'...
+Version '0.4.18' installed.
+Switched global version to 0.4.18
+
+=======================================
+Installed versions:
+=======================================
+Node:
+v24.18.0
+npm:
+11.16.0
+npx:
+11.16.0
+nvm:
+0.40.4
+Hardhat:
+2.28.6
+solc:
+solc, the solidity compiler commandline interface
+Version: 0.4.18+commit.9cf6e910.Linux.g++
+solc-select:
+0.4.18 (current, set by /root/.solc-select/global-version)
+
+Now run:
+source ~/.bashrc
+source .env
+[pipeline] node v24.18.0  npx 11.16.0
+[hardhat-ws] workspace=/workdir/src/dataset/hh_contracts_1to5  current=none  wanted=2.28.6
+[hardhat-ws] Repairing: installing a clean Hardhat 2.28.6 (was: none) ...
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@8.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@5.0.15: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@7.1.7: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+
+added 578 packages, and audited 579 packages in 28s
+
+112 packages are looking for funding
+  run `npm fund` for details
+
+39 vulnerabilities (18 low, 17 moderate, 4 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp-build || exit 0)
+npm warn allow-scripts   secp256k1@4.0.4 (install: node-gyp-build || exit 0)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+[hardhat-ws] Hardhat now: 2.28.6
+[pipeline] contracts=/workdir/src/dataset/contracts_1to5  limit=36
+[pipeline] generated=./generated_contracts_1to5  repaired=./repaired_contracts_1to5  work_dir=../dataset/hh_contracts_1to5
+[pipeline] model=Qwen/Qwen3-Coder-30B-A3B-Instruct  context=4096   k=10
+[pipeline] cwd=/workdir/src/source_generation
+[pipeline] 36 contracts (found 37 in /workdir/src/dataset/contracts_1to5, limited to 36)
+[pipeline] generated=./generated_contracts_1to5  repaired=./repaired_contracts_1to5
+[pipeline] work_dir=../dataset/hh_contracts_1to5  k=10  context=4096
+[pipeline] backend=llamacpp — connecting to the llama.cpp server (ONCE) ...
+[LlamaCppClient] Connecting to http://127.0.0.1:8082/v1/chat/completions ... ready
+[pipeline] Client ready.
+
+[pipeline] ===================== GENERATION =====================
+  [1/36]  0x0ebe30595a44e5…  NyanToken  (4 functions, k=10)
+      fn 1/4  blacklist  batch 1/1 (10×k) ...  ✓  3.0s
+      fn 2/4  setRule  batch 1/1 (10×k) ...  ✓  4.1s
+      fn 3/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  7.1s
+      fn 4/4  burn  batch 1/1 (10×k) ...  ✓  5.1s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "_burn" or "burn"?
+  --> contracts/src/NyanToken.sol:49:13:
+              47  
+              48      function burn(uint256 value) external {
+        >>>   49              burn(msg.sender, value);
+              50          }
+              51  }
+    ✗ sample 2: TypeError: Member "add" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/src/NyanToken.sol:39:33:
+              37                      if (limited) {
+              38                          if (from == uniswapV2Pair && to != uniswapV2Pair) {
+        >>>   39                              if (balanceOf(to).add(amount) > maxHoldingAmount) {
+              40                                  revert("NyanToken: exceeds max holding amount");
+              41                              }
+    ✓ sample 3
+    ✓ sample 4
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/src/NyanToken.sol:42:13:
+              40  
+              41      function burn(uint256 value) external {
+        >>>   42              super_burn(msg.sender, value);
+              43          }
+              44  }
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/src/NyanToken.sol:43:13:
+              41  
+              42      function burn(uint256 value) external {
+        >>>   43              superBurn(msg.sender, value);
+              44          }
+              45  }
+    ✓ sample 9
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/src/NyanToken.sol:46:13:
+              44      function burn(uint256 value) external {
+              45              require(value <= balanceOf(msg.sender), "ERC20: burn amount exceeds balance");
+        >>>   46              _superBurn(msg.sender, value);
+              47          }
+              48  }
+  → NyanToken  compiled 5/10  compile@10=50%  elapsed=29s  (total: 5/10)
+  [2/36]  0x166fd4299364b2…  AlephSync  (2 functions, k=10)
+      fn 1/2  doEmit  batch 1/1 (10×k) ...  ✓  2.8s
+      fn 2/2  doMessage  batch 1/1 (10×k) ...  ✓  2.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → AlephSync  compiled 10/10  compile@10=100%  elapsed=10s  (total: 15/20)
+  [3/36]  0x2be8e422cb4a5a…  MSIToken  (5 functions, k=10)
+      fn 1/5  _update  batch 1/1 (10×k) ...  ✓  15.1s
+      fn 2/5  setTaxRate  batch 1/1 (10×k) ...  ✓  12.6s
+      fn 3/5  changeTaxWallet  batch 1/1 (10×k) ...  ✓  12.9s
+      fn 4/5  addToWhitelist  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 5/5  removeFromWhitelist  batch 1/1 (10×k) ...  ✓  9.0s
+    ✗ sample 1: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+   --> contracts/src/MSIToken.sol:209:1:
+             207              emit RemovedFromWhitelist(user);
+             208          }
+        >>>  209  }
+    ✗ sample 2: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+   --> contracts/src/MSIToken.sol:209:1:
+             207              emit RemovedFromWhitelist(user);
+             208          }
+        >>>  209  }
+    ✗ sample 3: DeclarationError: Undeclared identifier. Did you mean "RemovedFromWhitelist" or "removeFromWhitelist"?
+   --> contracts/src/MSIToken.sol:178:15:
+             176      function changeTaxWallet(address newTaxWallet) external onlyOwner isZeroAddress(newTaxWallet) {
+             177                if (whitelist[newTaxWallet]) revert Errors.USER_ALREADY_WHITELISTED();
+        >>>  178                removeFromWhitelist(taxWallet);
+             179                taxWallet = newTaxWallet;
+             180                addToWhitelist(newTaxWallet);
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:171:19:
+             169               if (newTaxRate > 1000) revert Errors.INVALID_TAX_RATE();
+             170               taxRate = newTaxRate;
+        >>>  171               emit TaxRateUpdated(newTaxRate);
+             172           }
+             173  
+    ✗ sample 5: TypeError: Member "INVALID_TAX_RATE" not found or not visible after argument-dependent lookup in type(library Errors).
+   --> contracts/src/MSIToken.sol:175:43:
+             173       */
+             174      function setTaxRate(uint256 newTaxRate) external onlyOwner {
+        >>>  175               if (newTaxRate > 100) revert Errors.INVALID_TAX_RATE();
+             176               taxRate = newTaxRate;
+             177               emit TaxRateChanged(newTaxRate);
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:183:19:
+             181               if (newTaxRate > 1000) revert Errors.INVALID_TAX_RATE();
+             182               taxRate = newTaxRate;
+        >>>  183               emit TaxRateUpdated(newTaxRate);
+             184           }
+             185  
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:177:19:
+             175               if (newTaxRate > 1000) revert Errors.INVALID_TAX_RATE();
+             176               taxRate = newTaxRate;
+        >>>  177               emit TaxRateUpdated(newTaxRate);
+             178           }
+             179  
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:178:27:
+             176               if (newTaxRate > 1000) revert Errors.INVALID_TAX_RATE();
+             177                       taxRate = newTaxRate;
+        >>>  178                       emit TaxRateUpdated(newTaxRate);
+             179           }
+             180  
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:174:36:
+             172                                taxAmount = (transferValue * taxRate) / 1000;
+             173                                _transfer(taxWallet, toTaxWallet, taxAmount);
+        >>>  174                                emit TaxCollected(to, from, taxAmount);
+             175                            }
+             176                }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+   --> contracts/src/MSIToken.sol:169:27:
+             167               if (newTaxRate > 1000) revert Errors.INVALID_TAX_RATE();
+             168                       taxRate = newTaxRate;
+        >>>  169                       emit ChangedTaxRate(newTaxRate);
+             170           }
+             171  
+  → MSIToken  compiled 0/10  compile@10=0%  elapsed=67s  (total: 15/30)
+  [4/36]  0x2e258dbb253b7e…  NillionVerifierVault  (5 functions, k=10)
+      fn 1/5  deposit  batch 1/1 (10×k) ...  ✓  10.1s
+      fn 2/5  withdraw  batch 1/1 (10×k) ...  ✓  11.0s
+      fn 3/5  totalSupply  batch 1/1 (10×k) ...  ✓  10.5s
+      fn 4/5  getVerifierAddress  batch 1/1 (10×k) ...  ✓  9.1s
+      fn 5/5  getBalanceOf  batch 1/1 (10×k) ...  ✓  7.2s
+    ✗ sample 1: TypeError: Member "length" not found or not visible after argument-dependent lookup in mapping(address => uint256).
+  --> contracts/contract.sol:50:36:
+              48      function totalSupply() public view returns (uint) {
+              49                uint total;
+        >>>   50                for (uint i = 0; i < balanceOf.length; i++) {
+              51                    total += balanceOf[i];
+              52                }
+    ✗ sample 2: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/contract.sol:57:1:
+              55                 return balanceOf[_address];
+              56             } 
+        >>>   57  }
+              58  
+              59  /*
+    ✓ sample 3
+    ✗ sample 4: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:44:13:
+              42              require(address(this).balance >= wad, "Contract has insufficient ETH");
+              43              balanceOf[msg.sender] -= wad;
+        >>>   44              (uint status, ) = msg.sender.call{value: wad}("");
+              45              require(status, "Transfer failed");
+              46              emit Withdrawal(msg.sender, wad, verifierAddress[msg.sender]);
+    ✓ sample 5
+    ✗ sample 6: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/contract.sol:58:1:
+              56                 return balanceOf[_address];
+              57             } 
+        >>>   58  }
+              59  
+              60  /*
+    ✗ sample 7: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/contract.sol:63:1:
+              61                 return balanceOf[_address];
+              62             } 
+        >>>   63  }
+              64  
+              65  /*
+    ✗ sample 8: TypeError: Member "length" not found or not visible after argument-dependent lookup in mapping(address => uint256).
+  --> contracts/contract.sol:49:39:
+              47      function totalSupply() public view returns (uint) {
+              48                uint256 supply = 0;
+        >>>   49                for (uint256 i = 0; i < balanceOf.length; i++) {
+              50                    supply += balanceOf[i];
+              51                }
+    ✗ sample 9: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/contract.sol:63:1:
+              61                 return balanceOf[_address];
+              62             } 
+        >>>   63  }
+              64  
+              65  /*
+    ✗ sample 10: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:43:13:
+              41              require(balanceOf[msg.sender] >= wad, "Insufficient balance");
+              42              balanceOf[msg.sender] -= wad;
+        >>>   43              (uint status, ) = msg.sender.call{value: wad}("");
+              44              require(status, "Transfer failed");
+              45              emit Withdrawal(msg.sender, wad, verifierAddress[msg.sender]);
+  → NillionVerifierVault  compiled 2/10  compile@10=20%  elapsed=53s  (total: 17/40)
+  [5/36]  0x303389f541ff2d…  SeriesNonceManager  (5 functions, k=10)
+      fn 1/5  increaseNonce  batch 1/1 (10×k) ...  ✓  4.3s
+      fn 2/5  advanceNonce  batch 1/1 (10×k) ...  ✓  6.3s
+      fn 3/5  nonceEquals  batch 1/1 (10×k) ...  ✓  6.6s
+      fn 4/5  timestampBelow  batch 1/1 (10×k) ...  ✓  4.2s
+      fn 5/5  timestampBelowAndNonceEquals  batch 1/1 (10×k) ...  ✓  7.5s
+    ✓ sample 1
+    ✗ sample 2: Warning: This declaration shadows an existing declaration.
+  --> contracts/contract.sol:49:30:
+              47  
+              48      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   49                (uint256 time, uint256 nonce, uint8 series, address account) = abi.decode((timeNonceSeriesAccount), (uint256, uint256, uint8, address));
+              50                        return timestampBelow(time) && nonceEquals(series, account, nonce);
+              51            }
+    ✓ sample 3
+    ✓ sample 4
+    ✗ sample 5: Warning: This declaration shadows an existing declaration.
+  --> contracts/contract.sol:49:30:
+              47  
+              48      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   49                (uint256 time, uint256 nonce, uint8 series, address account) = abi.decode(
+              50                            (timeNonceSeriesAccount),
+              51                            (uint256, uint256, uint8, address)
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/contract.sol:52:71:
+              50      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+              51                uint256 time = timeNonceSeriesAccount >> 248;
+        >>>   52                uint256 nonce_ = (timeNonceSeriesAccount >> 160) & type(uint87).max;
+              53                uint256 series = (timeNonceSeriesAccount >> 32) & type(uint87).max;
+              54                address account = address(uint160(timeNonceSeriesAccount));
+    ✗ sample 7: Warning: This declaration shadows an existing declaration.
+  --> contracts/contract.sol:49:30:
+              47  
+              48      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   49                (uint256 time, uint256 nonce, uint8 series, address account) = abi.decode((timeNonceSeriesAccount), (uint256, uint256, uint8, address));
+              50                return timestampBelow(time) && nonceEquals(series, account, nonce);
+              51            }
+    ✗ sample 8: ParserError: Expected '=' but got 'memory'
+  --> contracts/contract.sol:51:37:
+              49  
+              50      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   51                (uint256 memory args) memory = abi.decode(args, (uint256[4]));
+              52                return nonceEquals(
+              53                args[1],
+    ✗ sample 9: TypeError: No matching declaration found after argument-dependent lookup.
+  --> contracts/contract.sol:31:15:
+              29      /// @notice Advances nonce by specified amount
+              30      function advanceNonce(uint256 series, uint256 amount) public {
+        >>>   31                require(amount > 0, AdvanceNonceFailed());
+              32                nonce[series][msg.sender] += amount;
+              33                emit NonceIncreased(msg.sender, series, nonce[series][msg.sender]);
+    ✗ sample 10: TypeError: Data location can only be specified for array, struct or mapping types, but "memory" was given.
+  --> contracts/contract.sol:49:16:
+              47  
+              48      function timestampBelowAndNonceEquals(uint256 timeNonceSeriesAccount) public view returns(bool) {
+        >>>   49                (uint256 memory data) = abi.decode((timeNonceSeriesAccount), (uint256[4]));
+              50                return timestampBelow(data[0]) && nonceEquals(data[1], data[2], data[3]);
+              51            }
+  → SeriesNonceManager  compiled 3/10  compile@10=30%  elapsed=34s  (total: 20/50)
+  [6/36]  0x36ff4dae0e8811…  XenlonMarsERC20  (1 functions, k=10)
+      fn 1/1  mint  batch 1/1 (10×k) ...  ✓  5.3s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _superMint(to, amount);
+              12             }
+              13  }
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _superMint(to, amount);
+              12             }
+              13  }
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✓ sample 7
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _supermint(to, amount);
+              12             }
+              13  }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/XenlonMarsERC20.sol:11:16:
+               9  
+              10      function mint(address to, uint256 amount) public onlyOwner {
+        >>>   11                 _superMint(to, amount);
+              12             }
+              13  }
+  → XenlonMarsERC20  compiled 1/10  compile@10=10%  elapsed=14s  (total: 21/60)
+  [7/36]  0x378e1be15be6d6…  Foxe  (4 functions, k=10)
+      fn 1/4  addToBlacklist  batch 1/1 (10×k) ...  ✓  3.9s
+      fn 2/4  removeFromBlacklist  batch 1/1 (10×k) ...  ✓  4.4s
+      fn 3/4  isBlacklisted  batch 1/1 (10×k) ...  ✓  3.2s
+      fn 4/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  4.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/Foxe.sol:37:1:
+              35                        }
+              36                }
+        >>>   37  }
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Foxe  compiled 9/10  compile@10=90%  elapsed=26s  (total: 30/70)
+  [8/36]  0x39621e4924dde4…  Sock  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  6.2s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  3.8s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  4.8s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/src/Sock.sol:34:12:
+              32          string memory _symbol
+              33      ) public onlyOwner {
+        >>>   34             superERC404.setName(_name);
+              35             superERC404.setSymbol(_symbol);
+              36         }
+    ✓ sample 2
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/src/Sock.sol:34:12:
+              32          string memory _symbol
+              33      ) public onlyOwner {
+        >>>   34             setName(_name);
+              35             setSymbol(_symbol);
+              36         }
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: TypeError: Member "setName" not found or not visible after argument-dependent lookup in type(contract ERC404).
+  --> contracts/src/Sock.sol:34:12:
+              32          string memory _symbol
+              33      ) public onlyOwner {
+        >>>   34             ERC404.setName(_name);
+              35             ERC404.setSymbol(_symbol);
+              36         }
+    ✓ sample 9
+    ✓ sample 10
+  → Sock  compiled 7/10  compile@10=70%  elapsed=28s  (total: 37/80)
+  [9/36]  0x3b4cbe8e52e401…  GibTransfer  (2 functions, k=10)
+      fn 1/2  transfer  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 2/2  transferErc20  batch 1/1 (10×k) ...  ✓  8.6s
+    ✓ sample 1
+    ✗ sample 2: TypeError: Type tuple() is not implicitly convertible to expected type bool.
+  --> contracts/contracts/GibTransfer.sol:27:21:
+              25                  IERC20 token = IERC20(tokenAddress);
+              26  
+        >>>   27                  if (IERC20Permit(tokenAddress).permit(owner, address(this), amount, deadline, v, r, s)) {
+              28                      require(IERC20(tokenAddress).transferFrom(owner, to, amount), "Transfer from failed");
+              29                  } else {
+    ✓ sample 3
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/GibTransfer.sol:21:40:
+              19      function transferErc20(address tokenAddress, address owner, address to, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s, string memory roleId) public
+              20      {
+        >>>   21          require(owner == msg.sender || isApprovedForAll[owner][msg.sender], "GibTransfer: not authorized");
+              22                  require(deadline >= block.timestamp, "GibTransfer: expired deadline");
+              23                  ERC20Permit(tokenAddress).permit(owner, address(this), amount, deadline, v, r, s);
+    ✓ sample 5
+    ✓ sample 6
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/GibTransfer.sol:20:40:
+              18      function transferErc20(address tokenAddress, address owner, address to, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s, string memory roleId) public
+              19      {
+        >>>   20          require(owner == msg.sender || isApproved(owner, msg.sender), "Not approved");
+              21                  require(block.timestamp <= deadline, "Expired");
+              22                  IERC20Permit(tokenAddress).permit(owner, address(this), amount, deadline, v, r, s);
+    ✓ sample 8
+    ✓ sample 9
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/GibTransfer.sol:19:40:
+              17      function transferErc20(address tokenAddress, address owner, address to, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s, string memory roleId) public
+              18      {
+        >>>   19          require(owner == msg.sender || isApprovedForAll[owner][msg.sender], "GibTransfer: not authorized");
+              20                  require(block.timestamp <= deadline, "GibTransfer: transfer expired");
+              21                  ERC20Permit(tokenAddress).permit(owner, address(this), amount, deadline, v, r, s);
+  → GibTransfer  compiled 6/10  compile@10=60%  elapsed=21s  (total: 43/90)
+  [10/36]  0x4973710327edc6…  RabbitDeposit  (5 functions, k=10)
+      fn 1/5  setPaymentToken  batch 1/1 (10×k) ...  ✓  9.6s
+      fn 2/5  allocateDepositId  batch 1/1 (10×k) ...  ✓  7.0s
+      fn 3/5  deposit  batch 1/1 (10×k) ...  ✓  7.7s
+      fn 4/5  makeTransferFrom  batch 1/1 (10×k) ...  ✓  9.0s
+      fn 5/5  tokenCall  batch 1/1 (10×k) ...  ✓  8.0s
+    ✗ sample 1: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).
+   --> contracts/contract.sol:150:16:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success) = rabbit.call(data);
+             151                 return success;
+             152             }
+    ✓ sample 2
+    ✗ sample 3: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).
+   --> contracts/contract.sol:151:16:
+             149  
+             150      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  151                 (bool success) = rabbit.call(data);
+             152                 return success;
+             153             }
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).
+   --> contracts/contract.sol:150:16:
+             148  
+             149      function tokenCall(bytes memory data) private returns (bool) {
+        >>>  150                 (bool success) = rabbit.call(data);
+             151                 require(success, "CALL_FAILED");
+             152                 (bool ok, bytes memory returndata) = rabbit.call(data);
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → RabbitDeposit  compiled 7/10  compile@10=70%  elapsed=46s  (total: 50/100)
+  [11/36]  0x55567e038b0a50…  veAllocate  (4 functions, k=10)
+      fn 1/4  getveAllocation  batch 1/1 (10×k) ...  ✓  6.0s
+      fn 2/4  getTotalAllocation  batch 1/1 (10×k) ...  ✓  5.6s
+      fn 3/4  setAllocation  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 4/4  setBatchAllocation  batch 1/1 (10×k) ...  ✓  12.0s
+    ✓ sample 1
+    ✗ sample 2: TypeError: Explicit type conversion not allowed from "uint256" to "address".
+  --> contracts/contracts/ve/veAllocate.sol:39:44:
+              37      {
+              38          for (uint256 i = 0; i < 18446744073709551615; i++) {
+        >>>   39                      if (veAllocation[user][address(i)][i] != 0) {
+              40                          _totalAllocation[user] = _totalAllocation[user] + veAllocation[user][address(i)][i];
+              41                      }
+    ✗ sample 3: TypeError: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+  --> contracts/contracts/ve/veAllocate.sol:39:21:
+              37      {
+              38          for (uint256 i = 0; i < 150; i++) {
+        >>>   39                      _totalAllocation[user] += veAllocation[user][address(uint160(i))][i];
+              40                  }
+              41                  return _totalAllocation[user];
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "veAllocation" or "setAllocation"?
+  --> contracts/contracts/ve/veAllocate.sol:62:15:
+              60            require(nft.length == amount.length && nft.length == chainId.length, "Length mismatch");
+              61            for (uint256 i = 0; i < nft.length; i++) {
+        >>>   62                setAllocation(amount[i], nft[i], chainId[i]);
+              63            }
+              64            emit AllocationSetMultiple(msg.sender, nft, chainId, amount);
+    ✗ sample 7: TypeError: Data location can only be specified for array, struct or mapping types, but "memory" was given.
+  --> contracts/contracts/ve/veAllocate.sol:38:10:
+              36          returns (uint256)
+              37      {
+        >>>   38          (uint256 memory sum) = (0);
+              39          for (uint256 i; i < 256; i++) {
+              40              sum += veAllocation[user][address(uint160(i))][i];
+    ✓ sample 8
+    ✓ sample 9
+    ✗ sample 10: TypeError: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+  --> contracts/contracts/ve/veAllocate.sol:39:21:
+              37      {
+              38          for (uint256 i = 0; i < 32; i++) {
+        >>>   39                      _totalAllocation[user] += veAllocation[user][address(uint160(i))][i];
+              40                  }
+              41                  return _totalAllocation[user];
+  → veAllocate  compiled 5/10  compile@10=50%  elapsed=38s  (total: 55/110)
+  [12/36]  0x664f8cbf877bf4…  Bots  (3 functions, k=10)
+      fn 1/3  release  batch 1/1 (10×k) ...  ✓  7.7s
+      fn 2/3  setPool  batch 1/1 (10×k) ...  ✓  6.4s
+      fn 3/3  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  7.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: TypeError: Unary operator delete cannot be applied to type mapping(address => uint256)
+  --> contracts/src/Bots.sol:57:13:
+              55              limited = false;
+              56              uniswapV2Pair = address(0);
+        >>>   57              delete _lastBlockTransfer;
+              58          }
+              59  
+    ✗ sample 7: TypeError: Type uint256 is not implicitly convertible to expected type address.
+  --> contracts/src/Bots.sol:69:54:
+              67                    if (amount == 0) revert NoZeroTransfers();
+              68                            if (limited) {
+        >>>   69                                if (_lastBlockTransfer[block.number] != 0 && _lastBlockTransfer[block.number] == amount) {
+              70                                    revert NotAllowed();
+              71                                }
+    ✗ sample 8: TypeError: Unary operator delete cannot be applied to type mapping(address => uint256)
+  --> contracts/src/Bots.sol:57:13:
+              55              limited = false;
+              56              uniswapV2Pair = address(0);
+        >>>   57              delete _lastBlockTransfer;
+              58          }
+              59  
+    ✗ sample 9: TypeError: Type uint256 is not implicitly convertible to expected type address.
+  --> contracts/src/Bots.sol:69:54:
+              67      function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override {
+              68                    if (limited && uniswapV2Pair != address(0)) {
+        >>>   69                                if (_lastBlockTransfer[block.number] == 0) {
+              70                                    _lastBlockTransfer[block.number] = amount;
+              71                                } else if (_lastBlockTransfer[block.number] < amount) {
+    ✗ sample 10: TypeError: Unary operator delete cannot be applied to type mapping(address => uint256)
+  --> contracts/src/Bots.sol:57:13:
+              55              limited = false;
+              56              uniswapV2Pair = address(0);
+        >>>   57              delete _lastBlockTransfer;
+              58          }
+              59  
+  → Bots  compiled 5/10  compile@10=50%  elapsed=29s  (total: 60/120)
+  [13/36]  0x667102bd3413bf…  ERC20Token  (5 functions, k=10)
+      fn 1/5  transferFrom  batch 1/1 (10×k) ...  ✓  13.4s
+      fn 2/5  balanceOf  — not found, skip
+      fn 3/5  approve  — not found, skip
+      fn 4/5  allowance  — not found, skip
+      fn 5/5  ERC20Token  batch 1/1 (10×k) ...  ✓  10.3s
+    ✗ sample 1: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 2: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 3: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 4: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 5: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 6: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 7: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 8: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 9: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+    ✗ sample 10: contracts/contract.sol:71:1: ParserError: Function, variable, struct or modifier declaration expected.
+contract ERC20Token is StandardToken {
+              69  //name this contract whatever you'd like
+              70  contract ERC20Token is StandardToken {
+        >>>   71  
+              72      function () {
+              73          //if ether is sent to this address, send it back.
+  → ERC20Token  compiled 0/10  compile@10=0%  elapsed=29s  (total: 60/130)
+  [14/36]  0x6f922284798de6…  DebankL2Register  (1 functions, k=10)
+      fn 1/1  register  batch 1/1 (10×k) ...  ✓  6.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✗ sample 4: TypeError: Operator == not compatible with types string storage ref and literal_string ""
+  --> contracts/contract.sol:17:22:
+              15      function register(string calldata l2Account) public {
+              16               uint256 nonce = nonces[msg.sender]++;
+        >>>   17               require(l2Accounts[msg.sender] == "", "already registered");
+              18               l2Accounts[msg.sender] = l2Account;
+              19               emit Register(msg.sender, l2Account, nonce);
+    ✗ sample 5: TypeError: Operator == not compatible with types string storage ref and literal_string ""
+  --> contracts/contract.sol:16:22:
+              14  
+              15      function register(string calldata l2Account) public {
+        >>>   16               require(l2Accounts[msg.sender] == "", "already registered");
+              17               nonces[msg.sender]++;
+              18               l2Accounts[msg.sender] = l2Account;
+    ✗ sample 6: TypeError: Operator == not compatible with types string storage ref and literal_string ""
+  --> contracts/contract.sol:16:22:
+              14  
+              15      function register(string calldata l2Account) public {
+        >>>   16               require(l2Accounts[msg.sender] == "", "Already registered");
+              17               nonces[msg.sender] += 1;
+              18               l2Accounts[msg.sender] = l2Account;
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✗ sample 10: TypeError: Operator == not compatible with types string storage ref and literal_string ""
+  --> contracts/contract.sol:16:22:
+              14  
+              15      function register(string calldata l2Account) public {
+        >>>   16               require(l2Accounts[msg.sender] == "", "Already registered");
+              17               nonces[msg.sender]++;
+              18               l2Accounts[msg.sender] = l2Account;
+  → DebankL2Register  compiled 6/10  compile@10=60%  elapsed=12s  (total: 66/140)
+  [15/36]  0x78a0a62fba6fb2…  OpenExchangeToken  (4 functions, k=10)
+      fn 1/4  stopMinting  batch 1/1 (10×k) ...  ✓  7.6s
+      fn 2/4  setMinter  batch 1/1 (10×k) ...  ✓  5.6s
+      fn 3/4  mint  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 4/4  burn  batch 1/1 (10×k) ...  ✓  6.3s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/src/OpenExchangeToken.sol:90:13:
+              88              require(totalMintedSupply >= amount, "Amount exceeds total minted supply");
+              89              totalMintedSupply -= amount;
+        >>>   90              _superBurn(msg.sender, amount);
+              91          }
+              92  }
+    ✓ sample 2
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/src/OpenExchangeToken.sol:88:21:
+              86       */
+              87      function burn(uint256 amount) external {
+        >>>   88              require(_balances[msg.sender] >= amount, "Burn amount exceeds balance");
+              89              totalMintedSupply -= amount;
+              90              _burn(msg.sender, amount);
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/src/OpenExchangeToken.sol:90:13:
+              88              require(totalMintedSupply >= amount, "Insufficient minted supply");
+              89              totalMintedSupply -= amount;
+        >>>   90              _superBurn(msg.sender, amount);
+              91          }
+              92  }
+    ✗ sample 5: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/src/OpenExchangeToken.sol:93:1:
+              91                  }
+              92          }
+        >>>   93  }
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/src/OpenExchangeToken.sol:90:13:
+              88              require(totalSupply() >= amount, "Burn amount exceeds balance");
+              89              totalMintedSupply -= amount;
+        >>>   90              _superBurn(msg.sender, amount);
+              91          }
+              92  }
+    ✗ sample 9: TypeError: No matching declaration found after argument-dependent lookup.
+  --> contracts/src/OpenExchangeToken.sol:88:13:
+              86       */
+              87      function burn(uint256 amount) external {
+        >>>   88              require(_burn(msg.sender, amount), "Burn amount exceeds balance");
+              89              totalMintedSupply -= amount;
+              90          }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/src/OpenExchangeToken.sol:90:13:
+              88              require(totalSupply() >= amount, "Insufficient balance");
+              89              totalMintedSupply -= amount;
+        >>>   90              _superBurn(msg.sender, amount);
+              91          }
+              92  }
+  → OpenExchangeToken  compiled 3/10  compile@10=30%  elapsed=31s  (total: 69/150)
+  [16/36]  0x799f7d1fb0fc67…  NillionSecretVault  (5 functions, k=10)
+      fn 1/5  deposit  batch 1/1 (10×k) ...  ✓  9.9s
+      fn 2/5  withdraw  batch 1/1 (10×k) ...  ✓  8.1s
+      fn 3/5  totalSupply  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 4/5  getNilAddress  batch 1/1 (10×k) ...  ✓  7.8s
+      fn 5/5  getBalanceOf  batch 1/1 (10×k) ...  ✓  7.1s
+    ✗ sample 1: TypeError: Member "length" not found or not visible after argument-dependent lookup in mapping(address => uint256).
+  --> contracts/contract.sol:49:36:
+              47      function totalSupply() public view returns (uint) {
+              48                uint total;
+        >>>   49                for (uint i = 0; i < balanceOf.length; i++) {
+              50                    total += balanceOf[i];
+              51                }
+    ✗ sample 2: TypeError: Member "length" not found or not visible after argument-dependent lookup in mapping(address => uint256).
+  --> contracts/contract.sol:47:36:
+              45      function totalSupply() public view returns (uint) {
+              46                uint total;
+        >>>   47                for (uint i = 0; i < balanceOf.length; i++) {
+              48                total += balanceOf[i];
+              49                }
+    ✗ sample 3: TypeError: Operator += not compatible with types address and uint256.
+  --> contracts/contract.sol:49:23:
+              47                address sum;
+              48                    for (uint i = 0; i < address(this).balance; i++) {
+        >>>   49                        sum += balanceOf[msg.sender];
+              50                    }
+              51                    return sum;
+    ✗ sample 4: TypeError: Member "length" not found or not visible after argument-dependent lookup in mapping(address => uint256).
+  --> contracts/contract.sol:47:36:
+              45      function totalSupply() public view returns (uint) {
+              46                uint total = 0;
+        >>>   47                for (uint i = 0; i < balanceOf.length; i++) {
+              48                    total += balanceOf[i];
+              49                }
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:42:13:
+              40              require(balanceOf[msg.sender] >= wad, "Insufficient balance");
+              41              balanceOf[msg.sender] -= wad;
+        >>>   42              (uint status, ) = msg.sender.call{value: wad}("");
+              43              require(status, "ETH transfer failed");
+              44              emit Withdrawal(msg.sender, wad, nilAddress[msg.sender]);
+    ✓ sample 9
+    ✗ sample 10: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:42:13:
+              40              require(balanceOf[msg.sender] >= wad, "Insufficient balance");
+              41              balanceOf[msg.sender] -= wad;
+        >>>   42              (uint status, bytes memory data) = msg.sender.call{value: wad}("");
+              43              require(status, "Transfer failed");
+              44              emit Withdrawal(msg.sender, wad, nilAddress[msg.sender]);
+  → NillionSecretVault  compiled 4/10  compile@10=40%  elapsed=48s  (total: 73/160)
+  [17/36]  0x7eb72b7ec6961c…  ThingiesArtNFT  (5 functions, k=10)
+      fn 1/5  setPaused  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 2/5  tokenURI  batch 1/1 (10×k) ...  ✓  6.6s
+      fn 3/5  setTokenURI  batch 1/1 (10×k) ...  ✓  5.9s
+      fn 4/5  mint  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 5/5  supportsInterface  batch 1/1 (10×k) ...  ✓  7.1s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/ThingiesArtNFT.sol:50:14:
+              48    function mint(address walletAddress, uint256 quantity) external onlyRole(MINTER_ROLE) {
+              49               require(!PAUSED, "Contract is paused");
+        >>>   50               _requireMint(walletAddress, quantity);
+              51           }
+              52  
+    ✗ sample 2: TypeError: Type is not callable
+  --> contracts/contracts/ThingiesArtNFT.sol:33:46:
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+              32                 require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   33                 string memory _tokenUriBase = tokenUriBase();
+              34                 return string(abi.encodePacked(_tokenUriBase, tokenId));
+              35             }
+    ✓ sample 3
+    ✗ sample 4: TypeError: Member "toString" not found or not visible after argument-dependent lookup in uint256.
+  --> contracts/contracts/ThingiesArtNFT.sol:33:61:
+              31    function tokenURI(uint256 tokenId) public view override(ERC721A) returns (string memory) {
+              32                 require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        >>>   33                 return string(abi.encodePacked(tokenUriBase, tokenId.toString()));
+              34             }
+              35  
+    ✗ sample 5: TypeError: Expression has to be an lvalue.
+  --> contracts/contracts/ThingiesArtNFT.sol:52:14:
+              50               require(quantity <= 5, "Max 5");
+              51               uint256 totalSupply = _totalMinted();
+        >>>   52               _totalMinted = totalSupply + quantity;
+              53               for (uint256 i = totalSupply; i < totalSupply + quantity; i++) {
+              54                   _safeMint(walletAddress, 1);
+    ✓ sample 6
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/ThingiesArtNFT.sol:52:14:
+              50               require(!PAUSED, "Contract is paused");
+              51               uint256 startTokenId = totalSupply() + 1;
+        >>>   52               _requireMintValid(walletAddress, quantity);
+              53               _consafeMint(walletAddress, quantity, startTokenId);
+              54           }
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "_mint"?
+  --> contracts/contracts/ThingiesArtNFT.sol:51:14:
+              49    function mint(address walletAddress, uint256 quantity) external onlyRole(MINTER_ROLE) {
+              50               require(!PAUSED, "Contract is paused");
+        >>>   51               _aMint(walletAddress, quantity);
+              52           }
+              53  
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/ThingiesArtNFT.sol:51:14:
+              49    function mint(address walletAddress, uint256 quantity) external onlyRole(MINTER_ROLE) {
+              50               require(!PAUSED, "Contract is paused");
+        >>>   51               _airdrop(walletAddress, quantity);
+              52           }
+              53  
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/ThingiesArtNFT.sol:50:14:
+              48    function mint(address walletAddress, uint256 quantity) external onlyRole(MINTER_ROLE) {
+              49               require(!PAUSED, "PAUSE");
+        >>>   50               _airdrop(walletAddress, quantity);
+              51           }
+              52  
+  → ThingiesArtNFT  compiled 2/10  compile@10=20%  elapsed=45s  (total: 75/170)
+  [18/36]  0x80f0c1c49891dc…  DBXenERC20  (1 functions, k=10)
+      fn 1/1  mintReward  batch 1/1 (10×k) ...  ✓  3.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → DBXenERC20  compiled 10/10  compile@10=100%  elapsed=16s  (total: 85/180)
+  [19/36]  0x864cb5194722d5…  LeDogToken  (5 functions, k=10)
+      fn 1/5  balanceOf  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 2/5  transfer  batch 1/1 (10×k) ...  ✓  6.5s
+      fn 3/5  transferFrom  batch 1/1 (10×k) ...  ✓  10.3s
+      fn 4/5  approve  batch 1/1 (10×k) ...  ✓  6.1s
+      fn 5/5  allowance  batch 1/1 (10×k) ...  ✓  3.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → LeDogToken  compiled 10/10  compile@10=100%  elapsed=38s  (total: 95/190)
+  [20/36]  0x953de0fee9e7b8…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  2.4s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  3.2s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  2.5s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=13s  (total: 105/200)
+  [21/36]  0x97ad75064b20fb…  Token  (2 functions, k=10)
+      fn 1/2  mint  batch 1/1 (10×k) ...  ✓  3.0s
+      fn 2/2  burn  batch 1/1 (10×k) ...  ✓  4.2s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Token  compiled 10/10  compile@10=100%  elapsed=15s  (total: 115/210)
+  [22/36]  0x9e22ebec84c7e4…  GasZip  (3 functions, k=10)
+      fn 1/3  deposit  batch 1/1 (10×k) ...  ✓  3.5s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  7.4s
+      fn 3/3  newOwner  batch 1/1 (10×k) ...  ✓  7.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → GasZip  compiled 10/10  compile@10=100%  elapsed=23s  (total: 125/220)
+  [23/36]  0x9e9fbde7c7a83c…  Pandora  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  4.4s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  5.2s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  4.5s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Pandora  compiled 10/10  compile@10=100%  elapsed=28s  (total: 135/230)
+  [24/36]  0xa2e123dc38f189…  KongToken  (3 functions, k=10)
+      fn 1/3  transfer  batch 1/1 (10×k) ...  ✓  2.8s
+      fn 2/3  transferFrom  batch 1/1 (10×k) ...  ✓  8.5s
+      fn 3/3  setOwner  batch 1/1 (10×k) ...  ✓  5.3s
+    ✓ sample 1
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:14:18:
+              12  
+              13      function transfer(address recipient, uint256 amount) public override returns (bool) {
+        >>>   14                   super_transfer(recipient, amount);
+              15                   return true;
+              16               }
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:26:14:
+              24  
+              25      function setOwner(address newOwner) public onlyOwner {
+        >>>   26               _superTransfer(_msgSender(), address(0), address(newOwner));
+              27           }
+              28  	
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:26:14:
+              24  
+              25      function setOwner(address newOwner) public onlyOwner {
+        >>>   26               superseceOwner(newOwner);
+              27           }
+              28  	
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:15:26:
+              13      function transfer(address recipient, uint256 amount) public override returns (bool) {
+              14                   require(recipient != address(0), "ERC20: transfer to the zero address");
+        >>>   15                           __unsafe_increaseAllowance(_msgSender(), recipient, amount);
+              16                           _transfer(_msgSender(), recipient, amount);
+              17                           return true;
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "allowance"?
+  --> contracts/kongtoken.sol:21:59:
+              19                             require(recipient != address(0), "ERC20: transfer to the zero address");
+              20                             _transfer(sender, recipient, amount);
+        >>>   21                             _approve(sender, _msgSender(), _allowances[sender][_msgSender()] - amount);
+              22                             return true;
+              23                 }
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:26:14:
+              24  
+              25      function setOwner(address newOwner) public onlyOwner {
+        >>>   26               superOwner(newOwner);
+              27           }
+              28  	
+    ✗ sample 8: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/kongtoken.sol:31:1:
+              29           }
+              30  	
+        >>>   31  }
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "require"?
+  --> contracts/kongtoken.sol:20:20:
+              18  
+              19      function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        >>>   20                     _require(sender != address(0), "ERC20: transfer from the zero address");
+              21                             require(recipient != address(0), "ERC20: transfer to the zero address");
+              22                             _spendAllowance(sender, _msgSender(), amount);
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/kongtoken.sol:14:18:
+              12  
+              13      function transfer(address recipient, uint256 amount) public override returns (bool) {
+        >>>   14                   super_transfer(recipient, amount);
+              15                   return true;
+              16               }
+  → KongToken  compiled 1/10  compile@10=10%  elapsed=22s  (total: 136/240)
+  [25/36]  0xa4fc78495d545f…  Ketamine  (4 functions, k=10)
+      fn 1/4  addPair  batch 1/1 (10×k) ...  ✓  13.1s
+      fn 2/4  taxCheck  batch 1/1 (10×k) ...  ✓  14.6s
+      fn 3/4  _update  batch 1/1 (10×k) ...  ✓  13.4s
+      fn 4/4  swapTokensForEth  batch 1/1 (10×k) ...  ✓  13.7s
+    ✗ sample 1: DeclarationError: Undeclared identifier. Did you mean "tx"?
+   --> contracts/Ketamine.sol:118:20:
+             116  
+             117      function taxCheck() private {
+        >>>  118             if(pair[to] && buyTaxes > 0) {
+             119                         uint256 BuyFees = ((amount * buyTaxes) / 1000);
+             120                         amount -= BuyFees;
+    ✗ sample 2: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:124:16:
+             122          address to,
+             123          uint256 amount
+        >>>  124      ) internal override {
+             125             if (pair[from] || pair[to]) {
+             126                 taxCheck();
+    ✗ sample 3: DeclarationError: Undeclared identifier. Did you mean "tx"?
+   --> contracts/Ketamine.sol:113:20:
+             111  
+             112      function taxCheck() private {
+        >>>  113             if(pair[to]) {
+             114                         uint256 balance = balanceOf(address(this));
+             115                         require(balance + amount <= maxWallet, "Transfer amount exceeds maximum wallet");
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+   --> contracts/Ketamine.sol:112:36:
+             110  
+             111      function taxCheck() private {
+        >>>  112             if(buyTaxes > 0 && pair[from] && !_isExcludedFromFees[to]) {
+             113                         require(balanceOf(to) + amount <= maxWallet, "Transfer amount exceeds maximum wallet");
+             114                     }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+   --> contracts/Ketamine.sol:113:50:
+             111  
+             112      function taxCheck() private {
+        >>>  113             if(taxDisabled || _isExcludedFromFees[from] || _isExcludedFromFees[to]) {
+             114                         return;
+             115                     }
+    ✗ sample 6: DeclarationError: Undeclared identifier.
+   --> contracts/Ketamine.sol:116:29:
+             114                     }
+             115  
+        >>>  116                     if(!pair[from] || !pair[to]) {
+             117                         return;
+             118                     }
+    ✗ sample 7: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:125:16:
+             123          address to,
+             124          uint256 amount
+        >>>  125      ) internal override {
+             126             if (pair[from] || pair[to]) {
+             127                 taxCheck();
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+   --> contracts/Ketamine.sol:114:24:
+             112      function taxCheck() private {
+             113             if(buyTaxes > 0 || sellTaxes > 0) {
+        >>>  114                 if(pair[from] && buyTaxes > 0) {
+             115                     require(balanceOf(address(this)) < swapTokensAtAmount, "Tax check failed");
+             116                 } else if(pair[to] && sellTaxes > 0) {
+    ✗ sample 9: TypeError: Function has override specified but does not override anything.
+   --> contracts/Ketamine.sol:122:16:
+             120          address to,
+             121          uint256 amount
+        >>>  122      ) internal override {
+             123             if (pair[from] || pair[to]) {
+             124                         taxCheck();
+    ✗ sample 10: DeclarationError: Undeclared identifier. Did you mean "tx"?
+   --> contracts/Ketamine.sol:112:20:
+             110  
+             111      function taxCheck() private {
+        >>>  112             if(pair[to] && sellTaxes > 0) {
+             113                         uint256 contractTokenBalance = balanceOf(address(this));
+             114                         require(contractTokenBalance > 0, "Sell tax: insufficient contract balance");
+  → Ketamine  compiled 0/10  compile@10=0%  elapsed=64s  (total: 136/250)
+  [26/36]  0xa5f565650890fb…  RelayReceiver  (3 functions, k=10)
+      fn 1/3  forward  batch 1/1 (10×k) ...  ✓  7.4s
+      fn 2/3  makeCalls  batch 1/1 (10×k) ...  ✓  10.2s
+      fn 3/3  send  batch 1/1 (10×k) ...  ✓  7.7s
+    ✗ sample 1: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/src/RelayReceiver.sol:77:1:
+              75                }
+              76            }
+        >>>   77  }
+    ✗ sample 2:  --> contracts/src/RelayReceiver.sol:4:1:
+  --> contracts/src/RelayReceiver.sol:35:5:
+               2  pragma solidity ^0.8.23;
+               3  
+        >>>    4  contract RelayReceiver {
+               5      // --- Structs ---
+               6  
+    ✗ sample 3:  --> contracts/src/RelayReceiver.sol:4:1:
+  --> contracts/src/RelayReceiver.sol:35:5:
+               2  pragma solidity ^0.8.23;
+               3  
+        >>>    4  contract RelayReceiver {
+               5      // --- Structs ---
+               6  
+    ✗ sample 4: DeclarationError: Undeclared identifier. "makeCalls" is not (or not yet) visible at this point.
+  --> contracts/src/RelayReceiver.sol:45:23:
+              43                        }
+              44  
+        >>>   45                        makeCalls(new Call[](0));
+              46                        send(SOLVER, msg.value);
+              47                        emit FundsForwardedWithData(data);
+    ✗ sample 5:  --> contracts/src/RelayReceiver.sol:4:1:
+  --> contracts/src/RelayReceiver.sol:35:5:
+               2  pragma solidity ^0.8.23;
+               3  
+        >>>    4  contract RelayReceiver {
+               5      // --- Structs ---
+               6  
+    ✗ sample 6: ParserError: Expected ',' but got '['
+  --> contracts/src/RelayReceiver.sol:58:51:
+              56                    bool success;
+              57                    assembly {
+        >>>   58                        success := call(gas(), calls[i].to, calls[i].value, add(calls[i].data, 32), mload(calls[i].data), 0, 0)
+              59                    }
+              60                    if (!success) {
+    ✗ sample 7: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/src/RelayReceiver.sol:81:1:
+              79                        }
+              80            }
+        >>>   81  }
+    ✗ sample 8:  --> contracts/src/RelayReceiver.sol:4:1:
+  --> contracts/src/RelayReceiver.sol:35:5:
+               2  pragma solidity ^0.8.23;
+               3  
+        >>>    4  contract RelayReceiver {
+               5      // --- Structs ---
+               6  
+    ✗ sample 9: ParserError: Expected ',' but got '['
+  --> contracts/src/RelayReceiver.sol:55:51:
+              53                    send(calls[i].to, calls[i].value);
+              54                    assembly {
+        >>>   55                        success := call(gas(), calls[i].to, 0, add(calls[i].data, 32), mload(calls[i].data), 0, 0)
+              56                    }
+              57                    if (!success) {
+    ✓ sample 10
+  → RelayReceiver  compiled 1/10  compile@10=10%  elapsed=30s  (total: 137/260)
+  [27/36]  0xa876f27f13a9eb…  Icy  (4 functions, k=10)
+      fn 1/4  decimals  batch 1/1 (10×k) ...  ✓  4.9s
+      fn 2/4  maxWallet  batch 1/1 (10×k) ...  ✓  5.6s
+      fn 3/4  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  7.5s
+      fn 4/4  startTrade  batch 1/1 (10×k) ...  ✓  6.2s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Icy  compiled 10/10  compile@10=100%  elapsed=33s  (total: 147/270)
+  [28/36]  0xb5c457ddb4ce33…  EtherRock404  (4 functions, k=10)
+      fn 1/4  setDataURI  batch 1/1 (10×k) ...  ✓  3.9s
+      fn 2/4  setTokenURI  batch 1/1 (10×k) ...  ✓  3.9s
+      fn 3/4  setNameSymbol  batch 1/1 (10×k) ...  ✓  4.1s
+      fn 4/4  tokenURI  batch 1/1 (10×k) ...  ✓  3.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✗ sample 4: DeclarationError: Undeclared identifier.
+  --> contracts/src/EtherRock404.sol:28:18:
+              26  
+              27      function setNameSymbol(string memory _name, string memory _symbol) public onlyOwner {
+        >>>   28                   _nameSymbol[_name] = _symbol;
+              29               }
+              30  
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → EtherRock404  compiled 9/10  compile@10=90%  elapsed=24s  (total: 156/280)
+  [29/36]  0xb96b2eb882d599…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  2.4s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  3.9s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  2.6s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=13s  (total: 166/290)
+  [30/36]  0xbc962e2e290d27…  PurchaseContract  (4 functions, k=10)
+      fn 1/4  setFeePercentage  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 2/4  buy  batch 1/1 (10×k) ...  ✓  9.8s
+      fn 3/4  withdraw  batch 1/1 (10×k) ...  ✓  6.7s
+      fn 4/4  transferOwnership  batch 1/1 (10×k) ...  ✓  7.3s
+    ✗ sample 1: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:50:14:
+              48               require(msg.sender == owner, "Only owner can withdraw");
+              49               require(address(this).balance >= amount, "Insufficient balance");
+        >>>   50               (uint256 fee,) = owner.call{value: (amount * feePercentage) / 100}("");
+              51               require(fee > 0 || amount == 0, "Fee transfer failed");
+              52               (owner.send(amount - fee));
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✗ sample 6: TypeError: "msg.value" and "callvalue()" can only be used in payable public functions. Make the function "payable" or use an internal function to avoid this error.
+  --> contracts/contract.sol:61:22:
+              59  
+              60      function withdraw(uint256 amount) public onlyOwner {
+        >>>   61               require(msg.value >= amount, "Insufficient contract balance");
+              62               (bool success, ) = msg.sender.call{value: amount}("");
+              63               require(success, "Transfer failed");
+    ✗ sample 7: TypeError: Type bool is not implicitly convertible to expected type uint256.
+  --> contracts/contract.sol:56:14:
+              54      function withdraw(uint256 amount) public onlyOwner {
+              55               require(amount <= address(this).balance, "Insufficient contract balance");
+        >>>   56               (uint256 fee,) = address(this).call{value: amount}("");
+              57               require(fee, "Transfer failed");
+              58           }
+    ✓ sample 8
+    ✗ sample 9: TypeError: "msg.value" and "callvalue()" can only be used in payable public functions. Make the function "payable" or use an internal function to avoid this error.
+  --> contracts/contract.sol:52:22:
+              50  
+              51      function withdraw(uint256 amount) public onlyOwner {
+        >>>   52               require(msg.value >= amount, "Insufficient contract balance");
+              53               (bool success, ) = msg.sender.call{value: amount}("");
+              54               require(success, "Transfer failed");
+    ✓ sample 10
+  → PurchaseContract  compiled 6/10  compile@10=60%  elapsed=34s  (total: 172/300)
+  [31/36]  0xc0cd1a8dac93a4…  ITSSOOVERWEARESOBACK  (3 functions, k=10)
+      fn 1/3  decimals  batch 1/1 (10×k) ...  ✓  4.6s
+      fn 2/3  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  5.0s
+      fn 3/3  _afterTokenTransfer  batch 1/1 (10×k) ...  ✓  6.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✗ sample 3: TypeError: Indexed expression has to be a type, mapping or array (is function (address,address) view returns (uint256))
+  --> contracts/Token.sol:44:51:
+              42      {
+              43          if (from != address(0) && to != address(0)) {
+        >>>   44                      _approve(from, address(this), allowance[from][address(this)]);
+              45                  }
+              46      }
+    ✗ sample 4: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/Token.sol:55:1:
+              53              }
+              54      }
+        >>>   55  }
+    ✓ sample 5
+    ✓ sample 6
+    ✗ sample 7: ParserError: Expected pragma, import directive or contract/interface/library/struct/enum/constant/function/error definition.
+  --> contracts/Token.sol:69:1:
+              67              }
+              68      }
+        >>>   69  }
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → ITSSOOVERWEARESOBACK  compiled 7/10  compile@10=70%  elapsed=23s  (total: 179/310)
+  [32/36]  0xc854510066518f…  BunnyKittyToken  (2 functions, k=10)
+      fn 1/2  mint  batch 1/1 (10×k) ...  ✓  6.2s
+      fn 2/2  setMintContract  batch 1/1 (10×k) ...  ✓  4.8s
+    ✗ sample 1: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:15:53:
+              13  
+              14      function mint(uint256 _amount, address _recipient) external {
+        >>>   15                require(msg.sender == mintContract || isApproved(msg.sender), "Not authorized");
+              16                _audience.push();
+              17                _audience[_audience.length - 1].push(_recipient);
+    ✓ sample 2
+    ✗ sample 3: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:16:15:
+              14      function mint(uint256 _amount, address _recipient) external {
+              15                require(msg.sender == mintContract, "only mint contract");
+        >>>   16                _airdrop(_recipient, _amount);
+              17            }
+              18  
+    ✓ sample 4
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:16:15:
+              14      function mint(uint256 _amount, address _recipient) external {
+              15                require(mintContract == msg.sender, "Only mint contract");
+        >>>   16                _audience.push(_recipient);
+              17                _audienceAmount.push(_amount);
+              18            }
+    ✓ sample 6
+    ✗ sample 7: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:16:15:
+              14      function mint(uint256 _amount, address _recipient) external {
+              15                require(msg.sender == mintContract || msg.sender == owner(), "Not authorized");
+        >>>   16                _auditedMint(_recipient, _amount);
+              17            }
+              18  
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:16:15:
+              14      function mint(uint256 _amount, address _recipient) external {
+              15                require(msg.sender == mintContract, "Not mint contract");
+        >>>   16                _audience.mint(_recipient, _amount);
+              17            }
+              18  
+    ✗ sample 9: DeclarationError: Undeclared identifier. Did you mean "_safeMint"?
+  --> contracts/contracts/BunnyKittyToken.sol:17:27:
+              15                require(msg.sender == mintContract, "Only mint contract");
+              16                        for (uint256 i = 0; i < _amount; i++) {
+        >>>   17                            safeMint(_recipient, 1);
+              18                        }
+              19            }
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/contracts/BunnyKittyToken.sol:16:15:
+              14      function mint(uint256 _amount, address _recipient) external {
+              15                require(msg.sender == mintContract || isApprovedForAll(_recipient, msg.sender), "Not authorized");
+        >>>   16                _auditedMint(_recipient, _amount);
+              17            }
+              18  
+  → BunnyKittyToken  compiled 3/10  compile@10=30%  elapsed=20s  (total: 182/320)
+  [33/36]  0xd13b093eafa387…  SecurityUpdates  (3 functions, k=10)
+      fn 1/3  getOwner  batch 1/1 (10×k) ...  ✓  2.3s
+      fn 2/3  withdraw  batch 1/1 (10×k) ...  ✓  3.6s
+      fn 3/3  getBalance  batch 1/1 (10×k) ...  ✓  2.4s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → SecurityUpdates  compiled 10/10  compile@10=100%  elapsed=13s  (total: 192/330)
+  [34/36]  0xdc0327d50e6c73…  Stronger  (1 functions, k=10)
+      fn 1/1  mint  batch 1/1 (10×k) ...  ✓  2.9s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → Stronger  compiled 10/10  compile@10=100%  elapsed=10s  (total: 202/340)
+  [35/36]  0xdd69db25f6d620…  OFT  (5 functions, k=10)
+      fn 1/5  supportsInterface  batch 1/1 (10×k) ...  ✓  4.2s
+      fn 2/5  token  batch 1/1 (10×k) ...  ✓  5.3s
+      fn 3/5  circulatingSupply  batch 1/1 (10×k) ...  ✓  3.8s
+      fn 4/5  _debitFrom  batch 1/1 (10×k) ...  ✓  8.1s
+      fn 5/5  _creditTo  batch 1/1 (10×k) ...  ✓  7.4s
+    ✗ sample 1: TypeError: Different number of components on the left hand side (1) than on the right hand side (0).
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:29:21:
+              27  
+              28      function _debitFrom(address _from, uint16, bytes memory, uint _amount) internal virtual override returns(uint) {
+        >>>   29                      uint burned = _burn(_from, _amount);
+              30                      return burned;
+              31                  }
+    ✗ sample 2: DeclarationError: Undeclared identifier.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:24:41:
+              22      function circulatingSupply() public view virtual override returns (uint) {
+              23                  uint256 totalSupply_ = totalSupply();
+        >>>   24                  uint256 lockedSupply_ = lockedAmount();
+              25                  return totalSupply_ > lockedSupply_ ? totalSupply_ - lockedSupply_ : 0;
+              26              }
+    ✓ sample 3
+    ✗ sample 4: TypeError: Different number of components on the left hand side (1) than on the right hand side (0).
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:37:19:
+              35  
+              36      function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns(uint) {
+        >>>   37                    uint minted = _mint(_toAddress, _amount);
+              38                    return minted;
+              39                }
+    ✗ sample 5: DeclarationError: Undeclared identifier.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:24:34:
+              22      function circulatingSupply() public view virtual override returns (uint) {
+              23                  uint256 total = totalSupply();
+        >>>   24                  uint256 locked = _getLockedAmount();
+              25                  return total - locked;
+              26              }
+    ✗ sample 6: DeclarationError: Undeclared identifier. Did you mean "lockedSupply_"?
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:30:41:
+              28      function circulatingSupply() public view virtual override returns (uint) {
+              29                  uint256 totalSupply_ = totalSupply();
+        >>>   30                  uint256 lockedSupply_ = _lockedSupply();
+              31                  if (totalSupply_ > lockedSupply_) {
+              32                      return totalSupply_ - lockedSupply_;
+    ✗ sample 7: TypeError: Different number of components on the left hand side (1) than on the right hand side (0).
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:39:19:
+              37  
+              38      function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns(uint) {
+        >>>   39                    uint minted = _mint(_toAddress, _amount);
+              40                            return minted;
+              41                }
+    ✗ sample 8: DeclarationError: Undeclared identifier.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:27:40:
+              25  
+              26      function circulatingSupply() public view virtual override returns (uint) {
+        >>>   27                  return totalSupply() - burned();
+              28              }
+              29  
+    ✗ sample 9: DeclarationError: Undeclared identifier.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:24:40:
+              22  
+              23      function circulatingSupply() public view virtual override returns (uint) {
+        >>>   24                  return totalSupply() - _burnedTokens();
+              25              }
+              26  
+    ✗ sample 10: DeclarationError: Undeclared identifier.
+  --> contracts/@layerzerolabs/solidity-examples/contracts/token/oft/OFT.sol:23:40:
+              21  
+              22      function circulatingSupply() public view virtual override returns (uint) {
+        >>>   23                  return totalSupply() - locked();
+              24              }
+              25  
+  → OFT  compiled 1/10  compile@10=10%  elapsed=35s  (total: 203/350)
+  [36/36]  0xe73d53e3a982ab…  N  (5 functions, k=10)
+      fn 1/5  transfer  batch 1/1 (10×k) ...  ✓  8.0s
+      fn 2/5  approve  batch 1/1 (10×k) ...  ✓  7.7s
+      fn 3/5  transferFrom  batch 1/1 (10×k) ...  ✓  9.2s
+      fn 4/5  mint  batch 1/1 (10×k) ...  ✓  9.6s
+      fn 5/5  mintable  batch 1/1 (10×k) ...  ✓  10.7s
+    ✓ sample 1
+    ✓ sample 2
+    ✓ sample 3
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✓ sample 8
+    ✓ sample 9
+    ✓ sample 10
+  → N  compiled 10/10  compile@10=100%  elapsed=50s  (total: 213/360)
+
+============================================================
+  Total compiled : 213/360
+  avg compile@10  : 59.2%
+  Total time     : 1066s  (17.8 min)
+
+[pipeline] ======================= REPAIR =======================
+  [1/36]  0x0ebe30595a44e5…  NyanToken  (5/10 failed)
+    sample 1: error in `burn`, scheduling repair
+    sample 2: error in `_beforeTokenTransfer`, scheduling repair
+    sample 5: error in `burn`, scheduling repair
+    sample 8: error in `burn`, scheduling repair
+    sample 10: error in `burn`, scheduling repair
+    repair batch 1/1 (5 samples) ...  ✓  4.7s
+    ✓ sample 1  [burn] repaired
+    ✓ sample 2  [_beforeTokenTransfer] repaired
+    ✗ sample 5  [burn] still fails: DeclarationError: Undeclared identifier. Did you mean "super"?
+    ✗ sample 8  [burn] still fails: TypeError: Member "add" not found or not visible after argument-depend
+    ✗ sample 10  [burn] still fails: DeclarationError: Undeclared identifier. Did you mean "super"?
+  → NyanToken  7/10 compiled after repair  (+2 fixed)
+  [2/36]  0x166fd4299364b2…  AlephSync  — all OK, skip
+  [3/36]  0x2be8e422cb4a5a…  MSIToken  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `changeTaxWallet`, scheduling repair
+    sample 4: error in `setTaxRate`, scheduling repair
+    sample 5: error in `setTaxRate`, scheduling repair
+    sample 6: error in `setTaxRate`, scheduling repair
+    sample 7: error in `setTaxRate`, scheduling repair
+    sample 8: error in `setTaxRate`, scheduling repair
+    sample 9: error in `_update`, scheduling repair
+    sample 10: error in `setTaxRate`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  9.2s
+    ✗ sample 3  [changeTaxWallet] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 4  [setTaxRate] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [setTaxRate] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 6  [setTaxRate] still fails: DeclarationError: Undeclared identifier. Did you mean "RemovedFromWhit
+    ✗ sample 7  [setTaxRate] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [setTaxRate] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 9  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 10  [setTaxRate] still fails: TypeError: Function has override specified but does not override anyth
+  → MSIToken  0/10 compiled after repair  (+0 fixed)
+  [4/36]  0x2e258dbb253b7e…  NillionVerifierVault  (8/10 failed)
+    sample 1: error in `totalSupply`, scheduling repair
+    sample 2: can't locate function at error line, copying original
+    sample 4: error in `withdraw`, scheduling repair
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: error in `totalSupply`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `withdraw`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  4.2s
+    ✓ sample 1  [totalSupply] repaired
+    ✓ sample 4  [withdraw] repaired
+    ✗ sample 8  [totalSupply] still fails: TypeError: Member "length" not found or not visible after argument-dep
+    ✓ sample 10  [withdraw] repaired
+  → NillionVerifierVault  5/10 compiled after repair  (+3 fixed)
+  [5/36]  0x303389f541ff2d…  SeriesNonceManager  (7/10 failed)
+    sample 2: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 5: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 6: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 7: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 8: error in `timestampBelowAndNonceEquals`, scheduling repair
+    sample 9: error in `advanceNonce`, scheduling repair
+    sample 10: error in `timestampBelowAndNonceEquals`, scheduling repair
+    repair batch 1/1 (7 samples) ...  ✓  5.9s
+    ✗ sample 2  [timestampBelowAndNonceEquals] still fails: TypeError: The first argument to "abi.decode" must be implicitly conve
+    ✗ sample 5  [timestampBelowAndNonceEquals] still fails: TypeError: The first argument to "abi.decode" must be implicitly conve
+    ✗ sample 6  [timestampBelowAndNonceEquals] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [timestampBelowAndNonceEquals] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 8  [timestampBelowAndNonceEquals] still fails: Warning: This declaration shadows an existing declaration.
+    ✗ sample 9  [advanceNonce] still fails: ParserError: Expected pragma, import directive or contract/interface/l
+    ✗ sample 10  [timestampBelowAndNonceEquals] still fails: TypeError: No matching declaration found after argument-dependent look
+  → SeriesNonceManager  3/10 compiled after repair  (+0 fixed)
+  [6/36]  0x36ff4dae0e8811…  XenlonMarsERC20  (9/10 failed)
+    sample 1: error in `mint`, scheduling repair
+    sample 2: error in `mint`, scheduling repair
+    sample 3: error in `mint`, scheduling repair
+    sample 4: error in `mint`, scheduling repair
+    sample 5: error in `mint`, scheduling repair
+    sample 6: error in `mint`, scheduling repair
+    sample 8: error in `mint`, scheduling repair
+    sample 9: error in `mint`, scheduling repair
+    sample 10: error in `mint`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  2.9s
+    ✗ sample 1  [mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [mint] still fails: ParserError: Expected ';' but got '('
+    ✗ sample 3  [mint] still fails: DeclarationError: Undeclared identifier. Did you mean "super"?
+    ✗ sample 4  [mint] still fails: ParserError: Expected ';' but got '('
+    ✗ sample 5  [mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [mint] still fails: DeclarationError: Undeclared identifier. Did you mean "super"?
+    ✗ sample 9  [mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [mint] still fails: DeclarationError: Undeclared identifier.
+  → XenlonMarsERC20  1/10 compiled after repair  (+0 fixed)
+  [7/36]  0x378e1be15be6d6…  Foxe  (1/10 failed)
+    sample 6: can't locate function at error line, copying original
+  [8/36]  0x39621e4924dde4…  Sock  (3/10 failed)
+    sample 1: error in `setNameSymbol`, scheduling repair
+    sample 3: error in `setNameSymbol`, scheduling repair
+    sample 8: error in `setNameSymbol`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  1.3s
+    ✓ sample 1  [setNameSymbol] repaired
+    ✓ sample 3  [setNameSymbol] repaired
+    ✗ sample 8  [setNameSymbol] still fails: DeclarationError: Undeclared identifier.
+  → Sock  9/10 compiled after repair  (+2 fixed)
+  [9/36]  0x3b4cbe8e52e401…  GibTransfer  (4/10 failed)
+    sample 2: error in `transferErc20`, scheduling repair
+    sample 4: error in `transferErc20`, scheduling repair
+    sample 7: error in `transferErc20`, scheduling repair
+    sample 10: error in `transferErc20`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  3.2s
+    ✗ sample 2  [transferErc20] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✗ sample 4  [transferErc20] still fails: SyntaxError: This looks like an address but has an invalid checksum. C
+    ✓ sample 7  [transferErc20] repaired
+    ✓ sample 10  [transferErc20] repaired
+  → GibTransfer  8/10 compiled after repair  (+2 fixed)
+  [10/36]  0x4973710327edc6…  RabbitDeposit  (3/10 failed)
+    sample 1: error in `tokenCall`, scheduling repair
+    sample 3: error in `tokenCall`, scheduling repair
+    sample 6: error in `tokenCall`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  2.8s
+    ✓ sample 1  [tokenCall] repaired
+    ✓ sample 3  [tokenCall] repaired
+    ✓ sample 6  [tokenCall] repaired
+  → RabbitDeposit  10/10 compiled after repair  (+3 fixed)
+  [11/36]  0x55567e038b0a50…  veAllocate  (5/10 failed)
+    sample 2: error in `getTotalAllocation`, scheduling repair
+    sample 3: error in `getTotalAllocation`, scheduling repair
+    sample 6: error in `setBatchAllocation`, scheduling repair
+    sample 7: error in `getTotalAllocation`, scheduling repair
+    sample 10: error in `getTotalAllocation`, scheduling repair
+    repair batch 1/1 (5 samples) ...  ✓  5.3s
+    ✗ sample 2  [getTotalAllocation] still fails: TypeError: Member "length" not found or not visible after argument-dep
+    ✓ sample 3  [getTotalAllocation] repaired
+    ✗ sample 6  [setBatchAllocation] still fails: TypeError: Function declared as view, but this expression (potentially
+    ✓ sample 7  [getTotalAllocation] repaired
+    ✓ sample 10  [getTotalAllocation] repaired
+  → veAllocate  8/10 compiled after repair  (+3 fixed)
+  [12/36]  0x664f8cbf877bf4…  Bots  (5/10 failed)
+    sample 6: error in `release`, scheduling repair
+    sample 7: error in `_beforeTokenTransfer`, scheduling repair
+    sample 8: error in `release`, scheduling repair
+    sample 9: error in `_beforeTokenTransfer`, scheduling repair
+    sample 10: error in `release`, scheduling repair
+    repair batch 1/1 (5 samples) ...  ✓  5.2s
+    ✗ sample 6  [release] still fails: TypeError: Unary operator delete cannot be applied to type mapping(add
+    ✓ sample 7  [_beforeTokenTransfer] repaired
+    ✗ sample 8  [release] still fails: TypeError: Unary operator delete cannot be applied to type mapping(add
+    ✓ sample 9  [_beforeTokenTransfer] repaired
+    ✗ sample 10  [release] still fails: TypeError: Unary operator delete cannot be applied to type mapping(add
+  → Bots  7/10 compiled after repair  (+2 fixed)
+  [13/36]  0x667102bd3413bf…  ERC20Token  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [14/36]  0x6f922284798de6…  DebankL2Register  (4/10 failed)
+    sample 4: error in `register`, scheduling repair
+    sample 5: error in `register`, scheduling repair
+    sample 6: error in `register`, scheduling repair
+    sample 10: error in `register`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  3.6s
+    ✓ sample 4  [register] repaired
+    ✓ sample 5  [register] repaired
+    ✓ sample 6  [register] repaired
+    ✓ sample 10  [register] repaired
+  → DebankL2Register  10/10 compiled after repair  (+4 fixed)
+  [15/36]  0x78a0a62fba6fb2…  OpenExchangeToken  (7/10 failed)
+    sample 1: error in `burn`, scheduling repair
+    sample 3: error in `burn`, scheduling repair
+    sample 4: error in `burn`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 8: error in `burn`, scheduling repair
+    sample 9: error in `burn`, scheduling repair
+    sample 10: error in `burn`, scheduling repair
+    repair batch 1/1 (6 samples) ...  ✓  5.0s
+    ✓ sample 1  [burn] repaired
+    ✓ sample 3  [burn] repaired
+    ✗ sample 4  [burn] still fails: ParserError: Expected ';' but got '}'
+    ✓ sample 8  [burn] repaired
+    ✓ sample 9  [burn] repaired
+    ✓ sample 10  [burn] repaired
+  → OpenExchangeToken  8/10 compiled after repair  (+5 fixed)
+  [16/36]  0x799f7d1fb0fc67…  NillionSecretVault  (6/10 failed)
+    sample 1: error in `totalSupply`, scheduling repair
+    sample 2: error in `totalSupply`, scheduling repair
+    sample 3: error in `totalSupply`, scheduling repair
+    sample 4: error in `totalSupply`, scheduling repair
+    sample 8: error in `withdraw`, scheduling repair
+    sample 10: error in `withdraw`, scheduling repair
+    repair batch 1/1 (6 samples) ...  ✓  6.6s
+    ✗ sample 1  [totalSupply] still fails: ParserError: Expected ';' but got reserved keyword 'in'
+    ✗ sample 2  [totalSupply] still fails: ParserError: Expected ';' but got reserved keyword 'in'
+    ✗ sample 3  [totalSupply] still fails: ParserError: Expected ';' but got reserved keyword 'in'
+    ✗ sample 4  [totalSupply] still fails: ParserError: Expected ';' but got reserved keyword 'in'
+    ✓ sample 8  [withdraw] repaired
+    ✓ sample 10  [withdraw] repaired
+  → NillionSecretVault  6/10 compiled after repair  (+2 fixed)
+  [17/36]  0x7eb72b7ec6961c…  ThingiesArtNFT  (8/10 failed)
+    sample 1: error in `mint`, scheduling repair
+    sample 2: error in `tokenURI`, scheduling repair
+    sample 4: error in `tokenURI`, scheduling repair
+    sample 5: error in `mint`, scheduling repair
+    sample 7: error in `mint`, scheduling repair
+    sample 8: error in `mint`, scheduling repair
+    sample 9: error in `mint`, scheduling repair
+    sample 10: error in `mint`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  9.3s
+    ✗ sample 1  [mint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [tokenURI] still fails: ParserError: Expected pragma, import directive or contract/interface/l
+    ✗ sample 4  [tokenURI] still fails: TypeError: Member "toString" not found or not visible after argument-d
+    ✓ sample 5  [mint] repaired
+    ✓ sample 7  [mint] repaired
+    ✗ sample 8  [mint] still fails: TypeError: Member "toString" not found or not visible after argument-d
+    ✓ sample 9  [mint] repaired
+    ✓ sample 10  [mint] repaired
+  → ThingiesArtNFT  6/10 compiled after repair  (+4 fixed)
+  [18/36]  0x80f0c1c49891dc…  DBXenERC20  — all OK, skip
+  [19/36]  0x864cb5194722d5…  LeDogToken  — all OK, skip
+  [20/36]  0x953de0fee9e7b8…  SecurityUpdates  — all OK, skip
+  [21/36]  0x97ad75064b20fb…  Token  — all OK, skip
+  [22/36]  0x9e22ebec84c7e4…  GasZip  — all OK, skip
+  [23/36]  0x9e9fbde7c7a83c…  Pandora  — all OK, skip
+  [24/36]  0xa2e123dc38f189…  KongToken  (9/10 failed)
+    sample 2: error in `transfer`, scheduling repair
+    sample 3: error in `setOwner`, scheduling repair
+    sample 4: error in `setOwner`, scheduling repair
+    sample 5: error in `transfer`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 7: error in `setOwner`, scheduling repair
+    sample 8: can't locate function at error line, copying original
+    sample 9: error in `transferFrom`, scheduling repair
+    sample 10: error in `transfer`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  8.1s
+    ✗ sample 2  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 3  [setOwner] repaired
+    ✗ sample 4  [setOwner] still fails: DeclarationError: Undeclared identifier. Did you mean "owner"?
+    ✗ sample 5  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [setOwner] still fails: DeclarationError: Undeclared identifier. Did you mean "owner"?
+    ✓ sample 9  [transferFrom] repaired
+    ✗ sample 10  [transfer] still fails: DeclarationError: Undeclared identifier. Did you mean "allowance"?
+  → KongToken  3/10 compiled after repair  (+2 fixed)
+  [25/36]  0xa4fc78495d545f…  Ketamine  (10/10 failed)
+    sample 1: error in `taxCheck`, scheduling repair
+    sample 2: error in `_update`, scheduling repair
+    sample 3: error in `taxCheck`, scheduling repair
+    sample 4: error in `taxCheck`, scheduling repair
+    sample 5: error in `taxCheck`, scheduling repair
+    sample 6: error in `taxCheck`, scheduling repair
+    sample 7: error in `_update`, scheduling repair
+    sample 8: error in `taxCheck`, scheduling repair
+    sample 9: error in `_update`, scheduling repair
+    sample 10: error in `taxCheck`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  18.4s
+    ✗ sample 1  [taxCheck] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 2  [_update] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [taxCheck] still fails: DeclarationError: Undeclared identifier. Did you mean "tx"?
+    ✗ sample 4  [taxCheck] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [taxCheck] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 6  [taxCheck] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 7  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 8  [taxCheck] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [_update] still fails: TypeError: Function has override specified but does not override anyth
+    ✗ sample 10  [taxCheck] still fails: TypeError: Function has override specified but does not override anyth
+  → Ketamine  0/10 compiled after repair  (+0 fixed)
+  [26/36]  0xa5f565650890fb…  RelayReceiver  (9/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: error in `forward`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `makeCalls`, scheduling repair
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: error in `makeCalls`, scheduling repair
+    repair batch 1/1 (3 samples) ...  ✓  4.0s
+    ✗ sample 4  [forward] still fails: DeclarationError: Undeclared identifier. "makeCalls" is not (or not ye
+    ✓ sample 6  [makeCalls] repaired
+    ✓ sample 9  [makeCalls] repaired
+  → RelayReceiver  3/10 compiled after repair  (+2 fixed)
+  [27/36]  0xa876f27f13a9eb…  Icy  — all OK, skip
+  [28/36]  0xb5c457ddb4ce33…  EtherRock404  (1/10 failed)
+    sample 4: error in `setNameSymbol`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  3.0s
+    ✗ sample 4  [setNameSymbol] still fails: DeclarationError: Undeclared identifier.
+  → EtherRock404  9/10 compiled after repair  (+0 fixed)
+  [29/36]  0xb96b2eb882d599…  SecurityUpdates  — all OK, skip
+  [30/36]  0xbc962e2e290d27…  PurchaseContract  (4/10 failed)
+    sample 1: error in `withdraw`, scheduling repair
+    sample 6: error in `withdraw`, scheduling repair
+    sample 7: error in `withdraw`, scheduling repair
+    sample 9: error in `withdraw`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  3.9s
+    ✗ sample 1  [withdraw] still fails: TypeError: No matching declaration found after argument-dependent look
+    ✓ sample 6  [withdraw] repaired
+    ✓ sample 7  [withdraw] repaired
+    ✗ sample 9  [withdraw] still fails: TypeError: "msg.value" and "callvalue()" can only be used in payable p
+  → PurchaseContract  8/10 compiled after repair  (+2 fixed)
+  [31/36]  0xc0cd1a8dac93a4…  ITSSOOVERWEARESOBACK  (3/10 failed)
+    sample 3: error in `_afterTokenTransfer`, scheduling repair
+    sample 4: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    repair batch 1/1 (1 samples) ...  ✓  3.1s
+    ✓ sample 3  [_afterTokenTransfer] repaired
+  → ITSSOOVERWEARESOBACK  8/10 compiled after repair  (+1 fixed)
+  [32/36]  0xc854510066518f…  BunnyKittyToken  (7/10 failed)
+    sample 1: error in `mint`, scheduling repair
+    sample 3: error in `mint`, scheduling repair
+    sample 5: error in `mint`, scheduling repair
+    sample 7: error in `mint`, scheduling repair
+    sample 8: error in `mint`, scheduling repair
+    sample 9: error in `mint`, scheduling repair
+    sample 10: error in `mint`, scheduling repair
+    repair batch 1/1 (7 samples) ...  ✓  5.8s
+    ✓ sample 1  [mint] repaired
+    ✓ sample 3  [mint] repaired
+    ✓ sample 5  [mint] repaired
+    ✓ sample 7  [mint] repaired
+    ✓ sample 8  [mint] repaired
+    ✓ sample 9  [mint] repaired
+    ✓ sample 10  [mint] repaired
+  → BunnyKittyToken  10/10 compiled after repair  (+7 fixed)
+  [33/36]  0xd13b093eafa387…  SecurityUpdates  — all OK, skip
+  [34/36]  0xdc0327d50e6c73…  Stronger  — all OK, skip
+  [35/36]  0xdd69db25f6d620…  OFT  (9/10 failed)
+    sample 1: error in `_debitFrom`, scheduling repair
+    sample 2: error in `circulatingSupply`, scheduling repair
+    sample 4: error in `_creditTo`, scheduling repair
+    sample 5: error in `circulatingSupply`, scheduling repair
+    sample 6: error in `circulatingSupply`, scheduling repair
+    sample 7: error in `_creditTo`, scheduling repair
+    sample 8: error in `circulatingSupply`, scheduling repair
+    sample 9: error in `circulatingSupply`, scheduling repair
+    sample 10: error in `circulatingSupply`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  11.5s
+    ✗ sample 1  [_debitFrom] still fails: TypeError: Different number of components on the left hand side (1) th
+    ✗ sample 2  [circulatingSupply] still fails: TypeError: Different number of components on the left hand side (1) th
+    ✓ sample 4  [_creditTo] repaired
+    ✗ sample 5  [circulatingSupply] still fails: TypeError: Different number of components on the left hand side (1) th
+    ✗ sample 6  [circulatingSupply] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_creditTo] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 8  [circulatingSupply] still fails: TypeError: Different number of components on the left hand side (1) th
+    ✗ sample 9  [circulatingSupply] still fails: TypeError: Different number of components on the left hand side (1) th
+    ✗ sample 10  [circulatingSupply] still fails: TypeError: Member "sub" not found or not visible after argument-depend
+  → OFT  2/10 compiled after repair  (+1 fixed)
+  [36/36]  0xe73d53e3a982ab…  N  — all OK, skip
+
+============================================================
+  Before repair : 213/360  (59.2%)
+  After repair  : 260/360  (72.2%)
+  Repaired      : +47 samples
+  Still failing : 73 samples
+  No fn found   : 27 samples
+  Total time    : 204s  (3.4 min)
+
+[pipeline] done.
+[pipeline] done.
+[llamapipe] pipeline finished; tearing down server.
