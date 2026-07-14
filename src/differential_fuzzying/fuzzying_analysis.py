@@ -38,7 +38,26 @@ DEFAULT_RESULTS = str(_SCRIPT_DIR / "fuzzying_results" / "fuzzing_results.json")
 DEFAULT_OUTPUT  = str(_SCRIPT_DIR / "fuzzing_analysis.json")
 
 
-# python3 fuzzying_analysis.py --results fuzzying_results_Qwen3_6-27B-UD-Q4_K_XL_gguf/fuzzing_results.json
+# "mean_fn_pass_rate_all": 0.3135
+# python3 fuzzying_analysis.py --results fuzzying_results_Qwen3_6-27B-UD-Q4_K_XL_gguf/fuzzing_results.json --output fuzzing_analysis_Qwen3_6-27B-UD-Q4_K_XL_gguf.json
+
+# "mean_fn_pass_rate_all": 0.2685
+# python3 fuzzying_analysis.py --results fuzzying_results_Qwen_Qwen3-Coder-30B-A3B-Instruct_Q4_K_M_gguf/fuzzing_results.json --output fuzzing_analysis_Qwen_Qwen3-Coder-30B-A3B-Instruct_Q4_K_M_gguf.json
+
+# "mean_fn_pass_rate_all": 0.0414
+# python3 fuzzying_analysis.py --results fuzzying_results_mistralai_Devstral-Small-2-24B-Instruct-2512_Q4_K_M_gguf/fuzzing_results.json --output fuzzing_analysis_mistralai_Devstral-Small-2-24B-Instruct-2512_Q4_K_M_gguf.json
+
+# "mean_fn_pass_rate_all": 0.3307
+# python3 fuzzying_analysis.py --results fuzzying_results_gemma-4-31B-it-qat-UD-Q4_K_XL_gguf/fuzzing_results.json --output fuzzing_analysis_gemma-4-31B-it-qat-UD-Q4_K_XL_gguf.json
+
+# "mean_fn_pass_rate_all": 0.1864
+# python3 fuzzying_analysis.py --results fuzzying_results_gemma-4-12B-it-qat-UD-Q4_K_XL_gguf/fuzzing_results.json --output fuzzing_analysis_gemma-4-12B-it-qat-UD-Q4_K_XL_gguf.json
+
+# "mean_fn_pass_rate_all": 0.1925
+# python3 fuzzying_analysis.py --results "fuzzying_results_ornith-1_0-35b-Q4_K_M_gguf/fuzzing_results.json" --output "fuzzing_analysis_ornith-1_0-35b-Q4_K_M_gguf.json"
+
+# "mean_fn_pass_rate_all": 0.1175
+# python3 fuzzying_analysis.py --results fuzzying_results_Codestral-22B-v0_1-Q4_K_M_gguf/fuzzing_results.json --output fuzzing_analysis_Codestral-22B-v0_1-Q4_K_M_gguf.json
 
 # ---------------------------------------------------------------------------
 # Loading

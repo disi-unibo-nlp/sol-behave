@@ -42,10 +42,16 @@ FROM_RESULTS="${FROM_RESULTS:-}"
 # ── Models to fuzz. Each is the GGUF filename used at GENERATION time, so the
 #    generated-source dir suffix matches. Uncomment the ones you want. ────────
 MODELS=(
-  "Qwen3.6-27B-UD-Q4_K_XL.gguf"
-  #"Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
-  #"mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf"
-  #"gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
+  #"Qwen3.6-27B-UD-Q4_K_XL.gguf" # avg_compile@k: 0.6472
+  "Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf" # avg_compile@k: 0.5316
+  "mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf" # avg_compile@k: 0.1884
+  "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf" # avg_compile@k: 0.8908
+  "gemma-4-12B-it-qat-UD-Q4_K_XL.gguf" # avg_compile@k: 0.4804
+  #"granite-4.1-8b-Q4_K_M.gguf" # avg_compile@k: 0.0544
+  "ornith-1.0-35b-Q4_K_M.gguf" # avg_compile@k: 0.4124
+  #"granite-20b-code-instruct.Q4_0.gguf" 
+  #"granite-34b-code-instruct-Q4_K_M.gguf"
+  "Codestral-22B-v0.1-Q4_K_M.gguf"
 )
 
 # ── Sanity checks ────────────────────────────────────────────────────────────
@@ -88,8 +94,11 @@ for MODEL_NAME in "${MODELS[@]}"; do
     --timeout    "$TIMEOUT"
     --workers    "$WORKERS"
     --replay-k   "$REPLAY_K"
-    --force
+    #--force
   )
+
+
+
   # Use the same evaluated set as replay, if provided
   if [[ -n "$FROM_RESULTS" ]]; then
     ARGS+=( --from-results "$FROM_RESULTS" )

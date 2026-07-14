@@ -408,7 +408,7 @@ def _write_repair_summary(repaired_dir: Path, all_results: list[dict],
 if __name__ == "__main__":
     import sys
     sys.path.insert(0, ".")
-    from llm_client import VLLMClient
+    #from llm_client import VLLMClient
 
     import argparse
     parser = argparse.ArgumentParser()
@@ -434,9 +434,13 @@ if __name__ == "__main__":
     print(f"Generated dir : {args.generated}")
     print(f"Repaired dir  : {args.repaired}")
 
-    print(f"Loading model {args.model} ...")
-    client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
-    print("Model loaded.\n")
+    #print(f"Loading model {args.model} ...")
+    #client = VLLMClient(args.model, max_model_len=args.context_length, gpu_memory_utilization=GPU_MEM_UTIL)
+    #print("Model loaded.\n")
+    from llamacpp_client import LlamaCppClient
+    print("Connecting to llamacpp serve...")
+    client = LlamaCppClient()
+    print(f"connected\n{client}")
 
     repair_all(
         contracts     = contracts,

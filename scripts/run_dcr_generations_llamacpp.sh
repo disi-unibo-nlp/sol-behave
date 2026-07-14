@@ -59,10 +59,13 @@ DCR_GENERATED_BASE="${GENERATED_DIR_DCR:-./generated_dcr_1to20}"
 # ── The models to run. For TESTING keep ONE entry. Add more later only if you
 #    deliberately want per-model DCR oracles. Each is a GGUF in MODEL_DIR. ────
 MODELS=(
-  #"Qwen3.6-27B-UD-Q4_K_XL.gguf"
-  "Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf"
-  "mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf"
-  "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf"
+  #"Qwen3.6-27B-UD-Q4_K_XL.gguf" # avg_compile@k: 0.6472
+  #"Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf" # avg_compile@k: 0.5316
+  #"mistralai.Devstral-Small-2-24B-Instruct-2512.Q4_K_M.gguf" # avg_compile@k: 0.1884
+  #"gemma-4-31B-it-qat-UD-Q4_K_XL.gguf" # avg_compile@k: 0.8908
+  "gemma-4-12B-it-qat-UD-Q4_K_XL.gguf" # avg_compile@k: 0.4804
+  "ornith-1.0-35b-Q4_K_M.gguf" # avg_compile@k: 0.4124
+  "Codestral-22B-v0.1-Q4_K_M.gguf" # avg_compile@k: 0.3432
 )
 
 mkdir -p "$LOG_DIR"

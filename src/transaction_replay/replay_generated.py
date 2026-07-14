@@ -135,16 +135,16 @@ DEFAULT_TX_TIMEOUT = 60
 # Per-sample checkpoint helpers
 # ---------------------------------------------------------------------------
 
-def _sample_ckpt_path(gen_contract_dir: Path, sample_idx: int, k: int) -> Path:
-    return gen_contract_dir / f"replay_sample_{sample_idx}_checkpoint_{k}.json"
+def _sample_ckpt_path(out_contract_dir: Path, sample_idx: int, k: int) -> Path:
+    return out_contract_dir / f"replay_sample_{sample_idx}_checkpoint_{k}.json"
 
 
-def _sample_result_path(gen_contract_dir: Path, sample_idx: int, k: int) -> Path:
-    return gen_contract_dir / f"replay_sample_{sample_idx}_result_{k}.json"
+def _sample_result_path(out_contract_dir: Path, sample_idx: int, k: int) -> Path:
+    return out_contract_dir / f"replay_sample_{sample_idx}_result_{k}.json"
 
 
-def _load_sample_ckpt(gen_contract_dir: Path, sample_idx: int, k: int) -> dict:
-    p = _sample_ckpt_path(gen_contract_dir, sample_idx, k)
+def _load_sample_ckpt(out_contract_dir: Path, sample_idx: int, k: int) -> dict:
+    p = _sample_ckpt_path(out_contract_dir, sample_idx, k)
     if p.exists():
         try:
             return json.loads(p.read_text())
@@ -153,9 +153,10 @@ def _load_sample_ckpt(gen_contract_dir: Path, sample_idx: int, k: int) -> dict:
     return {"state": "NOT_STARTED"}
 
 
-def _save_sample_ckpt(gen_contract_dir: Path, sample_idx: int, k: int,
+def _save_sample_ckpt(out_contract_dir: Path, sample_idx: int, k: int,
                       data: dict) -> None:
-    _sample_ckpt_path(gen_contract_dir, sample_idx, k).write_text(
+    out_contract_dir.mkdir(parents=True, exist_ok=True)
+    _sample_ckpt_path(out_contract_dir, sample_idx, k).write_text(
         json.dumps(data, indent=2)
     )
 
@@ -214,6 +215,7 @@ def replay_sample(
     sample_path:      Path,
     dataset_dir:      Path,
     gen_contract_dir: Path,
+    out_contract_dir: Path,
     work_dir:         Path,
     k:                int,
     tx_timeout:       int,
@@ -230,7 +232,7 @@ def replay_sample(
     Returns a result dict.
     """
     # ── Checkpoint check ──────────────────────────────────────────────────
-    ckpt = _load_sample_ckpt(gen_contract_dir, sample_idx, k)
+    ckpt = _load_sample_ckpt(out_contract_dir, sample_idx, k)
     state = ckpt.get("state")
     if state in ("DONE", "FAILED"):
         if force or (retry_failed and state == "FAILED"):
@@ -248,7 +250,7 @@ def replay_sample(
             "sample_idx": sample_idx,
             "reason":     "original dataset dir missing required files",
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
         return result
 
     meta          = data["meta"]
@@ -265,7 +267,7 @@ def replay_sample(
             "sample_idx": sample_idx,
             "reason":     "proxy contract — skipped",
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
         return result
 
     # ── Filter transactions ────────────────────────────────────────────────
@@ -280,7 +282,7 @@ def replay_sample(
             "sample_idx": sample_idx,
             "reason":     "no callable transactions found",
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
         return result
 
     has_receipts   = bool(receipts)
@@ -307,10 +309,10 @@ def replay_sample(
             "reason":     "compilation failed",
             "stderr":     err[-300:],
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
         return result
     print("✓")
-    _save_sample_ckpt(gen_contract_dir, sample_idx, k,
+    _save_sample_ckpt(out_contract_dir, sample_idx, k,
                       {"state": "COMPILED", "address": address,
                        "sample_idx": sample_idx})
 
@@ -358,7 +360,7 @@ def replay_sample(
                         "sample_idx": sample_idx,
                         "reason":     f"deploy failed: {e2}",
                     }
-                    _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+                    _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
                     return result
             else:
                 server.close()
@@ -368,11 +370,11 @@ def replay_sample(
                     "sample_idx": sample_idx,
                     "reason":     f"deploy failed: {e}",
                 }
-                _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
+                _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
                 return result
 
         print(f"✓  {deployed_address[:14]}…")
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, {
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, {
             "state":            "DEPLOYED",
             "address":          address,
             "sample_idx":       sample_idx,
@@ -452,8 +454,8 @@ def replay_sample(
             "topics_match_rate":    round(sum(topic_matches) / len(topic_matches), 4)
                                     if topic_matches else None,
         }
-        _save_sample_ckpt(gen_contract_dir, sample_idx, k, result)
-        _sample_result_path(gen_contract_dir, sample_idx, k).write_text(
+        _save_sample_ckpt(out_contract_dir, sample_idx, k, result)
+        _sample_result_path(out_contract_dir, sample_idx, k).write_text(
             json.dumps({
                 **result,
                 "timestamp":  datetime.utcnow().isoformat(),
@@ -477,6 +479,7 @@ def replay_contract_samples(
     address:      str,
     dataset_dir:  Path,
     gen_dir:      Path,
+    out_dir:      Path,
     work_dir:     Path,
     k:            int,
     tx_timeout:   int,
@@ -489,6 +492,7 @@ def replay_contract_samples(
     Returns a summary dict with per-sample results and aggregate stats.
     """
     gen_contract_dir = gen_dir / address
+    out_contract_dir = out_dir / address
     compiled_indices = _compiled_sample_indices(gen_contract_dir)
 
     if not compiled_indices:
@@ -502,7 +506,7 @@ def replay_contract_samples(
     # Check how many samples were already done (for progress display)
     already_done = sum(
         1 for i in compiled_indices
-        if _load_sample_ckpt(gen_contract_dir, i, k).get("state") == "DONE"
+        if _load_sample_ckpt(out_contract_dir, i, k).get("state") == "DONE"
     )
     n = len(compiled_indices)
 
@@ -537,6 +541,7 @@ def replay_contract_samples(
             sample_path      = sample_path,
             dataset_dir      = dataset_dir,
             gen_contract_dir = gen_contract_dir,
+            out_contract_dir = out_contract_dir,
             work_dir         = work_dir,
             k                = k,
             tx_timeout       = tx_timeout,
@@ -578,7 +583,8 @@ def replay_contract_samples(
     }
 
     # Write per-contract summary
-    (gen_contract_dir / f"replay_contract_summary_{k}.json").write_text(
+    out_contract_dir.mkdir(parents=True, exist_ok=True)
+    (out_contract_dir / f"replay_contract_summary_{k}.json").write_text(
         json.dumps(summary, indent=2)
     )
     return summary
@@ -642,6 +648,12 @@ def parse_args() -> argparse.Namespace:
         help="Generated/repaired contracts directory (output of repair_source.py).",
     )
     p.add_argument(
+        "--output-dir", type=Path, dest="output_dir", default=None,
+        help="Directory for replay outputs (<output_dir>/<address>/...). "
+             "When omitted, outputs are written next to the samples "
+             "(inside --generated), preserving the original behaviour.",
+    )
+    p.add_argument(
         "--work-dir", type=Path, default=Path(DEFAULT_WORK_DIR),
         help="Hardhat workspace (created automatically).",
     )
@@ -684,11 +696,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
+    # Default: write outputs next to the samples (backward-compatible).
+    if args.output_dir is None:
+        args.output_dir = args.generated
+
     print(f"""
 replay_generated.py
 ══════════════════════════════════════════════════════════
   dataset         = {args.dataset}
   generated       = {args.generated}
+  output_dir      = {args.output_dir}
   work_dir        = {args.work_dir}
   k               = {args.k}
   tx_timeout      = {args.tx_timeout}s
@@ -760,6 +777,7 @@ replay_generated.py
                     address      = address,
                     dataset_dir  = args.dataset,
                     gen_dir      = args.generated,
+                    out_dir      = args.output_dir,
                     work_dir     = args.work_dir,
                     k            = args.k,
                     tx_timeout   = args.tx_timeout,

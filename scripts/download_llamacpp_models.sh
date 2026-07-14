@@ -52,6 +52,21 @@ local_dir="/llms"
 #    --local-dir "$local_dir"
 
 # Seems to work, with a nice compile@10 though it weights a lot (21Gb)
-hf download "deepreinforce-ai/Ornith-1.0-35B-GGUF" \
-    --include "ornith-1.0-35b-Q4_K_M.gguf" \
+#hf download "deepreinforce-ai/Ornith-1.0-35B-GGUF" \
+#    --include "ornith-1.0-35b-Q4_K_M.gguf" \
+#    --local-dir "$local_dir"
+
+# Seems to be slow in terms of latency, it also seems to underperform
+#hf download "NikolayKozloff/granite-20b-code-instruct-Q4_0-GGUF" \
+#    --include "granite-20b-code-instruct.Q4_0.gguf" \
+#    --local-dir "$local_dir"
+
+
+# Really slow in terms of latency, 
+#hf download "bartowski/granite-34b-code-instruct-GGUF" \
+#    --include "granite-34b-code-instruct-Q4_K_M.gguf" \
+#    --local-dir "$local_dir"
+
+hf download "bartowski/Codestral-22B-v0.1-GGUF" \
+    --include "Codestral-22B-v0.1-Q4_K_M.gguf" \
     --local-dir "$local_dir"

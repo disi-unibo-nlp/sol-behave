@@ -1108,7 +1108,7 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument(
         "--results-file", type=Path,
-        default=Path(DEFAULT_DIFF_DIR) / "fuzzing_results.json",
+        default=None, # Path(DEFAULT_DIFF_DIR) / "fuzzing_results.json",
         dest="results_file",
     )
     return p.parse_args()
@@ -1120,6 +1120,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    if args.results_file is None:
+        args.results_file = args.diff_dir / "fuzzing_results.json"
 
     for d, label in [(args.dataset, "--dataset"), (args.generated, "--generated"),
                      (args.work_dir, "--work-dir")]:
