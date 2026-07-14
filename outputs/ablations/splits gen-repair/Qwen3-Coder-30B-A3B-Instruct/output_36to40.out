@@ -1,0 +1,935 @@
+[llamapipe] node=faretra  gpu=2  port=8082  server=llamacpp_contracts_36to40
+[llamapipe] model=/llms/Qwen.Qwen3-Coder-30B-A3B-Instruct.Q4_K_M.gguf  ctx=8192  parallel=3
+[llamapipe] contracts=../dataset/contracts_36to40  limit=36
+[llamapipe] waiting for model load ... ready
+WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.3.2
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+[pipeline] Node/Hardhat not found — installing via get_hardhat_deps.sh ...
+=== Installing solc-select ===
+Found existing installation: solc-select 1.1.0
+Uninstalling solc-select-1.1.0:
+  Successfully uninstalled solc-select-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting solc-select
+  Using cached solc_select-1.2.0-py3-none-any.whl.metadata (47 kB)
+Requirement already satisfied: pycryptodome>=3.4.6 in /usr/local/lib/python3.10/dist-packages (from solc-select) (3.17)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from solc-select) (26.2)
+Collecting requests>=2.32.4 (from solc-select)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.4->solc-select) (2026.5.20)
+Downloading solc_select-1.2.0-py3-none-any.whl (36 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Installing collected packages: requests, solc-select
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.3
+    Uninstalling requests-2.32.3:
+      Successfully uninstalled requests-2.32.3
+
+Successfully installed requests-2.34.2 solc-select-1.2.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+=== Installing NVM 0.40.4 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16774  100 16774    0     0  76008      0 --:--:-- --:--:-- --:--:-- 76245
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=== Installing Node.js (npm 11.9.0) ===
+Downloading and installing node v24.18.0...
+Downloading https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-x64.tar.xz...
+#=#=#                                                                         #######                                                                    9.8%######################                                                    31.4%###################################                                       49.3%##################################################                        69.9%#################################################################         90.4%######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v24.18.0 (npm v11.16.0)
+Creating default alias: default -> 24 (-> v24.18.0 *)
+Now using node v24.18.0 (npm v11.16.0)
+default -> 24 (-> v24.18.0 *)
+=== Installing Hardhat 2.28.6 ===
+
+up to date in 253ms
+
+up to date, audited 217 packages in 4s
+
+65 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (10 low, 3 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp rebuild)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+=== Installing Solidity compiler 0.4.18 ===
+Installing solc '0.4.18'...
+Version '0.4.18' installed.
+Switched global version to 0.4.18
+
+=======================================
+Installed versions:
+=======================================
+Node:
+v24.18.0
+npm:
+11.16.0
+npx:
+11.16.0
+nvm:
+0.40.4
+Hardhat:
+2.28.6
+solc:
+solc, the solidity compiler commandline interface
+Version: 0.4.18+commit.9cf6e910.Linux.g++
+solc-select:
+0.4.18 (current, set by /root/.solc-select/global-version)
+
+Now run:
+source ~/.bashrc
+source .env
+[pipeline] node v24.18.0  npx 11.16.0
+[hardhat-ws] workspace=/workdir/src/dataset/hh_contracts_36to40  current=2.28.6  wanted=2.28.6
+[hardhat-ws] Hardhat 2.x already present — nothing to do.
+[hardhat-ws] Hardhat now: 2.28.6
+[pipeline] contracts=/workdir/src/dataset/contracts_36to40  limit=36
+[pipeline] generated=./generated_contracts_36to40  repaired=./repaired_contracts_36to40  work_dir=../dataset/hh_contracts_36to40
+[pipeline] model=Qwen/Qwen3-Coder-30B-A3B-Instruct  context=4096   k=10
+[pipeline] cwd=/workdir/src/source_generation
+[pipeline] 36 contracts (found 87 in /workdir/src/dataset/contracts_36to40, limited to 36)
+[pipeline] generated=./generated_contracts_36to40  repaired=./repaired_contracts_36to40
+[pipeline] work_dir=../dataset/hh_contracts_36to40  k=10  context=4096
+[pipeline] backend=llamacpp — connecting to the llama.cpp server (ONCE) ...
+[LlamaCppClient] Connecting to http://127.0.0.1:8082/v1/chat/completions ... ready
+[pipeline] Client ready.
+
+[pipeline] ===================== GENERATION =====================
+  [1/36]  0x01043bf843b88e…  TAOTOOLS  — already done (0/10), skipping
+  [2/36]  0x02b590a20a8a51…  TROLL2  — already done (0/10), skipping
+  [3/36]  0x05a553d2e737a2…  Origamo  — already done (0/10), skipping
+  [4/36]  0x073a3b3e890a3a…  JEFFRY  — already done (2/10), skipping
+  [5/36]  0x07e128e823d2b9…  Token  — already done (0/10), skipping
+  [6/36]  0x07e8d0d9af42a1…  NFT  — already done (0/10), skipping
+  [7/36]  0x09b591897a13b3…  Sluts  — already done (0/10), skipping
+  [8/36]  0x09ffea1b2dc3c3…  Autofields  — already done (0/10), skipping
+  [9/36]  0x0b08ff3e33d338…  Krunks  — already done (10/10), skipping
+  [10/36]  0x0c2ca73a5839d2…  NFTContract1155  — already done (0/10), skipping
+  [11/36]  0x0c8c4698ccc7b9…  SAMO  — already done (0/10), skipping
+  [12/36]  0x0d328dd259d3df…  SKYNET  — already done (0/10), skipping
+  [13/36]  0x0e5ec8a3165644…  BionicInu  — already done (0/10), skipping
+  [14/36]  0x12c51b8f1b8a98…  XCeption  — already done (0/10), skipping
+  [15/36]  0x16114076381087…  LOYAL  — already done (0/10), skipping
+  [16/36]  0x182290a32d73a3…  Mega404  — already done (0/10), skipping
+  [17/36]  0x1b980e05943de3…  MainToken  — already done (0/10), skipping
+  [18/36]  0x1c10c1b0a645b6…  BUSSIN  — already done (8/10), skipping
+  [19/36]  0x1d40c595a4bbc2…  BoringCoin  — already done (4/10), skipping
+  [20/36]  0x22744c72b38bcd…  Pedenza  — already done (0/10), skipping
+  [21/36]  0x2388821b40f3ab…  GROKX  — already done (9/10), skipping
+  [22/36]  0x23c388c4d41604…  PEPEBOT  — already done (0/10), skipping
+  [23/36]  0x2bd0fb740e403b…  K9  — already done (1/10), skipping
+  [24/36]  0x2d269a80a4cd83…  Ethermeme  — already done (0/10), skipping
+  [25/36]  0x2fcbd5a6eb694d…  ETF  — already done (6/10), skipping
+  [26/36]  0x3352eb2febca75…  LOLA  — already done (0/10), skipping
+  [27/36]  0x34950ff2b487d9…  MainToken  — already done (0/10), skipping
+  [28/36]  0x3a1069c675f870…  Wolf  — already done (0/10), skipping
+  [29/36]  0x4096fc71190401…  ERC4096  — already done (0/10), skipping
+  [30/36]  0x45a22c587897c5…  Recters  — already done (0/10), skipping
+  [31/36]  0x45fec56db4eb56…  RETURN  — already done (0/10), skipping
+  [32/36]  0x55ae69b64bc955…  OSA  — already done (0/10), skipping
+  [33/36]  0x561732ba7c6359…  CIBA  — already done (0/10), skipping
+  [34/36]  0x5a87c602fbeb8f…  PAI  — already done (0/10), skipping
+  [35/36]  0x5dc36866b7d841…  StandardToken  — already done (0/10), skipping
+  [36/36]  0x5f99c811b4c26f…  LMEOW  (38 functions, k=10)
+      fn 1/38  tryAdd  batch 1/1 (10×k) ...  ✓  2.7s
+      fn 2/38  trySub  batch 1/1 (10×k) ...  ✓  2.3s
+      fn 3/38  tryMul  batch 1/1 (10×k) ...  ✓  2.8s
+      fn 4/38  tryDiv  batch 1/1 (10×k) ...  ✓  2.3s
+      fn 5/38  tryMod  batch 1/1 (10×k) ...  ✓  2.4s
+      fn 6/38  add  batch 1/1 (10×k) ...  ✓  1.5s
+      fn 7/38  sub  batch 1/1 (10×k) ...  ✓  1.7s
+      fn 8/38  mul  batch 1/1 (10×k) ...  ✓  1.6s
+      fn 9/38  div  batch 1/1 (10×k) ...  ✓  1.9s
+      fn 10/38  mod  batch 1/1 (10×k) ...  ✓  1.8s
+      fn 11/38  sub  batch 1/1 (10×k) ...  ✓  1.5s
+      fn 12/38  div  batch 1/1 (10×k) ...  ✓  1.6s
+      fn 13/38  mod  batch 1/1 (10×k) ...  ✓  2.1s
+      fn 14/38  _msgSender  batch 1/1 (10×k) ...  ✓  1.7s
+      fn 15/38  _msgData  batch 1/1 (10×k) ...  ✓  1.6s
+      fn 16/38  owner  batch 1/1 (10×k) ...  ✓  1.6s
+      fn 17/38  _checkOwner  batch 1/1 (10×k) ...  ✓  2.1s
+      fn 18/38  renounceOwnership  batch 1/1 (10×k) ...  ✓  2.3s
+      fn 19/38  transferOwnership  batch 1/1 (10×k) ...  ✓  2.7s
+      fn 20/38  _transferOwnership  batch 1/1 (10×k) ...  ✓  2.1s
+      fn 21/38  name  batch 1/1 (10×k) ...  ✓  1.7s
+      fn 22/38  symbol  batch 1/1 (10×k) ...  ✓  1.8s
+      fn 23/38  decimals  batch 1/1 (10×k) ...  ✓  1.8s
+      fn 24/38  totalSupply  batch 1/1 (10×k) ...  ✓  1.7s
+      fn 25/38  balanceOf  batch 1/1 (10×k) ...  ✓  1.8s
+      fn 26/38  transfer  batch 1/1 (10×k) ...  ✓  2.0s
+      fn 27/38  allowance  batch 1/1 (10×k) ...  ✓  2.0s
+      fn 28/38  approve  batch 1/1 (10×k) ...  ✓  2.2s
+      fn 29/38  transferFrom  batch 1/1 (10×k) ...  ✓  6.4s
+      fn 30/38  increaseAllowance  batch 1/1 (10×k) ...  ✓  2.8s
+      fn 31/38  decreaseAllowance  batch 1/1 (10×k) ...  ✓  3.7s
+      fn 32/38  _transfer  batch 1/1 (10×k) ...  ✓  1.7s
+      fn 33/38  _mint  batch 1/1 (10×k) ...  ✓  4.0s
+      fn 34/38  _burn  batch 1/1 (10×k) ...  ✓  4.8s
+      fn 35/38  _approve  batch 1/1 (10×k) ...  ✓  4.2s
+      fn 36/38  _spendAllowance  batch 1/1 (10×k) ...  ✓  3.5s
+      fn 37/38  blacklist  batch 1/1 (10×k) ...  ✓  1.8s
+      fn 38/38  _beforeTokenTransfer  batch 1/1 (10×k) ...  ✓  2.2s
+    ✓ sample 1
+    ✗ sample 2: DeclarationError: Undeclared identifier. Did you mean "_msgSender"?
+   --> contracts/contract.sol:596:28:
+             594       */
+             595      function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        >>>  596                    _approve(msgSender(), spender, amount); return true;
+             597                }
+             598  
+    ✗ sample 3: DeclarationError: Undeclared identifier. Did you mean "_msgSender"?
+   --> contracts/contract.sol:597:28:
+             595       */
+             596      function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        >>>  597                    _approve(msgSender(), spender, amount); return true;
+             598                }
+             599  
+    ✓ sample 4
+    ✓ sample 5
+    ✓ sample 6
+    ✓ sample 7
+    ✗ sample 8: DeclarationError: Undeclared identifier. Did you mean "_msgSender"?
+   --> contracts/contract.sol:596:28:
+             594       */
+             595      function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        >>>  596                    _approve(msgSender(), spender, amount); return true;
+             597                }
+             598  
+    ✓ sample 9
+    ✗ sample 10: DeclarationError: Undeclared identifier. Did you mean "_msgSender"?
+   --> contracts/contract.sol:597:28:
+             595       */
+             596      function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        >>>  597                    _approve(msgSender(), spender, amount); return true;
+             598                }
+             599  
+  → LMEOW  compiled 6/10  compile@10=60%  elapsed=98s  (total: 46/360)
+
+============================================================
+  Total compiled : 46/360
+  avg compile@10  : 12.8%
+  Total time     : 98s  (1.6 min)
+
+[pipeline] ======================= REPAIR =======================
+  [1/36]  0x01043bf843b88e…  TAOTOOLS  (10/10 failed)
+    sample 1: error in `shouldSwapBack`, scheduling repair
+    sample 2: error in `recoverStuckTokens`, scheduling repair
+    sample 3: error in `recoverStuckTokens`, scheduling repair
+    sample 4: error in `recoverStuckTokens`, scheduling repair
+    sample 5: error in `recoverStuckTokens`, scheduling repair
+    sample 6: error in `recoverStuckTokens`, scheduling repair
+    sample 7: error in `recoverStuckTokens`, scheduling repair
+    sample 8: error in `recoverStuckTokens`, scheduling repair
+    sample 9: error in `recoverStuckTokens`, scheduling repair
+    sample 10: error in `removeLimits`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  6.3s
+    ✗ sample 1  [shouldSwapBack] still fails: ParserError: Identifier-start is not allowed at end of a number.
+    ✗ sample 2  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [recoverStuckTokens] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [removeLimits] still fails: ParserError: Expected ';' but got 'StringLiteral'
+  → TAOTOOLS  0/10 compiled after repair  (+0 fixed)
+  [2/36]  0x02b590a20a8a51…  TROLL2  (10/10 failed)
+    sample 1: error in `name`, scheduling repair
+    sample 2: error in `name`, scheduling repair
+    sample 3: error in `symbol`, scheduling repair
+    sample 4: error in `name`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `name`, scheduling repair
+    sample 7: error in `symbol`, scheduling repair
+    sample 8: error in `name`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `name`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  4.8s
+    ✗ sample 1  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+    ✗ sample 2  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+    ✗ sample 3  [symbol] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokensymbol"?
+    ✗ sample 4  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+    ✗ sample 6  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+    ✗ sample 7  [symbol] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokensymbol"?
+    ✗ sample 8  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+    ✗ sample 10  [name] still fails: DeclarationError: Undeclared identifier. Did you mean "_tokenname"?
+  → TROLL2  0/10 compiled after repair  (+0 fixed)
+  [3/36]  0x05a553d2e737a2…  Origamo  (10/10 failed)
+    sample 1: error in `_nextTokenId`, scheduling repair
+    sample 2: error in `_nextTokenId`, scheduling repair
+    sample 3: error in `_nextTokenId`, scheduling repair
+    sample 4: error in `_nextTokenId`, scheduling repair
+    sample 5: error in `_nextTokenId`, scheduling repair
+    sample 6: error in `_nextTokenId`, scheduling repair
+    sample 7: error in `_nextTokenId`, scheduling repair
+    sample 8: error in `_nextTokenId`, scheduling repair
+    sample 9: error in `_nextTokenId`, scheduling repair
+    sample 10: error in `_nextTokenId`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  2.7s
+    ✗ sample 1  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 2  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 3  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 4  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 5  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 6  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 7  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 8  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 9  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 10  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+  → Origamo  0/10 compiled after repair  (+0 fixed)
+  [4/36]  0x073a3b3e890a3a…  JEFFRY  (8/10 failed)
+    sample 1: error in `_swapBack`, scheduling repair
+    sample 3: error in `mul`, scheduling repair
+    sample 4: error in `_swapBack`, scheduling repair
+    sample 5: error in `_swapBack`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `_swapBack`, scheduling repair
+    sample 8: error in `_swapBack`, scheduling repair
+    sample 10: error in `_swapBack`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  6.5s
+    ✗ sample 1  [_swapBack] still fails: ParserError: Expected ';' but got identifier
+    ✓ sample 3  [mul] repaired
+    ✗ sample 4  [_swapBack] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [_swapBack] still fails: ParserError: Expected primary expression.
+    ✗ sample 6  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_swapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [_swapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_swapBack] still fails: DeclarationError: Undeclared identifier.
+  → JEFFRY  3/10 compiled after repair  (+1 fixed)
+  [5/36]  0x07e128e823d2b9…  Token  (10/10 failed)
+    sample 1: error in `enableTrading`, scheduling repair
+    sample 2: error in `enableTrading`, scheduling repair
+    sample 3: error in `_msgSender`, scheduling repair
+    sample 4: error in `swapBackTokenFees`, scheduling repair
+    sample 5: error in `renounceOwnership`, scheduling repair
+    sample 6: error in `enableTrading`, scheduling repair
+    sample 7: error in `enableTrading`, scheduling repair
+    sample 8: error in `mul`, scheduling repair
+    sample 9: error in `renounceOwnership`, scheduling repair
+    sample 10: error in `swapBackTokenFees`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  7.1s
+    ✗ sample 1  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [_msgSender] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 4  [swapBackTokenFees] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 5  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [swapBackTokenFees] still fails: DeclarationError: Undeclared identifier.
+  → Token  0/10 compiled after repair  (+0 fixed)
+  [6/36]  0x07e8d0d9af42a1…  NFT  (10/10 failed)
+    sample 1: error in `_nextTokenId`, scheduling repair
+    sample 2: error in `_nextTokenId`, scheduling repair
+    sample 3: error in `_nextTokenId`, scheduling repair
+    sample 4: error in `_nextTokenId`, scheduling repair
+    sample 5: error in `_nextTokenId`, scheduling repair
+    sample 6: error in `_nextTokenId`, scheduling repair
+    sample 7: error in `_nextTokenId`, scheduling repair
+    sample 8: error in `_nextTokenId`, scheduling repair
+    sample 9: error in `_nextTokenId`, scheduling repair
+    sample 10: error in `_nextTokenId`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  4.4s
+    ✗ sample 1  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 2  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 3  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 4  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 5  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 6  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 7  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 8  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 9  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 10  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+  → NFT  0/10 compiled after repair  (+0 fixed)
+  [7/36]  0x09b591897a13b3…  Sluts  (10/10 failed)
+    sample 1: error in `_transfer`, scheduling repair
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: error in `tokenFromReflection`, scheduling repair
+    sample 5: error in `_reflectFee`, scheduling repair
+    sample 6: error in `_transfer`, scheduling repair
+    sample 7: error in `_transfer`, scheduling repair
+    sample 8: can't locate function at error line, copying original
+    sample 9: error in `_transfer`, scheduling repair
+    sample 10: error in `tokenFromReflection`, scheduling repair
+    repair batch 1/1 (7 samples) ...  ✓  12.0s
+    ✗ sample 1  [_transfer] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 4  [tokenFromReflection] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [_reflectFee] still fails: Warning: This declaration shadows an existing declaration.
+    ✗ sample 6  [_transfer] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 7  [_transfer] still fails: ParserError: Function, variable, struct or modifier declaration expect
+    ✗ sample 9  [_transfer] still fails: ParserError: Function, variable, struct or modifier declaration expect
+    ✗ sample 10  [tokenFromReflection] still fails: Warning: This declaration shadows an existing declaration.
+  → Sluts  0/10 compiled after repair  (+0 fixed)
+  [8/36]  0x09ffea1b2dc3c3…  Autofields  (10/10 failed)
+    sample 1: error in `_nextTokenId`, scheduling repair
+    sample 2: error in `_nextTokenId`, scheduling repair
+    sample 3: error in `_nextTokenId`, scheduling repair
+    sample 4: error in `_nextTokenId`, scheduling repair
+    sample 5: error in `_nextTokenId`, scheduling repair
+    sample 6: error in `_nextTokenId`, scheduling repair
+    sample 7: error in `_nextTokenId`, scheduling repair
+    sample 8: error in `_nextTokenId`, scheduling repair
+    sample 9: error in `_nextTokenId`, scheduling repair
+    sample 10: error in `_nextTokenId`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  4.5s
+    ✗ sample 1  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 2  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 3  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 4  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 5  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 6  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 7  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 8  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 9  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 10  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+  → Autofields  0/10 compiled after repair  (+0 fixed)
+  [9/36]  0x0b08ff3e33d338…  Krunks  — all OK, skip
+  [10/36]  0x0c2ca73a5839d2…  NFTContract1155  (10/10 failed)
+    sample 1: error in `getAllowlistUserAmount`, scheduling repair
+    sample 2: error in `externalMint`, scheduling repair
+    sample 3: error in `externalMint`, scheduling repair
+    sample 4: error in `getAllowlistUserAmount`, scheduling repair
+    sample 5: error in `externalMint`, scheduling repair
+    sample 6: error in `externalMint`, scheduling repair
+    sample 7: error in `burnForMint`, scheduling repair
+    sample 8: error in `mint`, scheduling repair
+    sample 9: error in `externalMint`, scheduling repair
+    sample 10: error in `externalMint`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  8.6s
+    ✗ sample 1  [getAllowlistUserAmount] still fails: TypeError: Member "allowlistUserAmount" not found or not visible after
+    ✗ sample 2  [externalMint] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [externalMint] still fails: TypeError: Member "allowlistUserAmount" not found or not visible after
+    ✗ sample 4  [getAllowlistUserAmount] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [externalMint] still fails: DeclarationError: Undeclared identifier. Did you mean "Address"?
+    ✗ sample 6  [externalMint] still fails: DeclarationError: Undeclared identifier. Did you mean "_burnBatch" or 
+    ✗ sample 7  [burnForMint] still fails: TypeError: Member "allowlistUserAmount" not found or not visible after
+    ✗ sample 8  [mint] still fails: DeclarationError: Undeclared identifier. Did you mean "_mint" or "mint
+    ✗ sample 9  [externalMint] still fails: DeclarationError: Undeclared identifier. Did you mean "Address"?
+    ✗ sample 10  [externalMint] still fails: DeclarationError: Undeclared identifier. Did you mean "_burnBatch" or 
+  → NFTContract1155  0/10 compiled after repair  (+0 fixed)
+  [11/36]  0x0c8c4698ccc7b9…  SAMO  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: error in `approve`, scheduling repair
+    sample 3: error in `mul`, scheduling repair
+    sample 4: error in `mul`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: error in `mul`, scheduling repair
+    sample 8: error in `mul`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `mul`, scheduling repair
+    repair batch 1/1 (6 samples) ...  ✓  4.1s
+    ✗ sample 2  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 4  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 7  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 8  [mul] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 10  [mul] still fails: DeclarationError: Undeclared identifier.
+  → SAMO  0/10 compiled after repair  (+0 fixed)
+  [12/36]  0x0d328dd259d3df…  SKYNET  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: error in `transfer`, scheduling repair
+    sample 3: error in `transfer`, scheduling repair
+    sample 4: error in `transfer`, scheduling repair
+    sample 5: error in `transfer`, scheduling repair
+    sample 6: can't locate function at error line, copying original
+    sample 7: error in `addLiquidity`, scheduling repair
+    sample 8: error in `transfer`, scheduling repair
+    sample 9: error in `transfer`, scheduling repair
+    sample 10: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  5.0s
+    ✗ sample 2  [transfer] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 3  [transfer] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 4  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [transfer] still fails: DeclarationError: Identifier not found or not unique.
+    ✗ sample 7  [addLiquidity] still fails: ParserError: Unexpected trailing comma.
+    ✗ sample 8  [transfer] still fails: DeclarationError: Identifier not found or not unique.
+    ✗ sample 9  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [renounceOwnership] still fails: DeclarationError: Identifier not found or not unique.
+  → SKYNET  0/10 compiled after repair  (+0 fixed)
+  [13/36]  0x0e5ec8a3165644…  BionicInu  (10/10 failed)
+    sample 1: error in `transfer`, scheduling repair
+    sample 2: error in `transfer`, scheduling repair
+    sample 3: error in `approve`, scheduling repair
+    sample 4: error in `approve`, scheduling repair
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 6: error in `transfer`, scheduling repair
+    sample 7: error in `transfer`, scheduling repair
+    sample 8: error in `approve`, scheduling repair
+    sample 9: error in `approve`, scheduling repair
+    sample 10: error in `approve`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  6.4s
+    ✗ sample 1  [transfer] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 2  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "transferFrom"?
+    ✗ sample 6  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [transfer] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [approve] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [approve] still fails: DeclarationError: Undeclared identifier.
+  → BionicInu  0/10 compiled after repair  (+0 fixed)
+  [14/36]  0x12c51b8f1b8a98…  XCeption  (10/10 failed)
+    sample 1: error in `updateMaxTxnAmount`, scheduling repair
+    sample 2: error in `transferFrom`, scheduling repair
+    sample 3: error in `excludeFromMaxTransaction`, scheduling repair
+    sample 4: error in `transferFrom`, scheduling repair
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 6: can't locate function at error line, copying original
+    sample 7: error in `enableTrading`, scheduling repair
+    sample 8: error in `updateMaxTxnAmount`, scheduling repair
+    sample 9: error in `transferFrom`, scheduling repair
+    sample 10: error in `enableTrading`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  8.3s
+    ✗ sample 1  [updateMaxTxnAmount] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✗ sample 3  [excludeFromMaxTransaction] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [updateMaxTxnAmount] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+  → XCeption  0/10 compiled after repair  (+0 fixed)
+  [15/36]  0x16114076381087…  LOYAL  (10/10 failed)
+    sample 1: error in `_msgSender`, scheduling repair
+    sample 2: error in `Sweep`, scheduling repair
+    sample 3: error in `_msgData`, scheduling repair
+    sample 4: error in `transfer`, scheduling repair
+    sample 5: error in `transfer`, scheduling repair
+    sample 6: error in `Sweep`, scheduling repair
+    sample 7: error in `Sweep`, scheduling repair
+    sample 8: error in `Sweep`, scheduling repair
+    sample 9: error in `_msgData`, scheduling repair
+    sample 10: error in `_msgData`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  5.4s
+    ✗ sample 1  [_msgSender] still fails: TypeError: Member "transfer" not found or not visible after argument-d
+    ✓ sample 2  [Sweep] repaired
+    ✓ sample 3  [_msgData] repaired
+    ✗ sample 4  [transfer] still fails: TypeError: Member "transfer" not found or not visible after argument-d
+    ✓ sample 5  [transfer] repaired
+    ✗ sample 6  [Sweep] still fails: TypeError: Wrong argument count for function call: 3 arguments given b
+    ✓ sample 7  [Sweep] repaired
+    ✗ sample 8  [Sweep] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 9  [_msgData] repaired
+    ✓ sample 10  [_msgData] repaired
+  → LOYAL  6/10 compiled after repair  (+6 fixed)
+  [16/36]  0x182290a32d73a3…  Mega404  (10/10 failed)
+    sample 1: error in `toString`, scheduling repair
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `isContract`, scheduling repair
+    sample 4: error in `toString`, scheduling repair
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 6: error in `transferFrom`, scheduling repair
+    sample 7: error in `toString`, scheduling repair
+    sample 8: error in `transferFrom`, scheduling repair
+    sample 9: error in `toString`, scheduling repair
+    sample 10: error in `toString`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  17.2s
+    ✗ sample 1  [toString] still fails: ParserError: Expected ';' but got identifier
+    ✗ sample 3  [isContract] still fails: ParserError: Expected ';' but got ')'
+    ✗ sample 4  [toString] still fails: ParserError: Function, variable, struct or modifier declaration expect
+    ✗ sample 5  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [toString] still fails: ParserError: Expected string end-quote.
+    ✗ sample 8  [transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [toString] still fails: ParserError: Expected string end-quote.
+    ✗ sample 10  [toString] still fails: DeclarationError: Identifier not found or not unique.
+  → Mega404  0/10 compiled after repair  (+0 fixed)
+  [17/36]  0x1b980e05943de3…  MainToken  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [18/36]  0x1c10c1b0a645b6…  BUSSIN  (2/10 failed)
+    sample 2: error in `_msgSender`, scheduling repair
+    sample 5: error in `_swapBack`, scheduling repair
+    repair batch 1/1 (2 samples) ...  ✓  1.7s
+    ✓ sample 2  [_msgSender] repaired
+    ✗ sample 5  [_swapBack] still fails: DeclarationError: Undeclared identifier.
+  → BUSSIN  9/10 compiled after repair  (+1 fixed)
+  [19/36]  0x1d40c595a4bbc2…  BoringCoin  (6/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: error in `_beforeTokenTransfer`, scheduling repair
+    sample 3: error in `_beforeTokenTransfer`, scheduling repair
+    sample 4: can't locate function at error line, copying original
+    sample 5: error in `transferFrom`, scheduling repair
+    sample 10: can't locate function at error line, copying original
+    repair batch 1/1 (3 samples) ...  ✓  3.0s
+    ✗ sample 2  [_beforeTokenTransfer] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 3  [_beforeTokenTransfer] repaired
+    ✗ sample 5  [transferFrom] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+  → BoringCoin  5/10 compiled after repair  (+1 fixed)
+  [20/36]  0x22744c72b38bcd…  Pedenza  (10/10 failed)
+    sample 1: error in `_nextTokenId`, scheduling repair
+    sample 2: error in `_nextTokenId`, scheduling repair
+    sample 3: error in `_nextTokenId`, scheduling repair
+    sample 4: error in `_nextTokenId`, scheduling repair
+    sample 5: error in `_nextTokenId`, scheduling repair
+    sample 6: error in `_nextTokenId`, scheduling repair
+    sample 7: error in `_nextTokenId`, scheduling repair
+    sample 8: error in `_nextTokenId`, scheduling repair
+    sample 9: error in `_nextTokenId`, scheduling repair
+    sample 10: error in `_nextTokenId`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  4.6s
+    ✗ sample 1  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 2  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 3  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 4  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 5  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 6  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 7  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 8  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 9  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 10  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+  → Pedenza  0/10 compiled after repair  (+0 fixed)
+  [21/36]  0x2388821b40f3ab…  GROKX  (1/10 failed)
+    sample 9: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (1 samples) ...  ✓  0.7s
+    ✓ sample 9  [renounceOwnership] repaired
+  → GROKX  10/10 compiled after repair  (+1 fixed)
+  [22/36]  0x23c388c4d41604…  PEPEBOT  (10/10 failed)
+    sample 1: error in `mul`, scheduling repair
+    sample 2: error in `mul`, scheduling repair
+    sample 3: error in `mul`, scheduling repair
+    sample 4: error in `mul`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `mul`, scheduling repair
+    sample 7: error in `mul`, scheduling repair
+    sample 8: error in `swapTokensForEth`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `mul`, scheduling repair
+    repair batch 1/1 (8 samples) ...  ✓  4.0s
+    ✗ sample 1  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [swapTokensForEth] still fails: ParserError: Expected ';' but got 'StringLiteral'
+    ✗ sample 10  [mul] still fails: DeclarationError: Undeclared identifier.
+  → PEPEBOT  0/10 compiled after repair  (+0 fixed)
+  [23/36]  0x2bd0fb740e403b…  K9  (9/10 failed)
+    sample 1: error in `removeLimits`, scheduling repair
+    sample 3: error in `renounceOwnership`, scheduling repair
+    sample 4: error in `renounceOwnership`, scheduling repair
+    sample 5: error in `renounceOwnership`, scheduling repair
+    sample 6: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `renounceOwnership`, scheduling repair
+    sample 8: error in `renounceOwnership`, scheduling repair
+    sample 9: error in `renounceOwnership`, scheduling repair
+    sample 10: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  4.6s
+    ✓ sample 1  [removeLimits] repaired
+    ✗ sample 3  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 4  [renounceOwnership] repaired
+    ✗ sample 5  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✓ sample 6  [renounceOwnership] repaired
+    ✓ sample 7  [renounceOwnership] repaired
+    ✗ sample 8  [renounceOwnership] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [renounceOwnership] still fails: DeclarationError: Undeclared identifier. Did you mean "require"?
+    ✓ sample 10  [renounceOwnership] repaired
+  → K9  6/10 compiled after repair  (+5 fixed)
+  [24/36]  0x2d269a80a4cd83…  Ethermeme  (10/10 failed)
+    sample 1: error in `_addLiquidity`, scheduling repair
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `addLiquidity`, scheduling repair
+    sample 4: error in `_addLiquidity`, scheduling repair
+    sample 5: error in `setTaxSwap`, scheduling repair
+    sample 6: error in `_addLiquidity`, scheduling repair
+    sample 7: error in `name`, scheduling repair
+    sample 8: error in `_addLiquidity`, scheduling repair
+    sample 9: error in `_addLiquidity`, scheduling repair
+    sample 10: error in `_addLiquidity`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  9.3s
+    ✗ sample 1  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [setTaxSwap] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [name] still fails: Warning: This declaration shadows an existing declaration.
+    ✗ sample 8  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+  → Ethermeme  0/10 compiled after repair  (+0 fixed)
+  [25/36]  0x2fcbd5a6eb694d…  ETF  (4/10 failed)
+    sample 5: error in `renounceOwnership`, scheduling repair
+    sample 7: error in `renounceOwnership`, scheduling repair
+    sample 8: error in `renounceOwnership`, scheduling repair
+    sample 10: error in `renounceOwnership`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  2.8s
+    ✓ sample 5  [renounceOwnership] repaired
+    ✓ sample 7  [renounceOwnership] repaired
+    ✓ sample 8  [renounceOwnership] repaired
+    ✓ sample 10  [renounceOwnership] repaired
+  → ETF  10/10 compiled after repair  (+4 fixed)
+  [26/36]  0x3352eb2febca75…  LOLA  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [27/36]  0x34950ff2b487d9…  MainToken  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: can't locate function at error line, copying original
+    sample 4: can't locate function at error line, copying original
+    sample 5: can't locate function at error line, copying original
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: can't locate function at error line, copying original
+  [28/36]  0x3a1069c675f870…  Wolf  (10/10 failed)
+    sample 1: error in `_addLiquidity`, scheduling repair
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `_addLiquidity`, scheduling repair
+    sample 4: error in `_addLiquidity`, scheduling repair
+    sample 5: error in `_addLiquidity`, scheduling repair
+    sample 6: error in `_addLiquidity`, scheduling repair
+    sample 7: error in `shouldSwap`, scheduling repair
+    sample 8: error in `shouldSwap`, scheduling repair
+    sample 9: error in `shouldSwap`, scheduling repair
+    sample 10: error in `_addLiquidity`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  9.5s
+    ✗ sample 1  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [_addLiquidity] still fails: ParserError: Expected ';' but got 'private'
+    ✗ sample 5  [_addLiquidity] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 6  [_addLiquidity] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 7  [shouldSwap] still fails: DeclarationError: Undeclared identifier. Did you mean "IUniswapV2Route
+    ✗ sample 8  [shouldSwap] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [shouldSwap] still fails: ParserError: Expected pragma, import directive or contract/interface/l
+    ✗ sample 10  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+  → Wolf  0/10 compiled after repair  (+0 fixed)
+  [29/36]  0x4096fc71190401…  ERC4096  (10/10 failed)
+    sample 1: can't locate function at error line, copying original
+    sample 2: can't locate function at error line, copying original
+    sample 3: error in `_addLiquidity`, scheduling repair
+    sample 4: error in `_addLiquidity`, scheduling repair
+    sample 5: can't locate function at error line, copying original
+    sample 6: error in `enableTrading`, scheduling repair
+    sample 7: can't locate function at error line, copying original
+    sample 8: can't locate function at error line, copying original
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `_msgSender`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  5.1s
+    ✗ sample 3  [_addLiquidity] still fails: ParserError: Expected ';' but got 'ILLEGAL'
+    ✗ sample 4  [_addLiquidity] still fails: ParserError: Expected ';' but got 'StringLiteral'
+    ✗ sample 6  [enableTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_msgSender] still fails: DeclarationError: Undeclared identifier.
+  → ERC4096  0/10 compiled after repair  (+0 fixed)
+  [30/36]  0x45a22c587897c5…  Recters  (10/10 failed)
+    sample 1: error in `_nextTokenId`, scheduling repair
+    sample 2: error in `_nextTokenId`, scheduling repair
+    sample 3: error in `_nextTokenId`, scheduling repair
+    sample 4: error in `_nextTokenId`, scheduling repair
+    sample 5: error in `_nextTokenId`, scheduling repair
+    sample 6: error in `_nextTokenId`, scheduling repair
+    sample 7: error in `_nextTokenId`, scheduling repair
+    sample 8: error in `_nextTokenId`, scheduling repair
+    sample 9: error in `_nextTokenId`, scheduling repair
+    sample 10: error in `_nextTokenId`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  5.1s
+    ✗ sample 1  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 2  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 3  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 4  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 5  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 6  [_nextTokenId] still fails: ParserError: Expected ';' but got ':='
+    ✗ sample 7  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 8  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 9  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 10  [_nextTokenId] still fails: ParserError: Expected ';' but got '}'
+  → Recters  0/10 compiled after repair  (+0 fixed)
+  [31/36]  0x45fec56db4eb56…  RETURN  (10/10 failed)
+    sample 1: error in `initiateReturn`, scheduling repair
+    sample 2: error in `initiateReturn`, scheduling repair
+    sample 3: error in `mul`, scheduling repair
+    sample 4: can't locate function at error line, copying original
+    sample 5: error in `initiateReturn`, scheduling repair
+    sample 6: can't locate function at error line, copying original
+    sample 7: can't locate function at error line, copying original
+    sample 8: error in `mul`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `fixLpOrAdd`, scheduling repair
+    repair batch 1/1 (6 samples) ...  ✓  4.5s
+    ✗ sample 1  [initiateReturn] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [initiateReturn] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 3  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [initiateReturn] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [mul] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [fixLpOrAdd] still fails: DeclarationError: Undeclared identifier.
+  → RETURN  0/10 compiled after repair  (+0 fixed)
+  [32/36]  0x55ae69b64bc955…  OSA  (10/10 failed)
+    sample 1: error in `_addLiquidity`, scheduling repair
+    sample 2: error in `_transferFrom`, scheduling repair
+    sample 3: can't locate function at error line, copying original
+    sample 4: error in `_addLiquidity`, scheduling repair
+    sample 5: error in `_addLiquidity`, scheduling repair
+    sample 6: error in `_addLiquidity`, scheduling repair
+    sample 7: error in `_addLiquidity`, scheduling repair
+    sample 8: error in `_addLiquidity`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `_addLiquidity`, scheduling repair
+    repair batch 1/1 (8 samples) ...    [LlamaCppClient] HTTP 400: {"error":{"code":400,"message":"request (2864 tokens) exceeds the available context size (2816 tokens), try increasing it","type":"exceed_context_size_error","n_prompt_tokens":2864,"n_ctx":2816}}
+✓  10.7s
+    ✗ sample 1  [_addLiquidity] still fails: DeclarationError: Undeclared identifier. Did you mean "router"?
+    ✗ sample 2  [_transferFrom] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [_addLiquidity] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 7  [_addLiquidity] still fails: DeclarationError: Undeclared identifier. Did you mean "approve"?
+    ✗ sample 8  [_addLiquidity] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [_addLiquidity] still fails: ParserError: Expected ';' but got 'ILLEGAL'
+  → OSA  0/10 compiled after repair  (+0 fixed)
+  [33/36]  0x561732ba7c6359…  CIBA  (10/10 failed)
+    sample 1: error in `shouldSwapBack`, scheduling repair
+    sample 2: error in `shouldSwapBack`, scheduling repair
+    sample 3: error in `shouldSwapBack`, scheduling repair
+    sample 4: error in `shouldSwapBack`, scheduling repair
+    sample 5: error in `shouldSwapBack`, scheduling repair
+    sample 6: error in `shouldSwapBack`, scheduling repair
+    sample 7: error in `shouldSwapBack`, scheduling repair
+    sample 8: error in `shouldSwapBack`, scheduling repair
+    sample 9: error in `shouldSwapBack`, scheduling repair
+    sample 10: error in `shouldSwapBack`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  7.4s
+    ✗ sample 1  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [shouldSwapBack] still fails: ParserError: Expected ';' but got '}'
+    ✗ sample 3  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 5  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [shouldSwapBack] still fails: ParserError: Expected pragma, import directive or contract/interface/l
+    ✗ sample 7  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 9  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 10  [shouldSwapBack] still fails: DeclarationError: Undeclared identifier.
+  → CIBA  0/10 compiled after repair  (+0 fixed)
+  [34/36]  0x5a87c602fbeb8f…  PAI  (10/10 failed)
+    sample 1: error in `_swapBackTokenFee`, scheduling repair
+    sample 2: error in `_swapBackTokenFee`, scheduling repair
+    sample 3: error in `openTrading`, scheduling repair
+    sample 4: error in `_swapBackTokenFee`, scheduling repair
+    sample 5: error in `openTrading`, scheduling repair
+    sample 6: error in `openTrading`, scheduling repair
+    sample 7: error in `_swapBackTokenFee`, scheduling repair
+    sample 8: error in `_swapBackTokenFee`, scheduling repair
+    sample 9: can't locate function at error line, copying original
+    sample 10: error in `removeLimits`, scheduling repair
+    repair batch 1/1 (9 samples) ...  ✓  6.5s
+    ✗ sample 1  [_swapBackTokenFee] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 2  [_swapBackTokenFee] still fails: ParserError: Expected primary expression.
+    ✗ sample 3  [openTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 4  [_swapBackTokenFee] still fails: ParserError: Expected primary expression.
+    ✗ sample 5  [openTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 6  [openTrading] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 7  [_swapBackTokenFee] still fails: DeclarationError: Undeclared identifier.
+    ✗ sample 8  [_swapBackTokenFee] still fails: ParserError: Expected primary expression.
+    ✗ sample 10  [removeLimits] still fails: DeclarationError: Undeclared identifier.
+  → PAI  0/10 compiled after repair  (+0 fixed)
+  [35/36]  0x5dc36866b7d841…  StandardToken  (10/10 failed)
+    sample 1: error in `_setupDecimals`, scheduling repair
+    sample 2: error in `_setupDecimals`, scheduling repair
+    sample 3: error in `_setupDecimals`, scheduling repair
+    sample 4: error in `_setupDecimals`, scheduling repair
+    sample 5: error in `_setupDecimals`, scheduling repair
+    sample 6: error in `_setupDecimals`, scheduling repair
+    sample 7: error in `_setupDecimals`, scheduling repair
+    sample 8: error in `_setupDecimals`, scheduling repair
+    sample 9: error in `_setupDecimals`, scheduling repair
+    sample 10: error in `_setupDecimals`, scheduling repair
+    repair batch 1/1 (10 samples) ...  ✓  4.4s
+    ✗ sample 1  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 2  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 3  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 4  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 5  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 6  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 7  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 8  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 9  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+    ✗ sample 10  [_setupDecimals] still fails: TypeError: Expression has to be an lvalue.
+  → StandardToken  0/10 compiled after repair  (+0 fixed)
+  [36/36]  0x5f99c811b4c26f…  LMEOW  (4/10 failed)
+    sample 2: error in `approve`, scheduling repair
+    sample 3: error in `approve`, scheduling repair
+    sample 8: error in `approve`, scheduling repair
+    sample 10: error in `approve`, scheduling repair
+    repair batch 1/1 (4 samples) ...  ✓  2.1s
+    ✓ sample 2  [approve] repaired
+    ✓ sample 3  [approve] repaired
+    ✓ sample 8  [approve] repaired
+    ✓ sample 10  [approve] repaired
+  → LMEOW  10/10 compiled after repair  (+4 fixed)
+
+============================================================
+  Before repair : 46/360  (12.8%)
+  After repair  : 69/360  (19.2%)
+  Repaired      : +23 samples
+  Still failing : 228 samples
+  No fn found   : 63 samples
+  Total time    : 320s  (5.3 min)
+
+[pipeline] done.
+[pipeline] done.
+[llamapipe] pipeline finished; tearing down server.
