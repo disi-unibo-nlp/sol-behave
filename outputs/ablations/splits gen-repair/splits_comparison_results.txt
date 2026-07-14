@@ -62,6 +62,26 @@ Model & Contract Group                       | Initial Compile | After Repair   
   contracts_31to35                           | 7/360  (1.9%)   | 14/360  (3.9%)  | +7 samples
   contracts_36to40                           | 14/360  (3.9%)  | 23/360  (6.4%)  | +9 samples
 
+[gemma-4-12B-it-qat-UD-Q4_K_XL]
+  contracts_1to5                             | 218/360 (60.6%) | 250/360 (69.4%) | +32 samples
+  contracts_6to10                            | 158/360 (43.9%) | 183/360 (50.8%) | +25 samples
+  contracts_11to15                           | 138/360 (38.3%) | 172/360 (47.8%) | +34 samples
+  contracts_16to20                           | 104/360 (28.9%) | 138/360 (38.3%) | +34 samples
+  contracts_21to25                           | 71/360  (19.7%) | 155/360 (43.1%) | +84 samples
+  contracts_26to30                           | 20/360  (5.6%)  | 20/360  (5.6%)  | +0 samples
+  contracts_31to35                           | 50/360  (13.9%) | 50/360  (13.9%) | +0 samples
+  contracts_36to40                           | 58/360  (16.1%) | 82/360  (22.8%) | +24 samples
+
+[Codestral-22B-v0.1-Q4_K_M]
+  contracts_1to5                             | 149/360 (41.4%) | 195/360 (54.2%) | +46 samples
+  contracts_6to10                            | 117/360 (32.5%) | 133/360 (36.9%) | +16 samples
+  contracts_11to15                           | 92/360  (25.6%) | 110/360 (30.6%) | +18 samples
+  contracts_16to20                           | 90/360  (25.0%) | 111/360 (30.8%) | +21 samples
+  contracts_21to25                           | 18/360  (5.0%)  | 22/360  (6.1%)  | +4 samples
+  contracts_26to30                           | 20/360  (5.6%)  | 20/360  (5.6%)  | +0 samples
+  contracts_31to35                           | 10/360  (2.8%)  | 12/360  (3.3%)  | +2 samples
+  contracts_36to40                           | 12/360  (3.3%)  | 12/360  (3.3%)  | +0 samples
+
 
 2. TIME SPENT: GENERATION VS REPAIR
 -------------------------------------------------------------------------------------------------------
@@ -122,5 +142,25 @@ Model & Contract Group                       | Generation Time | Repair Time   |
   contracts_26to30                           | 10115s (168.6m) | 793s (13.2m)  | 10908s (181.8m)
   contracts_31to35                           | 11168s (186.1m) | 726s (12.1m)  | 11894s (198.2m)
   contracts_36to40                           | 14062s (234.4m) | 646s (10.8m)  | 14708s (245.1m)
+
+[gemma-4-12B-it-qat-UD-Q4_K_XL]
+  contracts_1to5                             | 892s (14.9m)    | 136s (2.3m)   | 1028s (17.1m)
+  contracts_6to10                            | 1760s (29.3m)   | 236s (3.9m)   | 1996s (33.3m)
+  contracts_11to15                           | 2502s (41.7m)   | 334s (5.6m)   | 2836s (47.3m)
+  contracts_16to20                           | 3777s (62.9m)   | 424s (7.1m)   | 4201s (70.0m)
+  contracts_21to25                           | 4743s (79.1m)   | 419s (7.0m)   | 5162s (86.0m)
+  contracts_26to30                           | 4866s (81.1m)   | 556s (9.3m)   | 5422s (90.4m)
+  contracts_31to35                           | 5430s (90.5m)   | 482s (8.0m)   | 5912s (98.5m)
+  contracts_36to40                           | 7596s (126.6m)  | 443s (7.4m)   | 8039s (134.0m)
+
+[Codestral-22B-v0.1-Q4_K_M]
+  contracts_1to5                             | 1083s (18.1m)   | 384s (6.4m)   | 1467s (24.5m)
+  contracts_6to10                            | 2702s (45.0m)   | 540s (9.0m)   | 3242s (54.0m)
+  contracts_11to15                           | 4081s (68.0m)   | 724s (12.1m)  | 4805s (80.1m)
+  contracts_16to20                           | 6343s (105.7m)  | 715s (11.9m)  | 7058s (117.6m)
+  contracts_21to25                           | 7899s (131.6m)  | 1056s (17.6m) | 8955s (149.3m)
+  contracts_26to30                           | 8929s (148.8m)  | 1080s (18.0m) | 10009s (166.8m)
+  contracts_31to35                           | 10168s (169.5m) | 1047s (17.4m) | 11215s (186.9m)
+  contracts_36to40                           | 13600s (226.7m) | 1015s (16.9m) | 14615s (243.6m)
 
 Time with the * are not the real generation time. Those were interrupted and continued from where they left. 
