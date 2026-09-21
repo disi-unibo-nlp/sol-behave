@@ -1,0 +1,3091 @@
+{
+  "model": "gemma-4-31B-it-qat-UD-Q4_K_XL.gguf",
+  "q3": {
+    "pooled_attempts": 256923,
+    "pooled_successes": 212904,
+    "pooled_prune_rate": 0.1713,
+    "per_contract": [
+      {
+        "address": "0x00000751e8310fe25912afd7b347c2612b400000",
+        "attempts": 3259,
+        "successes": 1000,
+        "pruned": 2259,
+        "prune_rate": 0.6932
+      },
+      {
+        "address": "0x000011387eb24f199e875b1325e4805efd3b0000",
+        "attempts": 3329,
+        "successes": 1000,
+        "pruned": 2329,
+        "prune_rate": 0.6996
+      },
+      {
+        "address": "0x00003d1cef5f30e34510198cb045e4ae0aa20000",
+        "attempts": 1357,
+        "successes": 1000,
+        "pruned": 357,
+        "prune_rate": 0.2631
+      },
+      {
+        "address": "0x0007039b77d22042afc1a9c3b3da11837b730000",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x00adeb0236a7fe3269f33e703690da64ecc30757",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x01dfb5c49b583b1a81da000d1183668606532c7f",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x02e7f808990638e9e67e1f00313037ede2362361",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x0488401c3f535193fa8df029d9ffe615a06e74e6",
+        "attempts": 1443,
+        "successes": 1000,
+        "pruned": 443,
+        "prune_rate": 0.307
+      },
+      {
+        "address": "0x07b9c0964d3e8734d65aea20c37334c2528ca601",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x07e1f8ee990876d2220717ba77c0940a2926ee00",
+        "attempts": 1038,
+        "successes": 1000,
+        "pruned": 38,
+        "prune_rate": 0.0366
+      },
+      {
+        "address": "0x08f5a9235b08173b7569f83645d2c7fb55e8ccd8",
+        "attempts": 57,
+        "successes": 1,
+        "pruned": 56,
+        "prune_rate": 0.9825
+      },
+      {
+        "address": "0x0d248ce39e26fb00f911fb1e7a45a00d8c94341c",
+        "attempts": 1246,
+        "successes": 1000,
+        "pruned": 246,
+        "prune_rate": 0.1974
+      },
+      {
+        "address": "0x0ebe30595a44e5288c24161ddfc1e9fa08e33a0c",
+        "attempts": 1045,
+        "successes": 1000,
+        "pruned": 45,
+        "prune_rate": 0.0431
+      },
+      {
+        "address": "0x0ed024d39d55e486573ee32e583bc37eb5a6271f",
+        "attempts": 1167,
+        "successes": 1000,
+        "pruned": 167,
+        "prune_rate": 0.1431
+      },
+      {
+        "address": "0x0f689c9a84b9541ceed15693bdfd1419c2e9dc72",
+        "attempts": 1064,
+        "successes": 1000,
+        "pruned": 64,
+        "prune_rate": 0.0602
+      },
+      {
+        "address": "0x103c3a209da59d3e7c4a89307e66521e081cfdf0",
+        "attempts": 1077,
+        "successes": 1000,
+        "pruned": 77,
+        "prune_rate": 0.0715
+      },
+      {
+        "address": "0x1111b1ea9129f312aea5ea13a496d1839809f974",
+        "attempts": 1126,
+        "successes": 1000,
+        "pruned": 126,
+        "prune_rate": 0.1119
+      },
+      {
+        "address": "0x122b35a8855cf4bff0560480e7ae99b5ef6a1e8c",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0x13434ed4077673e30095b2d2c0ccba153f330fb8",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x1355474d71db10cf4c7ba0682e9b03e05737edfd",
+        "attempts": 1084,
+        "successes": 1000,
+        "pruned": 84,
+        "prune_rate": 0.0775
+      },
+      {
+        "address": "0x15a3081b541e8dad25c4a5e0c4c4b4e8d105b2e8",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x16368ae7d33a5f7fb5fcfd48d7e29092e81a2661",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x166fd4299364b21c7567e163d85d78d2fb2f8ad5",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x16cda4028e9e872a38acb903176719299beaed87",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x170dec83c7753aaad20c01a0016b5a2e143990d4",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x17fba84a52656770269385ad4b8d6e6c1a0db987",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x1e4746dc744503b53b4a082cb3607b169a289090",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x1e917e764bc34d3bc313fe8159a6bd9d9ffd450d",
+        "attempts": 1052,
+        "successes": 1000,
+        "pruned": 52,
+        "prune_rate": 0.0494
+      },
+      {
+        "address": "0x1f19d846d99a0e75581913b64510fe0e18bbc31f",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x20cd2e7ec8f5d8b337fe46a4f565ccef1561b9a9",
+        "attempts": 1069,
+        "successes": 1000,
+        "pruned": 69,
+        "prune_rate": 0.0645
+      },
+      {
+        "address": "0x216c9bb7380cde431662e37e30098d838d7e1dc8",
+        "attempts": 5064,
+        "successes": 1000,
+        "pruned": 4064,
+        "prune_rate": 0.8025
+      },
+      {
+        "address": "0x230ea9aed5d08afdb22cd3c06c47cf24ad501301",
+        "attempts": 1796,
+        "successes": 1000,
+        "pruned": 796,
+        "prune_rate": 0.4432
+      },
+      {
+        "address": "0x23d17de53aae4a767499a9d8b8c33b5b1c3ebdb0",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x23ff845aca503f12315582b38f4ab257c55a30a4",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x250f02a3ae700835892535eb6f9d0af96e2c0643",
+        "attempts": 1406,
+        "successes": 1000,
+        "pruned": 406,
+        "prune_rate": 0.2888
+      },
+      {
+        "address": "0x28dc2407225b3a9e75ecc65525e66920372a059f",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x2b4e266b7d04f945f0de4b5b9fac5ca440974736",
+        "attempts": 1038,
+        "successes": 1000,
+        "pruned": 38,
+        "prune_rate": 0.0366
+      },
+      {
+        "address": "0x2ba592f78db6436527729929aaf6c908497cb200",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0x2be8e422cb4a5a7f217a8f1b0658952a79132f28",
+        "attempts": 1114,
+        "successes": 1000,
+        "pruned": 114,
+        "prune_rate": 0.1023
+      },
+      {
+        "address": "0x2c0687215aca7f5e2792d956e170325e92a02aca",
+        "attempts": 1057,
+        "successes": 1000,
+        "pruned": 57,
+        "prune_rate": 0.0539
+      },
+      {
+        "address": "0x2c91d908e9fab2dd2441532a04182d791e590f2d",
+        "attempts": 1030,
+        "successes": 1000,
+        "pruned": 30,
+        "prune_rate": 0.0291
+      },
+      {
+        "address": "0x2cd25b42048ef9e96eb56e6d684fac891537dd8a",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x2d787d4f5005bd66ac910c2e821241625c406ed5",
+        "attempts": 1105,
+        "successes": 1000,
+        "pruned": 105,
+        "prune_rate": 0.095
+      },
+      {
+        "address": "0x2e258dbb253b7e1c0846f212b9b36a2f783ba436",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x2fcea621fba92c268fe16f17ca6bf37e70c7fa1a",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x303389f541ff2d620e42832f180a08e767b28e10",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0x31ea0de8119307aa264bb4b38727aab4e36b074f",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x329319ebe02eac3de77a9aa379d620ba653b2136",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x3638c9e50437f00ae53a649697f288ba68888cc1",
+        "attempts": 1167,
+        "successes": 1000,
+        "pruned": 167,
+        "prune_rate": 0.1431
+      },
+      {
+        "address": "0x378e1be15be6d6d1f23cfe7090b6a77660dbf14d",
+        "attempts": 1086,
+        "successes": 1000,
+        "pruned": 86,
+        "prune_rate": 0.0792
+      },
+      {
+        "address": "0x382ea807a61a418479318efd96f1efbc5c1f2c21",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1",
+        "attempts": 1032,
+        "successes": 1000,
+        "pruned": 32,
+        "prune_rate": 0.031
+      },
+      {
+        "address": "0x39621e4924dde4d19b84bdb3094bc9956e6480ae",
+        "attempts": 1037,
+        "successes": 1000,
+        "pruned": 37,
+        "prune_rate": 0.0357
+      },
+      {
+        "address": "0x3a0e07de7c389c2c7eb3c4721eeb55221f24f75e",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x3b4cbe8e52e40195d7f253d0b90904b9eb9e9107",
+        "attempts": 1021,
+        "successes": 1000,
+        "pruned": 21,
+        "prune_rate": 0.0206
+      },
+      {
+        "address": "0x3c7a21cb00569ca807ca4f1f4cf6c5dbd655ef06",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x3d9a4d8ab4f5bd1d5d08ae3a95e8ed8bb4d7e3b9",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x3f17f64f682019599ba51638f74e4b6c127fe725",
+        "attempts": 1112,
+        "successes": 1000,
+        "pruned": 112,
+        "prune_rate": 0.1007
+      },
+      {
+        "address": "0x3f9964d27bf40f560399cf03f0c9fa59df8834a3",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x40a7df3df8b56147b781353d379cb960120211d7",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x4159862bcf6b4393a80550b1ed03dffa6f90533c",
+        "attempts": 1032,
+        "successes": 1000,
+        "pruned": 32,
+        "prune_rate": 0.031
+      },
+      {
+        "address": "0x41b1f9dcd5923c9542b6957b9b72169595acbc5c",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x41d376ee12162e9f476eec17e22b3b250578f4bf",
+        "attempts": 1031,
+        "successes": 1000,
+        "pruned": 31,
+        "prune_rate": 0.0301
+      },
+      {
+        "address": "0x420698cfdeddea6bc78d59bc17798113ad278f9d",
+        "attempts": 1126,
+        "successes": 1000,
+        "pruned": 126,
+        "prune_rate": 0.1119
+      },
+      {
+        "address": "0x4309e88d1d511f3764ee0f154cee98d783b61f09",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0x459cb23764c4f319b03c95345d547df9316bb730",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x473f4068073cd5b2ab0e4cc8e146f9edc6fb52cc",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x4813a4653a13b6cd69a6406da2e10a4ae85a06cc",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x4973710327edc6f8238dd2d73cf0b2e081e1b351",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x4bc2213ee6c99dc38099690603f044980a4f5dba",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x4c11249814f11b9346808179cf06e71ac328c1b5",
+        "attempts": 1049,
+        "successes": 1000,
+        "pruned": 49,
+        "prune_rate": 0.0467
+      },
+      {
+        "address": "0x4f6d52293c5b2aeba86e1547a1013866039e5551",
+        "attempts": 1017,
+        "successes": 1000,
+        "pruned": 17,
+        "prune_rate": 0.0167
+      },
+      {
+        "address": "0x5026f006b85729a8b14553fae6af249ad16c9aab",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "attempts": 1049,
+        "successes": 1000,
+        "pruned": 49,
+        "prune_rate": 0.0467
+      },
+      {
+        "address": "0x53011e93f21ec7a74cdfbb7e6548f1abce306833",
+        "attempts": 1408,
+        "successes": 1000,
+        "pruned": 408,
+        "prune_rate": 0.2898
+      },
+      {
+        "address": "0x533b615f69478ee2ea88ac9408867af54dc36199",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x55567e038b0a50283084ae773fa433a5029822d3",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x556c3cbdca77a7f21afe15b17e644e0e98e64df4",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0x56072c95faa701256059aa122697b133aded9279",
+        "attempts": 1152,
+        "successes": 1000,
+        "pruned": 152,
+        "prune_rate": 0.1319
+      },
+      {
+        "address": "0x575252412acdeeceb7c08db0ee3ce75b33cadbdb",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x57b9d10157f66d8c00a815b5e289a152dedbe7ed",
+        "attempts": 1017,
+        "successes": 1000,
+        "pruned": 17,
+        "prune_rate": 0.0167
+      },
+      {
+        "address": "0x58b580c1d86c04a97d981e66fa64a73342864bdc",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x59e9261255644c411afdd00bd89162d09d862e38",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x5a035e3f1551a15230d0cde3357fb1bf89369261",
+        "attempts": 1085,
+        "successes": 1000,
+        "pruned": 85,
+        "prune_rate": 0.0783
+      },
+      {
+        "address": "0x5a25878f9fa438086a547b617674b0c44b04efce",
+        "attempts": 1052,
+        "successes": 1000,
+        "pruned": 52,
+        "prune_rate": 0.0494
+      },
+      {
+        "address": "0x5b2e4a700dfbc560061e957edec8f6eeeb74a320",
+        "attempts": 1005,
+        "successes": 1000,
+        "pruned": 5,
+        "prune_rate": 0.005
+      },
+      {
+        "address": "0x5ccda66ea68e787459ad781dfbbbb5f1fd4171fb",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x5daa087714cb169f605c673a00aef62a9a7236a6",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x5f250ed62cf3e5cf25f4f370d35d04782b0678a3",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x5f4630c5740855d47d0d79209a3726fc83c5bd66",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x60e254e35dd712394b3aba7a1d19114732e143dd",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x62824ecbdc2fa3f2d2f9d2b58edb1eb57284a4e3",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x64546432fa6c13d98b2713c8f1754733ad25e25a",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x65ef703f5594d2573eb71aaf55bc0cb548492df4",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0x664f8cbf877bf40e5d21df5545ebf5e4dc840aa6",
+        "attempts": 1064,
+        "successes": 1000,
+        "pruned": 64,
+        "prune_rate": 0.0602
+      },
+      {
+        "address": "0x666cbfaa3baa2faccfac8854fea1e5db140fb104",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x667102bd3413bfeaa3dffb48fa8288819e480a88",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x66de0f9f4ffdd93a6a1cfe83537d341bebdcf927",
+        "attempts": 1032,
+        "successes": 1000,
+        "pruned": 32,
+        "prune_rate": 0.031
+      },
+      {
+        "address": "0x67405cadb820c2d89b8d6da3e42ef6a39089c831",
+        "attempts": 1208,
+        "successes": 900,
+        "pruned": 308,
+        "prune_rate": 0.255
+      },
+      {
+        "address": "0x68b7b4017df1fe8f7b228a3a407b38ebc8bf3246",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x6b0774c4a0619113443bc5723db22799e9c51d9a",
+        "attempts": 1008,
+        "successes": 1000,
+        "pruned": 8,
+        "prune_rate": 0.0079
+      },
+      {
+        "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "attempts": 5308,
+        "successes": 1000,
+        "pruned": 4308,
+        "prune_rate": 0.8116
+      },
+      {
+        "address": "0x6bf765c43030387a983f429c1438e9d2025b7e12",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x6c361a982fdc316e8ff5ac98d525e5ba366f3e63",
+        "attempts": 1102,
+        "successes": 1000,
+        "pruned": 102,
+        "prune_rate": 0.0926
+      },
+      {
+        "address": "0x6e068796ba34613eb9b285affe0283fef3f4d66f",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x6f922284798de645e8bc1040450d32bde963c992",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x70734a09b7a89f8ec3558d432fcb518dcc3c0fa0",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x7202205a6a60f6165faac79a630594ad23ca5a1a",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x7321a13bbf58220bca94a605eff3e24daee86376",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x736ecc5237b31edec6f1ab9a396fae2416b1d96e",
+        "attempts": 1123,
+        "successes": 1000,
+        "pruned": 123,
+        "prune_rate": 0.1095
+      },
+      {
+        "address": "0x73e8e15a946cb707396ac6e7494a793c9a5900d6",
+        "attempts": 122,
+        "successes": 2,
+        "pruned": 120,
+        "prune_rate": 0.9836
+      },
+      {
+        "address": "0x74232704659ef37c08995e386a2e26cc27a8d7b1",
+        "attempts": 1032,
+        "successes": 1000,
+        "pruned": 32,
+        "prune_rate": 0.031
+      },
+      {
+        "address": "0x747ec0600d3d16b4395ae483d326c0c963e97cfb",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x74da7fe0c96cc33234f51b425e2cd33de6a401c4",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x7734f891989577757cd20cc537e8801d8a11ea19",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x777b6d4730a8a890dc64bf202514ce03ab001c02",
+        "attempts": 1168,
+        "successes": 1000,
+        "pruned": 168,
+        "prune_rate": 0.1438
+      },
+      {
+        "address": "0x777be1c6075c20184c4fd76344b7b0b7c858fe6b",
+        "attempts": 1126,
+        "successes": 1000,
+        "pruned": 126,
+        "prune_rate": 0.1119
+      },
+      {
+        "address": "0x78a0a62fba6fb21a83fe8a3433d44c73a4017a6f",
+        "attempts": 1099,
+        "successes": 1000,
+        "pruned": 99,
+        "prune_rate": 0.0901
+      },
+      {
+        "address": "0x799f7d1fb0fc67fcb760a3991fcb51498f60ce3c",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0x7f75aa2274273f4d41267a0e2cd6c9b96c5b7510",
+        "attempts": 1018,
+        "successes": 1000,
+        "pruned": 18,
+        "prune_rate": 0.0177
+      },
+      {
+        "address": "0x832103d3feb02dd582940ce371c1dc104ad13b19",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x8586ed77fc29787b28c268f389eb0f9235e3b2e4",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x864cb5194722d5a1596f4be8b899916d30dad8d8",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x8666cb197af5103f7a3a0295b50efea47f3df78b",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x880f05c31c69c95ee8ba8b6ea4527b3ddd83ed67",
+        "attempts": 1084,
+        "successes": 1000,
+        "pruned": 84,
+        "prune_rate": 0.0775
+      },
+      {
+        "address": "0x8ce0ca21df956f04f6e20f3b0da36680e499adb4",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x8e6cd950ad6ba651f6dd608dc70e5886b1aa6b24",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0x8e938f7c4481135cb82ba43908b670ac0eda93fc",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x9047b76d7fb3d8bc3342616c56028430ebc74290",
+        "attempts": 1018,
+        "successes": 1000,
+        "pruned": 18,
+        "prune_rate": 0.0177
+      },
+      {
+        "address": "0x9138c8779a0ac8a84d69617d5715bd8afa23c650",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x9279f033532782f15f0127ff827da22426565e65",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x92cf67713f5ec181fd6999f18af796a6763a225b",
+        "attempts": 49,
+        "successes": 1,
+        "pruned": 48,
+        "prune_rate": 0.9796
+      },
+      {
+        "address": "0x93715112138dd0265a3888eb7458bb7bf3ff7c3e",
+        "attempts": 1028,
+        "successes": 1000,
+        "pruned": 28,
+        "prune_rate": 0.0272
+      },
+      {
+        "address": "0x93ce10101badb7afb1a6b578790e12bbb367d303",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x953de0fee9e7b8056dd802b2e9ba0c8e540c68b8",
+        "attempts": 1357,
+        "successes": 1000,
+        "pruned": 357,
+        "prune_rate": 0.2631
+      },
+      {
+        "address": "0x955d5c14c8d4944da1ea7836bd44d54a8ec35ba1",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0x96add417293a49e80f024734e96cfd8b355bcc14",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0x97ad75064b20fb2b2447fed4fa953bf7f007a706",
+        "attempts": 1081,
+        "successes": 1000,
+        "pruned": 81,
+        "prune_rate": 0.0749
+      },
+      {
+        "address": "0x9ae591df597f186cdb4284818bf6d5b77cb3c1ce",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0x9e22ebec84c7e4c4bd6d4ae7ff6f4d436d6d8390",
+        "attempts": 1022,
+        "successes": 1000,
+        "pruned": 22,
+        "prune_rate": 0.0215
+      },
+      {
+        "address": "0x9e976f211daea0d652912ab99b0dc21a7fd728e4",
+        "attempts": 1063,
+        "successes": 1000,
+        "pruned": 63,
+        "prune_rate": 0.0593
+      },
+      {
+        "address": "0x9e9fbde7c7a83c43913bddc8779158f1368f0413",
+        "attempts": 1037,
+        "successes": 1000,
+        "pruned": 37,
+        "prune_rate": 0.0357
+      },
+      {
+        "address": "0xa0117792d4b100fd329b37e8ab4181df8a5b3326",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0xa0385e7283c83e2871e9af49eec0966088421ddd",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xa2e123dc38f1899a9d9515c65036690854cb184b",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xa5ebe5507b6c725cbc283f8ade236fe8b8d41f91",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "attempts": 1010,
+        "successes": 1000,
+        "pruned": 10,
+        "prune_rate": 0.0099
+      },
+      {
+        "address": "0xa62fc0ba9deeee9336511741c2dfc4f5b00e128b",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xa7111e8e9f02c8ce89e9a2bcb40c88f34b1c23ad",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xa8643451ae0401b645443682055be70dc05b6950",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xa876f27f13a9eb6e621202cefdd5afc4a90e6457",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xa9929db24e9837f622f94b82f2abe78aa971288f",
+        "attempts": 1032,
+        "successes": 1000,
+        "pruned": 32,
+        "prune_rate": 0.031
+      },
+      {
+        "address": "0xaa68fd12a3b0f7aea66fe8f7111ae3f8d9ac5058",
+        "attempts": 1052,
+        "successes": 1000,
+        "pruned": 52,
+        "prune_rate": 0.0494
+      },
+      {
+        "address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0xaaebba075700a4c08d4ccd9e3524324a6f7ad718",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xb2d6590638b54a9a03fa236e488384da240e6180",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0xb53917d6f10e4b45f8379e240118b4c05ca1bda8",
+        "attempts": 1052,
+        "successes": 1000,
+        "pruned": 52,
+        "prune_rate": 0.0494
+      },
+      {
+        "address": "0xb5c457ddb4ce3312a6c5a2b056a1652bd542a208",
+        "attempts": 1053,
+        "successes": 1000,
+        "pruned": 53,
+        "prune_rate": 0.0503
+      },
+      {
+        "address": "0xb72749a16410db6b3feac000a5a90c2f6cf7935e",
+        "attempts": 1002,
+        "successes": 1000,
+        "pruned": 2,
+        "prune_rate": 0.002
+      },
+      {
+        "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+        "attempts": 1130,
+        "successes": 1000,
+        "pruned": 130,
+        "prune_rate": 0.115
+      },
+      {
+        "address": "0xb96b2eb882d599c8cacc37cdb9c73802a1be36ff",
+        "attempts": 1357,
+        "successes": 1000,
+        "pruned": 357,
+        "prune_rate": 0.2631
+      },
+      {
+        "address": "0xbacacd83b68c92ae07ef382d0c0277d1bd1c7c4d",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xbaea5e07080f00d54965a6121d6fb69a6c648c1f",
+        "attempts": 5472,
+        "successes": 1000,
+        "pruned": 4472,
+        "prune_rate": 0.8173
+      },
+      {
+        "address": "0xbc962e2e290d276040babc4dfb8f9a4ae2a8085f",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xbdacbd348293f7839cc6ea64335d839db4841a39",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "attempts": 1036,
+        "successes": 1000,
+        "pruned": 36,
+        "prune_rate": 0.0347
+      },
+      {
+        "address": "0xc0cd1a8dac93a424fe6911f271cc4293ee50ccda",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0xc272aa308d0886e2cc5488f6d16f2fd00903abd8",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xc30d724e3e370dfcec3b5705ce4af2b23d6e2e49",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xc5bbae50781be1669306b9e001eff57a2957b09d",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xc9c46a2f3a57c7c312bc5a0d257a1f95d7f61414",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0xc9ec62902f5292e4c3b907804a37492d0ca9ec77",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0xca11bde05977b3631167028862be2a173976ca11",
+        "attempts": 60,
+        "successes": 0,
+        "pruned": 60,
+        "prune_rate": 1.0
+      },
+      {
+        "address": "0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e",
+        "attempts": 1001,
+        "successes": 1000,
+        "pruned": 1,
+        "prune_rate": 0.001
+      },
+      {
+        "address": "0xcc149a678aad5f931e6a3d573c8a6777e9b21d60",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xcf6f65b8925b73d0289bf9c7f088dd57a8040629",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xcfe940bbcfc8e8226d2ad47bc49ccb003525ec73",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0xd08623fb2a1f044025eec65886011cf5d0f06b01",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xd13b093eafa3878de27183388fea7d0d2b0abf9e",
+        "attempts": 1000,
+        "successes": 1000,
+        "pruned": 0,
+        "prune_rate": 0.0
+      },
+      {
+        "address": "0xd2e01c3de355d544c6a587d4b80e2ff8849146e1",
+        "attempts": 1068,
+        "successes": 1000,
+        "pruned": 68,
+        "prune_rate": 0.0637
+      },
+      {
+        "address": "0xd6175692026bcd7cb12a515e39cf0256ef35cb86",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xd636218db16b8104bdd33eea20a6f81d9db81556",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xd87d72248093597df8d56d2a53c1ab7c1a0cc8da",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xd89cc9d79ad3c49e2cd477a8bbc8e63dee53f82e",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xd8e163967fed76806df0097b704ba721b9b37656",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xd920556b0f3522bb1257923292a256f1e3023e07",
+        "attempts": 1120,
+        "successes": 1000,
+        "pruned": 120,
+        "prune_rate": 0.1071
+      },
+      {
+        "address": "0xdc63269ea166b70d4780b3a11f5c825c2b761b01",
+        "attempts": 1035,
+        "successes": 1000,
+        "pruned": 35,
+        "prune_rate": 0.0338
+      },
+      {
+        "address": "0xdddd8f6324edb09a9adc96c01b5cddf219e7e86d",
+        "attempts": 1126,
+        "successes": 1000,
+        "pruned": 126,
+        "prune_rate": 0.1119
+      },
+      {
+        "address": "0xdfd8e5f7ed841d76ed4b1147ea3bf9d4e94a6d69",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xe26c502ab6e9cfe540f051add0602602cf3a6b9a",
+        "attempts": 1963,
+        "successes": 1000,
+        "pruned": 963,
+        "prune_rate": 0.4906
+      },
+      {
+        "address": "0xe39c1096e208b13447f39ab5fa13f72d1e20a7ca",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0xe73d53e3a982ab2750a0b76f9012e18b256cc243",
+        "attempts": 1017,
+        "successes": 1000,
+        "pruned": 17,
+        "prune_rate": 0.0167
+      },
+      {
+        "address": "0xe7468080c033ce50dd09a22ad1e58d1bda69e436",
+        "attempts": 1053,
+        "successes": 1000,
+        "pruned": 53,
+        "prune_rate": 0.0503
+      },
+      {
+        "address": "0xe7ae6d0c56cacaf007b7e4d312f9af686a9e9a04",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xe9572938bcbf08adcee86fd12a7c0d08dc4ab841",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xeb935deb517e4c2abc282e5e251ed4d05db79e93",
+        "attempts": 1170,
+        "successes": 1000,
+        "pruned": 170,
+        "prune_rate": 0.1453
+      },
+      {
+        "address": "0xebb82c932759b515b2efc1cfbb6bf2f6dbace404",
+        "attempts": 1018,
+        "successes": 1000,
+        "pruned": 18,
+        "prune_rate": 0.0177
+      },
+      {
+        "address": "0xec1766aac9de1d8e3f70f69f698a163a717d910c",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0xec8daff690638f45595ae5d9e30c8eb9fecb2522",
+        "attempts": 1412,
+        "successes": 1000,
+        "pruned": 412,
+        "prune_rate": 0.2918
+      },
+      {
+        "address": "0xedaa2fa0fd153b78efde805b0a46225bb95e3ca1",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xf00200f02a2bd1104d016090f016b6b30f19cfa6",
+        "attempts": 1042,
+        "successes": 1000,
+        "pruned": 42,
+        "prune_rate": 0.0403
+      },
+      {
+        "address": "0xf08939304955fd06e69ae83ec88b62510687071c",
+        "attempts": 1018,
+        "successes": 1000,
+        "pruned": 18,
+        "prune_rate": 0.0177
+      },
+      {
+        "address": "0xf164069b8c2e73fd856083e2574c3007c0f29810",
+        "attempts": 1019,
+        "successes": 1000,
+        "pruned": 19,
+        "prune_rate": 0.0186
+      },
+      {
+        "address": "0xf2a1df76877903583fb9106daa8ab83c9b7f8cf2",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xf3115b544c287380d34a19280dcfd029eeada9c8",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xf37d26aeb99ee4cda8fbcd9b0cf778ae494a57d1",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xf3fd8743923f86cd74dca301a119e9a4edfc77c1",
+        "attempts": 1744,
+        "successes": 1000,
+        "pruned": 744,
+        "prune_rate": 0.4266
+      },
+      {
+        "address": "0xf863376abfc6b27d8d54ff6295176b8ec158d4e2",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xf8c76dbea329ec4fa987afc514f805b21b249d79",
+        "attempts": 1758,
+        "successes": 1000,
+        "pruned": 758,
+        "prune_rate": 0.4312
+      },
+      {
+        "address": "0xfa3e941d1f6b7b10ed84a0c211bfa8aee907965e",
+        "attempts": 1167,
+        "successes": 1000,
+        "pruned": 167,
+        "prune_rate": 0.1431
+      },
+      {
+        "address": "0xfb130d93e49dca13264344966a611dc79a456bc5",
+        "attempts": 1034,
+        "successes": 1000,
+        "pruned": 34,
+        "prune_rate": 0.0329
+      },
+      {
+        "address": "0xfbc97c1272f6aac39dc55aa64e7ce5add278a0bf",
+        "attempts": 20,
+        "successes": 0,
+        "pruned": 20,
+        "prune_rate": 1.0
+      },
+      {
+        "address": "0xfcaf0e4498e78d65526a507360f755178b804ba8",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      },
+      {
+        "address": "0xfd1c027190418982eeade3a8a091556ae8f0a8c9",
+        "attempts": 5184,
+        "successes": 1000,
+        "pruned": 4184,
+        "prune_rate": 0.8071
+      },
+      {
+        "address": "0xfd80fe54e7360122cd1ba16b2091cb7a63c5c00d",
+        "attempts": 1051,
+        "successes": 1000,
+        "pruned": 51,
+        "prune_rate": 0.0485
+      }
+    ]
+  },
+  "q4": {
+    "per_contract": [
+      {
+        "address": "0x00000751e8310fe25912afd7b347c2612b400000",
+        "n_events": 13,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x000011387eb24f199e875b1325e4805efd3b0000",
+        "n_events": 10,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0x00003d1cef5f30e34510198cb045e4ae0aa20000",
+        "n_events": 4,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.5
+      },
+      {
+        "address": "0x0007039b77d22042afc1a9c3b3da11837b730000",
+        "n_events": 11,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0909
+      },
+      {
+        "address": "0x00adeb0236a7fe3269f33e703690da64ecc30757",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x01dfb5c49b583b1a81da000d1183668606532c7f",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x02e7f808990638e9e67e1f00313037ede2362361",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x0488401c3f535193fa8df029d9ffe615a06e74e6",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0x07b9c0964d3e8734d65aea20c37334c2528ca601",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x07e1f8ee990876d2220717ba77c0940a2926ee00",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x08f5a9235b08173b7569f83645d2c7fb55e8ccd8",
+        "n_events": 7,
+        "n_ownership": 1,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2857
+      },
+      {
+        "address": "0x0d248ce39e26fb00f911fb1e7a45a00d8c94341c",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x0ebe30595a44e5288c24161ddfc1e9fa08e33a0c",
+        "n_events": 10,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0x0ed024d39d55e486573ee32e583bc37eb5a6271f",
+        "n_events": 7,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x0f689c9a84b9541ceed15693bdfd1419c2e9dc72",
+        "n_events": 11,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1818
+      },
+      {
+        "address": "0x103c3a209da59d3e7c4a89307e66521e081cfdf0",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x1111b1ea9129f312aea5ea13a496d1839809f974",
+        "n_events": 10,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0x122b35a8855cf4bff0560480e7ae99b5ef6a1e8c",
+        "n_events": 4,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x13434ed4077673e30095b2d2c0ccba153f330fb8",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x1355474d71db10cf4c7ba0682e9b03e05737edfd",
+        "n_events": 7,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x15a3081b541e8dad25c4a5e0c4c4b4e8d105b2e8",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x16368ae7d33a5f7fb5fcfd48d7e29092e81a2661",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x166fd4299364b21c7567e163d85d78d2fb2f8ad5",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x16cda4028e9e872a38acb903176719299beaed87",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x170dec83c7753aaad20c01a0016b5a2e143990d4",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x17fba84a52656770269385ad4b8d6e6c1a0db987",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x1e4746dc744503b53b4a082cb3607b169a289090",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x1e917e764bc34d3bc313fe8159a6bd9d9ffd450d",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x1f19d846d99a0e75581913b64510fe0e18bbc31f",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x20cd2e7ec8f5d8b337fe46a4f565ccef1561b9a9",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x216c9bb7380cde431662e37e30098d838d7e1dc8",
+        "n_events": 15,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0667
+      },
+      {
+        "address": "0x230ea9aed5d08afdb22cd3c06c47cf24ad501301",
+        "n_events": 8,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0x23d17de53aae4a767499a9d8b8c33b5b1c3ebdb0",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x23ff845aca503f12315582b38f4ab257c55a30a4",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x250f02a3ae700835892535eb6f9d0af96e2c0643",
+        "n_events": 11,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0909
+      },
+      {
+        "address": "0x28dc2407225b3a9e75ecc65525e66920372a059f",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x2b4e266b7d04f945f0de4b5b9fac5ca440974736",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x2ba592f78db6436527729929aaf6c908497cb200",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x2be8e422cb4a5a7f217a8f1b0658952a79132f28",
+        "n_events": 11,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1818
+      },
+      {
+        "address": "0x2c0687215aca7f5e2792d956e170325e92a02aca",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x2c91d908e9fab2dd2441532a04182d791e590f2d",
+        "n_events": 9,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2222
+      },
+      {
+        "address": "0x2cd25b42048ef9e96eb56e6d684fac891537dd8a",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x2d787d4f5005bd66ac910c2e821241625c406ed5",
+        "n_events": 7,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x2e258dbb253b7e1c0846f212b9b36a2f783ba436",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x2fcea621fba92c268fe16f17ca6bf37e70c7fa1a",
+        "n_events": 7,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x303389f541ff2d620e42832f180a08e767b28e10",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x31ea0de8119307aa264bb4b38727aab4e36b074f",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x329319ebe02eac3de77a9aa379d620ba653b2136",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x3638c9e50437f00ae53a649697f288ba68888cc1",
+        "n_events": 7,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x378e1be15be6d6d1f23cfe7090b6a77660dbf14d",
+        "n_events": 11,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1818
+      },
+      {
+        "address": "0x382ea807a61a418479318efd96f1efbc5c1f2c21",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x39621e4924dde4d19b84bdb3094bc9956e6480ae",
+        "n_events": 13,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0769
+      },
+      {
+        "address": "0x3a0e07de7c389c2c7eb3c4721eeb55221f24f75e",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x3b4cbe8e52e40195d7f253d0b90904b9eb9e9107",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x3c7a21cb00569ca807ca4f1f4cf6c5dbd655ef06",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x3d9a4d8ab4f5bd1d5d08ae3a95e8ed8bb4d7e3b9",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x3f17f64f682019599ba51638f74e4b6c127fe725",
+        "n_events": 16,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0x3f9964d27bf40f560399cf03f0c9fa59df8834a3",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x40a7df3df8b56147b781353d379cb960120211d7",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4159862bcf6b4393a80550b1ed03dffa6f90533c",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x41b1f9dcd5923c9542b6957b9b72169595acbc5c",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x41d376ee12162e9f476eec17e22b3b250578f4bf",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x420698cfdeddea6bc78d59bc17798113ad278f9d",
+        "n_events": 10,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0x4309e88d1d511f3764ee0f154cee98d783b61f09",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x459cb23764c4f319b03c95345d547df9316bb730",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x473f4068073cd5b2ab0e4cc8e146f9edc6fb52cc",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4813a4653a13b6cd69a6406da2e10a4ae85a06cc",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4973710327edc6f8238dd2d73cf0b2e081e1b351",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4bc2213ee6c99dc38099690603f044980a4f5dba",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4c11249814f11b9346808179cf06e71ac328c1b5",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x4f6d52293c5b2aeba86e1547a1013866039e5551",
+        "n_events": 6,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1667
+      },
+      {
+        "address": "0x5026f006b85729a8b14553fae6af249ad16c9aab",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x53011e93f21ec7a74cdfbb7e6548f1abce306833",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x533b615f69478ee2ea88ac9408867af54dc36199",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x55567e038b0a50283084ae773fa433a5029822d3",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x556c3cbdca77a7f21afe15b17e644e0e98e64df4",
+        "n_events": 8,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0x56072c95faa701256059aa122697b133aded9279",
+        "n_events": 12,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x575252412acdeeceb7c08db0ee3ce75b33cadbdb",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x57b9d10157f66d8c00a815b5e289a152dedbe7ed",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x58b580c1d86c04a97d981e66fa64a73342864bdc",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x59e9261255644c411afdd00bd89162d09d862e38",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5a035e3f1551a15230d0cde3357fb1bf89369261",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5a25878f9fa438086a547b617674b0c44b04efce",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5b2e4a700dfbc560061e957edec8f6eeeb74a320",
+        "n_events": 19,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5ccda66ea68e787459ad781dfbbbb5f1fd4171fb",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5daa087714cb169f605c673a00aef62a9a7236a6",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5f250ed62cf3e5cf25f4f370d35d04782b0678a3",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x5f4630c5740855d47d0d79209a3726fc83c5bd66",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x60e254e35dd712394b3aba7a1d19114732e143dd",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x62824ecbdc2fa3f2d2f9d2b58edb1eb57284a4e3",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x64546432fa6c13d98b2713c8f1754733ad25e25a",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x65ef703f5594d2573eb71aaf55bc0cb548492df4",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x664f8cbf877bf40e5d21df5545ebf5e4dc840aa6",
+        "n_events": 11,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1818
+      },
+      {
+        "address": "0x666cbfaa3baa2faccfac8854fea1e5db140fb104",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x667102bd3413bfeaa3dffb48fa8288819e480a88",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x66de0f9f4ffdd93a6a1cfe83537d341bebdcf927",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x67405cadb820c2d89b8d6da3e42ef6a39089c831",
+        "n_events": 12,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1667
+      },
+      {
+        "address": "0x68b7b4017df1fe8f7b228a3a407b38ebc8bf3246",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x6b0774c4a0619113443bc5723db22799e9c51d9a",
+        "n_events": 14,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "n_events": 14,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x6bf765c43030387a983f429c1438e9d2025b7e12",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x6c361a982fdc316e8ff5ac98d525e5ba366f3e63",
+        "n_events": 11,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1818
+      },
+      {
+        "address": "0x6e068796ba34613eb9b285affe0283fef3f4d66f",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x6f922284798de645e8bc1040450d32bde963c992",
+        "n_events": 1,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x70734a09b7a89f8ec3558d432fcb518dcc3c0fa0",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x7202205a6a60f6165faac79a630594ad23ca5a1a",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x7321a13bbf58220bca94a605eff3e24daee86376",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x736ecc5237b31edec6f1ab9a396fae2416b1d96e",
+        "n_events": 12,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1667
+      },
+      {
+        "address": "0x73e8e15a946cb707396ac6e7494a793c9a5900d6",
+        "n_events": 10,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x74232704659ef37c08995e386a2e26cc27a8d7b1",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x747ec0600d3d16b4395ae483d326c0c963e97cfb",
+        "n_events": 1,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x74da7fe0c96cc33234f51b425e2cd33de6a401c4",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x7734f891989577757cd20cc537e8801d8a11ea19",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x777b6d4730a8a890dc64bf202514ce03ab001c02",
+        "n_events": 12,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1667
+      },
+      {
+        "address": "0x777be1c6075c20184c4fd76344b7b0b7c858fe6b",
+        "n_events": 10,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0x78a0a62fba6fb21a83fe8a3433d44c73a4017a6f",
+        "n_events": 15,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.1333
+      },
+      {
+        "address": "0x799f7d1fb0fc67fcb760a3991fcb51498f60ce3c",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x7f75aa2274273f4d41267a0e2cd6c9b96c5b7510",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x832103d3feb02dd582940ce371c1dc104ad13b19",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x8586ed77fc29787b28c268f389eb0f9235e3b2e4",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x864cb5194722d5a1596f4be8b899916d30dad8d8",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x8666cb197af5103f7a3a0295b50efea47f3df78b",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x880f05c31c69c95ee8ba8b6ea4527b3ddd83ed67",
+        "n_events": 6,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1667
+      },
+      {
+        "address": "0x8ce0ca21df956f04f6e20f3b0da36680e499adb4",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x8e6cd950ad6ba651f6dd608dc70e5886b1aa6b24",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x8e938f7c4481135cb82ba43908b670ac0eda93fc",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x9047b76d7fb3d8bc3342616c56028430ebc74290",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x9138c8779a0ac8a84d69617d5715bd8afa23c650",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x9279f033532782f15f0127ff827da22426565e65",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x92cf67713f5ec181fd6999f18af796a6763a225b",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x93715112138dd0265a3888eb7458bb7bf3ff7c3e",
+        "n_events": 10,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x93ce10101badb7afb1a6b578790e12bbb367d303",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x953de0fee9e7b8056dd802b2e9ba0c8e540c68b8",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x955d5c14c8d4944da1ea7836bd44d54a8ec35ba1",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x96add417293a49e80f024734e96cfd8b355bcc14",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x97ad75064b20fb2b2447fed4fa953bf7f007a706",
+        "n_events": 11,
+        "n_ownership": 0,
+        "n_absorbing": 4,
+        "frac_deferred": 0.3636
+      },
+      {
+        "address": "0x9ae591df597f186cdb4284818bf6d5b77cb3c1ce",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0x9e22ebec84c7e4c4bd6d4ae7ff6f4d436d6d8390",
+        "n_events": 4,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x9e976f211daea0d652912ab99b0dc21a7fd728e4",
+        "n_events": 4,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0x9e9fbde7c7a83c43913bddc8779158f1368f0413",
+        "n_events": 13,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0769
+      },
+      {
+        "address": "0xa0117792d4b100fd329b37e8ab4181df8a5b3326",
+        "n_events": 7,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2857
+      },
+      {
+        "address": "0xa0385e7283c83e2871e9af49eec0966088421ddd",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa2e123dc38f1899a9d9515c65036690854cb184b",
+        "n_events": 9,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2222
+      },
+      {
+        "address": "0xa5ebe5507b6c725cbc283f8ade236fe8b8d41f91",
+        "n_events": 4,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa62fc0ba9deeee9336511741c2dfc4f5b00e128b",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa7111e8e9f02c8ce89e9a2bcb40c88f34b1c23ad",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa8643451ae0401b645443682055be70dc05b6950",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xa876f27f13a9eb6e621202cefdd5afc4a90e6457",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0xa9929db24e9837f622f94b82f2abe78aa971288f",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xaa68fd12a3b0f7aea66fe8f7111ae3f8d9ac5058",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+        "n_events": 19,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xaaebba075700a4c08d4ccd9e3524324a6f7ad718",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xb2d6590638b54a9a03fa236e488384da240e6180",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xb53917d6f10e4b45f8379e240118b4c05ca1bda8",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xb5c457ddb4ce3312a6c5a2b056a1652bd542a208",
+        "n_events": 13,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0769
+      },
+      {
+        "address": "0xb72749a16410db6b3feac000a5a90c2f6cf7935e",
+        "n_events": 10,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xb96b2eb882d599c8cacc37cdb9c73802a1be36ff",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xbacacd83b68c92ae07ef382d0c0277d1bd1c7c4d",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xbaea5e07080f00d54965a6121d6fb69a6c648c1f",
+        "n_events": 16,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0xbc962e2e290d276040babc4dfb8f9a4ae2a8085f",
+        "n_events": 4,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0xbdacbd348293f7839cc6ea64335d839db4841a39",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc0cd1a8dac93a424fe6911f271cc4293ee50ccda",
+        "n_events": 9,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2222
+      },
+      {
+        "address": "0xc272aa308d0886e2cc5488f6d16f2fd00903abd8",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0xc30d724e3e370dfcec3b5705ce4af2b23d6e2e49",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc5bbae50781be1669306b9e001eff57a2957b09d",
+        "n_events": 16,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc9c46a2f3a57c7c312bc5a0d257a1f95d7f61414",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xc9ec62902f5292e4c3b907804a37492d0ca9ec77",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xca11bde05977b3631167028862be2a173976ca11",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e",
+        "n_events": 7,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xcc149a678aad5f931e6a3d573c8a6777e9b21d60",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xcf6f65b8925b73d0289bf9c7f088dd57a8040629",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xcfe940bbcfc8e8226d2ad47bc49ccb003525ec73",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd08623fb2a1f044025eec65886011cf5d0f06b01",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd13b093eafa3878de27183388fea7d0d2b0abf9e",
+        "n_events": 2,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd2e01c3de355d544c6a587d4b80e2ff8849146e1",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd6175692026bcd7cb12a515e39cf0256ef35cb86",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd636218db16b8104bdd33eea20a6f81d9db81556",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      },
+      {
+        "address": "0xd87d72248093597df8d56d2a53c1ab7c1a0cc8da",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd89cc9d79ad3c49e2cd477a8bbc8e63dee53f82e",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd8e163967fed76806df0097b704ba721b9b37656",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xd920556b0f3522bb1257923292a256f1e3023e07",
+        "n_events": 17,
+        "n_ownership": 1,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xdc63269ea166b70d4780b3a11f5c825c2b761b01",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xdddd8f6324edb09a9adc96c01b5cddf219e7e86d",
+        "n_events": 10,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.2
+      },
+      {
+        "address": "0xdfd8e5f7ed841d76ed4b1147ea3bf9d4e94a6d69",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xe26c502ab6e9cfe540f051add0602602cf3a6b9a",
+        "n_events": 9,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1111
+      },
+      {
+        "address": "0xe39c1096e208b13447f39ab5fa13f72d1e20a7ca",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xe73d53e3a982ab2750a0b76f9012e18b256cc243",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xe7468080c033ce50dd09a22ad1e58d1bda69e436",
+        "n_events": 12,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.0833
+      },
+      {
+        "address": "0xe7ae6d0c56cacaf007b7e4d312f9af686a9e9a04",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xe9572938bcbf08adcee86fd12a7c0d08dc4ab841",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xeb935deb517e4c2abc282e5e251ed4d05db79e93",
+        "n_events": 16,
+        "n_ownership": 3,
+        "n_absorbing": 2,
+        "frac_deferred": 0.125
+      },
+      {
+        "address": "0xebb82c932759b515b2efc1cfbb6bf2f6dbace404",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xec1766aac9de1d8e3f70f69f698a163a717d910c",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xec8daff690638f45595ae5d9e30c8eb9fecb2522",
+        "n_events": 7,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xedaa2fa0fd153b78efde805b0a46225bb95e3ca1",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf00200f02a2bd1104d016090f016b6b30f19cfa6",
+        "n_events": 3,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf08939304955fd06e69ae83ec88b62510687071c",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf164069b8c2e73fd856083e2574c3007c0f29810",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf2a1df76877903583fb9106daa8ab83c9b7f8cf2",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf3115b544c287380d34a19280dcfd029eeada9c8",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf37d26aeb99ee4cda8fbcd9b0cf778ae494a57d1",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf3fd8743923f86cd74dca301a119e9a4edfc77c1",
+        "n_events": 8,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf863376abfc6b27d8d54ff6295176b8ec158d4e2",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xf8c76dbea329ec4fa987afc514f805b21b249d79",
+        "n_events": 10,
+        "n_ownership": 1,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1
+      },
+      {
+        "address": "0xfa3e941d1f6b7b10ed84a0c211bfa8aee907965e",
+        "n_events": 7,
+        "n_ownership": 2,
+        "n_absorbing": 1,
+        "frac_deferred": 0.1429
+      },
+      {
+        "address": "0xfb130d93e49dca13264344966a611dc79a456bc5",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xfbc97c1272f6aac39dc55aa64e7ce5add278a0bf",
+        "n_events": 5,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xfcaf0e4498e78d65526a507360f755178b804ba8",
+        "n_events": 6,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xfd1c027190418982eeade3a8a091556ae8f0a8c9",
+        "n_events": 11,
+        "n_ownership": 0,
+        "n_absorbing": 0,
+        "frac_deferred": 0.0
+      },
+      {
+        "address": "0xfd80fe54e7360122cd1ba16b2091cb7a63c5c00d",
+        "n_events": 8,
+        "n_ownership": 2,
+        "n_absorbing": 2,
+        "frac_deferred": 0.25
+      }
+    ]
+  },
+  "q5": {
+    "n_txs": 212959,
+    "param_source": {
+      "dcr_call_params": 210959,
+      "historical": 2000
+    }
+  },
+  "q9": [
+    {
+      "oracle": "M2 historical replay",
+      "n_contracts": 234,
+      "total_seconds": 4637.0,
+      "total_hms": "01:17:17",
+      "sec_per_contract": 19.8,
+      "file": "/workdir/src/transaction_replay/generated_replay_results_gemma-4-31B-it-qat-UD-Q4_K_XL_gguf.json"
+    },
+    {
+      "oracle": "M3 synthetic replay",
+      "n_contracts": 174,
+      "total_seconds": 3847.7,
+      "total_hms": "01:04:07",
+      "sec_per_contract": 22.1,
+      "file": "/workdir/src/dcr_replay/synth_generated_replay_results_gemma-4-31B-it-qat-UD-Q4_K_XL_gguf.json"
+    }
+  ]
+}

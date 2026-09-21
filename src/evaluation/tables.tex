@@ -1,0 +1,71 @@
+% ---------- Table 0: repair ----------
+\begin{table}[t]\centering\small
+\caption{\textsc{compile@10} before and after the repair pass. Repair fixes shallow syntactic defects only; it lifts every model but preserves the ranking, indicating that \textsc{compile@k} reflects capability rather than formatting artefacts. All behavioural evaluation uses the repaired sources.}
+\label{tab:repair}
+\begin{tabular}{l r r r}
+\toprule
+Model & Raw & Repaired & $\Delta$ \\
+\midrule
+Gemma-4-31B & 89.1\% & \textbf{92.7\%} & $+$3.6\% \\
+Qwen3.6-27B & 64.7\% & \textbf{71.3\%} & $+$6.6\% \\
+Qwen3-Coder-30B & 53.2\% & \textbf{61.8\%} & $+$8.6\% \\
+Gemma-4-12B & 48.0\% & \textbf{57.9\%} & $+$9.8\% \\
+Ornith-35B & 41.2\% & \textbf{52.1\%} & $+$10.8\% \\
+Codestral-22B & 34.3\% & \textbf{39.9\%} & $+$5.6\% \\
+Devstral-24B & 18.8\% & \textbf{26.4\%} & $+$7.6\% \\
+\bottomrule\end{tabular}\end{table}
+
+% ---------- Table 1: matched oracle ----------
+\begin{table*}[t]\centering\small
+\caption{Oracle comparison with the \emph{matched} synthetic oracle: each model's generated contracts are replayed against DCR sequences extracted by that same model. \emph{Only S} counts contracts flagged divergent by the synthetic oracle but certified correct by historical replay.}
+\label{tab:oracle_matched}
+\begin{tabular}{l r r r r r r r r r r}
+\toprule
+Model & compile@10 & \multicolumn{3}{c}{Historical} & \multicolumn{3}{c}{Synthetic (own DCR)} & \multicolumn{3}{c}{Overlap} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+ & & $N$ & Status & Div. & $N$ & Status & Div. & Both & Only H & Only S \\
+\midrule
+Gemma-4-31B & 92.7\% & 234 & 99.6\% & 2 & 174 & 98.4\% & 5 & 2 & 0 & \textbf{3} \\
+Qwen3.6-27B & 71.3\% & 214 & 96.9\% & 29 & 157 & 96.7\% & 20 & 13 & 16 & \textbf{7} \\
+Qwen3-Coder-30B & 61.8\% & 183 & 95.5\% & 38 & 125 & 96.1\% & 18 & 11 & 27 & \textbf{7} \\
+Gemma-4-12B & 57.9\% & 169 & 95.4\% & 25 & 127 & 94.6\% & 16 & 9 & 16 & \textbf{7} \\
+Ornith-35B & 52.1\% & 193 & 94.4\% & 41 & 140 & 96.1\% & 23 & 17 & 24 & \textbf{6} \\
+Codestral-22B & 39.9\% & 159 & 91.1\% & 46 & 115 & 81.8\% & 50 & 33 & 13 & \textbf{17} \\
+Devstral-24B & 26.4\% & 122 & 88.2\% & 38 & 85 & 85.5\% & 29 & 23 & 15 & \textbf{6} \\
+\bottomrule\end{tabular}\end{table*}
+
+% ---------- Table 1b: fixed oracle ----------
+\begin{table*}[t]\centering\small
+\caption{Oracle comparison with a \emph{fixed} synthetic oracle: every model's generated contracts are replayed against DCR sequences extracted by Gemma-4-31B (the highest \textsc{compile@10}). $\Delta$\,Only\,S is the change relative to the matched oracle (Table~\ref{tab:oracle_matched}); positive values indicate the fixed oracle exposes more historically-invisible defects.}
+\label{tab:oracle_fixed}
+\begin{tabular}{l r r r r r r r r r r r}
+\toprule
+Model & compile@10 & \multicolumn{3}{c}{Historical} & \multicolumn{3}{c}{Synthetic (fixed DCR)} & \multicolumn{3}{c}{Overlap} & $\Delta$\,Only\,S \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+ & & $N$ & Status & Div. & $N$ & Status & Div. & Both & Only H & Only S & \\
+\midrule
+Gemma-4-31B & 92.7\% & 234 & 99.6\% & 2 & 174 & 98.4\% & 5 & 2 & 0 & \textbf{3} & $+0$ \\
+Qwen3.6-27B & 71.3\% & 214 & 96.9\% & 29 & 162 & 95.8\% & 24 & 15 & 14 & \textbf{9} & $+2$ \\
+Qwen3-Coder-30B & 61.8\% & 183 & 95.5\% & 38 & 136 & 95.5\% & 22 & 15 & 23 & \textbf{7} & $+0$ \\
+Gemma-4-12B & 57.9\% & 169 & 95.4\% & 25 & 129 & 94.6\% & 16 & 11 & 14 & \textbf{5} & $-2$ \\
+Ornith-35B & 52.1\% & 193 & 94.4\% & 41 & 147 & 95.2\% & 29 & 22 & 19 & \textbf{7} & $+1$ \\
+Codestral-22B & 39.9\% & 159 & 91.1\% & 46 & 123 & 81.9\% & 53 & 38 & 8 & \textbf{15} & $-2$ \\
+Devstral-24B & 26.4\% & 122 & 88.2\% & 38 & 89 & 83.3\% & 33 & 27 & 11 & \textbf{6} & $+0$ \\
+\bottomrule\end{tabular}\end{table*}
+
+% ---------- Table 2: coverage ----------
+\begin{table}[t]\centering\small
+\caption{Functional coverage. Historical coverage is identical across rows (the same on-chain transactions); only the model extracting the DCR graph varies. Synthetic coverage is lower in aggregate, yet reaches \emph{Synth-only} (contract,\,function) pairs that historical traffic never exercises: the two oracles cover overlapping but non-nested regions of the call space.}
+\label{tab:coverage}
+\begin{tabular}{l r r r r}
+\toprule
+DCR source & $N$ & Historical & Synthetic & Synth-only \\
+\midrule
+Gemma-4-31B & 250 & 55.7\% & 47.3\% & 311 \\
+Qwen3.6-27B & 250 & 55.7\% & 46.1\% & 305 \\
+Qwen3-Coder-30B & 250 & 55.7\% & 33.6\% & 246 \\
+Gemma-4-12B & 250 & 55.7\% & 44.6\% & 292 \\
+Ornith-35B & 250 & 55.7\% & 41.6\% & 276 \\
+Codestral-22B & 250 & 55.7\% & 38.3\% & 263 \\
+Devstral-24B & 250 & 55.7\% & 44.2\% & 301 \\
+\bottomrule\end{tabular}\end{table}

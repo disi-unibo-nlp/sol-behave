@@ -1,86 +1,75 @@
-# ── Large generated/data directories ─────────────────────────────────────────
-src/attack/
-src/contracts/
-src/dataset_old/
-src/dcr_generation_old/
-src/source_generation_functions/
-src/tests/
-src/fuzzying/
+# === Secrets ===
+.env
 
-# ── Dataset ───────────────────────────────────────────────────────────────────
-src/dataset/candidates/
-src/dataset/contracts_dataset/
+# Only the canonical copy lives at src/push_artifacts_to_hf.py — any
+# duplicate pasted into a subfolder during iteration is ignored.
+src/*/push_artifacts_to_hf.py
+
+# === Root-level scratch/build ===
+.cache/
+node_modules/
+models/
+local_models/
+llamacpp/
+outputs/
+dcr_generation_logs/
+generation_logs/
+repair_logs/
+*.log
+
+# Working notes — internal SSH host/paths/decision trail, not for public repo
+handoff.md
+
+# === src/coverage_analysis — confirmed legacy/superseded by evaluation/coverage/ ===
+src/coverage_analysis/
+
+# === src/dataset — keep code, drop data + scratch ===
 src/dataset/contracts_dataset_1to20/
 src/dataset/contracts_dataset_pass_08/
 src/dataset/hardhat_workspace_crawl/
-src/dataset/hardhat_workspace_gen_replay/
 src/dataset/hardhat_workspace_replay/
-src/dataset/batch_progress.log
-src/dataset/blacklist.json
-src/dataset/crawl_results.json
+src/dataset/.hf_stage/
 
-# ── DCR generation ────────────────────────────────────────────────────────────
-src/dcr_generation/contracts/
-src/dcr_generation/generated_dcr_1to20/
-src/dcr_generation/sanity_replay_output/
-src/dcr_generation/*.log
+# === src/dcr_generation — keep code, drop generated data + scratch ===
+src/dcr_generation/generated_dcr_1to20_*/
+src/dcr_generation/dcr_example/
+src/dcr_generation/running_example_OHMI/
+src/dcr_generation/relation_stats*.json
+src/dcr_generation/drain_stats_gemma.json
+src/dcr_generation/*.temp
+src/dcr_generation/seq_gen.log
 
-# ── Replay ────────────────────────────────────────────────────────────────────
-src/dcr_replay/synth_replay_results.json
-src/transaction_replay/hardhat_workspace_gen_replay/
-src/transaction_replay/hardhat_workspace_replay/
-src/transaction_replay/old_jsons/
-src/transaction_replay/synth_replay_results/
-src/transaction_replay/*.json
+# === src/dcr_replay — mixed data/code, filenames drift across reruns;
+# allowlist code extensions rather than enumerate data by name ===
+src/dcr_replay/*
+!src/dcr_replay/*.py
+!src/dcr_replay/*.sh
 
-# ── Fuzzing ───────────────────────────────────────────────────────────────────
-src/differential_fuzzying/fuzzying_results/
-src/differential_fuzzying/fuzzying_results_old/
-src/differential_fuzzying/sanity_check_results/
-src/differential_fuzzying/*.json
-src/differential_fuzzying/*.log
+# === src/differential_fuzzying — drop huge data, keep code ===
+src/differential_fuzzying/*
+!src/differential_fuzzying/*.py
 
-# ── Source generation ─────────────────────────────────────────────────────────
-src/source_generation/generated_oneshot/
-src/source_generation/repaired_oneshot/
-src/source_generation/*.log
+# === src/evaluation — small + frozen, kept in-repo; .bak/.log/pycache always ===
+src/evaluation/*.bak
+src/evaluation/final_tables.log
 
-# ── Replay (dcr_replay — added) ───────────────────────────────────────────────
-src/dcr_replay/synth_replay_results/
-src/dcr_replay/synth_replay_results_generated/
-src/dcr_replay/*.json
-src/dcr_replay/*.log
+# === src/human_eval — original xlsx has creator/email metadata, never commit ===
+src/human_eval/HumanEval.xlsx
+src/human_eval/HumanEval_clean.xlsx
+src/human_eval/metrics_summary.csv
+src/human_eval/dcr_annotation/
 
-# ── Coverage analysis outputs ─────────────────────────────────────────────────
-src/coverage_analysis/*.json
-src/coverage_analysis/affected_addresses.txt
+# === src/source_generation — keep code, drop data + scratch ===
+src/source_generation/*
+!src/source_generation/*.py
 
-# ── Backups / patch artifacts ─────────────────────────────────────────────────
-*.bak
-*.orig
+# === src/transaction_replay — same drift problem as dcr_replay ===
+src/transaction_replay/*
+!src/transaction_replay/*.py
+!src/transaction_replay/*.sh
 
-# ── node_modules everywhere ───────────────────────────────────────────────────
-**/node_modules/
-
-
-
-# ── Python ────────────────────────────────────────────────────────────────────
+# === Everywhere ===
 __pycache__/
 *.pyc
-*.pyo
-
-# ── Hardhat artifacts ─────────────────────────────────────────────────────────
-**/artifacts/
-**/cache/
-**/typechain-types/
-
-# ── Environment / secrets ─────────────────────────────────────────────────────
-.env
-*.env
-
-# ── Logs (can exceed GitHub's 100MB limit) ────────────────────────────────────
-scripts/logs/
-**/*.log
-
-# ── Stray dataset copy ────────────────────────────────────────────────────────
-src/dataset/contracts_dataset_pass_08_copy/
+.hf_stage/
+hf_dry.log

@@ -1,0 +1,4499 @@
+{
+  "aggregates": {
+    "label": "Codestral-22B-v0.1-Q4_K_M.gguf",
+    "n_contracts": 250,
+    "mean_hist_coverage": 0.5569,
+    "mean_synth_coverage": 0.3834,
+    "median_hist_coverage": 0.5,
+    "median_synth_coverage": 0.4,
+    "n_synth_better": 60,
+    "n_hist_better": 147,
+    "n_tied": 43,
+    "total_synth_only_fn_pairs": 263,
+    "total_hist_only_fn_pairs": 596,
+    "skipped": {
+      "no_abi": 0,
+      "no_hist": 0,
+      "no_synth": 0,
+      "no_fns": 0
+    }
+  },
+  "contracts": [
+    {
+      "address": "0x00000751e8310fe25912afd7b347c2612b400000",
+      "contract_name": "CG_Contract",
+      "total_fns": 12,
+      "hist_covered": 10,
+      "synth_covered": 12,
+      "hist_ratio": 0.8333,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [
+        "_executeTransaction",
+        "setWithdrawStatus"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 2,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x000011387eb24f199e875b1325e4805efd3b0000",
+      "contract_name": "ClaimRewards",
+      "total_fns": 10,
+      "hist_covered": 6,
+      "synth_covered": 7,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.7,
+      "synth_only_fns": [
+        "Gift",
+        "Start"
+      ],
+      "hist_only_fns": [
+        "withdraw"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x00003d1cef5f30e34510198cb045e4ae0aa20000",
+      "contract_name": "ClaimRewards",
+      "total_fns": 4,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x0007039b77d22042afc1a9c3b3da11837b730000",
+      "contract_name": "Trusty",
+      "total_fns": 11,
+      "hist_covered": 10,
+      "synth_covered": 11,
+      "hist_ratio": 0.9091,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [
+        "transferOwnership"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 1,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x00adeb0236a7fe3269f33e703690da64ecc30757",
+      "contract_name": "BUU",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x01dfb5c49b583b1a81da000d1183668606532c7f",
+      "contract_name": "POND_PEPE",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x02e7f808990638e9e67e1f00313037ede2362361",
+      "contract_name": "KiboShib",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x0488401c3f535193fa8df029d9ffe615a06e74e6",
+      "contract_name": "SparkPoint",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.125,
+      "synth_only_fns": [
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "burn",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x07b9c0964d3e8734d65aea20c37334c2528ca601",
+      "contract_name": "Poggers",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x07e1f8ee990876d2220717ba77c0940a2926ee00",
+      "contract_name": "CRASH",
+      "total_fns": 6,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x08f5a9235b08173b7569f83645d2c7fb55e8ccd8",
+      "contract_name": "TierionNetworkToken",
+      "total_fns": 15,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.1333,
+      "synth_ratio": 0.1333,
+      "synth_only_fns": [
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x0baeccd651cf4692a8790bcc4f606e79bf7a3b1c",
+      "contract_name": "PeplicatorNFT",
+      "total_fns": 17,
+      "hist_covered": 7,
+      "synth_covered": 0,
+      "hist_ratio": 0.4118,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "grantRole",
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0x0d248ce39e26fb00f911fb1e7a45a00d8c94341c",
+      "contract_name": "Butter",
+      "total_fns": 6,
+      "hist_covered": 6,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.1667,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "butterMe",
+        "endAirdrop",
+        "permit",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0x0ebe30595a44e5288c24161ddfc1e9fa08e33a0c",
+      "contract_name": "NyanToken",
+      "total_fns": 10,
+      "hist_covered": 7,
+      "synth_covered": 1,
+      "hist_ratio": 0.7,
+      "synth_ratio": 0.1,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "renounceOwnership",
+        "setRule",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x0ed024d39d55e486573ee32e583bc37eb5a6271f",
+      "contract_name": "FixedSupplyToken",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.1429,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x0f689c9a84b9541ceed15693bdfd1419c2e9dc72",
+      "contract_name": "MerryKekmas2023",
+      "total_fns": 11,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.5455,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "claim",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "setContractURI",
+        "setMerkleRoot"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x103c3a209da59d3e7c4a89307e66521e081cfdf0",
+      "contract_name": "GVToken",
+      "total_fns": 8,
+      "hist_covered": 3,
+      "synth_covered": 6,
+      "hist_ratio": 0.375,
+      "synth_ratio": 0.75,
+      "synth_only_fns": [
+        "mint",
+        "setMigrationAgent",
+        "setMigrationMaster",
+        "unfreeze"
+      ],
+      "hist_only_fns": [
+        "transferFrom"
+      ],
+      "n_synth_only": 4,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x1111b1ea9129f312aea5ea13a496d1839809f974",
+      "contract_name": "Platinum_Bar",
+      "total_fns": 10,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.3,
+      "synth_ratio": 0.1,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x122b35a8855cf4bff0560480e7ae99b5ef6a1e8c",
+      "contract_name": "BBGToken",
+      "total_fns": 4,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x13434ed4077673e30095b2d2c0ccba153f330fb8",
+      "contract_name": "Foxe",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x1355474d71db10cf4c7ba0682e9b03e05737edfd",
+      "contract_name": "JXNT",
+      "total_fns": 7,
+      "hist_covered": 5,
+      "synth_covered": 2,
+      "hist_ratio": 0.7143,
+      "synth_ratio": 0.2857,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "openTrading",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x15a3081b541e8dad25c4a5e0c4c4b4e8d105b2e8",
+      "contract_name": "PepeOriginal",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x16368ae7d33a5f7fb5fcfd48d7e29092e81a2661",
+      "contract_name": "UCLX",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x166fd4299364b21c7567e163d85d78d2fb2f8ad5",
+      "contract_name": "AlephSync",
+      "total_fns": 2,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x16cda4028e9e872a38acb903176719299beaed87",
+      "contract_name": "Mars4ERC20",
+      "total_fns": 6,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x170dec83c7753aaad20c01a0016b5a2e143990d4",
+      "contract_name": "WIGGER",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x17fba84a52656770269385ad4b8d6e6c1a0db987",
+      "contract_name": "Sonar",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x1e4746dc744503b53b4a082cb3607b169a289090",
+      "contract_name": "IporToken",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x1e917e764bc34d3bc313fe8159a6bd9d9ffd450d",
+      "contract_name": "WEWE",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x1f19d846d99a0e75581913b64510fe0e18bbc31f",
+      "contract_name": "FGM",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x20cd2e7ec8f5d8b337fe46a4f565ccef1561b9a9",
+      "contract_name": "ESG",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.2,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x216c9bb7380cde431662e37e30098d838d7e1dc8",
+      "contract_name": "veSYNC",
+      "total_fns": 12,
+      "hist_covered": 7,
+      "synth_covered": 6,
+      "hist_ratio": 0.5833,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "pushManagement",
+        "renounceManagement"
+      ],
+      "hist_only_fns": [
+        "initialize",
+        "permit",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x230ea9aed5d08afdb22cd3c06c47cf24ad501301",
+      "contract_name": "SPXtwo_zero",
+      "total_fns": 8,
+      "hist_covered": 6,
+      "synth_covered": 3,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "manualSwap"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "openTrading",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x23d17de53aae4a767499a9d8b8c33b5b1c3ebdb0",
+      "contract_name": "BLUR",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x23ff845aca503f12315582b38f4ab257c55a30a4",
+      "contract_name": "NerioStaking",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 4,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x250f02a3ae700835892535eb6f9d0af96e2c0643",
+      "contract_name": "SHARE",
+      "total_fns": 8,
+      "hist_covered": 6,
+      "synth_covered": 3,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "manualSwap"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "openTrading",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x28dc2407225b3a9e75ecc65525e66920372a059f",
+      "contract_name": "LAPUTA",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x2b4e266b7d04f945f0de4b5b9fac5ca440974736",
+      "contract_name": "STAI",
+      "total_fns": 6,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x2ba592f78db6436527729929aaf6c908497cb200",
+      "contract_name": "Comp",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "delegate"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x2be8e422cb4a5a7f217a8f1b0658952a79132f28",
+      "contract_name": "MSIToken",
+      "total_fns": 9,
+      "hist_covered": 5,
+      "synth_covered": 4,
+      "hist_ratio": 0.5556,
+      "synth_ratio": 0.4444,
+      "synth_only_fns": [
+        "changeTaxWallet",
+        "removeFromWhitelist"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x2c0687215aca7f5e2792d956e170325e92a02aca",
+      "contract_name": "E2EssenceToken",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "burn",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x2c91d908e9fab2dd2441532a04182d791e590f2d",
+      "contract_name": "REAPERSGAMBIT",
+      "total_fns": 9,
+      "hist_covered": 5,
+      "synth_covered": 2,
+      "hist_ratio": 0.5556,
+      "synth_ratio": 0.2222,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "transfer",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x2cd25b42048ef9e96eb56e6d684fac891537dd8a",
+      "contract_name": "PEP",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x2d787d4f5005bd66ac910c2e821241625c406ed5",
+      "contract_name": "Berry",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.1429,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x2e258dbb253b7e1c0846f212b9b36a2f783ba436",
+      "contract_name": "NillionVerifierVault",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 1.0,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x2fcea621fba92c268fe16f17ca6bf37e70c7fa1a",
+      "contract_name": "Doge3",
+      "total_fns": 6,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.6667,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x303389f541ff2d620e42832f180a08e767b28e10",
+      "contract_name": "SeriesNonceManager",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 1.0,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x31ea0de8119307aa264bb4b38727aab4e36b074f",
+      "contract_name": "Store",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x329319ebe02eac3de77a9aa379d620ba653b2136",
+      "contract_name": "BIMToken",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x3638c9e50437f00ae53a649697f288ba68888cc1",
+      "contract_name": "FixedSupplyToken",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.1429,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x36ff4dae0e88113d68b1209e245b0e3af92e9d58",
+      "contract_name": "XenlonMarsERC20",
+      "total_fns": 9,
+      "hist_covered": 5,
+      "synth_covered": 0,
+      "hist_ratio": 0.5556,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "permit",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0x378e1be15be6d6d1f23cfe7090b6a77660dbf14d",
+      "contract_name": "Foxe",
+      "total_fns": 11,
+      "hist_covered": 8,
+      "synth_covered": 4,
+      "hist_ratio": 0.7273,
+      "synth_ratio": 0.3636,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "burn",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x3820e79deb5e60f6f488fa2a62c8e190cc69bb47",
+      "contract_name": "TheMintMemes",
+      "total_fns": 18,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.2222,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setIsMintEnabled"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x382ea807a61a418479318efd96f1efbc5c1f2c21",
+      "contract_name": "PEW",
+      "total_fns": 8,
+      "hist_covered": 3,
+      "synth_covered": 0,
+      "hist_ratio": 0.375,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1",
+      "contract_name": "Cvp",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x39621e4924dde4d19b84bdb3094bc9956e6480ae",
+      "contract_name": "Sock",
+      "total_fns": 11,
+      "hist_covered": 5,
+      "synth_covered": 3,
+      "hist_ratio": 0.4545,
+      "synth_ratio": 0.2727,
+      "synth_only_fns": [
+        "setNameSymbol",
+        "setTokenURI"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "setApprovalForAll",
+        "setWhitelist",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x3a0e07de7c389c2c7eb3c4721eeb55221f24f75e",
+      "contract_name": "OrenjiKi",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x3a314d38b6e174240046bd2feb47f0d5d655c569",
+      "contract_name": "BasePunks",
+      "total_fns": 13,
+      "hist_covered": 8,
+      "synth_covered": 0,
+      "hist_ratio": 0.6154,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mintPunk",
+        "mintTo",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "toggleSale",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 8
+    },
+    {
+      "address": "0x3b4cbe8e52e40195d7f253d0b90904b9eb9e9107",
+      "contract_name": "GibTransfer",
+      "total_fns": 2,
+      "hist_covered": 1,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x3bfb2f2b61be8f2f147f5f53a906af00c263d9b3",
+      "contract_name": "FreysaNFT",
+      "total_fns": 10,
+      "hist_covered": 5,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "airdrop",
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0x3c7a21cb00569ca807ca4f1f4cf6c5dbd655ef06",
+      "contract_name": "BABYREFUND",
+      "total_fns": 8,
+      "hist_covered": 5,
+      "synth_covered": 3,
+      "hist_ratio": 0.625,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "multiTransfer",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x3d9a4d8ab4f5bd1d5d08ae3a95e8ed8bb4d7e3b9",
+      "contract_name": "STONKS",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x3f17f64f682019599ba51638f74e4b6c127fe725",
+      "contract_name": "ReviveCoin",
+      "total_fns": 10,
+      "hist_covered": 6,
+      "synth_covered": 6,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "setRule",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x3f615159ed3f2b9152c2755a79a831373ad45b58",
+      "contract_name": "InsideNFT",
+      "total_fns": 15,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.2667,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x3f9964d27bf40f560399cf03f0c9fa59df8834a3",
+      "contract_name": "Foxy",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x40a7df3df8b56147b781353d379cb960120211d7",
+      "contract_name": "MobyToken",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "contract_name": "GhoToken",
+      "total_fns": 12,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "permit",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x4159862bcf6b4393a80550b1ed03dffa6f90533c",
+      "contract_name": "OHMI",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseApproval",
+        "increaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x41b1f9dcd5923c9542b6957b9b72169595acbc5c",
+      "contract_name": "Cheems",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x41d376ee12162e9f476eec17e22b3b250578f4bf",
+      "contract_name": "RewardToken",
+      "total_fns": 4,
+      "hist_covered": 1,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.75,
+      "synth_only_fns": [
+        "emergencyWithdraw",
+        "initialize",
+        "transferFrom"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x420698cfdeddea6bc78d59bc17798113ad278f9d",
+      "contract_name": "Towelie",
+      "total_fns": 10,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.3,
+      "synth_ratio": 0.1,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x4309e88d1d511f3764ee0f154cee98d783b61f09",
+      "contract_name": "OnchainAIToken",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x459cb23764c4f319b03c95345d547df9316bb730",
+      "contract_name": "WRAPPED$O",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x46140c04573ed18a9942a7f2f49feecc6a1652bf",
+      "contract_name": "Machines",
+      "total_fns": 15,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "setMinter",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+      "contract_name": "WootradeNetwork",
+      "total_fns": 4,
+      "hist_covered": 2,
+      "synth_covered": 4,
+      "hist_ratio": 0.5,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [
+        "approveAndCall",
+        "transferFrom"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 2,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x473f4068073cd5b2ab0e4cc8e146f9edc6fb52cc",
+      "contract_name": "Nutcoin",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x4813a4653a13b6cd69a6406da2e10a4ae85a06cc",
+      "contract_name": "Trinity",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x4973710327edc6f8238dd2d73cf0b2e081e1b351",
+      "contract_name": "RabbitDeposit",
+      "total_fns": 2,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x4bc2213ee6c99dc38099690603f044980a4f5dba",
+      "contract_name": "BEAR",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.2,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x4c11249814f11b9346808179cf06e71ac328c1b5",
+      "contract_name": "OraiToken",
+      "total_fns": 6,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseApproval",
+        "increaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x4f6d52293c5b2aeba86e1547a1013866039e5551",
+      "contract_name": "GrandTheftAssets",
+      "total_fns": 4,
+      "hist_covered": 3,
+      "synth_covered": 0,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "transfer",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x5026f006b85729a8b14553fae6af249ad16c9aab",
+      "contract_name": "WojakCoin",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "contract_name": "LinkToken",
+      "total_fns": 6,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseApproval",
+        "increaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x53011e93f21ec7a74cdfbb7e6548f1abce306833",
+      "contract_name": "Lexe",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "delegate"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x533b615f69478ee2ea88ac9408867af54dc36199",
+      "contract_name": "Kryptos",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x55567e038b0a50283084ae773fa433a5029822d3",
+      "contract_name": "veAllocate",
+      "total_fns": 2,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x556c3cbdca77a7f21afe15b17e644e0e98e64df4",
+      "contract_name": "MAO",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x56072c95faa701256059aa122697b133aded9279",
+      "contract_name": "Sky",
+      "total_fns": 8,
+      "hist_covered": 6,
+      "synth_covered": 5,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.625,
+      "synth_only_fns": [
+        "burn",
+        "mint"
+      ],
+      "hist_only_fns": [
+        "deny",
+        "permit",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x575252412acdeeceb7c08db0ee3ce75b33cadbdb",
+      "contract_name": "LIL",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x57b9d10157f66d8c00a815b5e289a152dedbe7ed",
+      "contract_name": "Hqg",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseApproval",
+        "increaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x58b580c1d86c04a97d981e66fa64a73342864bdc",
+      "contract_name": "ERC20Token",
+      "total_fns": 3,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [
+        "approve"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x59e9261255644c411afdd00bd89162d09d862e38",
+      "contract_name": "ETHAToken",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x5a035e3f1551a15230d0cde3357fb1bf89369261",
+      "contract_name": "wooo",
+      "total_fns": 8,
+      "hist_covered": 5,
+      "synth_covered": 3,
+      "hist_ratio": 0.625,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "burn",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x5a25878f9fa438086a547b617674b0c44b04efce",
+      "contract_name": "FROG",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x5b2e4a700dfbc560061e957edec8f6eeeb74a320",
+      "contract_name": "INSToken",
+      "total_fns": 7,
+      "hist_covered": 5,
+      "synth_covered": 4,
+      "hist_ratio": 0.7143,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "freezeTransfers",
+        "unfreezeTransfers"
+      ],
+      "hist_only_fns": [
+        "createTokens",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x5ccda66ea68e787459ad781dfbbbb5f1fd4171fb",
+      "contract_name": "INSHALLAH",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x5daa087714cb169f605c673a00aef62a9a7236a6",
+      "contract_name": "REWARD",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x5f250ed62cf3e5cf25f4f370d35d04782b0678a3",
+      "contract_name": "Smurfs",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x5f4630c5740855d47d0d79209a3726fc83c5bd66",
+      "contract_name": "Grok3",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x60e254e35dd712394b3aba7a1d19114732e143dd",
+      "contract_name": "RivusDAO",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x62824ecbdc2fa3f2d2f9d2b58edb1eb57284a4e3",
+      "contract_name": "DogePapa",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x63217dbb73e7a02c1d30f486e899ee66d0aa5e0b",
+      "contract_name": "GhostBoy",
+      "total_fns": 20,
+      "hist_covered": 9,
+      "synth_covered": 0,
+      "hist_ratio": 0.45,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "incrementReserves",
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setGhostlistDuration",
+        "setGhostlistRoot",
+        "setMintStart",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 9
+    },
+    {
+      "address": "0x64546432fa6c13d98b2713c8f1754733ad25e25a",
+      "contract_name": "NOMAD",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x65e5cd91f8d82c3648dca5e985e132d75e4edf52",
+      "contract_name": "Terminals",
+      "total_fns": 12,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mint",
+        "setBaseURI",
+        "setPaused",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x65ef703f5594d2573eb71aaf55bc0cb548492df4",
+      "contract_name": "MultichainToken",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x664f8cbf877bf40e5d21df5545ebf5e4dc840aa6",
+      "contract_name": "Bots",
+      "total_fns": 11,
+      "hist_covered": 7,
+      "synth_covered": 1,
+      "hist_ratio": 0.6364,
+      "synth_ratio": 0.0909,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "burn",
+        "increaseAllowance",
+        "setPool",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x666cbfaa3baa2faccfac8854fea1e5db140fb104",
+      "contract_name": "PLUMS",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x667102bd3413bfeaa3dffb48fa8288819e480a88",
+      "contract_name": "ERC20Token",
+      "total_fns": 4,
+      "hist_covered": 4,
+      "synth_covered": 4,
+      "hist_ratio": 1.0,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x66de0f9f4ffdd93a6a1cfe83537d341bebdcf927",
+      "contract_name": "BTL_TOKEN",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x67405cadb820c2d89b8d6da3e42ef6a39089c831",
+      "contract_name": "ElementGenesis",
+      "total_fns": 12,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x6794870dd693c9a9786b13de3bd21a0d0b5ba769",
+      "contract_name": "AnipangNFT",
+      "total_fns": 15,
+      "hist_covered": 5,
+      "synth_covered": 0,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "grantRole",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0x68b7b4017df1fe8f7b228a3a407b38ebc8bf3246",
+      "contract_name": "Token",
+      "total_fns": 3,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [
+        "transferFrom"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x6b0774c4a0619113443bc5723db22799e9c51d9a",
+      "contract_name": "WCANFTRanking",
+      "total_fns": 11,
+      "hist_covered": 2,
+      "synth_covered": 7,
+      "hist_ratio": 0.1818,
+      "synth_ratio": 0.6364,
+      "synth_only_fns": [
+        "fund",
+        "setMundialRanking",
+        "setOracle",
+        "setVIPRanking",
+        "setWCARanking",
+        "updateRank"
+      ],
+      "hist_only_fns": [
+        "callback"
+      ],
+      "n_synth_only": 6,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "contract_name": "Dai",
+      "total_fns": 11,
+      "hist_covered": 4,
+      "synth_covered": 7,
+      "hist_ratio": 0.3636,
+      "synth_ratio": 0.6364,
+      "synth_only_fns": [
+        "burn",
+        "mint",
+        "pull",
+        "push",
+        "rely"
+      ],
+      "hist_only_fns": [
+        "permit",
+        "transferFrom"
+      ],
+      "n_synth_only": 5,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x6bf765c43030387a983f429c1438e9d2025b7e12",
+      "contract_name": "McPepes",
+      "total_fns": 5,
+      "hist_covered": 5,
+      "synth_covered": 3,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x6c361a982fdc316e8ff5ac98d525e5ba366f3e63",
+      "contract_name": "FCKIT",
+      "total_fns": 11,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.3636,
+      "synth_ratio": 0.2727,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "burn",
+        "transfer",
+        "withdrawLockedFunds"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x6e068796ba34613eb9b285affe0283fef3f4d66f",
+      "contract_name": "STEVE",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
+      "contract_name": "HBToken",
+      "total_fns": 3,
+      "hist_covered": 1,
+      "synth_covered": 0,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x6f922284798de645e8bc1040450d32bde963c992",
+      "contract_name": "DebankL2Register",
+      "total_fns": 1,
+      "hist_covered": 1,
+      "synth_covered": 0,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "register"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x70734a09b7a89f8ec3558d432fcb518dcc3c0fa0",
+      "contract_name": "KABOSU",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x7202205a6a60f6165faac79a630594ad23ca5a1a",
+      "contract_name": "JingleBells",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 4,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x7321a13bbf58220bca94a605eff3e24daee86376",
+      "contract_name": "RobinHood",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x736ecc5237b31edec6f1ab9a396fae2416b1d96e",
+      "contract_name": "GaspToken",
+      "total_fns": 12,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.1667,
+      "synth_ratio": 0.1667,
+      "synth_only_fns": [
+        "addToRecipientWhitelist",
+        "setAllowTransfers"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x73e8e15a946cb707396ac6e7494a793c9a5900d6",
+      "contract_name": "GoldenPresale",
+      "total_fns": 10,
+      "hist_covered": 9,
+      "synth_covered": 0,
+      "hist_ratio": 0.9,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "EnableClaim",
+        "buyToken",
+        "changeOwner",
+        "changePrice",
+        "changePurchaseLimits",
+        "claimTokens",
+        "setSupply",
+        "transferFundsEth",
+        "transferTokens"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 9
+    },
+    {
+      "address": "0x74232704659ef37c08995e386a2e26cc27a8d7b1",
+      "contract_name": "STRK",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x747ec0600d3d16b4395ae483d326c0c963e97cfb",
+      "contract_name": "Metropolis",
+      "total_fns": 1,
+      "hist_covered": 1,
+      "synth_covered": 0,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "Write"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x74da7fe0c96cc33234f51b425e2cd33de6a401c4",
+      "contract_name": "GM",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x7734f891989577757cd20cc537e8801d8a11ea19",
+      "contract_name": "KISHU",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x777b6d4730a8a890dc64bf202514ce03ab001c02",
+      "contract_name": "SilverStandard",
+      "total_fns": 12,
+      "hist_covered": 3,
+      "synth_covered": 0,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x777be1c6075c20184c4fd76344b7b0b7c858fe6b",
+      "contract_name": "Gold_Standard",
+      "total_fns": 10,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "renounceOwnership",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x78a0a62fba6fb21a83fe8a3433d44c73a4017a6f",
+      "contract_name": "OpenExchangeToken",
+      "total_fns": 14,
+      "hist_covered": 6,
+      "synth_covered": 7,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "addToDenylist",
+        "mint",
+        "removeFromDenylist",
+        "setDenylister",
+        "stopMinting"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "permit",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 5,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x799f7d1fb0fc67fcb760a3991fcb51498f60ce3c",
+      "contract_name": "NillionSecretVault",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 1.0,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x7c10c8816575e8fdfb11463dd3811cc794a1d407",
+      "contract_name": "Uints",
+      "total_fns": 12,
+      "hist_covered": 7,
+      "synth_covered": 0,
+      "hist_ratio": 0.5833,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "addFreeMints",
+        "freeMint",
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0x7c1156e515aa1a2e851674120074968c905aaf37",
+      "contract_name": "lvlUSD",
+      "total_fns": 17,
+      "hist_covered": 8,
+      "synth_covered": 0,
+      "hist_ratio": 0.4706,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "burn",
+        "increaseAllowance",
+        "permit",
+        "setMinter",
+        "transfer",
+        "transferAdmin",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 8
+    },
+    {
+      "address": "0x7eb72b7ec6961c0fad45ff174403a2b3dc5018f1",
+      "contract_name": "ThingiesArtNFT",
+      "total_fns": 12,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "grantRole",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setTokenURI",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x7f75aa2274273f4d41267a0e2cd6c9b96c5b7510",
+      "contract_name": "ProofOfPepe",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x80f0c1c49891dcfdd40b6e0f960f84e6042bcb6f",
+      "contract_name": "DBXenERC20",
+      "total_fns": 7,
+      "hist_covered": 5,
+      "synth_covered": 0,
+      "hist_ratio": 0.7143,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "permit",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0x82c8c6231e7a4c40d014cb426a49b42863524c88",
+      "contract_name": "NotFoundSeriesOne",
+      "total_fns": 10,
+      "hist_covered": 7,
+      "synth_covered": 0,
+      "hist_ratio": 0.7,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "claim",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "setPaused",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0x832103d3feb02dd582940ce371c1dc104ad13b19",
+      "contract_name": "Ninki",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x8586ed77fc29787b28c268f389eb0f9235e3b2e4",
+      "contract_name": "Forwarder",
+      "total_fns": 3,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0x864cb5194722d5a1596f4be8b899916d30dad8d8",
+      "contract_name": "LeDogToken",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x8666cb197af5103f7a3a0295b50efea47f3df78b",
+      "contract_name": "DucksToken",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x880f05c31c69c95ee8ba8b6ea4527b3ddd83ed67",
+      "contract_name": "TUBE",
+      "total_fns": 6,
+      "hist_covered": 5,
+      "synth_covered": 1,
+      "hist_ratio": 0.8333,
+      "synth_ratio": 0.1667,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "Execute",
+        "LPBURN",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x884ba86faa29745b6c40b7098567a393e91335cf",
+      "contract_name": "SavedSouls",
+      "total_fns": 15,
+      "hist_covered": 8,
+      "synth_covered": 0,
+      "hist_ratio": 0.5333,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "batchTransferFrom",
+        "collectReserves",
+        "flipSale",
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 8
+    },
+    {
+      "address": "0x8c6def540b83471664edc6d5cf75883986932674",
+      "contract_name": "goblintown",
+      "total_fns": 13,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.4615,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "makegobblinhaveparts",
+        "makingobblin",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x8ce0ca21df956f04f6e20f3b0da36680e499adb4",
+      "contract_name": "COC",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x8d67cdcca8e45c87106d4c1749d5a2be55b8135e",
+      "contract_name": "AIZONE",
+      "total_fns": 7,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.8571,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mintPublic",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "teamMint",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0x8e6cd950ad6ba651f6dd608dc70e5886b1aa6b24",
+      "contract_name": "StarLink",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x8e938f7c4481135cb82ba43908b670ac0eda93fc",
+      "contract_name": "FreeLuigi",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x9047b76d7fb3d8bc3342616c56028430ebc74290",
+      "contract_name": "Bishop",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x9138c8779a0ac8a84d69617d5715bd8afa23c650",
+      "contract_name": "FloorCheeseBurger",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x9279f033532782f15f0127ff827da22426565e65",
+      "contract_name": "NFTCheffun",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceownership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x92cf67713f5ec181fd6999f18af796a6763a225b",
+      "contract_name": "ConsensusNode",
+      "total_fns": 4,
+      "hist_covered": 1,
+      "synth_covered": 0,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "MakeProposal"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0x93715112138dd0265a3888eb7458bb7bf3ff7c3e",
+      "contract_name": "FartToken",
+      "total_fns": 9,
+      "hist_covered": 7,
+      "synth_covered": 3,
+      "hist_ratio": 0.7778,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "BuyToken",
+        "approve",
+        "increaseApproval",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x93ce10101badb7afb1a6b578790e12bbb367d303",
+      "contract_name": "ShibaInu2",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x946cea2ab87eb652adbb1074081a475f077e5076",
+      "contract_name": "ScreamingFlowers",
+      "total_fns": 10,
+      "hist_covered": 7,
+      "synth_covered": 0,
+      "hist_ratio": 0.7,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "gift",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setPublicSaleTime",
+        "transferFrom",
+        "withdraw",
+        "wlMint"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0x953de0fee9e7b8056dd802b2e9ba0c8e540c68b8",
+      "contract_name": "SecurityUpdates",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 0,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "SecurityUpdate",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x955d5c14c8d4944da1ea7836bd44d54a8ec35ba1",
+      "contract_name": "REFUND",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x96add417293a49e80f024734e96cfd8b355bcc14",
+      "contract_name": "LiquidLayerToken",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x97ad75064b20fb2b2447fed4fa953bf7f007a706",
+      "contract_name": "Token",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "grantRole",
+        "revokeRole",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0x9ae591df597f186cdb4284818bf6d5b77cb3c1ce",
+      "contract_name": "Desla",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 4,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x9e22ebec84c7e4c4bd6d4ae7ff6f4d436d6d8390",
+      "contract_name": "GasZip",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [
+        "newOwner"
+      ],
+      "hist_only_fns": [
+        "deposit",
+        "withdraw"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0x9e976f211daea0d652912ab99b0dc21a7fd728e4",
+      "contract_name": "map",
+      "total_fns": 4,
+      "hist_covered": 4,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "batchTransfer",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0x9e9fbde7c7a83c43913bddc8779158f1368f0413",
+      "contract_name": "Pandora",
+      "total_fns": 11,
+      "hist_covered": 8,
+      "synth_covered": 3,
+      "hist_ratio": 0.7273,
+      "synth_ratio": 0.2727,
+      "synth_only_fns": [
+        "setNameSymbol",
+        "setTokenURI"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setWhitelist",
+        "transfer",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0xa0117792d4b100fd329b37e8ab4181df8a5b3326",
+      "contract_name": "BREPE",
+      "total_fns": 7,
+      "hist_covered": 5,
+      "synth_covered": 4,
+      "hist_ratio": 0.7143,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xa0385e7283c83e2871e9af49eec0966088421ddd",
+      "contract_name": "APE",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xa2e123dc38f1899a9d9515c65036690854cb184b",
+      "contract_name": "KongToken",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 4,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "setOwner"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xa4fc78495d545fd0991a4bc86a0fe01cda4422bd",
+      "contract_name": "Ketamine",
+      "total_fns": 6,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "addPair",
+        "approve",
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xa5ebe5507b6c725cbc283f8ade236fe8b8d41f91",
+      "contract_name": "FourTwentyCHAN",
+      "total_fns": 4,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xa5f565650890fba1824ee0f21ebbbf660a179934",
+      "contract_name": "RelayReceiver",
+      "total_fns": 2,
+      "hist_covered": 0,
+      "synth_covered": 1,
+      "hist_ratio": 0.0,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "forward"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 1,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xa62a6e6c4dfcb8a611f1a0cc7adc88aa5b80dab0",
+      "contract_name": "SmartClubNFT721",
+      "total_fns": 18,
+      "hist_covered": 5,
+      "synth_covered": 0,
+      "hist_ratio": 0.2778,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "freeMint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setURI",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0xa62fc0ba9deeee9336511741c2dfc4f5b00e128b",
+      "contract_name": "MSN_STAKE",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "stake",
+        "unstake"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xa7111e8e9f02c8ce89e9a2bcb40c88f34b1c23ad",
+      "contract_name": "SYNERGY",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xa8643451ae0401b645443682055be70dc05b6950",
+      "contract_name": "FTX2",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xa876f27f13a9eb6e621202cefdd5afc4a90e6457",
+      "contract_name": "Icy",
+      "total_fns": 8,
+      "hist_covered": 6,
+      "synth_covered": 4,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "startTrade",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xa9929db24e9837f622f94b82f2abe78aa971288f",
+      "contract_name": "OHMI",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseApproval",
+        "increaseApproval"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xaa68fd12a3b0f7aea66fe8f7111ae3f8d9ac5058",
+      "contract_name": "TWEETY",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d",
+      "contract_name": "CelsiusToken",
+      "total_fns": 7,
+      "hist_covered": 4,
+      "synth_covered": 7,
+      "hist_ratio": 0.5714,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [
+        "freezeTransfers",
+        "transferFrom",
+        "unfreezeTransfers"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 3,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xaadaff38350777ebac646f61df18e40518c8d81f",
+      "contract_name": "AiBlocks",
+      "total_fns": 11,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.5455,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "Withdraw",
+        "mint",
+        "mintForAddress",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setFreeMints"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0xaaebba075700a4c08d4ccd9e3524324a6f7ad718",
+      "contract_name": "StanToken",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xb2d6590638b54a9a03fa236e488384da240e6180",
+      "contract_name": "VCAT",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xb53917d6f10e4b45f8379e240118b4c05ca1bda8",
+      "contract_name": "Dog1",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xb5c457ddb4ce3312a6c5a2b056a1652bd542a208",
+      "contract_name": "EtherRock404",
+      "total_fns": 11,
+      "hist_covered": 5,
+      "synth_covered": 5,
+      "hist_ratio": 0.4545,
+      "synth_ratio": 0.4545,
+      "synth_only_fns": [
+        "setApprovalForAll",
+        "setNameSymbol",
+        "setTokenURI"
+      ],
+      "hist_only_fns": [
+        "revokeOwnership",
+        "setWhitelist",
+        "transfer"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xb72749a16410db6b3feac000a5a90c2f6cf7935e",
+      "contract_name": "iso3166SharesV1",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 4,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "setProtocolFeePercent",
+        "setSubjectFeePercent"
+      ],
+      "hist_only_fns": [
+        "buyShares",
+        "sellShares"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+      "contract_name": "BNB",
+      "total_fns": 15,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.2,
+      "synth_ratio": 0.0667,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "freeze",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xb96b2eb882d599c8cacc37cdb9c73802a1be36ff",
+      "contract_name": "SecurityUpdates",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 0,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "SecurityUpdate",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xba66a7c5e1f89a542e3108e3df155a9bf41ac824",
+      "contract_name": "AIORBIT",
+      "total_fns": 8,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xbacacd83b68c92ae07ef382d0c0277d1bd1c7c4d",
+      "contract_name": "PRESALE",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xbaea5e07080f00d54965a6121d6fb69a6c648c1f",
+      "contract_name": "Yippee",
+      "total_fns": 16,
+      "hist_covered": 8,
+      "synth_covered": 0,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "permit",
+        "renounceOwnership",
+        "setCapExclusions",
+        "setMaxWalletBal",
+        "setUniswapV2Pair",
+        "toggleLimits",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 8
+    },
+    {
+      "address": "0xbc962e2e290d276040babc4dfb8f9a4ae2a8085f",
+      "contract_name": "PurchaseContract",
+      "total_fns": 4,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 0.5,
+      "synth_ratio": 0.5,
+      "synth_only_fns": [
+        "setFeePercentage",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "buy",
+        "withdraw"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xbdacbd348293f7839cc6ea64335d839db4841a39",
+      "contract_name": "Token",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+      "contract_name": "Comp",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "contract_name": "WETH9",
+      "total_fns": 5,
+      "hist_covered": 5,
+      "synth_covered": 2,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom",
+        "withdraw"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xc0cd1a8dac93a424fe6911f271cc4293ee50ccda",
+      "contract_name": "ITSSOOVERWEARESOBACK",
+      "total_fns": 9,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.3333,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xc272aa308d0886e2cc5488f6d16f2fd00903abd8",
+      "contract_name": "FlowingProtocol",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 4,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xc30d724e3e370dfcec3b5705ce4af2b23d6e2e49",
+      "contract_name": "YEET",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xc5bbae50781be1669306b9e001eff57a2957b09d",
+      "contract_name": "Gifto",
+      "total_fns": 13,
+      "hist_covered": 2,
+      "synth_covered": 12,
+      "hist_ratio": 0.1538,
+      "synth_ratio": 0.9231,
+      "synth_only_fns": [
+        "addInvestorList",
+        "removeInvestorList",
+        "setBuyPrice",
+        "setIcoPercent",
+        "setMaximumBuy",
+        "transferFrom",
+        "turnOffSale",
+        "turnOnSale",
+        "turnOnTradable",
+        "withdraw"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 10,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xc854510066518fa647b82ca42abd0f42e6577593",
+      "contract_name": "BunnyKittyToken",
+      "total_fns": 10,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "setBaseURI",
+        "setMintContract",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0xc9c46a2f3a57c7c312bc5a0d257a1f95d7f61414",
+      "contract_name": "MaxALERT",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xc9ec62902f5292e4c3b907804a37492d0ca9ec77",
+      "contract_name": "WAIT",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xca11bde05977b3631167028862be2a173976ca11",
+      "contract_name": "Multicall3",
+      "total_fns": 6,
+      "hist_covered": 0,
+      "synth_covered": 0,
+      "hist_ratio": 0.0,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e",
+      "contract_name": "Vega_2",
+      "total_fns": 7,
+      "hist_covered": 3,
+      "synth_covered": 6,
+      "hist_ratio": 0.4286,
+      "synth_ratio": 0.8571,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "mint_and_issue"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 3,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xcc149a678aad5f931e6a3d573c8a6777e9b21d60",
+      "contract_name": "BEW",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xcf6f65b8925b73d0289bf9c7f088dd57a8040629",
+      "contract_name": "FREN",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xcf9560b9e952b195d408be966e4f6cf4ab8206e5",
+      "contract_name": "DoctorEvil",
+      "total_fns": 11,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.3636,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "addPair",
+        "approve",
+        "transfer",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xcfe940bbcfc8e8226d2ad47bc49ccb003525ec73",
+      "contract_name": "Choices",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xd08623fb2a1f044025eec65886011cf5d0f06b01",
+      "contract_name": "LarryMEME",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xd13b093eafa3878de27183388fea7d0d2b0abf9e",
+      "contract_name": "SecurityUpdates",
+      "total_fns": 2,
+      "hist_covered": 2,
+      "synth_covered": 2,
+      "hist_ratio": 1.0,
+      "synth_ratio": 1.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [],
+      "n_synth_only": 0,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xd2e01c3de355d544c6a587d4b80e2ff8849146e1",
+      "contract_name": "NOTHING",
+      "total_fns": 4,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.25,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "permit",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xd6175692026bcd7cb12a515e39cf0256ef35cb86",
+      "contract_name": "BONZIToken",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xd636218db16b8104bdd33eea20a6f81d9db81556",
+      "contract_name": "Autonomy",
+      "total_fns": 7,
+      "hist_covered": 2,
+      "synth_covered": 4,
+      "hist_ratio": 0.2857,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [
+        "renounceOwnership"
+      ],
+      "n_synth_only": 3,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xd87d72248093597df8d56d2a53c1ab7c1a0cc8da",
+      "contract_name": "HahaToken",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xd89cc9d79ad3c49e2cd477a8bbc8e63dee53f82e",
+      "contract_name": "Keeshond",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xd8e163967fed76806df0097b704ba721b9b37656",
+      "contract_name": "Cope",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xd920556b0f3522bb1257923292a256f1e3023e07",
+      "contract_name": "SimpleFarm",
+      "total_fns": 15,
+      "hist_covered": 9,
+      "synth_covered": 4,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.2667,
+      "synth_only_fns": [
+        "claimOwnership",
+        "proposeNewOwner"
+      ],
+      "hist_only_fns": [
+        "approve",
+        "claimReward",
+        "exitFarm",
+        "farmDeposit",
+        "farmWithdraw",
+        "setRewardRate",
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 7
+    },
+    {
+      "address": "0xdc0327d50e6c73db2f8117760592c8bbf1cdcf38",
+      "contract_name": "Stronger",
+      "total_fns": 12,
+      "hist_covered": 3,
+      "synth_covered": 0,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xdc63269ea166b70d4780b3a11f5c825c2b761b01",
+      "contract_name": "PAW",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 2,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xdd69db25f6d620a7bad3023c5d32761d353d3de9",
+      "contract_name": "OFT",
+      "total_fns": 20,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.3,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "sendFrom",
+        "setTrustedRemoteAddress",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0xdddd8f6324edb09a9adc96c01b5cddf219e7e86d",
+      "contract_name": "letmedoitforyou",
+      "total_fns": 10,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.3,
+      "synth_ratio": 0.1,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "renounceOwnership",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xdfd8e5f7ed841d76ed4b1147ea3bf9d4e94a6d69",
+      "contract_name": "POPCAT",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xe26c502ab6e9cfe540f051add0602602cf3a6b9a",
+      "contract_name": "XPRO",
+      "total_fns": 7,
+      "hist_covered": 5,
+      "synth_covered": 2,
+      "hist_ratio": 0.7143,
+      "synth_ratio": 0.2857,
+      "synth_only_fns": [
+        "enabletheTrading"
+      ],
+      "hist_only_fns": [
+        "Approve",
+        "addLiq",
+        "renounceownership",
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xe39c1096e208b13447f39ab5fa13f72d1e20a7ca",
+      "contract_name": "TheNextPepe",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xe60779cc1b2c1d0580611c526a8df0e3f870ec48",
+      "contract_name": "USH",
+      "total_fns": 15,
+      "hist_covered": 6,
+      "synth_covered": 0,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "increaseAllowance",
+        "nominateNewOwner",
+        "setTimelock",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 6
+    },
+    {
+      "address": "0xe73d53e3a982ab2750a0b76f9012e18b256cc243",
+      "contract_name": "N",
+      "total_fns": 4,
+      "hist_covered": 3,
+      "synth_covered": 0,
+      "hist_ratio": 0.75,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "mint",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xe7468080c033ce50dd09a22ad1e58d1bda69e436",
+      "contract_name": "MollyGenesis",
+      "total_fns": 10,
+      "hist_covered": 6,
+      "synth_covered": 4,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.4,
+      "synth_only_fns": [
+        "setNameSymbol"
+      ],
+      "hist_only_fns": [
+        "safeTransferFrom",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 3
+    },
+    {
+      "address": "0xe7ae6d0c56cacaf007b7e4d312f9af686a9e9a04",
+      "contract_name": "Vabble",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.2,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xe9572938bcbf08adcee86fd12a7c0d08dc4ab841",
+      "contract_name": "Inscribe",
+      "total_fns": 3,
+      "hist_covered": 3,
+      "synth_covered": 1,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xeb935deb517e4c2abc282e5e251ed4d05db79e93",
+      "contract_name": "FortBlockGames",
+      "total_fns": 16,
+      "hist_covered": 6,
+      "synth_covered": 3,
+      "hist_ratio": 0.375,
+      "synth_ratio": 0.1875,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "launchtaxesAddressSetup",
+        "launchtaxesFeesSetup",
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xebb82c932759b515b2efc1cfbb6bf2f6dbace404",
+      "contract_name": "SHARES",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 3,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xec1766aac9de1d8e3f70f69f698a163a717d910c",
+      "contract_name": "DNB",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xec8daff690638f45595ae5d9e30c8eb9fecb2522",
+      "contract_name": "GoySlop",
+      "total_fns": 6,
+      "hist_covered": 5,
+      "synth_covered": 1,
+      "hist_ratio": 0.8333,
+      "synth_ratio": 0.1667,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "claim",
+        "permit",
+        "setLocked",
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xedaa2fa0fd153b78efde805b0a46225bb95e3ca1",
+      "contract_name": "Crimingo",
+      "total_fns": 6,
+      "hist_covered": 6,
+      "synth_covered": 4,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.6667,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xf00200f02a2bd1104d016090f016b6b30f19cfa6",
+      "contract_name": "WalterCoin",
+      "total_fns": 3,
+      "hist_covered": 2,
+      "synth_covered": 1,
+      "hist_ratio": 0.6667,
+      "synth_ratio": 0.3333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf08939304955fd06e69ae83ec88b62510687071c",
+      "contract_name": "SojuCoin",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf164069b8c2e73fd856083e2574c3007c0f29810",
+      "contract_name": "NPC",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xf24cc30a5f8a98566d9109561dc90fd3d64d74c6",
+      "contract_name": "RektWTF",
+      "total_fns": 11,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.3636,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "mint",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xf2a1df76877903583fb9106daa8ab83c9b7f8cf2",
+      "contract_name": "MARVIN",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf3115b544c287380d34a19280dcfd029eeada9c8",
+      "contract_name": "ETH20",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xf37d26aeb99ee4cda8fbcd9b0cf778ae494a57d1",
+      "contract_name": "Thumper",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf3fd8743923f86cd74dca301a119e9a4edfc77c1",
+      "contract_name": "SHIBA_INU",
+      "total_fns": 8,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.25,
+      "synth_ratio": 0.375,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf61d6953400903aadb38e733e98e57dcf9dd32b3",
+      "contract_name": "MidcurveToken",
+      "total_fns": 15,
+      "hist_covered": 7,
+      "synth_covered": 2,
+      "hist_ratio": 0.4667,
+      "synth_ratio": 0.1333,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "approve",
+        "provideInitialLiquidity",
+        "renounceOwnership",
+        "transfer",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0xf863376abfc6b27d8d54ff6295176b8ec158d4e2",
+      "contract_name": "ROPE",
+      "total_fns": 5,
+      "hist_covered": 2,
+      "synth_covered": 3,
+      "hist_ratio": 0.4,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xf8c76dbea329ec4fa987afc514f805b21b249d79",
+      "contract_name": "L",
+      "total_fns": 9,
+      "hist_covered": 9,
+      "synth_covered": 4,
+      "hist_ratio": 1.0,
+      "synth_ratio": 0.4444,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "burn",
+        "permit",
+        "transfer",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 5
+    },
+    {
+      "address": "0xfa3e941d1f6b7b10ed84a0c211bfa8aee907965e",
+      "contract_name": "FixedSupplyToken",
+      "total_fns": 7,
+      "hist_covered": 4,
+      "synth_covered": 2,
+      "hist_ratio": 0.5714,
+      "synth_ratio": 0.2857,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xfb130d93e49dca13264344966a611dc79a456bc5",
+      "contract_name": "DOGEGF",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer",
+        "transferFrom"
+      ],
+      "n_synth_only": 2,
+      "n_hist_only": 2
+    },
+    {
+      "address": "0xfbc97c1272f6aac39dc55aa64e7ce5add278a0bf",
+      "contract_name": "QT",
+      "total_fns": 5,
+      "hist_covered": 4,
+      "synth_covered": 0,
+      "hist_ratio": 0.8,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "destroy",
+        "removeUserBalance",
+        "setAdminBalance",
+        "setUserBalance"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 4
+    },
+    {
+      "address": "0xfcaf0e4498e78d65526a507360f755178b804ba8",
+      "contract_name": "NicCageWaluigiElmo42069Inu",
+      "total_fns": 5,
+      "hist_covered": 3,
+      "synth_covered": 3,
+      "hist_ratio": 0.6,
+      "synth_ratio": 0.6,
+      "synth_only_fns": [
+        "decreaseAllowance"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xfd1c027190418982eeade3a8a091556ae8f0a8c9",
+      "contract_name": "HoteliumToken",
+      "total_fns": 7,
+      "hist_covered": 1,
+      "synth_covered": 1,
+      "hist_ratio": 0.1429,
+      "synth_ratio": 0.1429,
+      "synth_only_fns": [
+        "burn"
+      ],
+      "hist_only_fns": [
+        "transfer"
+      ],
+      "n_synth_only": 1,
+      "n_hist_only": 1
+    },
+    {
+      "address": "0xfd80fe54e7360122cd1ba16b2091cb7a63c5c00d",
+      "contract_name": "Nikochan",
+      "total_fns": 7,
+      "hist_covered": 1,
+      "synth_covered": 4,
+      "hist_ratio": 0.1429,
+      "synth_ratio": 0.5714,
+      "synth_only_fns": [
+        "decreaseAllowance",
+        "increaseAllowance",
+        "transferOwnership"
+      ],
+      "hist_only_fns": [],
+      "n_synth_only": 3,
+      "n_hist_only": 0
+    },
+    {
+      "address": "0xffc6dbff68a8e92a7984e474f7b7a9856945e0fb",
+      "contract_name": "CCFractures",
+      "total_fns": 15,
+      "hist_covered": 7,
+      "synth_covered": 0,
+      "hist_ratio": 0.4667,
+      "synth_ratio": 0.0,
+      "synth_only_fns": [],
+      "hist_only_fns": [
+        "add",
+        "mint",
+        "remove",
+        "safeTransferFrom",
+        "setApprovalForAll",
+        "transferFrom",
+        "transferOwnership"
+      ],
+      "n_synth_only": 0,
+      "n_hist_only": 7
+    }
+  ]
+}
