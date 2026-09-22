@@ -1,4 +1,4 @@
-# SolFormalEval
+# SolBehave
 
 Code and pipeline for **"SolBehave: Evaluating the Behavioural Correctness of
 LLM-Generated Smart Contracts"** (submitted to IEEE TSE).
